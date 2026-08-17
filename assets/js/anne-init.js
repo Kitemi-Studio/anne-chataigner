@@ -10,30 +10,26 @@ function initAnne() {
   let lenis = null;
   if (typeof Lenis !== "undefined") {
     lenis = new Lenis({
-      duration: 1.3,
+      duration: 1.25,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1.0,
       touchMultiplier: 1.5,
-      infinite: false,
-      autoRaf: false
+      infinite: false
     });
     window.lenis = lenis;
 
-    // Synchronize with GSAP Ticker for smooth frame timing without conflicting loops
-    if (typeof gsap !== "undefined") {
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
+    function raf(time) {
+      lenis.raf(time);
       requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Sync with GSAP ScrollTrigger if present
+    if (typeof gsap !== "undefined" && gsap.ticker) {
+      gsap.ticker.lagSmoothing(0);
     }
   }
 
@@ -314,6 +310,9 @@ function initAnne() {
     };
 
     window.addEventListener("scroll", handleStickyScroll, { passive: true });
+    if (lenis) {
+      lenis.on("scroll", handleStickyScroll);
+    }
     handleStickyScroll(); // Initial activation
 
     // Click on step cards to smooth scroll
