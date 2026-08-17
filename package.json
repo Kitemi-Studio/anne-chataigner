@@ -1,0 +1,14 @@
+{
+  "name": "atmawell-local",
+  "version": "1.0.0",
+  "description": "Atmawell website - 100% autonomous local version",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# OS & Temp files
+.DS_Store
+Thumbs.db
+*.log
+
+# Antigravity artifacts & cache
+.system_generated/
+.tempmediaStorage/
+rendered_local.png
+rendered_mobile.png
