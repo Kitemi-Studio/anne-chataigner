@@ -1,14 +1,14 @@
 {
-  "name": "atmawell-local",
+  "name": "anne-chataigner",
   "version": "1.0.0",
-  "description": "Atmawell website - 100% autonomous local version",
+  "description": "Anne Chataigner - Site Web",
   "type": "module",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "build": "node scripts/build_vercel.mjs",
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kitemi Studio",
   "license": "ISC"
 }

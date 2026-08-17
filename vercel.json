@@ -1,4 +1,6 @@
 {
+  "buildCommand": "node scripts/build_vercel.mjs",
+  "outputDirectory": ".vercel/output/static",
   "cleanUrls": true,
   "trailingSlash": false
 }
