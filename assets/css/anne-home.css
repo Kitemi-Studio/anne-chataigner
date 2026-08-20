@@ -582,24 +582,25 @@ html.lenis, html.lenis body {
   margin: 0 auto;
 }
 
-/* Floating Cloud Tag — Borderless with Smooth Scale on Hover */
+/* Floating Cloud Tag — Borderless with Subtle, Ultra-Smooth Hover Scale */
 .cloud-tag {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
   border: none !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
   cursor: default;
   user-select: none;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.45s ease !important;
   animation: floatCloudTag 6s ease-in-out infinite alternate;
   animation-delay: var(--delay, 0s);
   will-change: transform;
 }
 
 .cloud-tag:hover {
-  transform: scale(1.12) !important;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+  animation-play-state: paused;
+  transform: translateY(-2px) scale(1.04) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07) !important;
   z-index: 10;
 }
 
