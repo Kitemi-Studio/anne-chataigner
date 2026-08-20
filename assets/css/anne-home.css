@@ -5,6 +5,7 @@
 
 @import url('../fonts/switzer.css');
 @import url('../fonts/playfair.css');
+@import url('../fonts/domine.css');
 
 :root {
   /* Brand Color Palette */
@@ -19,8 +20,8 @@
   --anne-surface-hover: #edeae2;
   --anne-border: rgba(101, 101, 95, 0.14);
 
-  /* Typography — Playfair Display Heading System */
-  --_typography---font-family--heading: 'Playfair Display', Georgia, serif;
+  /* Typography — Domine Heading System */
+  --_typography---font-family--heading: 'Domine', Georgia, serif;
 
   /* Overriding Atmawell Core Tokens */
   --white: #fefcf8;
@@ -40,7 +41,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings Typography (Playfair Display Luxury Serif with Bold Accents) */
+/* Headings Typography (Domine Warm Humanist Serif with Bold Weights) */
 h1, h2, h3, h4, h5,
 .heading-1, .heading-2, .heading-3, .heading-4, .heading-5,
 .hero-full-title, .sticky-journey-title, .reperes-title-single-line,
@@ -51,27 +52,27 @@ h1, h2, h3, h4, h5,
 
 .hero-full-title {
   font-weight: 700 !important;
-  letter-spacing: -0.015em !important;
-  line-height: 1.14 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.15 !important;
 }
 
 .heading-1, .cta-heading {
   font-weight: 700 !important;
-  letter-spacing: -0.015em !important;
+  letter-spacing: -0.02em !important;
 }
 
 .heading-2, .sticky-journey-title, .testimonials-title-centered {
   font-weight: 700 !important;
-  letter-spacing: -0.012em !important;
+  letter-spacing: -0.015em !important;
 }
 
 .heading-3, .program-card-title-modern, .pas-de-cote-title, .reperes-title-single-line {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   letter-spacing: -0.01em !important;
 }
 
 .heading-4, .heading-5, .approach-card-title, .sticky-step-heading {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   letter-spacing: -0.005em !important;
 }
 
@@ -601,7 +602,7 @@ html.lenis, html.lenis body {
   margin: 0 auto;
 }
 
-/* Floating Cloud Tag — Borderless with Subtle, Ultra-Smooth Hover Scale */
+/* Floating Cloud Tag — Borderless with 0.8s Ease-In-Out Smooth Transition */
 .cloud-tag {
   display: inline-flex;
   align-items: center;
@@ -610,16 +611,14 @@ html.lenis, html.lenis body {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
   cursor: default;
   user-select: none;
-  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.45s ease !important;
-  animation: floatCloudTag 6s ease-in-out infinite alternate;
-  animation-delay: var(--delay, 0s);
+  transform: translateY(0) scale(1);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.6s ease !important;
   will-change: transform;
 }
 
 .cloud-tag:hover {
-  animation-play-state: paused;
-  transform: translateY(-2px) scale(1.04) !important;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07) !important;
+  transform: translateY(-3px) scale(1.055) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08) !important;
   z-index: 10;
 }
 
@@ -2302,6 +2301,185 @@ html.lenis, html.lenis body {
   .testimonials-marquee-viewport {
     max-height: 520px;
   }
+
+  .section.section-faq {
+    padding: 70px 0 80px;
+  }
+
+  .faq-title {
+    font-size: 26px;
+  }
+
+  .faq-item {
+    padding: 20px 20px;
+    border-radius: 16px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+  }
+
+  .faq-answer-text {
+    font-size: 14.5px;
+  }
+}
+
+/* ==========================================================================
+   9. SECTION FAQ (ACCORDION LUXURY STYLING)
+   ========================================================================== */
+.section.section-faq {
+  padding: 100px 0 110px;
+  background: linear-gradient(180deg, var(--anne-bg-light) 0%, rgba(246, 243, 237, 0.6) 100%);
+  position: relative;
+}
+
+.faq-header-centered {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 52px;
+}
+
+.faq-subtitle {
+  color: var(--anne-coaching);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.faq-title {
+  font-family: var(--_typography---font-family--heading);
+  font-size: clamp(28px, 2.8vw, 42px);
+  line-height: 1.2;
+  color: var(--anne-ink-dark);
+  margin-bottom: 18px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.faq-lead {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--anne-ink);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.faq-accordion-list {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--anne-border);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.025);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(129, 146, 172, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.045);
+}
+
+.faq-item.is-open {
+  border-color: var(--anne-coaching);
+  box-shadow: 0 10px 30px rgba(129, 146, 172, 0.08);
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.faq-question {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--anne-ink-dark);
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.faq-item:hover .faq-question {
+  color: #1a1a18;
+}
+
+.faq-item.is-open .faq-question {
+  color: #1a1a18;
+}
+
+.faq-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--anne-surface);
+  color: var(--anne-ink-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease;
+}
+
+.faq-item:hover .faq-icon-wrapper {
+  background: var(--anne-surface-hover);
+}
+
+.faq-item.is-open .faq-icon-wrapper {
+  transform: rotate(45deg);
+  background: rgba(129, 146, 172, 0.18);
+  color: var(--anne-coaching);
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  opacity: 0;
+}
+
+.faq-item.is-open .faq-answer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+}
+
+.faq-answer-text {
+  padding-top: 16px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--anne-ink);
+  border-top: 1px solid rgba(101, 101, 95, 0.08);
+  margin-top: 16px;
+}
+
+.faq-answer-text strong {
+  color: var(--anne-ink-dark);
+  font-weight: 600;
 }
 
 /* Accessibility & Reduced Motion */

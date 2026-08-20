@@ -327,6 +327,40 @@ function initAnne() {
       });
     });
   }
+
+  // 9. Initialize FAQ Accordion Interactions
+  const faqItems = document.querySelectorAll(".faq-item");
+  if (faqItems.length > 0) {
+    faqItems.forEach((item) => {
+      const trigger = item.querySelector(".faq-trigger");
+      if (trigger) {
+        trigger.addEventListener("click", () => {
+          const isOpen = item.classList.contains("is-open");
+          
+          // Close other open items for exclusive clean accordion
+          faqItems.forEach((other) => {
+            if (other !== item && other.classList.contains("is-open")) {
+              other.classList.remove("is-open");
+              const otherTrigger = other.querySelector(".faq-trigger");
+              if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+            }
+          });
+
+          if (isOpen) {
+            item.classList.remove("is-open");
+            trigger.setAttribute("aria-expanded", "false");
+          } else {
+            item.classList.add("is-open");
+            trigger.setAttribute("aria-expanded", "true");
+          }
+
+          if (window.lenis && typeof window.lenis.resize === "function") {
+            setTimeout(() => window.lenis.resize(), 400);
+          }
+        });
+      }
+    });
+  }
 }
 
 if (document.readyState === "loading") {
