@@ -122,22 +122,23 @@ html.lenis, html.lenis body {
   width: auto !important;
   max-width: 1240px !important;
   margin: 0 auto !important;
-  background: rgba(254, 252, 248, 0.82) !important;
+  background: rgba(254, 252, 248, 0.86) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.65) !important;
-  border-radius: 1em !important;
+  border: 1px solid rgba(255, 255, 255, 0.75) !important;
+  border-radius: 999px !important;
   box-shadow: 
     0 12px 32px rgba(0, 0, 0, 0.08),
     0 2px 6px rgba(0, 0, 0, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
   z-index: 1000 !important;
-  padding: 8px 18px !important;
+  padding: 14px 24px !important;
+  min-height: 68px !important;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .navbar.scrolled {
-  background: rgba(254, 252, 248, 0.95) !important;
+  background: rgba(254, 252, 248, 0.96) !important;
   border-color: rgba(101, 101, 95, 0.16) !important;
   box-shadow: 
     0 16px 40px rgba(0, 0, 0, 0.12),
@@ -150,7 +151,7 @@ html.lenis, html.lenis body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 16px;
+  gap: 18px;
 }
 
 .navbar .container.w-container {
@@ -162,22 +163,22 @@ html.lenis, html.lenis body {
 .navbar-brand-link {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .navbar-brand-title {
   font-family: var(--_typography---font-family--heading);
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1;
   color: var(--anne-ink-dark);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 
 .navbar-logo {
-  max-height: 32px;
+  max-height: 44px;
   width: auto;
   object-fit: contain;
 }
@@ -205,10 +206,10 @@ html.lenis, html.lenis body {
 }
 
 .nav-link {
-  font-size: 13.5px !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
   color: var(--anne-ink) !important;
-  padding: 6px 12px !important;
+  padding: 7px 14px !important;
   border-radius: 8px !important;
   letter-spacing: 0.01em !important;
   transition: color 0.2s ease, background-color 0.2s ease !important;
@@ -222,13 +223,13 @@ html.lenis, html.lenis body {
 }
 
 .navbar-button {
-  padding: 9px 20px !important;
-  font-size: 13.5px !important;
+  padding: 10px 22px !important;
+  font-size: 14px !important;
   margin-left: auto !important;
   flex-shrink: 0 !important;
 }
 
-/* Button Text Double Layer & Stagger Roll Animation Container */
+/* Bulletproof Button Double Text Roll Animation */
 .primary-button {
   display: inline-flex !important;
   align-items: center !important;
@@ -236,42 +237,48 @@ html.lenis, html.lenis body {
   text-decoration: none !important;
   position: relative !important;
   cursor: pointer !important;
+  overflow: hidden !important;
 }
 
 .button-text-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-  line-height: 1.25;
-  height: 1.25em;
-  pointer-events: none;
+  position: relative !important;
+  overflow: hidden !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  line-height: 1.3em !important;
+  height: 1.3em !important;
+  pointer-events: none !important;
 }
 
 .button-text-inner {
-  position: relative;
-  display: block;
-  height: 1.25em;
-  width: 100%;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  transform: translateY(0%) !important;
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .button-text {
   display: block !important;
   white-space: nowrap !important;
-  line-height: 1.25em !important;
-  height: 1.25em !important;
-  position: relative !important;
+  line-height: 1.3em !important;
+  height: 1.3em !important;
+  position: static !important;
   visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .button-text:nth-child(2) {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  width: auto !important;
+  height: 1.3em !important;
+}
+
+.primary-button:hover .button-text-inner {
+  transform: translateY(-50%) !important;
 }
 
 .btn-split-char,

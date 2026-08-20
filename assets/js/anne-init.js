@@ -49,68 +49,9 @@ function initAnne() {
       el.style.visibility = "visible";
     });
 
-    // Stagger Letter-by-Letter Roll-up Hover on Buttons
-    const buttonWrappers = document.querySelectorAll(".primary-button, .navbar-button");
-    buttonWrappers.forEach((btn) => {
-      const textEls = btn.querySelectorAll("[button-text]");
-      if (textEls.length === 2) {
-        const firstLine = textEls[0];
-        const secondLine = textEls[1];
-
-        // Clean & split text content into individual spans if not done
-        const rawText = firstLine.textContent.trim();
-        
-        function splitChars(container, initialYPercent) {
-          container.innerHTML = "";
-          const charSpans = [];
-          for (let i = 0; i < rawText.length; i++) {
-            const char = rawText[i];
-            const span = document.createElement("span");
-            span.className = "btn-split-char";
-            if (char === " ") {
-              span.innerHTML = "&nbsp;";
-              span.style.width = "0.28em";
-            } else {
-              span.textContent = char;
-            }
-            span.style.display = "inline-block";
-            span.style.position = "relative";
-            span.style.willChange = "transform";
-            container.appendChild(span);
-            charSpans.push(span);
-          }
-          gsap.set(charSpans, { yPercent: initialYPercent });
-          return charSpans;
-        }
-
-        const chars1 = splitChars(firstLine, 0);
-        const chars2 = splitChars(secondLine, 115);
-
-        // Hover timeline with smooth staggered roll-up
-        const hoverTl = gsap.timeline({ paused: true });
-        hoverTl
-          .to(chars1, {
-            yPercent: -115,
-            duration: 0.35,
-            stagger: 0.015,
-            ease: "power2.inOut",
-            overwrite: "auto"
-          }, 0)
-          .to(chars2, {
-            yPercent: 0,
-            duration: 0.35,
-            stagger: 0.015,
-            ease: "power2.inOut",
-            overwrite: "auto"
-          }, 0);
-
-        btn.addEventListener("mouseenter", () => {
-          hoverTl.play();
-        });
-        btn.addEventListener("mouseleave", () => {
-          hoverTl.reverse();
-        });
-      }
+    // Ensure all button text layers are fully visible and active
+    document.querySelectorAll("[button-text]").forEach((el) => {
+      el.style.visibility = "visible";
     });
   } else {
     // Fallback: make sure all text is immediately visible
