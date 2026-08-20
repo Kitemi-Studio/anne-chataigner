@@ -4,6 +4,7 @@
  */
 
 @import url('../fonts/switzer.css');
+@import url('../fonts/playfair.css');
 
 :root {
   /* Brand Color Palette */
@@ -18,8 +19,8 @@
   --anne-surface-hover: #edeae2;
   --anne-border: rgba(101, 101, 95, 0.14);
 
-  /* Typography — Switzer Heading System */
-  --_typography---font-family--heading: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography — Playfair Display Heading System */
+  --_typography---font-family--heading: 'Playfair Display', Georgia, serif;
 
   /* Overriding Atmawell Core Tokens */
   --white: #fefcf8;
@@ -39,7 +40,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings Typography (Switzer Sans-Serif with Harmonious Weights) */
+/* Headings Typography (Playfair Display Luxury Serif with Bold Accents) */
 h1, h2, h3, h4, h5,
 .heading-1, .heading-2, .heading-3, .heading-4, .heading-5,
 .hero-full-title, .sticky-journey-title, .reperes-title-single-line,
@@ -49,28 +50,29 @@ h1, h2, h3, h4, h5,
 }
 
 .hero-full-title {
-  font-weight: 600 !important;
-  letter-spacing: -0.03em !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.14 !important;
 }
 
 .heading-1, .cta-heading {
-  font-weight: 600 !important;
-  letter-spacing: -0.025em !important;
-}
-
-.heading-2, .sticky-journey-title, .testimonials-title-centered {
-  font-weight: 600 !important;
-  letter-spacing: -0.02em !important;
-}
-
-.heading-3, .program-card-title-modern, .pas-de-cote-title, .reperes-title-single-line {
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   letter-spacing: -0.015em !important;
 }
 
-.heading-4, .heading-5, .approach-card-title, .sticky-step-heading {
-  font-weight: 600 !important;
+.heading-2, .sticky-journey-title, .testimonials-title-centered {
+  font-weight: 700 !important;
+  letter-spacing: -0.012em !important;
+}
+
+.heading-3, .program-card-title-modern, .pas-de-cote-title, .reperes-title-single-line {
+  font-weight: 700 !important;
   letter-spacing: -0.01em !important;
+}
+
+.heading-4, .heading-5, .approach-card-title, .sticky-step-heading {
+  font-weight: 700 !important;
+  letter-spacing: -0.005em !important;
 }
 
 /* Lenis Luxury Smooth Scroll Core Styles */
