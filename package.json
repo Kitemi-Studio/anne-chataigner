@@ -4,11 +4,15 @@
   "description": "Anne Chataigner - Site Web",
   "type": "module",
   "scripts": {
-    "build": "node scripts/build_vercel.mjs",
-    "dev": "node server.js",
-    "start": "node server.js"
+    "dev": "astro dev --port 4321",
+    "build": "astro build",
+    "preview": "astro preview --port 4321",
+    "server": "node server.js"
   },
   "keywords": [],
   "author": "Kitemi Studio",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^7.2.6"
+  }
 }

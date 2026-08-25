@@ -1,0 +1,1070 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Anne Chataigner — Coaching · Thérapies brèves · Hypnose Ericksonienne"
+  description="Quand la vie change, retrouver un chemin qui vous ressemble. Accompagnements individuels en coaching, thérapies brèves et hypnose Ericksonienne à Voisins-le-Bretonneux."
+>
+  <Navbar slot="navbar" />
+
+  <main id="main-content">
+    <!-- 2. HERO SECTION (FULL COVER WITH BOTTOM-LEFT TYPOGRAPHY) -->
+    <section class="section hero-anne-full" id="accueil">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="hero-full-content">
+          <div class="hero-badge-pill">
+            <span class="hero-badge-dot"></span>
+            Anne Chataigner · Coaching · Thérapies brèves · Hypnose Ericksonienne
+          </div>
+          <h1 hero-text="" class="hero-full-title">Quand la vie change, retrouver un chemin qui vous ressemble.</h1>
+          <p class="hero-full-lead">
+            Vous traversez une transition, un blocage ou l’envie d’ouvrir un nouveau chapitre ? Je vous accompagne pour comprendre ce qui se joue, mobiliser vos ressources et avancer avec plus de clarté, de sérénité et de confiance.
+          </p>
+          <div class="hero-full-buttons">
+            <a href="#contact" data-wf--button--variant="white" class="primary-button w-variant-df50d2b4-2dcf-06cb-393e-886e8cb0681e w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
+              <div class="button-text-wrapper">
+                <div class="button-text-inner">
+                  <div button-text="" class="button-text">Prendre rendez-vous</div>
+                  <div button-text="" class="button-text">Prendre rendez-vous</div>
+                </div>
+              </div>
+            </a>
+            <a href="#accompagnements" class="primary-button button-hero-secondary w-inline-block">
+              <div class="button-text-wrapper">
+                <div class="button-text-inner">
+                  <div button-text="" class="button-text">Découvrir les accompagnements</div>
+                  <div button-text="" class="button-text">Découvrir les accompagnements</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apple Mouse Scroll Indicator (Below Hero Header - Dark Styled on Light Surface) -->
+    <div class="hero-scroll-wrapper">
+      <a href="#deroulement" class="hero-scroll-indicator dark-mode" aria-label="Faire défiler vers la méthode">
+        <span class="apple-mouse-icon">
+          <span class="apple-mouse-wheel"></span>
+        </span>
+        <span class="hero-scroll-label">Découvrir</span>
+      </a>
+    </div>
+
+    <!-- 2. SECTION MÉTHODE & DÉROULEMENT (ORGANIC STICKY JOURNEY) -->
+    <section class="section section-sticky-journey" id="deroulement">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="sticky-journey-layout">
+          
+          <!-- LEFT COLUMN: Sticky Panel & Dynamic Visual Showcase -->
+          <div class="sticky-journey-left">
+            <div class="sticky-journey-panel">
+              <div class="subtitle sticky-journey-subtitle">
+                <span class="subtitle-bullet-dot"></span>
+                Méthode &amp; Déroulement
+              </div>
+              <h2 class="heading-2 sticky-journey-title">
+                Un accompagnement pour comprendre, mobiliser et avancer.
+              </h2>
+              <p class="text sticky-journey-lead">
+                Un cheminement progressif, feutré et profondément bienveillant en 4 temps clés. Chaque étape s'appuie sur la précédente pour clarifier vos repères et redonner du souffle à votre quotidien.
+              </p>
+
+              <!-- Dynamic Visual Showcase (Changes smoothly on scroll) -->
+              <div class="sticky-visual-card" id="stickyVisualCard">
+                <div class="sticky-visual-glow" id="stickyVisualGlow"></div>
+                <div class="sticky-image-container">
+                  <img src="/assets/step-1-ecouter.jpg" alt="Étape 1 · Écouter" class="sticky-image active" data-img-step="1" />
+                  <img src="/assets/step-2-explorer.jpg" alt="Étape 2 · Explorer" class="sticky-image" data-img-step="2" />
+                  <img src="/assets/step-3-mobiliser.jpg" alt="Étape 3 · Mobiliser" class="sticky-image" data-img-step="3" />
+                  <img src="/assets/step-4-avancer.jpg" alt="Étape 4 · Avancer" class="sticky-image" data-img-step="4" />
+                </div>
+                
+                <!-- Dynamic Pill Overlay -->
+                <div class="sticky-visual-badge" id="stickyVisualBadge">
+                  <span class="sticky-visual-dot" id="stickyVisualDot"></span>
+                  <span class="sticky-visual-text" id="stickyVisualText">01 · Écouter</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Spacious Scrolling Steps with Organic Curved Thread -->
+          <div class="sticky-journey-right">
+            <div class="sticky-timeline-wrapper">
+              
+              <!-- Organic Curved SVG Thread with Start & End Caps -->
+              <div class="organic-thread-container">
+                <svg class="organic-thread-svg" viewBox="0 0 60 2400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="organicJourneyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#8192AC" />
+                      <stop offset="33%" stop-color="#A4ACA1" />
+                      <stop offset="66%" stop-color="#DFA38B" />
+                      <stop offset="100%" stop-color="#EBC284" />
+                    </linearGradient>
+                    <filter id="organicGlowFilter" x="-30%" y="-30%" width="160%" height="160%">
+                      <feGaussianBlur stdDeviation="5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  <!-- Background organic guide path -->
+                  <path class="organic-path-bg" d="M 30 16 L 30 250 C 30 450, 48 550, 48 600 C 48 650, 30 750, 30 850 C 30 1050, 12 1150, 12 1200 C 12 1250, 30 1350, 30 1450 C 30 1650, 48 1750, 48 1800 C 48 1850, 30 1950, 30 2050 L 30 2384" stroke="rgba(101, 101, 95, 0.16)" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8" />
+                  
+                  <!-- Active glowing organic path -->
+                  <path id="organicPathActive" class="organic-path-active" d="M 30 16 L 30 250 C 30 450, 48 550, 48 600 C 48 650, 30 750, 30 850 C 30 1050, 12 1150, 12 1200 C 12 1250, 30 1350, 30 1450 C 30 1650, 48 1750, 48 1800 C 48 1850, 30 1950, 30 2050 L 30 2384" stroke="url(#organicJourneyGradient)" stroke-width="4.5" stroke-linecap="round" filter="url(#organicGlowFilter)" />
+
+                  <!-- Point de départ (Haut) : Rond fermé élégant en Bleu ardoise -->
+                  <circle cx="30" cy="16" r="10" fill="rgba(129, 146, 172, 0.22)" />
+                  <circle cx="30" cy="16" r="5" fill="#8192AC" />
+                  <circle cx="30" cy="16" r="2.2" fill="#ffffff" />
+
+                  <!-- Point d'arrivée (Bas) : Rond fermé élégant en Ocre doré -->
+                  <circle cx="30" cy="2384" r="10" fill="rgba(235, 194, 132, 0.28)" />
+                  <circle cx="30" cy="2384" r="5" fill="#EBC284" />
+                  <circle cx="30" cy="2384" r="2.2" fill="#ffffff" />
+                </svg>
+              </div>
+
+              <!-- 4 Spacious Step Chapters -->
+              <div class="sticky-steps-list">
+                
+                <!-- Step 1: Écouter (Bleu) -->
+                <article class="sticky-step-item active" data-step="1" id="step-card-1">
+                  <div class="sticky-step-node node--blue">
+                    <span class="sticky-node-pulse"></span>
+                    <span class="sticky-node-num">01</span>
+                  </div>
+                  <div class="sticky-step-card card--blue">
+                    <div class="sticky-step-badge badge--blue">Étape 1 · Écoute &amp; Accueil</div>
+                    <h3 class="sticky-step-heading">Écouter</h3>
+                    <p class="sticky-step-mantra">
+                      « Prendre le temps de déposer ce qui pèse, dans un espace confidentiel où chaque mot compte. »
+                    </p>
+                    <p class="sticky-step-description">
+                      Comprendre votre demande, accueillir votre histoire, vos émotions et ce que vous traversez dans un cadre d'écoute attentive, chaleureuse et sans jugement.
+                    </p>
+                    <div class="step-keypoints">
+                      <span class="step-keypoint-pill">✓ Cadre confidentiel &amp; sécurisant</span>
+                      <span class="step-keypoint-pill">✓ Accueil bienveillant</span>
+                      <span class="step-keypoint-pill">✓ Clarification de votre demande</span>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Step 2: Explorer (Vert) -->
+                <article class="sticky-step-item" data-step="2" id="step-card-2">
+                  <div class="sticky-step-node node--green">
+                    <span class="sticky-node-pulse"></span>
+                    <span class="sticky-node-num">02</span>
+                  </div>
+                  <div class="sticky-step-card card--green">
+                    <div class="sticky-step-badge badge--green">Étape 2 · Exploration &amp; Clarification</div>
+                    <h3 class="sticky-step-heading">Explorer</h3>
+                    <p class="sticky-step-mantra">
+                      « Éclairer la dynamique globale : pensées, émotions, corps, relations et parcours. »
+                    </p>
+                    <p class="sticky-step-description">
+                      Prendre en compte vos pensées, vos ressentis corporels, vos relations et votre contexte de vie pour identifier précisément les nœuds et les leviers d'évolution.
+                    </p>
+                    <div class="step-keypoints">
+                      <span class="step-keypoint-pill">✓ Cartographie des blocages</span>
+                      <span class="step-keypoint-pill">✓ Écoute des signaux du corps</span>
+                      <span class="step-keypoint-pill">✓ Prise de recul lucide</span>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Step 3: Mobiliser (Rouge / Corail) -->
+                <article class="sticky-step-item" data-step="3" id="step-card-3">
+                  <div class="sticky-step-node node--coral">
+                    <span class="sticky-node-pulse"></span>
+                    <span class="sticky-node-num">03</span>
+                  </div>
+                  <div class="sticky-step-card card--coral">
+                    <div class="sticky-step-badge badge--coral">Étape 3 · Mobilisation &amp; Ressources</div>
+                    <h3 class="sticky-step-heading">Mobiliser</h3>
+                    <p class="sticky-step-mantra">
+                      « Réveiller vos ressources profondes déjà présentes et ouvrir de nouveaux chemins. »
+                    </p>
+                    <p class="sticky-step-description">
+                      Retrouver vos ressources profondes déjà présentes, lever les blocages et choisir les approches les plus adaptées (coaching, thérapies brèves, hypnose).
+                    </p>
+                    <div class="step-keypoints">
+                      <span class="step-keypoint-pill">✓ Déverrouillage des freins</span>
+                      <span class="step-keypoint-pill">✓ Pratiques intégratives douces</span>
+                      <span class="step-keypoint-pill">✓ Reconnexion aux forces intérieures</span>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Step 4: Avancer (Jaune / Ambre) -->
+                <article class="sticky-step-item" data-step="4" id="step-card-4">
+                  <div class="sticky-step-node node--amber">
+                    <span class="sticky-node-pulse"></span>
+                    <span class="sticky-node-num">04</span>
+                  </div>
+                  <div class="sticky-step-card card--amber">
+                    <div class="sticky-step-badge badge--amber">Étape 4 · Action &amp; Alignement</div>
+                    <h3 class="sticky-step-heading">Avancer</h3>
+                    <p class="sticky-step-mantra">
+                      « Construire pas à pas une trajectoire qui vous ressemble et ancrer le renouveau. »
+                    </p>
+                    <p class="sticky-step-description">
+                      Construire pas à pas une manière plus juste d’avancer, ancrer de nouveaux repères et retrouver une direction claire, sereine et confiante, à votre rythme.
+                    </p>
+                    <div class="step-keypoints">
+                      <span class="step-keypoint-pill">✓ Ancrage des apprentissages</span>
+                      <span class="step-keypoint-pill">✓ Alignement avec vos valeurs</span>
+                      <span class="step-keypoint-pill">✓ Autonomie &amp; sérénité retrouvée</span>
+                    </div>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION “VOUS TRAVERSEZ PEUT-ÊTRE…” (NUAGES DE MOTS FLOTTANTS SANS CARDS) -->
+    <section class="section section-reperes-clouds" id="reperes">
+      <div class="w-layout-blockcontainer container w-container">
+        
+        <!-- Centered Header: Title on 1 single line, lead on max 2 lines -->
+        <div class="reperes-header-centered">
+          <div class="subtitle reperes-subtitle">
+            <span class="subtitle-bullet-dot"></span>
+            Votre point de départ
+          </div>
+          <h2 class="heading-2 reperes-title-single-line">
+            Vous traversez peut-être une étape qui demande de nouveaux repères.
+          </h2>
+          <p class="reperes-lead-two-lines">
+            Chaque parcours de vie connaît des moments de bascule. Qu’ils soient désirés ou inattendus, ces passages nous invitent à faire une pause, clarifier nos priorités et retrouver notre équilibre.
+          </p>
+        </div>
+
+        <!-- Floating Word Clouds Area (Zero cards, 100% organic centered floating tags) -->
+        <div class="floating-clouds-wrapper">
+          
+          <!-- Cloud Cluster 1: Transitions choisies -->
+          <div class="floating-cloud-section">
+            <div class="floating-cloud-badge badge--chosen">
+              01 · Transitions choisies
+            </div>
+            
+            <div class="floating-tags-cloud" aria-label="Nuage de mots transitions choisies">
+              <span class="cloud-tag tag-xl tag-color-blue" style="--delay: 0s;">Reconversion professionnelle</span>
+              <span class="cloud-tag tag-lg tag-color-green" style="--delay: 0.8s;">Nouveau projet</span>
+              <span class="cloud-tag tag-md tag-color-amber" style="--delay: 1.6s;">Premier emploi</span>
+              <span class="cloud-tag tag-xl tag-color-sage" style="--delay: 0.4s;">Départ à la retraite</span>
+              <span class="cloud-tag tag-sm tag-color-slate" style="--delay: 2.2s;">Études &amp; Orientation</span>
+              <span class="cloud-tag tag-lg tag-color-blue" style="--delay: 1.2s;">Naissance &amp; Parentalité</span>
+              <span class="cloud-tag tag-md tag-color-coral" style="--delay: 0.6s;">Transmission d’entreprise</span>
+              <span class="cloud-tag tag-lg tag-color-amber" style="--delay: 1.9s;">Prise de responsabilités</span>
+              <span class="cloud-tag tag-sm tag-color-green" style="--delay: 1.4s;">Déménagement</span>
+              <span class="cloud-tag tag-md tag-color-slate" style="--delay: 0.3s;">Désir d’alignement</span>
+              <span class="cloud-tag tag-lg tag-color-sage" style="--delay: 2.5s;">Création d'activité</span>
+              <span class="cloud-tag tag-sm tag-color-blue" style="--delay: 1.7s;">Épanouissement personnel</span>
+            </div>
+          </div>
+
+          <!-- Cloud Cluster 2: Transitions subies -->
+          <div class="floating-cloud-section">
+            <div class="floating-cloud-badge badge--unplanned">
+              02 · Transitions subies
+            </div>
+            
+            <div class="floating-tags-cloud" aria-label="Nuage de mots transitions subies">
+              <span class="cloud-tag tag-xl tag-color-coral" style="--delay: 0.2s;">Burn-out &amp; Épuisement</span>
+              <span class="cloud-tag tag-lg tag-color-terracotta" style="--delay: 1.1s;">Perte de confiance en soi</span>
+              <span class="cloud-tag tag-md tag-color-amber" style="--delay: 0.5s;">Période de stress</span>
+              <span class="cloud-tag tag-xl tag-color-slate" style="--delay: 1.8s;">Surcharge mentale</span>
+              <span class="cloud-tag tag-md tag-color-rose" style="--delay: 2.3s;">Séparation &amp; Rupture</span>
+              <span class="cloud-tag tag-lg tag-color-coral" style="--delay: 0.9s;">Deuil &amp; Perte</span>
+              <span class="cloud-tag tag-sm tag-color-terracotta" style="--delay: 1.5s;">Difficulté relationnelle</span>
+              <span class="cloud-tag tag-lg tag-color-amber" style="--delay: 0.7s;">Licenciement</span>
+              <span class="cloud-tag tag-md tag-color-slate" style="--delay: 2.0s;">Crise de sens</span>
+              <span class="cloud-tag tag-sm tag-color-rose" style="--delay: 1.3s;">Isolement &amp; Doute</span>
+              <span class="cloud-tag tag-lg tag-color-coral" style="--delay: 2.7s;">Changements imprévus</span>
+              <span class="cloud-tag tag-sm tag-color-amber" style="--delay: 0.4s;">Fatigue émotionnelle</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Centered Luxury Conclusion Pill -->
+        <div class="reperes-conclusion-card">
+          <div class="reperes-conclusion-icon">✦</div>
+          <p class="reperes-conclusion-text">
+            Toutes ces étapes ont un point commun : elles nous invitent à redéfinir nos repères, à mobiliser de nouvelles ressources et à trouver une manière plus juste d’avancer.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. SECTION “IL N’EST PAS NÉCESSAIRE D’ALLER MAL…” (MODERNE AVEC IMAGE & MICRO-CARDS) -->
+    <section class="section section-pas-de-cote" id="benefices">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="pas-de-cote-wrapper">
+          
+          <!-- LEFT COLUMN: Content & Interactive Benefits -->
+          <div class="pas-de-cote-content">
+            <div class="pas-de-cote-badge">
+              <span class="pas-de-cote-badge-dot"></span>
+              Faire un pas de côté
+            </div>
+            
+            <h2 class="heading-2 pas-de-cote-title">
+              Il n’est pas nécessaire d’aller mal pour avoir envie d’aller mieux.
+            </h2>
+            
+            <p class="pas-de-cote-lead">
+              Un accompagnement peut aider à traverser une difficulté, mais aussi à préparer une nouvelle étape, prendre une décision, développer son potentiel ou ouvrir un nouveau chapitre de vie.
+            </p>
+
+            <!-- 8 Interactive Modern Benefits Pills -->
+            <div class="pas-de-cote-grid">
+              <div class="pas-de-cote-item">
+                <div class="pas-de-cote-item-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Mieux comprendre ce qui se joue</span>
+              </div>
+              
+              <div class="pas-de-cote-item">
+                <div class="pas-de-cote-item-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Accueillir et réguler ses émotions</span>
+              </div>
+              
+              <div class="pas-de-cote-item">
+                <div class="pas-de-cote-item-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Retrouver confiance en soi</span>
+              </div>
+              
+              <div class="pas-de-cote-item">
+                <div class="pas-de-cote-item-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Dépasser un blocage</span>
+              </div>
+              
+              <div class="pas-de-cote-item">
+                <div class="pas-de-cote-item-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Clarifier une décision importante</span>
+              </div>
+              
+              <div class="pas-de-cote-item">
+                <div class="pas-de-cote-item-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Préparer une transition</span>
+              </div>
+              
+              <div class="pas-de-cote-item">
+                <div class="pas-de-cote-item-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Retrouver du sens et de l'élan</span>
+              </div>
+              
+              <div class="pas-de-cote-item">
+                <div class="pas-de-cote-item-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Avancer avec plus de fluidité</span>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="pas-de-cote-cta">
+              <a href="#contact" data-wf--button--variant="primary" class="primary-button w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
+                <div class="button-text-wrapper">
+                  <div class="button-text-inner">
+                    <div button-text="" class="button-text">Prendre rendez-vous</div>
+                    <div button-text="" class="button-text">Prendre rendez-vous</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Visual Showcase with Couple Therapy Image -->
+          <div class="pas-de-cote-visual">
+            <div class="pas-de-cote-image-card">
+              <div class="pas-de-cote-image-wrapper">
+                <img loading="lazy" src="/assets/couple%20therapie.png" alt="Séance d'accompagnement et thérapie en cabinet - Anne Chataigner" class="pas-de-cote-img"/>
+              </div>
+              
+              <!-- Floating Glassmorphic Badge -->
+              <div class="pas-de-cote-floating-badge">
+                <div class="pas-de-cote-floating-badge-glow"></div>
+                <div class="pas-de-cote-floating-badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div class="pas-de-cote-floating-badge-text">
+                  <span class="pas-de-cote-floating-badge-title">Cadre sécurisant &amp; confidentiel</span>
+                  <span class="pas-de-cote-floating-badge-sub">Pour déposer, clarifier et avancer ensemble</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SECTION DES TROIS ACCOMPAGNEMENTS (100% IMAGE EN FOND AVEC TEXTE EN OVERLAY) -->
+    <section class="section" id="accompagnements">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="vertical-wrapper">
+          <div class="vertical-headline program-heading-home-b">
+            <div class="subtitle">Les accompagnements</div>
+            <h2 class="heading-2">
+              Trois portes d’entrée, une même intention : vous aider à avancer.
+            </h2>
+          </div>
+
+          <div class="three-programs-grid">
+            <!-- Bloc 1 : Coaching -->
+            <a href="#contact" class="program-card-modern program-card-modern--coaching" data-future-page="/accompagnements/coaching">
+              <div class="program-card-bg-wrapper">
+                <img loading="lazy" src="/assets/image.png" alt="Accompagnement en Coaching - Anne Chataigner" class="program-card-bg-img"/>
+                <div class="program-card-gradient-overlay"></div>
+              </div>
+              
+              <div class="program-card-top-tag">
+                <span class="program-card-tag-pill tag-coaching">01 · Coaching</span>
+              </div>
+
+              <div class="program-card-overlay-content">
+                <h3 class="program-card-title-modern">Coaching</h3>
+                <p class="program-card-lead-modern">Clarifier un objectif, préparer une transition, retrouver une direction et passer à l’action.</p>
+                <div class="program-card-action-row">
+                  <span class="program-card-action-label">Prendre rendez-vous</span>
+                  <span class="program-card-action-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Bloc 2 : Thérapies brèves -->
+            <a href="#contact" class="program-card-modern program-card-modern--therapies" data-future-page="/accompagnements/therapies-breves">
+              <div class="program-card-bg-wrapper">
+                <img loading="lazy" src="/assets/image%202.png" alt="Accompagnement en Thérapies brèves - Anne Chataigner" class="program-card-bg-img"/>
+                <div class="program-card-gradient-overlay"></div>
+              </div>
+              
+              <div class="program-card-top-tag">
+                <span class="program-card-tag-pill tag-therapies">02 · Thérapies brèves</span>
+              </div>
+
+              <div class="program-card-overlay-content">
+                <h3 class="program-card-title-modern">Thérapies brèves</h3>
+                <p class="program-card-lead-modern">Dépasser une difficulté, apaiser ce qui a besoin de l’être et retrouver de nouveaux repères.</p>
+                <div class="program-card-action-row">
+                  <span class="program-card-action-label">Prendre rendez-vous</span>
+                  <span class="program-card-action-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Bloc 3 : Hypnose Ericksonienne -->
+            <a href="#contact" class="program-card-modern program-card-modern--hypnose" data-future-page="/accompagnements/hypnose-ericksonienne">
+              <div class="program-card-bg-wrapper">
+                <img loading="lazy" src="/assets/image%203.png" alt="Accompagnement en Hypnose Ericksonienne - Anne Chataigner" class="program-card-bg-img"/>
+                <div class="program-card-gradient-overlay"></div>
+              </div>
+              
+              <div class="program-card-top-tag">
+                <span class="program-card-tag-pill tag-hypnose">03 · Hypnose Ericksonienne</span>
+              </div>
+
+              <div class="program-card-overlay-content">
+                <h3 class="program-card-title-modern">Hypnose Ericksonienne</h3>
+                <p class="program-card-lead-modern">Mobiliser vos ressources, ouvrir de nouvelles perspectives et avancer à votre rythme.</p>
+                <div class="program-card-action-row">
+                  <span class="program-card-action-label">Prendre rendez-vous</span>
+                  <span class="program-card-action-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SECTION “MON APPROCHE” (4 CARTES COLORÉES DE LA CHARTE) -->
+    <section class="section section-approche" id="approche">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="vertical-wrapper">
+          <div class="horizontal-headline-two">
+            <div class="vertical-headline left">
+              <div class="approche-badge">
+                <span class="approche-badge-dot"></span>
+                Mon approche
+              </div>
+              <h2 class="heading-2">
+                Une approche intégrative, adaptée à votre histoire.
+              </h2>
+              <p class="text" style="font-size: 16.5px; line-height: 1.6; margin-top: 14px; max-width: 780px;">
+                Je ne m’attache pas à une méthode unique. Je choisis les approches et les outils les plus pertinents en fonction de chaque situation, de votre demande et de votre rythme.
+              </p>
+              <p class="text" style="font-size: 16.5px; line-height: 1.6; margin-top: 10px; max-width: 780px;">
+                J’accorde autant d’importance aux émotions qu’aux pensées, au corps, aux relations, au parcours de vie et aux ressources propres à chacun.
+              </p>
+            </div>
+          </div>
+
+          <div class="approach-cards-grid" style="margin-top: 40px;">
+            <!-- Carte 1 : Écoute profonde (Bleu Ardoise) -->
+            <div class="approach-card approach-card--blue">
+              <div class="approach-card-header">
+                <div class="approach-card-icon-wrap icon-blue">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+                </div>
+                <span class="approach-card-step">01</span>
+              </div>
+              <h4 class="approach-card-title">Écoute profonde</h4>
+              <p class="approach-card-copy">Une écoute attentive, bienveillante et sans jugement pour accueillir votre parole et clarifier vos besoins.</p>
+            </div>
+
+            <!-- Carte 2 : Cadre sécurisant (Terracotta) -->
+            <div class="approach-card approach-card--terracotta">
+              <div class="approach-card-header">
+                <div class="approach-card-icon-wrap icon-terracotta">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <span class="approach-card-step">02</span>
+              </div>
+              <h4 class="approach-card-title">Cadre sécurisant</h4>
+              <p class="approach-card-copy">Un cadre rassurant, confidentiel et structurant où chacun peut déposer ce qui pèse en toute sérénité.</p>
+            </div>
+
+            <!-- Carte 3 : Posture douce (Vert Sauge) -->
+            <div class="approach-card approach-card--sage">
+              <div class="approach-card-header">
+                <div class="approach-card-icon-wrap icon-sage">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                </div>
+                <span class="approach-card-step">03</span>
+              </div>
+              <h4 class="approach-card-title">Posture douce</h4>
+              <p class="approach-card-copy">Une posture à la fois douce et structurante pour éclairer les chemins possibles à votre rythme.</p>
+            </div>
+
+            <!-- Carte 4 : Place active (Ocre Doré) -->
+            <div class="approach-card approach-card--amber">
+              <div class="approach-card-header">
+                <div class="approach-card-icon-wrap icon-amber">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <span class="approach-card-step">04</span>
+              </div>
+              <h4 class="approach-card-title">Place active</h4>
+              <p class="approach-card-copy">Une place active pour la personne accompagnée, actrice centrale de ses choix et de son évolution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SECTION À PROPOS (AMBIEANCE DOUCE & TINTÉE) -->
+    <section class="section section-a-propos" id="a-propos">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="vertical-wrapper">
+          <div class="horizontal-headline" style="align-items: center; gap: 52px;">
+            <div class="about-visual-card">
+              <img src="/assets/anne%20hero%20header.png" alt="Espace de travail chaleureux et apaisant" />
+              <div class="about-quote-overlay">
+                <p class="about-quote-text">« Accompagner les personnes dans les périodes où quelque chose évolue, se transforme ou demande à être remis en mouvement. »</p>
+              </div>
+            </div>
+
+            <div class="vertical-headline left" style="flex: 1;">
+              <div class="a-propos-badge">
+                <span class="a-propos-badge-dot"></span>
+                À propos
+              </div>
+              <h2 class="heading-2">Une évolution naturelle de mon parcours.</h2>
+              
+              <p class="text" style="font-size: 16px; line-height: 1.6; margin-top: 16px;">
+                Après plus de 20 ans dans le conseil RH, la formation et le coaching en entreprise, j’ai choisi d’ouvrir un cabinet dédié aux accompagnements individuels.
+              </p>
+              <p class="text" style="font-size: 16px; line-height: 1.6; margin-top: 12px;">
+                Ce projet n’est pas une reconversion, mais une évolution naturelle de mon parcours et de ce qui m’anime depuis toujours : accompagner les personnes dans les périodes où quelque chose évolue, se transforme ou demande à être remis en mouvement.
+              </p>
+              <p class="text" style="font-size: 16px; line-height: 1.6; margin-top: 12px;">
+                Je continue également d’accompagner les entreprises, les managers et les équipes avec Ophéa Consulting.
+              </p>
+
+              <div style="margin-top: 24px;">
+                <a href="#a-propos" data-wf--button--variant="primary" class="primary-button w-inline-block">
+                  <div class="button-text-wrapper">
+                    <div class="button-text-inner">
+                      <div button-text="" class="button-text">Découvrir mon parcours</div>
+                      <div button-text="" class="button-text">Découvrir mon parcours</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. SECTION TÉMOIGNAGES & AVIS (INFINITE VERTICAL MARQUEE) -->
+    <section class="section section-testimonials-marquee" id="temoignages">
+      <div class="w-layout-blockcontainer container w-container">
+        
+        <div class="testimonials-header-centered">
+          <div class="subtitle testimonials-subtitle">
+            <span class="subtitle-bullet-dot"></span>
+            Témoignages &amp; Avis
+          </div>
+          <h2 class="heading-2 testimonials-title-centered">
+            Ce qu’ils disent de leur accompagnement.
+          </h2>
+          <p class="testimonials-lead-centered">
+            Des retours d’expérience de personnes accompagnées dans leurs transitions de vie, leurs prises de recul et leurs nouveaux départs.
+          </p>
+        </div>
+
+        <!-- 3 Columns Infinite Vertical Marquee Container -->
+        <div class="testimonials-marquee-viewport">
+          
+          <!-- Column 1 -->
+          <div class="testimonials-marquee-col marquee-col-1">
+            <div class="testimonials-marquee-track">
+              <!-- Set 1 -->
+              <div class="testimonial-card-anne">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« J’étais dans une période de transition professionnelle très confuse. Grâce à l’écoute d’Anne et au travail de clarification, j’ai pu dépasser mes peurs et poser les jalons d’un projet qui a enfin du sens pour moi. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c989ab5c37f535b2f02_testi__1_.avif" alt="Claire M." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Claire M.</div>
+                    <div class="testimonial-role">Reconversion professionnelle · Voisins-le-Bretonneux</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Après plusieurs mois de surmenage au bord de l’épuisement, ces séances m'ont permis de retrouver un cadre sécurisant, de poser mes limites et de réapprendre à respirer au quotidien. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c993a830270d7b40da6_testi__2_.avif" alt="Thomas B." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Thomas B.</div>
+                    <div class="testimonial-role">Accompagnement Burn-out · Versailles</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« L’approche intégrative d'Anne est d'une rare finesse. Elle a su combiner douceur et structure pour m'aider à traverser une période de deuil et retrouver progressivement de l’élan. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c9850ccf998a0542645_testi__3_.avif" alt="Sophie L." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Sophie L.</div>
+                    <div class="testimonial-role">Thérapies brèves &amp; Deuil · Guyancourt</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Duplicate for seamless infinite loop -->
+              <div class="testimonial-card-anne" aria-hidden="true">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« J’étais dans une période de transition professionnelle très confuse. Grâce à l’écoute d’Anne et au travail de clarification, j’ai pu dépasser mes peurs et poser les jalons d’un projet qui a enfin du sens pour moi. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c989ab5c37f535b2f02_testi__1_.avif" alt="Claire M." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Claire M.</div>
+                    <div class="testimonial-role">Reconversion professionnelle · Voisins-le-Bretonneux</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne" aria-hidden="true">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Après plusieurs mois de surmenage au bord de l’épuisement, ces séances m'ont permis de retrouver un cadre sécurisant, de poser mes limites et de réapprendre à respirer au quotidien. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c993a830270d7b40da6_testi__2_.avif" alt="Thomas B." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Thomas B.</div>
+                    <div class="testimonial-role">Accompagnement Burn-out · Versailles</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne" aria-hidden="true">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« L’approche intégrative d'Anne est d'une rare finesse. Elle a su combiner douceur et structure pour m'aider à traverser une période de deuil et retrouver progressivement de l’élan. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c9850ccf998a0542645_testi__3_.avif" alt="Sophie L." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Sophie L.</div>
+                    <div class="testimonial-role">Thérapies brèves &amp; Deuil · Guyancourt</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="testimonials-marquee-col marquee-col-2">
+            <div class="testimonials-marquee-track">
+              <!-- Set 1 -->
+              <div class="testimonial-card-anne">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Un accompagnement sur-mesure pour ma posture managériale et mes prises de décisions stratégiques. Une grande pertinence et un professionnalisme rassurant. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c986268f1539e84c85d_testi__4_.avif" alt="Marc D." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Marc D.</div>
+                    <div class="testimonial-role">Coaching de dirigeant · SQY</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Les séances d'hypnose ericksonienne ont débloqué des freins inconscients que je traînais depuis des années. Je me sens beaucoup plus sereine et alignée dans mes choix. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c999b3ebec90bee49bf_testi__5_.avif" alt="Hélène V." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Hélène V.</div>
+                    <div class="testimonial-role">Hypnose &amp; Gestion du stress · Montigny</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Dès le premier rendez-vous, on se sent accueilli sans aucun jugement. Le travail sur les émotions et les croyances m'a permis de reprendre confiance en mes capacités. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c980438353e2a814ca8_testi__6_.avif" alt="Antoine P." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Antoine P.</div>
+                    <div class="testimonial-role">Confiance en soi &amp; Prise de parole · Buc</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Duplicate for seamless infinite loop -->
+              <div class="testimonial-card-anne" aria-hidden="true">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Un accompagnement sur-mesure pour ma posture managériale et mes prises de décisions stratégiques. Une grande pertinence et un professionnalisme rassurant. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c986268f1539e84c85d_testi__4_.avif" alt="Marc D." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Marc D.</div>
+                    <div class="testimonial-role">Coaching de dirigeant · SQY</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne" aria-hidden="true">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Les séances d'hypnose ericksonienne ont débloqué des freins inconscients que je traînais depuis des années. Je me sens beaucoup plus sereine et alignée dans mes choix. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c999b3ebec90bee49bf_testi__5_.avif" alt="Hélène V." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Hélène V.</div>
+                    <div class="testimonial-role">Hypnose &amp; Gestion du stress · Montigny</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne" aria-hidden="true">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Dès le premier rendez-vous, on se sent accueilli sans aucun jugement. Le travail sur les émotions et les croyances m'a permis de reprendre confiance en mes capacités. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c980438353e2a814ca8_testi__6_.avif" alt="Antoine P." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Antoine P.</div>
+                    <div class="testimonial-role">Confiance en soi &amp; Prise de parole · Buc</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="testimonials-marquee-col marquee-col-3">
+            <div class="testimonials-marquee-track">
+              <!-- Set 1 -->
+              <div class="testimonial-card-anne">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Un véritable pas de côté qui m'a sauvée d'une spirale de doute. Anne pose les bonnes questions au bon moment pour nous remettre en mouvement avec justesse. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c9955affaef381874c6_testi__7_.avif" alt="Émilie R." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Émilie R.</div>
+                    <div class="testimonial-role">Transition de vie &amp; Parentalité · Élancourt</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Une posture feutrée et bienveillante qui donne toute sa place à la personne. J'ai enfin trouvé des clés concrètes pour rééquilibrer ma vie personnelle et professionnelle. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c99edcfe088ce492f48_testi__8_.avif" alt="Julien G." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Julien G.</div>
+                    <div class="testimonial-role">Équilibre de vie · Saint-Quentin</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« J'ai particulièrement apprécié l'absence de méthode rigide : chaque séance s'adapte à ce que l'on traverse dans l'instant, avec une écoute profonde et des outils puissants. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c989ab5c37f535b2f02_testi__1_.avif" alt="Camille T." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Camille T.</div>
+                    <div class="testimonial-role">Thérapie brève &amp; Clarté · Magny</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Duplicate for seamless infinite loop -->
+              <div class="testimonial-card-anne" aria-hidden="true">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Un véritable pas de côté qui m'a sauvée d'une spirale de doute. Anne pose les bonnes questions au bon moment pour nous remettre en mouvement avec justesse. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c9955affaef381874c6_testi__7_.avif" alt="Émilie R." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Émilie R.</div>
+                    <div class="testimonial-role">Transition de vie &amp; Parentalité · Élancourt</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne" aria-hidden="true">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« Une posture feutrée et bienveillante qui donne toute sa place à la personne. J'ai enfin trouvé des clés concrètes pour rééquilibrer ma vie personnelle et professionnelle. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c99edcfe088ce492f48_testi__8_.avif" alt="Julien G." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Julien G.</div>
+                    <div class="testimonial-role">Équilibre de vie · Saint-Quentin</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-anne" aria-hidden="true">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">« J'ai particulièrement apprécié l'absence de méthode rigide : chaque séance s'adapte à ce que l'on traverse dans l'instant, avec une écoute profonde et des outils puissants. »</p>
+                <div class="testimonial-author">
+                  <img src="/assets/images/69894c989ab5c37f535b2f02_testi__1_.avif" alt="Camille T." class="testimonial-avatar" />
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-name">Camille T.</div>
+                    <div class="testimonial-role">Thérapie brève &amp; Clarté · Magny</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 9. SECTION FAQ (QUESTIONS FRÉQUENTES) -->
+    <section class="section section-faq" id="faq">
+      <div class="w-layout-blockcontainer container w-container">
+        
+        <!-- Header -->
+        <div class="faq-header-centered">
+          <div class="subtitle faq-subtitle">
+            <span class="subtitle-bullet-dot"></span>
+            Questions fréquentes
+          </div>
+          <h2 class="heading-2 faq-title">
+            Tout ce que vous devez savoir avant de débuter.
+          </h2>
+          <p class="faq-lead">
+            Des réponses claires et bienveillantes pour aborder votre démarche d’accompagnement avec sérénité.
+          </p>
+        </div>
+
+        <!-- Accordion List -->
+        <div class="faq-accordion-list" role="region" aria-label="Foire aux questions">
+          
+          <!-- Item 1 -->
+          <div class="faq-item is-open">
+            <button class="faq-trigger" aria-expanded="true">
+              <span class="faq-question">Comment savoir si ma situation relève du coaching, d’une thérapie brève ou de l’hypnose ?</span>
+              <span class="faq-icon-wrapper" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <div class="faq-answer-text">
+                  Il n’est pas nécessaire de choisir ou d’étiqueter votre besoin à l’avance. Lors de notre première séance, nous explorons ensemble votre demande, vos ressentis et ce qui bloque ou demande à évoluer. Selon vos objectifs, nous combinons les approches de manière intégrative et sur-mesure (éclairage rationnel, libération émotionnelle, ressources inconscientes).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Combien de séances sont généralement nécessaires ?</span>
+              <span class="faq-icon-wrapper" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <div class="faq-answer-text">
+                  Mon accompagnement s’inscrit dans une démarche brève, concrète et axée sur l'autonomie. La plupart des parcours comptent entre <strong>4 et 8 séances</strong>, espacées de 2 à 3 semaines pour vous laisser le temps d'intégrer les apprentissages et les changements dans votre quotidien. Vous restez totalement libre du rythme.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Comment se déroulent les séances au cabinet et en visioconférence ?</span>
+              <span class="faq-icon-wrapper" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <div class="faq-answer-text">
+                  Les consultations ont lieu au cabinet situé au <strong>2 Rue de la Bergerie à Voisins-le-Bretonneux (78960)</strong>, dans un espace feutré, chaleureux et strictement confidentiel. Les séances en visio se déroulent via un lien sécurisé avec la même qualité d'écoute et d'efficacité, idéales si vous êtes éloigné(e) ou fréquemment en déplacement.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">L’hypnose Ericksonienne implique-t-elle une perte de contrôle ?</span>
+              <span class="faq-icon-wrapper" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <div class="faq-answer-text">
+                  Absolument pas. Très loin de l'hypnose de spectacle, l'hypnose Ericksonienne est une méthode thérapeutique douce, collaborative et profondément respectueuse. C'est un état de relaxation et d’attention focalisée (semblable à une rêverie éveillée) où vous restez parfaitement conscient(e), libre de vos choix et maître(sse) de votre séance.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Faut-il attendre d’aller « très mal » pour consulter ?</span>
+              <span class="faq-icon-wrapper" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <div class="faq-answer-text">
+                  Non, bien au contraire ! Il n’est pas nécessaire d’aller mal pour avoir envie d’aller mieux. Faire un pas de côté permet d'anticiper une transition importante, de dépasser une sensation de flou, de clarifier une prise de décision ou d'ouvrir un nouveau chapitre professionnel et personnel avec recul et alignement.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">Les séances sont-elles prises en charge par les mutuelles ?</span>
+              <span class="faq-icon-wrapper" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <div class="faq-answer-text">
+                  La Sécurité Sociale ne prend pas en charge ces consultations. Cependant, de très nombreuses mutuelles et assurances complémentaires proposent aujourd'hui des forfaits « médecines douces » ou « bien-être » prenant en charge tout ou partie des séances d'hypnose et de thérapies brèves. Une facture acquittée vous est transmise après chaque séance.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. SECTION CTA FINAL -->
+    <section class="section cta" id="contact">
+      <div class="cta-background">
+        <div class="w-layout-blockcontainer container cta w-container">
+          <div class="vertical-headline center">
+            <h2 class="heading-1 cta-heading">
+              Vous traversez une étape importante ?
+            </h2>
+            <p class="text white" style="max-width: 680px; margin: 16px auto 24px; font-size: 18px; line-height: 1.6;">
+              Un premier échange peut vous permettre de poser ce qui se joue et de voir si cet accompagnement vous correspond.
+            </p>
+            <div class="button-wrapper">
+              <a href="#contact" data-wf--button--variant="white" class="primary-button w-variant-df50d2b4-2dcf-06cb-393e-886e8cb0681e w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
+                <div class="button-text-wrapper">
+                  <div class="button-text-inner">
+                    <div button-text="" class="button-text">Prendre rendez-vous</div>
+                    <div button-text="" class="button-text">Prendre rendez-vous</div>
+                  </div>
+                </div>
+              </a>
+              <a href="#accueil" data-wf--button--variant="secondary-white" class="primary-button w-variant-f0ba9e15-0444-e4fc-a8e1-1c47fa2d65ed w-inline-block">
+                <div class="button-text-wrapper">
+                  <div class="button-text-inner">
+                    <div button-text="" class="button-text">Revenir en haut ↑</div>
+                    <div button-text="" class="button-text">Revenir en haut ↑</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="cta-cabinet-info">
+              <span>📍 Cabinet à Voisins-le-Bretonneux · 2 Rue de la Bergerie, 78960</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer slot="footer" />
+</Layout>
