@@ -1,0 +1,58 @@
+---
+interface Props {
+  badgeText: string;
+  badgeType?: 'coaching' | 'therapies' | 'hypnose' | 'couple' | 'about' | 'pricing';
+  title: string;
+  lead: string;
+  primaryCtaText?: string;
+  primaryCtaLink?: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+}
+
+const {
+  badgeText,
+  badgeType = 'coaching',
+  title,
+  lead,
+  primaryCtaText = "Prendre rendez-vous",
+  primaryCtaLink = "#contact",
+  secondaryCtaText = "Découvrir le déroulement",
+  secondaryCtaLink = "#deroulement"
+} = Astro.props;
+---
+
+<section class={`interior-hero interior-hero--${badgeType}`}>
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="interior-hero-content">
+      <div class={`interior-badge interior-badge--${badgeType}`}>
+        <span class="interior-badge-dot"></span>
+        <span>{badgeText}</span>
+      </div>
+      <h1 hero-text="" class="interior-hero-title">{title}</h1>
+      <p class="interior-hero-lead">{lead}</p>
+      
+      <div class="interior-hero-buttons">
+        <a href={primaryCtaLink} data-wf--button--variant="primary" class="primary-button w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
+          <div class="button-text-wrapper">
+            <div class="button-text-inner">
+              <div button-text="" class="button-text">{primaryCtaText}</div>
+              <div button-text="" class="button-text">{primaryCtaText}</div>
+            </div>
+          </div>
+        </a>
+        
+        {secondaryCtaText && (
+          <a href={secondaryCtaLink} class="primary-button button-secondary-outline w-inline-block">
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div button-text="" class="button-text">{secondaryCtaText}</div>
+                <div button-text="" class="button-text">{secondaryCtaText}</div>
+              </div>
+            </div>
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import InteriorCta from '../components/InteriorCta.astro';
+---
+
+<Layout 
+  title="À propos d'Anne Chataigner · Thérapeute à Voisins-le-Bretonneux"
+  description="Découvrez le parcours d'Anne Chataigner, son approche intégrative combinant coaching, thérapies brèves et hypnose, et sa vision de l'accompagnement."
+>
+  <Navbar slot="navbar" />
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <PageHero 
+      badgeText="Présentation & Posture"
+      badgeType="about"
+      title="Anne Chataigner, thérapeute à Voisins-le-Bretonneux."
+      lead="J'accompagne les personnes qui traversent des périodes de transition, de doute ou de transformation, avec une approche pragmatique, feutrée et résolument tournée vers vos ressources."
+      primaryCtaText="Prendre rendez-vous"
+      primaryCtaLink="#contact"
+      secondaryCtaText="Découvrir mon parcours"
+      secondaryCtaLink="#parcours"
+    />
+
+    <!-- Section 1 : Parcours & Histoire -->
+    <section class="section interior-section" id="parcours">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="about-story-grid">
+          <div class="about-story-copy">
+            <div class="interior-section-subtitle" style="color: #384A35;">
+              <span class="subtitle-bullet-dot" style="background: #7E917A;"></span>
+              <span>Mon parcours</span>
+            </div>
+            <h2 class="interior-section-title" style="text-align: left; margin-bottom: 24px;">
+              Une écoute forgée par 20 ans d'accompagnement humain.
+            </h2>
+            <p>
+              Avant de créer mon cabinet d'accompagnement individuel à Voisins-le-Bretonneux, j'ai exercé pendant plus de vingt ans dans le <strong>conseil en ressources humaines, la formation et le coaching d'entreprise</strong>.
+            </p>
+            <p>
+              Ce parcours m'a permis d'observer au plus près les dynamiques professionnelles, les charges mentales, les transitions choisies ou subies, et cette formidable capacité d'adaptation qui sommeille en chacun de nous lorsque le bon cadre est posé.
+            </p>
+            <p>
+              Aujourd'hui, j'ai choisi de mettre cette expérience et mes outils thérapeutiques au service des particuliers, dans un espace feutré, calme et sécurisant où l'on peut enfin déposer ce qui pèse et construire la suite avec clarté.
+            </p>
+          </div>
+
+          <div class="about-cabinet-frame">
+            <!-- Emplacement pour la future photo réelle du cabinet -->
+            <div class="about-cabinet-placeholder">
+              <div class="about-cabinet-placeholder-icon">🌿</div>
+              <div class="about-cabinet-placeholder-text">
+                <strong>Cabinet Anne Chataigner</strong><br />
+                2 Rue de la Bergerie, 78960 Voisins-le-Bretonneux<br />
+                <span style="font-size: 13px; opacity: 0.8; margin-top: 6px; display: block;">Espace feutré &amp; confidentiel</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2 : Ma vision de l'accompagnement -->
+    <section class="section interior-section" style="background-color: #F7FAF5;">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="interior-section-header">
+          <div class="interior-section-subtitle" style="color: #384A35;">
+            <span class="subtitle-bullet-dot" style="background: #7E917A;"></span>
+            <span>Philosophie &amp; Convictions</span>
+          </div>
+          <h2 class="interior-section-title">Ma vision de l'accompagnement</h2>
+          <p class="interior-section-lead">
+            Quatre principes directeurs qui guident chacune de mes séances au cabinet et en visioconférence.
+          </p>
+        </div>
+
+        <div class="situations-grid">
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--sage">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="situation-card-title">La force du « pas de côté »</h3>
+            <p class="situation-card-text">
+              Il n'est pas nécessaire d'attendre d'aller très mal pour consulter. S'offrir un pas de côté permet d'anticiper, de clarifier et de poser des choix plus justes avant d'être submergé(e).
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--sage">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.83 6.72 2.24L21 8"/><path d="M21 3v5h-5"/></svg>
+            </div>
+            <h3 class="situation-card-title">La spirale ascendante</h3>
+            <p class="situation-card-text">
+              Le changement durable ne naît pas d'une révolution brutale, mais d'une série de petits pas concrets et réalistes qui recréent de la confiance et du mouvement.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--sage">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3 class="situation-card-title">Vos ressources personnelles</h3>
+            <p class="situation-card-text">
+              Vous êtes l'expert(e) de votre vie. Mon rôle de thérapeute n'est pas de vous donner des leçons toutes faites, mais de vous aider à reconnecter avec vos propres forces.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 : Une boîte à outils intégrative -->
+    <section class="section interior-section">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="interior-section-header">
+          <div class="interior-section-subtitle">
+            <span class="subtitle-bullet-dot"></span>
+            <span>Pratique &amp; Outils</span>
+          </div>
+          <h2 class="interior-section-title">Une approche intégrative et sur-mesure</h2>
+          <p class="interior-section-lead">
+            Chaque personne étant unique, j'associe différentes disciplines complémentaires pour m'adapter à votre besoin singulier.
+          </p>
+        </div>
+
+        <div class="steps-cards-grid">
+          <div class="step-box-card">
+            <div class="step-box-header">
+              <span class="step-box-number" style="background: rgba(129, 146, 172, 0.18); color: #2F425E;">Coaching</span>
+            </div>
+            <h3 class="step-box-title">Clarté &amp; Action</h3>
+            <p class="step-box-text">
+              Pour poser vos objectifs, structurer une transition, identifier vos freins et avancer méthodiquement vers un cap clair.
+            </p>
+            <a href="/coaching" class="text-link" style="margin-top: auto; font-weight: 600; color: var(--anne-coaching);">En savoir plus →</a>
+          </div>
+
+          <div class="step-box-card">
+            <div class="step-box-header">
+              <span class="step-box-number" style="background: rgba(126, 145, 122, 0.18); color: #2E452A;">Thérapies brèves</span>
+            </div>
+            <h3 class="step-box-title">Émotion &amp; Équilibre</h3>
+            <p class="step-box-text">
+              Pour réguler la charge mentale, apaiser l'anxiété, dépasser les schémas répétitifs et retrouver de la sérénité au quotidien.
+            </p>
+            <a href="/therapies-breves" class="text-link" style="margin-top: auto; font-weight: 600; color: #2E452A;">En savoir plus →</a>
+          </div>
+
+          <div class="step-box-card">
+            <div class="step-box-header">
+              <span class="step-box-number" style="background: rgba(223, 163, 139, 0.22); color: #78321A;">Hypnose Ericksonienne</span>
+            </div>
+            <h3 class="step-box-title">Inconscient &amp; Ressources</h3>
+            <p class="step-box-text">
+              Pour débloquer les automatismes profonds, améliorer le sommeil et activer vos potentiels intérieurs en douceur.
+            </p>
+            <a href="/hypnose-ericksonienne" class="text-link" style="margin-top: auto; font-weight: 600; color: #78321A;">En savoir plus →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interior CTA -->
+    <InteriorCta 
+      title="Faisons connaissance lors d'un premier échange"
+      lead="Je vous accueille au cabinet de Voisins-le-Bretonneux ou en visio pour poser vos besoins et voir comment avancer ensemble."
+      buttonText="Prendre rendez-vous"
+    />
+  </main>
+
+  <Footer slot="footer" />
+</Layout>

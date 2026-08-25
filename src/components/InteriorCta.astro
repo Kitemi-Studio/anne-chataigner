@@ -1,0 +1,39 @@
+---
+interface Props {
+  title?: string;
+  lead?: string;
+  buttonText?: string;
+}
+
+const {
+  title = "Vous traversez une étape importante ?",
+  lead = "Un premier échange peut vous permettre de poser ce qui se joue, de clarifier vos besoins et de voir si cet accompagnement vous correspond.",
+  buttonText = "Prendre rendez-vous"
+} = Astro.props;
+---
+
+<section class="section cta" id="contact">
+  <div class="cta-background">
+    <div class="w-layout-blockcontainer container cta w-container">
+      <div class="vertical-headline center">
+        <h2 class="heading-1 cta-heading">{title}</h2>
+        <p class="text white" style="max-width: 680px; margin: 16px auto 24px; font-size: 18px; line-height: 1.6;">
+          {lead}
+        </p>
+        <div class="button-wrapper">
+          <a href="#contact" data-wf--button--variant="white" class="primary-button w-variant-df50d2b4-2dcf-06cb-393e-886e8cb0681e w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div button-text="" class="button-text">{buttonText}</div>
+                <div button-text="" class="button-text">{buttonText}</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="cta-cabinet-info">
+          <span>📍 Cabinet au 2 Rue de la Bergerie, 78960 Voisins-le-Bretonneux &amp; Séances en visioconférence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -38,14 +38,16 @@ function initAnne() {
     // Hero Text animation
     const heroTitles = document.querySelectorAll("[hero-text]");
     heroTitles.forEach((el) => {
-      if (!el.querySelector(".gsap_split_letter")) {
-        const split = new SplitText(el, { type: "words,chars", charsClass: "gsap_split_letter", wordsClass: "gsap_split_word" });
-        gsap.fromTo(
-          split.chars,
-          { y: "100%", opacity: 0 },
-          { y: "0%", opacity: 1, duration: 0.9, stagger: 0.02, ease: "power3.out", delay: 0.15 }
-        );
-      }
+      if (el.dataset.splitDone) return;
+      el.dataset.splitDone = "true";
+      const rawText = el.textContent.trim();
+      el.textContent = rawText;
+      const split = new SplitText(el, { type: "words,chars", charsClass: "gsap_split_letter", wordsClass: "gsap_split_word" });
+      gsap.fromTo(
+        split.chars,
+        { y: "100%", opacity: 0 },
+        { y: "0%", opacity: 1, duration: 0.85, stagger: 0.015, ease: "power3.out", delay: 0.1 }
+      );
       el.style.visibility = "visible";
     });
 

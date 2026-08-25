@@ -1,0 +1,244 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import RelatedServices from '../components/RelatedServices.astro';
+import InteriorCta from '../components/InteriorCta.astro';
+
+const coachingFaq = [
+  {
+    question: "Quelle est la différence entre le coaching et une thérapie brève ?",
+    answer: "Le <strong>coaching</strong> est particulièrement orienté vers l'avenir, la clarification d'un objectif, la prise de décision et la mise en mouvement (transition professionnelle, nouveau projet, alignement personnel). Les <strong>thérapies brèves</strong> s'attachent davantage à apaiser un vécu émotionnel, surmonter une anxiété ou dénouer un blocage profond. Lors de la première consultation, nous évaluons ensemble l'approche la plus juste pour vous."
+  },
+  {
+    question: "Combien de séances sont généralement nécessaires ?",
+    answer: "Le coaching s'inscrit dans une démarche pragmatique et brève. En moyenne, un accompagnement compte <strong>4 à 8 séances</strong> espacées de deux à trois semaines, permettant d'expérimenter concrètement les prises de conscience entre chaque rencontre. Le rythme s'adapte toujours à votre disponibilité et à vos objectifs."
+  },
+  {
+    question: "Où se déroulent les séances de coaching ?",
+    answer: "Les séances peuvent se dérouler soit <strong>au cabinet à Voisins-le-Bretonneux (78960)</strong>, dans un cadre calme, chaleureux et confidentiel, soit <strong>en visioconférence</strong> via un lien sécurisé avec la même dynamique d'échange et d'efficacité."
+  },
+  {
+    question: "Faut-il avoir un objectif parfaitement défini pour commencer ?",
+    answer: "Non, absolument pas. Il arrive très souvent que l'on ressente un besoin de changement ou un flou sans réussir à formuler un objectif précis. La toute première étape du coaching consiste justement à poser ce qui est là, trier les priorités et clarifier ensemble ce vers quoi vous souhaitez cheminer."
+  }
+];
+---
+
+<Layout 
+  title="Coaching individuel à Voisins-le-Bretonneux · Anne Chataigner"
+  description="Accompagnement en coaching pour clarifier vos choix, traverser une transition professionnelle ou personnelle et remettre du mouvement dans votre quotidien."
+>
+  <Navbar slot="navbar" />
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <PageHero 
+      badgeText="Coaching individuel & de transition"
+      badgeType="coaching"
+      title="Remettre du mouvement et clarifier votre cap."
+      lead="Vous traversez une période de transition, un choix important ou une sensation de blocage ? Le coaching vous offre un espace sécurisant et structurant pour prendre du recul, mobiliser vos ressources et construire des solutions durables."
+      primaryCtaText="Prendre rendez-vous"
+      primaryCtaLink="#contact"
+      secondaryCtaText="Découvrir l'approche"
+      secondaryCtaLink="#situations"
+    />
+
+    <!-- Section 1 : Situations -->
+    <section class="section interior-section" id="situations">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="interior-section-header">
+          <div class="interior-section-subtitle">
+            <span class="subtitle-bullet-dot"></span>
+            <span>Votre point de départ</span>
+          </div>
+          <h2 class="interior-section-title">Est-ce que cet accompagnement peut vous correspondre ?</h2>
+          <p class="interior-section-lead">
+            Le coaching s'adresse à toute personne souhaitant faire évoluer une situation, qu'il s'agisse d'un défi professionnel, d'un changement de vie ou d'une recherche d'alignement personnel.
+          </p>
+        </div>
+
+        <div class="situations-grid">
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="situation-card-title">Transition de vie ou carrefour</h3>
+            <p class="situation-card-text">
+              Changement professionnel, reconversion, prise de nouvelles responsabilités, départ des enfants ou nouveau chapitre personnel à structurer.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24"/></svg>
+            </div>
+            <h3 class="situation-card-title">Clarification &amp; Prise de décision</h3>
+            <p class="situation-card-text">
+              Dilemme complexe, sentiment de stagnation ou hésitation entre plusieurs directions sans savoir par où commencer.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4-4-4M8 10h8M3 20h18M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+            </div>
+            <h3 class="situation-card-title">Quête de sens &amp; Alignement</h3>
+            <p class="situation-card-text">
+              Baisse d'énergie, perte de motivation ou besoin de réaligner votre quotidien professionnel et personnel avec ce qui compte vraiment pour vous.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="situation-card-title">Posture &amp; Affirmation</h3>
+            <p class="situation-card-text">
+              Trouver votre juste place, apprendre à poser des limites sereines, développer votre leadership personnel et communiquer avec assurance.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3 class="situation-card-title">Passage à l'action &amp; Énergie</h3>
+            <p class="situation-card-text">
+              Sortir de la procrastination, débloquer une initiative en suspens et avancer avec une méthode concrète par petits pas sécurisants.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="situation-card-title">Faire un « pas de côté »</h3>
+            <p class="situation-card-text">
+              S'accorder une pause réflexive pour anticiper, faire le point sur ses réussites et préparer la suite en toute sérénité.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2 : Déroulement en 3 étapes -->
+    <section class="section interior-section" id="deroulement" style="background-color: #F8FAFC;">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="interior-section-header">
+          <div class="interior-section-subtitle">
+            <span class="subtitle-bullet-dot"></span>
+            <span>Méthode &amp; Cheminement</span>
+          </div>
+          <h2 class="interior-section-title">Le déroulement en trois étapes clés</h2>
+          <p class="interior-section-lead">
+            Un cadre structurant, bienveillant et orienté vers des actions réalistes pour transformer la réflexion en dynamique concrète.
+          </p>
+        </div>
+
+        <div class="steps-cards-grid">
+          <!-- Step 1 -->
+          <div class="step-box-card">
+            <div class="step-box-header">
+              <span class="step-box-number">Étape 01</span>
+            </div>
+            <h3 class="step-box-title">Clarifier la situation &amp; poser l'intention</h3>
+            <p class="step-box-text">
+              Nous explorons ce qui se joue actuellement, vos enjeux, ce qui vous pèse ou ce qui vous freine, afin de formuler une intention claire et motivante.
+            </p>
+            <div class="step-box-keypoints">
+              <div class="step-keypoint-row">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>État des lieux sans jugement</span>
+              </div>
+              <div class="step-keypoint-row">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Identification des vrais leviers</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-box-card">
+            <div class="step-box-header">
+              <span class="step-box-number">Étape 02</span>
+            </div>
+            <h3 class="step-box-title">Explorer vos ressources &amp; lever les freins</h3>
+            <p class="step-box-text">
+              Nous identifions vos forces, vos compétences clés et vos réussites passées pour dépasser les croyances limitantes et ouvrir de nouvelles perspectives.
+            </p>
+            <div class="step-box-keypoints">
+              <div class="step-keypoint-row">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Mobilisation de vos compétences</span>
+              </div>
+              <div class="step-keypoint-row">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Désamorçage des doutes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-box-card">
+            <div class="step-box-header">
+              <span class="step-box-number">Étape 03</span>
+            </div>
+            <h3 class="step-box-title">Avancer par petits pas &amp; ancrer le cap</h3>
+            <p class="step-box-text">
+              Vous définissez un plan d'action progressif et réaliste. Entre chaque séance, vous expérimentez de nouvelles façons d'agir pour créer une spirale positive.
+            </p>
+            <div class="step-box-keypoints">
+              <div class="step-keypoint-row">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Actions concrètes et adaptées</span>
+              </div>
+              <div class="step-keypoint-row">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Autonomie et confiance durable</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Encart Tarifaire Discret -->
+        <div class="pricing-banner-card">
+          <div class="pricing-banner-info">
+            <div class="pricing-banner-tag">Modalités &amp; Tarif</div>
+            <h3 class="pricing-banner-title">Consultation individuelle de Coaching</h3>
+            <p class="pricing-banner-desc">
+              Séance individuelle d'1 heure au cabinet de Voisins-le-Bretonneux ou en visio. Un cadre sécurisant adapté à votre rythme.
+            </p>
+          </div>
+          <div class="pricing-banner-action">
+            <div class="pricing-banner-amount">85 €</div>
+            <div class="pricing-banner-duration">Durée : 1 heure</div>
+            <a href="/tarifs" class="text-link" style="margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--anne-coaching);">Voir tous les tarifs →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <FaqAccordion 
+      items={coachingFaq}
+      subtitle="Questions fréquentes"
+      title="Tout comprendre sur le coaching individuel"
+      badgeType="coaching"
+    />
+
+    <!-- Related Services -->
+    <RelatedServices currentService="coaching" />
+
+    <!-- Interior CTA -->
+    <InteriorCta 
+      title="Prêt(e) à clarifier votre situation ?"
+      lead="Un premier échange permet de poser ce qui se joue, de faire le point sur vos attentes et d'envisager ensemble la démarche la plus ajustée."
+      buttonText="Prendre rendez-vous"
+    />
+  </main>
+
+  <Footer slot="footer" />
+</Layout>

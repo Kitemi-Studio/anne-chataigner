@@ -1,0 +1,713 @@
+/**
+ * Anne Chataigner — Interior Pages Stylesheet
+ * Integrates seamlessly with Anne Chataigner Design System & Palette
+ */
+
+/* ==========================================================================
+   1. Interior Hero Section
+   ========================================================================== */
+.interior-hero {
+  position: relative;
+  padding: 160px 0 90px;
+  background-color: var(--anne-bg-light);
+  overflow: hidden;
+  border-bottom: 1px solid var(--anne-border);
+}
+
+.interior-hero--coaching {
+  background: linear-gradient(180deg, #F0F4F8 0%, #EBF1F7 60%, var(--anne-bg-light) 100%);
+}
+
+.interior-hero--therapies {
+  background: linear-gradient(180deg, #EFF4EE 0%, #E7EFE6 60%, var(--anne-bg-light) 100%);
+}
+
+.interior-hero--hypnose {
+  background: linear-gradient(180deg, #FAF1EC 0%, #F5EAE4 60%, var(--anne-bg-light) 100%);
+}
+
+.interior-hero--couple {
+  background: linear-gradient(180deg, #FAF4E8 0%, #F5EFE0 60%, var(--anne-bg-light) 100%);
+}
+
+.interior-hero--about {
+  background: linear-gradient(180deg, #F5F7F3 0%, #EDF2EB 60%, var(--anne-bg-light) 100%);
+}
+
+.interior-hero--pricing {
+  background: linear-gradient(180deg, #F6F8FA 0%, #EEF2F6 60%, var(--anne-bg-light) 100%);
+}
+
+.interior-hero-content {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.interior-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.interior-badge--coaching {
+  background: rgba(129, 146, 172, 0.18);
+  color: #2F425E;
+}
+
+.interior-badge--therapies {
+  background: rgba(126, 145, 122, 0.18);
+  color: #2E452A;
+}
+
+.interior-badge--hypnose {
+  background: rgba(223, 163, 139, 0.22);
+  color: #78321A;
+}
+
+.interior-badge--couple {
+  background: rgba(217, 164, 88, 0.22);
+  color: #6D4811;
+}
+
+.interior-badge--about {
+  background: rgba(126, 145, 122, 0.18);
+  color: #384A35;
+}
+
+.interior-badge--pricing {
+  background: rgba(129, 146, 172, 0.18);
+  color: #324765;
+}
+
+.interior-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.interior-hero-title {
+  font-family: var(--_typography---font-family--heading);
+  font-size: clamp(34px, 3.8vw, 54px);
+  line-height: 1.15;
+  color: var(--anne-ink-dark);
+  margin-bottom: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.interior-hero-lead {
+  font-size: 18px;
+  line-height: 1.68;
+  color: var(--anne-ink);
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+
+.interior-hero-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.button-secondary-outline {
+  background: #ffffff !important;
+  border: 1px solid var(--anne-border) !important;
+  color: var(--anne-ink-dark) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease !important;
+}
+
+.button-secondary-outline:hover {
+  border-color: var(--anne-ink-dark) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================================================
+   2. Generic Interior Section Styles
+   ========================================================================== */
+.section.interior-section {
+  padding: 90px 0 100px;
+  position: relative;
+}
+
+.interior-section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 56px;
+}
+
+.interior-section-subtitle {
+  color: var(--anne-coaching);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.interior-section-title {
+  font-family: var(--_typography---font-family--heading);
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.2;
+  color: var(--anne-ink-dark);
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.interior-section-lead {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--anne-ink);
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. Situation Cards & Situations Grid
+   ========================================================================== */
+.situations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.situation-card {
+  background: #ffffff;
+  border: 1px solid var(--anne-border);
+  border-radius: 20px;
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.025);
+}
+
+.situation-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(129, 146, 172, 0.45);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.06);
+}
+
+.situation-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.situation-card-icon--blue {
+  background: rgba(129, 146, 172, 0.16);
+  color: #3b5070;
+}
+
+.situation-card-icon--sage {
+  background: rgba(126, 145, 122, 0.16);
+  color: #2E452A;
+}
+
+.situation-card-icon--terracotta {
+  background: rgba(223, 163, 139, 0.2);
+  color: #8A4027;
+}
+
+.situation-card-icon--amber {
+  background: rgba(217, 164, 88, 0.2);
+  color: #7D5114;
+}
+
+.situation-card-title {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 19px;
+  line-height: 1.3;
+  color: var(--anne-ink-dark);
+  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.situation-card-text {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+/* ==========================================================================
+   4. Steps & Methodology Cards (3 & 4 Steps)
+   ========================================================================== */
+.steps-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.step-box-card {
+  background: #ffffff;
+  border: 1px solid var(--anne-border);
+  border-radius: 22px;
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.025);
+}
+
+.step-box-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+}
+
+.step-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step-box-number {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--anne-surface);
+  color: var(--anne-ink-dark);
+}
+
+.step-box-title {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 21px;
+  line-height: 1.25;
+  color: var(--anne-ink-dark);
+  margin-bottom: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.step-box-text {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--anne-ink);
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.step-box-keypoints {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(101, 101, 95, 0.08);
+}
+
+.step-keypoint-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--anne-ink-dark);
+  font-weight: 500;
+}
+
+.step-keypoint-row svg {
+  color: var(--anne-coaching);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   5. Pricing Highlight Box & Cards
+   ========================================================================== */
+.pricing-banner-card {
+  background: linear-gradient(135deg, #ffffff 0%, var(--anne-surface) 100%);
+  border: 1px solid rgba(235, 194, 132, 0.45);
+  border-radius: 24px;
+  padding: 36px 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  margin-top: 56px;
+}
+
+.pricing-banner-info {
+  max-width: 600px;
+}
+
+.pricing-banner-tag {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8A4027;
+  margin-bottom: 8px;
+}
+
+.pricing-banner-title {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--anne-ink-dark);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.pricing-banner-desc {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+.pricing-banner-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.pricing-banner-amount {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--anne-ink-dark);
+  line-height: 1;
+}
+
+.pricing-banner-duration {
+  font-size: 14px;
+  color: var(--anne-ink);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   6. Pricing Page 3-Cards System
+   ========================================================================== */
+.pricing-grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.pricing-main-card {
+  background: #ffffff;
+  border: 1px solid var(--anne-border);
+  border-radius: 24px;
+  padding: 38px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.pricing-main-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.07);
+}
+
+.pricing-main-card--featured {
+  border-color: var(--anne-coaching);
+  box-shadow: 0 12px 36px rgba(129, 146, 172, 0.12);
+}
+
+.pricing-card-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.pricing-card-title {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 25px;
+  line-height: 1.2;
+  color: var(--anne-ink-dark);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.pricing-card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 16px 0 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(101, 101, 95, 0.1);
+}
+
+.pricing-card-price {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--anne-ink-dark);
+  line-height: 1;
+}
+
+.pricing-card-duration {
+  font-size: 15px;
+  color: var(--anne-ink);
+  font-weight: 500;
+}
+
+.pricing-card-copy {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--anne-ink);
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+
+.pricing-card-action {
+  margin-top: auto;
+}
+
+.pricing-card-action .primary-button {
+  width: 100%;
+}
+
+.pricing-card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--anne-coaching);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.pricing-card-link:hover {
+  color: var(--anne-ink-dark);
+}
+
+/* ==========================================================================
+   7. Related / Cross Services Grid
+   ========================================================================== */
+.related-services-section {
+  padding: 80px 0 90px;
+  background: var(--anne-surface);
+  border-top: 1px solid var(--anne-border);
+}
+
+.related-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.related-service-card {
+  background: #ffffff;
+  border: 1px solid var(--anne-border);
+  border-radius: 20px;
+  padding: 32px 30px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.025);
+}
+
+.related-service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--anne-coaching);
+  box-shadow: 0 14px 34px rgba(129, 146, 172, 0.12);
+}
+
+.related-service-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.related-service-title {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--anne-ink-dark);
+  margin: 0;
+}
+
+.related-service-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--anne-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--anne-ink-dark);
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.related-service-card:hover .related-service-arrow {
+  transform: translateX(4px);
+  background: var(--anne-coaching);
+  color: #ffffff;
+}
+
+.related-service-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+/* ==========================================================================
+   8. About Page Specific Layouts
+   ========================================================================== */
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.about-story-copy p {
+  font-size: 16.5px;
+  line-height: 1.72;
+  color: var(--anne-ink);
+  margin-bottom: 20px;
+}
+
+.about-cabinet-frame {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: #ffffff;
+  aspect-ratio: 4 / 3;
+}
+
+.about-cabinet-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-cabinet-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #F5F7F3 0%, #E8EFE6 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  color: #384A35;
+}
+
+.about-cabinet-placeholder-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.about-cabinet-placeholder-text {
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 500;
+  max-width: 320px;
+}
+
+/* ==========================================================================
+   9. Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 991px) {
+  .situations-grid,
+  .pricing-grid-three {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .pricing-banner-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 26px;
+  }
+
+  .pricing-banner-action {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .pricing-banner-action .primary-button {
+    width: 100%;
+  }
+
+  .related-services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .interior-hero {
+    padding: 130px 0 70px;
+  }
+
+  .interior-hero-title {
+    font-size: 30px;
+  }
+
+  .interior-hero-lead {
+    font-size: 16px;
+  }
+
+  .section.interior-section {
+    padding: 70px 0 80px;
+  }
+
+  .situation-card,
+  .step-box-card,
+  .pricing-main-card {
+    padding: 24px 20px;
+  }
+}

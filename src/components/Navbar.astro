@@ -1,11 +1,13 @@
 ---
 // Navbar Component — Anne Chataigner
+const pathname = Astro.url.pathname;
+const isHome = pathname === "/" || pathname === "";
 ---
 
 <div data-wf--navbar--variant="absolute" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-variant-4d7dc134-f2e5-754d-5a3f-cd12e3224dcd w-nav">
   <div class="container w-container">
     <div class="navbar-wrapper">
-      <a href="/" aria-current="page" class="navbar-brand-link w-nav-brand w--current" aria-label="Anne Chataigner Accueil">
+      <a href="/" class={`navbar-brand-link w-nav-brand ${isHome ? 'w--current' : ''}`} aria-label="Anne Chataigner Accueil">
         <img loading="lazy" src="/assets/Logo%20Anne%20Chataigner.svg" alt="Logo Anne Chataigner" class="navbar-logo" />
         <span class="navbar-brand-title">Anne Chataigner</span>
       </a>
@@ -13,14 +15,15 @@
       <nav role="navigation" class="nav-menu w-nav-menu">
         <div class="nav-menu-inner">
           <div class="nav-links-group">
-            <a href="#accompagnements" class="nav-link">Accompagnements</a>
-            <a href="#a-propos" class="nav-link">À propos</a>
-            <a href="#faq" class="nav-link">FAQ</a>
-            <a href="/pricing.html" class="nav-link">Tarifs</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="/coaching" class={`nav-link ${pathname === '/coaching' ? 'w--current' : ''}`}>Coaching</a>
+            <a href="/therapies-breves" class={`nav-link ${pathname === '/therapies-breves' ? 'w--current' : ''}`}>Thérapies brèves</a>
+            <a href="/hypnose-ericksonienne" class={`nav-link ${pathname === '/hypnose-ericksonienne' ? 'w--current' : ''}`}>Hypnose</a>
+            <a href="/a-propos" class={`nav-link ${pathname === '/a-propos' ? 'w--current' : ''}`}>À propos</a>
+            <a href="/tarifs" class={`nav-link ${pathname === '/tarifs' ? 'w--current' : ''}`}>Tarifs</a>
+            <a href={isHome ? "#contact" : "/#contact"} class="nav-link">Contact</a>
           </div>
           
-          <a href="#contact" class="primary-button navbar-button w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
+          <a href={isHome ? "#contact" : "/#contact"} class="primary-button navbar-button w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
             <div class="button-text-wrapper">
               <div class="button-text-inner">
                 <div button-text="" class="button-text">Prendre rendez-vous</div>

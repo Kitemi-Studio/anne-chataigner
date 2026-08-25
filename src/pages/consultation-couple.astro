@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import RelatedServices from '../components/RelatedServices.astro';
+import InteriorCta from '../components/InteriorCta.astro';
+
+const coupleFaq = [
+  {
+    question: "Que faire si l'un des deux partenaires est hésitant à l'idée de consulter ?",
+    answer: "Il est très fréquent que l'un des conjoints éprouve des réticences ou craigne d'être jugé. La consultation n'a pas vocation à désigner un « coupable » ni à imposer une issue prédéterminée. C'est avant tout un <strong>espace neutre d'exploration</strong>. Venir pour une première séance sans engagement à long terme permet souvent de dissiper ces appréhensions et de constater le caractère sécurisant du cadre."
+  },
+  {
+    question: "La consultation de couple est-elle réservée aux crises graves ?",
+    answer: "Non. Tout comme pour les consultations individuelles, <strong>il n'est pas nécessaire d'attendre la rupture ou l'épuisement pour se faire accompagner</strong>. Consulter lors d'une transition (arrivée d'un enfant, départ à la retraite, changement professionnel) permet de prévenir les incompréhensions, de réajuster le dialogue et de consolider le lien."
+  },
+  {
+    question: "L'accompagnement a-t-il obligatoirement pour but de 'sauver' le couple ?",
+    answer: "L'objectif est d'accompagner les deux partenaires vers <strong>ce qui est juste pour chacun et pour la relation</strong>. Selon votre situation et vos désirs, cela peut signifier retrouver une intimité et une complicité renouvelées, ou bien clarifier une séparation dans le respect mutuel, le calme et la bienveillance."
+  },
+  {
+    question: "Comment se déroule une séance au cabinet ?",
+    answer: "Les séances durent <strong>1h30</strong>. Ce format spacieux garantit que chaque partenaire dispose d'un temps de parole équitable et que les échanges puissent se déployer sans précipitation."
+  }
+];
+---
+
+<Layout 
+  title="Consultation de couple à Voisins-le-Bretonneux · Anne Chataigner"
+  description="Un espace neutre et bienveillant pour permettre à chaque partenaire de s'exprimer, éclairer ce qui se joue dans la relation et cheminer ensemble."
+>
+  <Navbar slot="navbar" />
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <PageHero 
+      badgeText="Accompagnement relationnel & de couple"
+      badgeType="couple"
+      title="Un espace pour dialoguer, se comprendre et cheminer ensemble."
+      lead="Un espace neutre, bienveillant et sécurisant pour permettre à chacun de s’exprimer, mettre en lumière ce qui se joue dans la relation et cheminer ensemble vers ce qui est juste pour soi et pour le couple."
+      primaryCtaText="Prendre rendez-vous"
+      primaryCtaLink="#contact"
+      secondaryCtaText="Découvrir le cadre"
+      secondaryCtaLink="#cadre"
+    />
+
+    <!-- Section 1 : Situations -->
+    <section class="section interior-section" id="situations">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="interior-section-header">
+          <div class="interior-section-subtitle" style="color: #7D5114;">
+            <span class="subtitle-bullet-dot" style="background: #D9A458;"></span>
+            <span>Moments clés de la relation</span>
+          </div>
+          <h2 class="interior-section-title">Quand envisager une consultation de couple ?</h2>
+          <p class="interior-section-lead">
+            Chaque couple traverse des cycles, des transformations et des remises en question. Voici les moments où un accompagnement extérieur permet de retrouver de la clarté.
+          </p>
+        </div>
+
+        <div class="situations-grid">
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--amber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3 class="situation-card-title">Difficultés de communication</h3>
+            <p class="situation-card-text">
+              Sentiment de ne plus réussir à se parler sans hausser le ton, dialogues de sourds, malentendus récurrents ou repli sur soi.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--amber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="situation-card-title">Transitions &amp; Nouvelles étapes</h3>
+            <p class="situation-card-text">
+              Arrivée d'un premier enfant, recomposition familiale, départ des grands du foyer ou réorganisation suite à un changement de rythme.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--amber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3 class="situation-card-title">Distance émotionnelle &amp; Usure</h3>
+            <p class="situation-card-text">
+              Sensation de vivre « comme des colocataires », perte de complicité, baisse d'attention mutuelle ou routine écrasante.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--amber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24"/></svg>
+            </div>
+            <h3 class="situation-card-title">Désaccords sur les valeurs</h3>
+            <p class="situation-card-text">
+              Visions divergentes sur l'éducation des enfants, les finances, le partage des tâches ou les projets d'avenir.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--amber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="situation-card-title">Crise de confiance ou blessure</h3>
+            <p class="situation-card-text">
+              Faire face à un non-dit, une infidélité ou une rupture de contrat tacite, pour poser les choses calmement et décider de la suite.
+            </p>
+          </div>
+
+          <div class="situation-card">
+            <div class="situation-card-icon situation-card-icon--amber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4-4-4M8 10h8M3 20h18M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+            </div>
+            <h3 class="situation-card-title">Clarifier l'avenir du couple</h3>
+            <p class="situation-card-text">
+              Prendre le temps d'une réflexion posée pour redéfinir les bases du lien ou accompagner une séparation dans le respect mutuel.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2 : Cadre & Posture -->
+    <section class="section interior-section" id="cadre" style="background-color: #FAF6F0;">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="interior-section-header">
+          <div class="interior-section-subtitle" style="color: #7D5114;">
+            <span class="subtitle-bullet-dot" style="background: #D9A458;"></span>
+            <span>Cadre &amp; Déroulement</span>
+          </div>
+          <h2 class="interior-section-title">Le déroulement de la démarche</h2>
+          <p class="interior-section-lead">
+            Un tiers neutre permet d'éviter l'escalade, de réguler la parole et d'aider chacun à exprimer ce qui n'arrivait plus à être entendu.
+          </p>
+        </div>
+
+        <div class="steps-cards-grid">
+          <!-- Step 1 -->
+          <div class="step-box-card">
+            <div class="step-box-header">
+              <span class="step-box-number" style="background: #FAF4E8; color: #6D4811;">01 · Expression</span>
+            </div>
+            <h3 class="step-box-title">Un temps d'écoute équitable</h3>
+            <p class="step-box-text">
+              Chaque partenaire exprime sa vision de la situation, ses attentes et ses ressentis, sans interruption ni reproche, dans un cadre apaisé.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-box-card">
+            <div class="step-box-header">
+              <span class="step-box-number" style="background: #FAF4E8; color: #6D4811;">02 · Décodage</span>
+            </div>
+            <h3 class="step-box-title">Mettre en lumière les mécanismes</h3>
+            <p class="step-box-text">
+              Nous analysons ensemble les schémas d'interaction : qui déclenche quoi, quelles blessures sont réactivées et où se situent les blocages.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-box-card">
+            <div class="step-box-header">
+              <span class="step-box-number" style="background: #FAF4E8; color: #6D4811;">03 · Réajustement</span>
+            </div>
+            <h3 class="step-box-title">Construire des solutions concrètes</h3>
+            <p class="step-box-text">
+              Vous élaborez des accords relationnels précis, des règles de communication et des rituels à tester dans votre quotidien entre les séances.
+            </p>
+          </div>
+        </div>
+
+        <!-- Encart Tarifaire Couple -->
+        <div class="pricing-banner-card">
+          <div class="pricing-banner-info">
+            <div class="pricing-banner-tag" style="color: #6D4811;">Modalités &amp; Tarif</div>
+            <h3 class="pricing-banner-title">Consultation de couple</h3>
+            <p class="pricing-banner-desc">
+              Un espace neutre, bienveillant et sécurisant pour permettre à chacun de s’exprimer, mettre en lumière ce qui se joue dans la relation et cheminer ensemble.
+            </p>
+          </div>
+          <div class="pricing-banner-action">
+            <div class="pricing-banner-amount">150 €</div>
+            <div class="pricing-banner-duration">Durée : 1 h 30</div>
+            <a href="/tarifs" class="text-link" style="margin-top: 4px; font-size: 14px; font-weight: 600; color: #6D4811;">Consulter tous les tarifs →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <FaqAccordion 
+      items={coupleFaq}
+      subtitle="Questions fréquentes"
+      title="Tout comprendre sur la consultation de couple"
+      badgeType="couple"
+    />
+
+    <!-- Related Services -->
+    <RelatedServices currentService="couple" />
+
+    <!-- Interior CTA -->
+    <InteriorCta 
+      title="Besoin d'un espace pour échanger sereinement ?"
+      lead="Prenez rendez-vous au cabinet de Voisins-le-Bretonneux pour ouvrir un nouveau dialogue au sein de votre couple."
+      buttonText="Prendre rendez-vous"
+    />
+  </main>
+
+  <Footer slot="footer" />
+</Layout>

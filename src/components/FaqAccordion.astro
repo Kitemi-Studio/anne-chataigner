@@ -1,0 +1,53 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  subtitle?: string;
+  title?: string;
+  badgeType?: string;
+}
+
+const {
+  items,
+  subtitle = "Questions fréquentes",
+  title = "Tout ce qu'il faut savoir pour démarrer sereinement",
+  badgeType = "coaching"
+} = Astro.props;
+---
+
+<section class="section section-faq" id="faq">
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="faq-header-centered">
+      <div class={`subtitle faq-subtitle subtitle--${badgeType}`}>
+        <span class="subtitle-bullet-dot"></span>
+        <span>{subtitle}</span>
+      </div>
+      <h2 class="heading-2 faq-title-main">{title}</h2>
+    </div>
+
+    <div class="faq-accordion-list">
+      {items.map((item) => (
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">{item.question}</span>
+            <span class="faq-icon-wrapper" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-text" set:html={item.answer} />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
