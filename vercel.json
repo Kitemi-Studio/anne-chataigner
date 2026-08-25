@@ -1,6 +1,5 @@
 {
-  "buildCommand": "node scripts/build_vercel.mjs",
-  "outputDirectory": ".vercel/output/static",
+  "framework": "astro",
   "cleanUrls": true,
   "trailingSlash": false
 }
