@@ -2,226 +2,208 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHero from '../components/PageHero.astro';
+import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
+import SituationCloud from '../components/SituationCloud.astro';
+import InsightSection from '../components/InsightSection.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import BenefitGrid from '../components/BenefitGrid.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import RelatedServices from '../components/RelatedServices.astro';
 import InteriorCta from '../components/InteriorCta.astro';
 
+const coachingTags = [
+  { text: "Reconversion professionnelle", color: "blue", size: "lg" },
+  { text: "Prise de nouvelles responsabilités", color: "slate", size: "md" },
+  { text: "Perte de sens & démotivation", color: "terracotta", size: "md" },
+  { text: "Syndrome de l'imposteur", color: "rose", size: "sm" },
+  { text: "Charge mentale du dirigeant", color: "blue", size: "lg" },
+  { text: "Carrefour de vie pro / perso", color: "green", size: "md" },
+  { text: "Apprendre à poser ses limites", color: "amber", size: "md" },
+  { text: "Sortir de la procrastination", color: "terracotta", size: "sm" },
+  { text: "Préparer un départ ou une retraite", color: "sage", size: "md" },
+  { text: "Dilemme & décision complexe", color: "blue", size: "lg" },
+  { text: "Retrouver son énergie d'action", color: "amber", size: "md" },
+  { text: "Clarification d'un projet de création", color: "green", size: "sm" },
+  { text: "Gestion des conflits d'équipe", color: "slate", size: "md" },
+  { text: "Faire un pas de côté salutaire", color: "blue", size: "lg" }
+];
+
+const coachingSteps = [
+  {
+    number: "Étape 01",
+    title: "Clarifier la situation & poser l'intention",
+    description: "Nous cartographions vos enjeux réels, ce qui vous pèse ou freine votre progression. Nous transformons le flou ou le doute en une intention claire et inspirante.",
+    keypoints: [
+      "État des lieux complet sans jugement",
+      "Tri des priorités essentielles",
+      "Formulation d'un cap motivant"
+    ]
+  },
+  {
+    number: "Étape 02",
+    title: "Explorer vos leviers & lever les freins",
+    description: "Nous identifions vos compétences clés souvent sous-estimées et déconstruisons les croyances limitantes qui bloquent votre prise de décision.",
+    keypoints: [
+      "Mise en lumière de vos forces propres",
+      "Désamorçage des doutes et peurs d'échouer",
+      "Changement de perspective sur vos options"
+    ]
+  },
+  {
+    number: "Étape 03",
+    title: "Avancer par petits pas & ancrer le changement",
+    description: "Vous élaborez un plan d'action réaliste et mesurable. Entre chaque séance, vous expérimentez de nouveaux comportements pour créer une dynamique pérenne.",
+    keypoints: [
+      "Actions concrètes et adaptées à votre rythme",
+      "Expérimentations observables au quotidien",
+      "Autonomie et confiance durable"
+    ]
+  }
+];
+
+const coachingBenefits = [
+  {
+    step: "01",
+    title: "Clarté & Vision d'avenir",
+    description: "Sortez du brouillard mental. Vous savez exactement où vous voulez aller et quelles sont vos véritables priorités.",
+    color: "blue",
+    iconType: "compass"
+  },
+  {
+    step: "02",
+    title: "Confiance & Posture affirmée",
+    description: "Renforcez votre légitimité, osez poser des limites sereines et communiquez vos choix avec assurance.",
+    color: "terracotta",
+    iconType: "shield"
+  },
+  {
+    step: "03",
+    title: "Alignement personnel",
+    description: "Réconciliez vos aspirations profondes avec les réalités de votre quotidien professionnel et personnel.",
+    color: "sage",
+    iconType: "heart"
+  },
+  {
+    step: "04",
+    title: "Énergie & Mouvement concret",
+    description: "Dépassez l'inertie et la procrastination grâce à la méthode des petits pas réalistes et motivants.",
+    color: "amber",
+    iconType: "zap"
+  }
+];
+
 const coachingFaq = [
   {
-    question: "Quelle est la différence entre le coaching et une thérapie brève ?",
-    answer: "Le <strong>coaching</strong> est particulièrement orienté vers l'avenir, la clarification d'un objectif, la prise de décision et la mise en mouvement (transition professionnelle, nouveau projet, alignement personnel). Les <strong>thérapies brèves</strong> s'attachent davantage à apaiser un vécu émotionnel, surmonter une anxiété ou dénouer un blocage profond. Lors de la première consultation, nous évaluons ensemble l'approche la plus juste pour vous."
+    question: "Quelle est la différence entre le coaching individuel et une thérapie brève ?",
+    answer: "Le <strong>coaching</strong> est particulièrement tourné vers l'avenir, la clarification d'un objectif, la prise de décision et la mise en mouvement (transition professionnelle, nouveau projet, alignement personnel). Les <strong>thérapies brèves</strong> s'attachent davantage à apaiser un vécu émotionnel, surmonter une anxiété ou dénouer un blocage profond. Lors de notre première consultation, nous évaluons ensemble l'approche la plus juste pour votre situation."
   },
   {
     question: "Combien de séances sont généralement nécessaires ?",
-    answer: "Le coaching s'inscrit dans une démarche pragmatique et brève. En moyenne, un accompagnement compte <strong>4 à 8 séances</strong> espacées de deux à trois semaines, permettant d'expérimenter concrètement les prises de conscience entre chaque rencontre. Le rythme s'adapte toujours à votre disponibilité et à vos objectifs."
+    answer: "Le coaching s'inscrit dans une démarche pragmatique et brève. En moyenne, un accompagnement compte <strong>4 à 8 séances</strong> espacées de deux à trois semaines, ce qui vous permet d'expérimenter concrètement les prises de conscience entre chaque rencontre. Le rythme s'adapte toujours à vos disponibilités."
   },
   {
-    question: "Où se déroulent les séances de coaching ?",
-    answer: "Les séances peuvent se dérouler soit <strong>au cabinet à Voisins-le-Bretonneux (78960)</strong>, dans un cadre calme, chaleureux et confidentiel, soit <strong>en visioconférence</strong> via un lien sécurisé avec la même dynamique d'échange et d'efficacité."
+    question: "Comment se déroulent les séances au cabinet et en visioconférence ?",
+    answer: "Les séances peuvent se dérouler soit <strong>au cabinet à Voisins-le-Bretonneux (78960)</strong>, dans un cadre calme, feutré et confidentiel, soit <strong>en visioconférence</strong> via un lien sécurisé avec la même dynamique d'échange et d'efficacité."
   },
   {
-    question: "Faut-il avoir un objectif parfaitement défini pour commencer ?",
-    answer: "Non, absolument pas. Il arrive très souvent que l'on ressente un besoin de changement ou un flou sans réussir à formuler un objectif précis. La toute première étape du coaching consiste justement à poser ce qui est là, trier les priorités et clarifier ensemble ce vers quoi vous souhaitez cheminer."
+    question: "Faut-il avoir un objectif parfaitement clair pour démarrer ?",
+    answer: "Non, absolument pas. Il arrive très souvent que l'on ressente un besoin de changement ou un sentiment de stagnation sans réussir à formuler un objectif précis. La toute première étape du coaching consiste justement à poser ce qui est là, trier les priorités et clarifier ensemble ce vers quoi vous souhaitez cheminer."
+  },
+  {
+    question: "Le coaching est-il adapté aux personnes en poste ou en reconversion ?",
+    answer: "Tout à fait. Que vous souhaitiez évoluer au sein de votre entreprise actuelle, négocier une transition, préparer une reconversion complète ou créer votre propre activité, le coaching vous apporte le recul stratégique et le soutien méthodologique nécessaires."
+  },
+  {
+    question: "Qu'est-ce que l'approche par 'petits pas' ?",
+    answer: "Le changement durable ne naît pas d'une rupture brutale, mais d'une succession de micro-actions réalistes et sécurisantes. En validant de petites victoires régulières, vous créez une spirale ascendante de confiance qui transforme naturellement votre quotidien."
   }
 ];
 ---
 
 <Layout 
   title="Coaching individuel à Voisins-le-Bretonneux · Anne Chataigner"
-  description="Accompagnement en coaching pour clarifier vos choix, traverser une transition professionnelle ou personnelle et remettre du mouvement dans votre quotidien."
+  description="Accompagnement en coaching pour clarifier vos choix, traverser une transition professionnelle ou personnelle et remettre du mouvement dans votre quotidien dans les Yvelines."
 >
   <Navbar slot="navbar" />
 
   <main id="main-content">
-    <!-- Hero Section -->
-    <PageHero 
+    <!-- Hero Header Atmosphérique Immersion (Reprise de l'Accueil) -->
+    <PageHeroAtmospheric 
       badgeText="Coaching individuel & de transition"
       badgeType="coaching"
       title="Remettre du mouvement et clarifier votre cap."
-      lead="Vous traversez une période de transition, un choix important ou une sensation de blocage ? Le coaching vous offre un espace sécurisant et structurant pour prendre du recul, mobiliser vos ressources et construire des solutions durables."
+      lead="Quand une situation stagne, que les repères vacillent ou qu'une décision tarde à se prendre, le coaching vous offre un espace sécurisant et structurant pour prendre du recul, mobiliser vos ressources et retrouver un élan durable."
       primaryCtaText="Prendre rendez-vous"
       primaryCtaLink="#contact"
-      secondaryCtaText="Découvrir l'approche"
-      secondaryCtaLink="#situations"
+      secondaryCtaText="Découvrir la méthode"
+      secondaryCtaLink="#reperes"
+      scrollTargetId="reperes"
+      scrollLabel="Découvrir"
     />
 
-    <!-- Section 1 : Situations -->
-    <section class="section interior-section" id="situations">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="interior-section-header">
-          <div class="interior-section-subtitle">
-            <span class="subtitle-bullet-dot"></span>
-            <span>Votre point de départ</span>
-          </div>
-          <h2 class="interior-section-title">Est-ce que cet accompagnement peut vous correspondre ?</h2>
-          <p class="interior-section-lead">
-            Le coaching s'adresse à toute personne souhaitant faire évoluer une situation, qu'il s'agisse d'un défi professionnel, d'un changement de vie ou d'une recherche d'alignement personnel.
-          </p>
-        </div>
+    <!-- Section 1 : Nuage de Situations & Résonance -->
+    <SituationCloud 
+      subtitle="Votre point de départ"
+      title="Des situations concrètes dans lesquelles vous pouvez vous reconnaître"
+      lead="Le coaching s'adresse à toute personne souhaitant faire évoluer une situation, qu'il s'agisse d'un défi professionnel, d'un changement de vie ou d'une recherche d'alignement personnel."
+      tags={coachingTags}
+      quote="« On ne résout pas un problème avec les mêmes modes de pensée que ceux qui l'ont engendré. » — <em>Albert Einstein</em>"
+      sectionId="reperes"
+      theme="coaching"
+    />
 
-        <div class="situations-grid">
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <h3 class="situation-card-title">Transition de vie ou carrefour</h3>
-            <p class="situation-card-text">
-              Changement professionnel, reconversion, prise de nouvelles responsabilités, départ des enfants ou nouveau chapitre personnel à structurer.
-            </p>
-          </div>
+    <!-- Section 2 : Éclairage Palo Alto / Comprendre ce qui se joue -->
+    <InsightSection 
+      badgeText="Approche & Compréhension"
+      badgeType="coaching"
+      title="Comprendre ce qui se joue : Pourquoi forcer bloque souvent la situation"
+      lead="Face à un obstacle, notre premier réflexe est souvent d'en faire 'toujours plus de la même chose'. Pourtant, l'insistance est parfois ce qui maintient le problème."
+      bodyParagraphs={[
+        "Inspirée par l'approche systémique de l'<strong>École de Palo Alto</strong>, ma pratique du coaching ne cherche pas à vous imposer des solutions toutes faites. Elle s'intéresse à la manière dont vos tentatives passées de résolution ont pu, bien involontairement, figer la situation.",
+        "En prenant le temps de <strong>faire un pas de côté</strong>, nous analysons ensemble la mécanique de votre quotidien pour identifier les leviers inexplorés et stopper les boucles d'efforts stériles.",
+        "Le coaching devient alors un accélérateur de lucidité : vous retrouvez votre liberté de choix et construisez des réponses véritablement adaptées à votre écologie personnelle."
+      ]}
+      highlightBoxTitle="Le principe du 'Pas de côté'"
+      highlightBoxText="S'accorder une pause réflexive n'est pas une perte de temps : c'est la condition indispensable pour cesser de subir une transition et commencer à la piloter avec clairvoyance."
+      keypoints={[
+        { title: "Arrêt des efforts stériles", description: "Identifier les stratégies qui vous épuisent sans donner de résultats." },
+        { title: "Nouveau regard stratégique", description: "Envisager des options inattendues et débloquer les impasses." },
+        { title: "Respect de votre rythme", description: "Un accompagnement qui s'adapte à vos contraintes et à votre réalité." }
+      ]}
+      sectionId="approche-eclairage"
+      bgColor="#ffffff"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24"/></svg>
-            </div>
-            <h3 class="situation-card-title">Clarification &amp; Prise de décision</h3>
-            <p class="situation-card-text">
-              Dilemme complexe, sentiment de stagnation ou hésitation entre plusieurs directions sans savoir par où commencer.
-            </p>
-          </div>
+    <!-- Section 3 : Déroulement en 3 étapes clés -->
+    <ProcessTimeline 
+      subtitle="Méthode & Cheminement"
+      title="Le déroulement de l'accompagnement en 3 étapes"
+      lead="Un cadre feutré, bienveillant et résolument pragmatique pour transformer vos réflexions en résultats concrets."
+      steps={coachingSteps}
+      pricingBanner={{
+        tag: "Modalités & Tarif",
+        title: "Consultation individuelle de Coaching",
+        description: "Séance d'1 heure au cabinet de Voisins-le-Bretonneux ou en visioconférence. Un cadre sécurisant et structurant.",
+        amount: "85 €",
+        duration: "Durée : 1 heure",
+        linkText: "Consulter tous les tarifs →",
+        linkUrl: "/tarifs",
+        tagColor: "#2F425E"
+      }}
+      sectionId="deroulement"
+      bgColor="#F8FAFC"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4-4-4M8 10h8M3 20h18M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Quête de sens &amp; Alignement</h3>
-            <p class="situation-card-text">
-              Baisse d'énergie, perte de motivation ou besoin de réaligner votre quotidien professionnel et personnel avec ce qui compte vraiment pour vous.
-            </p>
-          </div>
+    <!-- Section 4 : Grille des 4 Clés de Transformation (Quadrant) -->
+    <BenefitGrid 
+      subtitle="Bénéfices & Transformations"
+      title="Ce que le coaching individuel vous permet d'accomplir"
+      lead="Des bénéfices observables dans votre quotidien professionnel et personnel, sans promesse magique mais avec une méthode éprouvée."
+      cards={coachingBenefits}
+      sectionId="benefices"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 class="situation-card-title">Posture &amp; Affirmation</h3>
-            <p class="situation-card-text">
-              Trouver votre juste place, apprendre à poser des limites sereines, développer votre leadership personnel et communiquer avec assurance.
-            </p>
-          </div>
-
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Passage à l'action &amp; Énergie</h3>
-            <p class="situation-card-text">
-              Sortir de la procrastination, débloquer une initiative en suspens et avancer avec une méthode concrète par petits pas sécurisants.
-            </p>
-          </div>
-
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Faire un « pas de côté »</h3>
-            <p class="situation-card-text">
-              S'accorder une pause réflexive pour anticiper, faire le point sur ses réussites et préparer la suite en toute sérénité.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 2 : Déroulement en 3 étapes -->
-    <section class="section interior-section" id="deroulement" style="background-color: #F8FAFC;">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="interior-section-header">
-          <div class="interior-section-subtitle">
-            <span class="subtitle-bullet-dot"></span>
-            <span>Méthode &amp; Cheminement</span>
-          </div>
-          <h2 class="interior-section-title">Le déroulement en trois étapes clés</h2>
-          <p class="interior-section-lead">
-            Un cadre structurant, bienveillant et orienté vers des actions réalistes pour transformer la réflexion en dynamique concrète.
-          </p>
-        </div>
-
-        <div class="steps-cards-grid">
-          <!-- Step 1 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number">Étape 01</span>
-            </div>
-            <h3 class="step-box-title">Clarifier la situation &amp; poser l'intention</h3>
-            <p class="step-box-text">
-              Nous explorons ce qui se joue actuellement, vos enjeux, ce qui vous pèse ou ce qui vous freine, afin de formuler une intention claire et motivante.
-            </p>
-            <div class="step-box-keypoints">
-              <div class="step-keypoint-row">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>État des lieux sans jugement</span>
-              </div>
-              <div class="step-keypoint-row">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Identification des vrais leviers</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number">Étape 02</span>
-            </div>
-            <h3 class="step-box-title">Explorer vos ressources &amp; lever les freins</h3>
-            <p class="step-box-text">
-              Nous identifions vos forces, vos compétences clés et vos réussites passées pour dépasser les croyances limitantes et ouvrir de nouvelles perspectives.
-            </p>
-            <div class="step-box-keypoints">
-              <div class="step-keypoint-row">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Mobilisation de vos compétences</span>
-              </div>
-              <div class="step-keypoint-row">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Désamorçage des doutes</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number">Étape 03</span>
-            </div>
-            <h3 class="step-box-title">Avancer par petits pas &amp; ancrer le cap</h3>
-            <p class="step-box-text">
-              Vous définissez un plan d'action progressif et réaliste. Entre chaque séance, vous expérimentez de nouvelles façons d'agir pour créer une spirale positive.
-            </p>
-            <div class="step-box-keypoints">
-              <div class="step-keypoint-row">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Actions concrètes et adaptées</span>
-              </div>
-              <div class="step-keypoint-row">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Autonomie et confiance durable</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Encart Tarifaire Discret -->
-        <div class="pricing-banner-card">
-          <div class="pricing-banner-info">
-            <div class="pricing-banner-tag">Modalités &amp; Tarif</div>
-            <h3 class="pricing-banner-title">Consultation individuelle de Coaching</h3>
-            <p class="pricing-banner-desc">
-              Séance individuelle d'1 heure au cabinet de Voisins-le-Bretonneux ou en visio. Un cadre sécurisant adapté à votre rythme.
-            </p>
-          </div>
-          <div class="pricing-banner-action">
-            <div class="pricing-banner-amount">85 €</div>
-            <div class="pricing-banner-duration">Durée : 1 heure</div>
-            <a href="/tarifs" class="text-link" style="margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--anne-coaching);">Voir tous les tarifs →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Accordion -->
+    <!-- Section 5 : FAQ Accordéon Détaillée -->
     <FaqAccordion 
       items={coachingFaq}
       subtitle="Questions fréquentes"
@@ -229,12 +211,12 @@ const coachingFaq = [
       badgeType="coaching"
     />
 
-    <!-- Related Services -->
+    <!-- Section 6 : Passerelles vers les autres approches -->
     <RelatedServices currentService="coaching" />
 
-    <!-- Interior CTA -->
+    <!-- Section 7 : CTA Final -->
     <InteriorCta 
-      title="Prêt(e) à clarifier votre situation ?"
+      title="Prêt(e) à clarifier votre cap et passer à l'action ?"
       lead="Un premier échange permet de poser ce qui se joue, de faire le point sur vos attentes et d'envisager ensemble la démarche la plus ajustée."
       buttonText="Prendre rendez-vous"
     />

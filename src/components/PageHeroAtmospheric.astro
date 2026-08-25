@@ -1,0 +1,72 @@
+---
+interface Props {
+  badgeText: string;
+  badgeType?: 'coaching' | 'therapies' | 'hypnose' | 'couple' | 'about' | 'pricing';
+  title: string;
+  lead: string;
+  primaryCtaText?: string;
+  primaryCtaLink?: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+  scrollTargetId?: string;
+  scrollLabel?: string;
+}
+
+const {
+  badgeText,
+  badgeType = 'coaching',
+  title,
+  lead,
+  primaryCtaText = "Prendre rendez-vous",
+  primaryCtaLink = "#contact",
+  secondaryCtaText = "Découvrir la méthode",
+  secondaryCtaLink = "#reperes",
+  scrollTargetId = "reperes",
+  scrollLabel = "Découvrir"
+} = Astro.props;
+---
+
+<section class={`section hero-anne-full hero-interior hero-interior--${badgeType}`} id="accueil">
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="hero-full-content">
+      <div class={`hero-badge-pill hero-badge-pill--${badgeType}`}>
+        <span class="hero-badge-dot"></span>
+        <span>{badgeText}</span>
+      </div>
+      <h1 hero-text="" class="hero-full-title">{title}</h1>
+      <p class="hero-full-lead">{lead}</p>
+      
+      <div class="hero-full-buttons">
+        <a href={primaryCtaLink} data-wf--button--variant="white" class="primary-button w-variant-df50d2b4-2dcf-06cb-393e-886e8cb0681e w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
+          <div class="button-text-wrapper">
+            <div class="button-text-inner">
+              <div button-text="" class="button-text">{primaryCtaText}</div>
+              <div button-text="" class="button-text">{primaryCtaText}</div>
+            </div>
+          </div>
+        </a>
+        
+        {secondaryCtaText && (
+          <a href={secondaryCtaLink} class="primary-button button-hero-secondary w-inline-block">
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div button-text="" class="button-text">{secondaryCtaText}</div>
+                <div button-text="" class="button-text">{secondaryCtaText}</div>
+              </div>
+            </div>
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Apple Mouse Scroll Indicator -->
+<div class="hero-scroll-wrapper">
+  <a href={`#${scrollTargetId}`} class="hero-scroll-indicator dark-mode" aria-label={`Faire défiler vers ${scrollLabel}`}>
+    <span class="apple-mouse-icon">
+      <span class="apple-mouse-wheel"></span>
+    </span>
+    <span class="hero-scroll-label">{scrollLabel}</span>
+  </a>
+</div>

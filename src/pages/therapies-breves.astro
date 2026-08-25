@@ -2,207 +2,226 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHero from '../components/PageHero.astro';
+import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
+import SituationCloud from '../components/SituationCloud.astro';
+import InsightSection from '../components/InsightSection.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import BenefitGrid from '../components/BenefitGrid.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import RelatedServices from '../components/RelatedServices.astro';
 import InteriorCta from '../components/InteriorCta.astro';
 
-const therapiesFaq = [
+const therapiesTags = [
+  { text: "Charge mentale & surcharge", color: "sage", size: "lg" },
+  { text: "Anxiété & angoisses diffuses", color: "terracotta", size: "lg" },
+  { text: "Régulation des émotions", color: "blue", size: "md" },
+  { text: "Traversée d'une rupture", color: "rose", size: "md" },
+  { text: "Période de deuil & perte", color: "slate", size: "sm" },
+  { text: "Épuisement & pré-burnout", color: "terracotta", size: "lg" },
+  { text: "Schémas relationnels répétitifs", color: "amber", size: "md" },
+  { text: "Sommeil perturbé & insomnies", color: "blue", size: "md" },
+  { text: "Hypersensibilité envahissante", color: "sage", size: "lg" },
+  { text: "Peur du regard des autres", color: "rose", size: "sm" },
+  { text: "Culpabilité & perfectionnisme", color: "slate", size: "md" },
+  { text: "Estime de soi & bienveillance", color: "green", size: "lg" },
+  { text: "Tensions familiales ou de couple", color: "amber", size: "md" },
+  { text: "Envie de retrouver un équilibre", color: "sage", size: "lg" }
+];
+
+const therapiesSteps = [
   {
-    question: "Faut-il attendre d'être au plus mal pour consulter ?",
-    answer: "Non, absolument pas. C'est même l'un des principes fondamentaux des thérapies brèves : <strong>il n'est pas nécessaire d'aller très mal pour avoir envie d'aller mieux</strong>. Consulter dès les premiers signes de fatigue émotionnelle, de flou ou de surcharge permet d'éviter que les difficultés ne s'ancrent et d'apaiser rapidement la situation."
+    number: "Étape 01",
+    title: "Accueil & Dépose en toute sécurité",
+    description: "Un espace d'écoute feutré et confidentiel pour exprimer ce qui pèse, poser vos émotions et vous sentir pleinement accueilli(e) sans aucun jugement.",
+    keypoints: [
+      "Écoute attentive et bienveillante",
+      "Dépose de la charge émotionnelle",
+      "Clarification de ce qui fait souffrance"
+    ],
+    badgeBg: "#E8EFE6",
+    badgeColor: "#2E452A"
   },
   {
-    question: "En quoi consistent les thérapies brèves par rapport à une psychothérapie longue ?",
+    number: "Étape 02",
+    title: "Éclairer le système émotionnel",
+    description: "Nous identifions les déclencheurs, les boucles de pensées automatiques et la manière dont vos réactions entretiennent involontairement le stress.",
+    keypoints: [
+      "Mise en lumière des cercles vicieux",
+      "Compréhension des messages de vos émotions",
+      "Désamorçage de l'autocritique"
+    ],
+    badgeBg: "#E8EFE6",
+    badgeColor: "#2E452A"
+  },
+  {
+    number: "Étape 03",
+    title: "Expérimenter des outils concrets",
+    description: "Nous pratiquons en séance des outils thérapeutiques simples et puissants (régulation du système nerveux, recadrage, visualisation, ancrages).",
+    keypoints: [
+      "Techniques de désactivation émotionnelle",
+      "Exercices corporels et cognitifs",
+      "Outils personnalisés à votre sensibilité"
+    ],
+    badgeBg: "#E8EFE6",
+    badgeColor: "#2E452A"
+  },
+  {
+    number: "Étape 04",
+    title: "Intégrer et consolider au quotidien",
+    description: "Vous repartez avec des repères clairs à appliquer dans vos journées. Au fil des séances, vous gagnez en autonomie et en paix intérieure.",
+    keypoints: [
+      "Micro-rituels d'apaisement chez vous",
+      "Évaluation des progrès concrets",
+      "Ancrage d'une sérénité durable"
+    ],
+    badgeBg: "#E8EFE6",
+    badgeColor: "#2E452A"
+  }
+];
+
+const therapiesBenefits = [
+  {
+    step: "01",
+    title: "Apaisement du système nerveux",
+    description: "Réduisez l'hyper-réactivité, les tensions corporelles et retrouvez un sentiment d'espace et de calme intérieur.",
+    color: "sage",
+    iconType: "feather"
+  },
+  {
+    step: "02",
+    title: "Recul face aux ruminations",
+    description: "Sortez du flux incessant des pensées anxieuses et apprenez à observer vos émotions sans vous laisser submerger.",
+    color: "blue",
+    iconType: "eye"
+  },
+  {
+    step: "03",
+    title: "Sortie des schémas répétitifs",
+    description: "Cassez les automatismes comportementaux qui vous enferment dans des réactions douloureuses ou conflictuelles.",
+    color: "terracotta",
+    iconType: "shield"
+  },
+  {
+    step: "04",
+    title: "Autonomie & Confiance durable",
+    description: "Acquérez une boîte à outils pragmatique et réutilisable pour traverser sereinement les futurs aléas de la vie.",
+    color: "amber",
+    iconType: "heart"
+  }
+];
+
+const therapiesFaq = [
+  {
+    question: "Faut-il attendre d'être au plus mal pour consulter en thérapie brève ?",
+    answer: "<strong>Non, absolument pas.</strong> C'est l'un des principes fondamentaux de ma pratique : <em>il n'est pas nécessaire d'aller très mal pour avoir envie d'aller mieux</em>. Consulter dès les premiers signes de fatigue émotionnelle, de flou ou de surcharge permet d'éviter que les tensions ne s'ancrent et d'apaiser rapidement la situation."
+  },
+  {
+    question: "En quoi consistent les thérapies brèves par rapport à une psychanalyse ou psychothérapie classique ?",
     answer: "Les thérapies brèves se concentrent principalement sur le <strong>présent et la recherche de solutions concrètes</strong> (« comment faire pour que cela change ? »), plutôt que sur une analyse exhaustive et rétrospective du passé. L'objectif est de vous transmettre des clés pratiques et observables pour retrouver rapidement de l'autonomie et de la sérénité."
   },
   {
     question: "Combien de séances faut-il prévoir ?",
-    answer: "Comme leur nom l'indique, ces accompagnements sont limités dans le temps. La plupart des personnes constatent des évolutions sensibles en <strong>4 à 8 séances</strong>. Vous restez toujours libre d'espacer ou d'arrêter les consultations dès que vous ressentez le mieux-être souhaité."
+    answer: "Comme leur nom l'indique, ces accompagnements sont pragmatiques et limités dans le temps. La plupart des personnes constatent des évolutions sensibles en <strong>4 à 8 séances</strong>. Vous restez toujours libre d'espacer ou d'arrêter les consultations dès que vous ressentez le mieux-être souhaité."
   },
   {
-    question: "Les séances sont-elles remboursées par les mutuelles ?",
+    question: "Les séances sont-elles prises en charge par les mutuelles ?",
     answer: "Ces consultations ne sont pas prises en charge par la Sécurité Sociale, mais de très nombreuses <strong>mutuelles et complémentaires santé</strong> proposent des forfaits annuels « médecines douces » ou « bien-être » qui remboursent tout ou partie des séances. Une facture détaillée vous est remise à l'issue de chaque rencontre."
+  },
+  {
+    question: "Que se passe-t-il si mon motif relève d'une prise en charge médicale ou psychiatrique ?",
+    answer: "Les thérapies brèves constituent un accompagnement de mieux-être et de soutien psychologique, mais ne remplacent pas un suivi médical ou psychiatrique. Si votre situation nécessite un accompagnement médical spécifique, je vous orienterai en toute transparence vers les professionnels de santé adaptés."
+  },
+  {
+    question: "Les séances en visioconférence sont-elles aussi efficaces qu'au cabinet ?",
+    answer: "Oui, la qualité d'écoute, la présence et les outils thérapeutiques utilisés s'adaptent parfaitement à la visioconférence. Si vous êtes éloigné(e) de Voisins-le-Bretonneux ou en déplacement, la visio offre un cadre tout aussi chaleureux et opérant."
   }
 ];
 ---
 
 <Layout 
   title="Thérapies brèves à Voisins-le-Bretonneux (Yvelines) · Anne Chataigner"
-  description="Accompagnement bienveillant et concret en thérapies brèves pour apaiser la charge mentale, dépasser un blocage et traverser une étape difficile."
+  description="Accompagnement bienveillant et concret en thérapies brèves pour apaiser la charge mentale, dépasser un blocage et retrouver un équilibre émotionnel dans les Yvelines."
 >
   <Navbar slot="navbar" />
 
   <main id="main-content">
-    <!-- Hero Section -->
-    <PageHero 
+    <!-- Hero Header Atmosphérique Immersion -->
+    <PageHeroAtmospheric 
       badgeText="Thérapies brèves intégratives"
       badgeType="therapies"
       title="Apaiser ce qui pèse et retrouver votre équilibre émotionnel."
-      lead="Un accompagnement concret, personnalisé et à votre rythme. Parce qu'il n'est pas nécessaire d'aller mal pour se faire accompagner, les thérapies brèves vous aident à dénouer les tensions, comprendre vos mécanismes et retrouver de la fluidité dans votre quotidien."
+      lead="Un accompagnement concret, personnalisé et à votre rythme. Parce qu'il n'est pas nécessaire d'aller mal pour se faire accompagner, les thérapies brèves vous aident à dénouer les tensions, comprendre vos mécanismes et retrouver de la fluidité au quotidien."
       primaryCtaText="Prendre rendez-vous"
       primaryCtaLink="#contact"
       secondaryCtaText="Découvrir les motifs"
-      secondaryCtaLink="#situations"
+      secondaryCtaLink="#reperes"
+      scrollTargetId="reperes"
+      scrollLabel="Découvrir"
     />
 
-    <!-- Section 1 : Situations -->
-    <section class="section interior-section" id="situations">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="interior-section-header">
-          <div class="interior-section-subtitle">
-            <span class="subtitle-bullet-dot"></span>
-            <span>Motifs de consultation</span>
-          </div>
-          <h2 class="interior-section-title">Dans quelles situations consulter ?</h2>
-          <p class="interior-section-lead">
-            Chaque accompagnement part de votre vécu singulier, sans protocole figé ni jugement. Voici quelques situations fréquemment abordées au cabinet.
-          </p>
-        </div>
+    <!-- Section 1 : Nuage de Situations & Résonance -->
+    <SituationCloud 
+      subtitle="Votre point de départ"
+      title="Des motifs fréquents de consultation au cabinet"
+      lead="Chaque accompagnement part de votre vécu singulier, sans protocole figé ni jugement. Voici les difficultés couramment abordées en séance."
+      tags={therapiesTags}
+      quote="« Écouter ce que vos émotions ont à vous dire sans vous laisser submerger par elles. »"
+      sectionId="reperes"
+      theme="therapies"
+    />
 
-        <div class="situations-grid">
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--sage">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            </div>
-            <h3 class="situation-card-title">Stress, anxiété &amp; Surcharge mentale</h3>
-            <p class="situation-card-text">
-              Ruminations permanentes, sensation d'être submergé(e), fatigue nerveuse, difficultés d'endormissement ou anxiété face au quotidien.
-            </p>
-          </div>
+    <!-- Section 2 : Éclairage / Comprendre ce qui se joue -->
+    <InsightSection 
+      badgeText="Compréhension & Approche"
+      badgeType="therapies"
+      title="Le 'Comment faire autrement' : Traiter la mécanique du présent"
+      lead="Pourquoi ressasser le 'pourquoi' ne suffit-il souvent pas à aller mieux ? Parce que la compréhension intellectuelle d'un problème n'apaise pas automatiquement l'émotion."
+      bodyParagraphs={[
+        "En thérapies brèves, nous nous concentrons sur la <strong>façon dont le problème se manifeste aujourd'hui</strong> dans votre corps, vos pensées et vos relations. En décryptant les déclencheurs et les schémas réflexes, nous pouvons intervenir directement sur la boucle émotionnelle.",
+        "Mon approche associe des outils de <strong>régulation émotionnelle, d'écoute systémique et de recadrage cognitif</strong>. L'objectif n'est pas de refouler ce qui fait mal, mais de permettre à votre système nerveux de digérer l'inconfort et de retrouver son état naturel de sécurité.",
+        "Vous redevenez acteur/actrice de votre équilibre : chaque séance apporte un éclairage immédiat et des exercices simples à réutiliser dès que le stress pointe."
+      ]}
+      highlightBoxTitle="Une approche douce et déculpabilisante"
+      highlightBoxText="Vos réactions émotionnelles ne sont pas des anomalies : ce sont des signaux d'alerte que votre organisme a mis en place pour se protéger. Nous apprenons simplement à leur donner une réponse plus douce et adaptée."
+      keypoints={[
+        { title: "Désactivation du stress aigu", description: "Apaiser les réactions physiques de panique ou de tension." },
+        { title: "Recadrage des croyances", description: "Prendre de la distance avec les pensées automatiques dévalorisantes." },
+        { title: "Autonomie émotionnelle", description: "Savoir s'apaiser soi-même en toute circonstance." }
+      ]}
+      sectionId="approche-eclairage"
+      bgColor="#ffffff"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--sage">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-            </div>
-            <h3 class="situation-card-title">Blocages émotionnels &amp; Peurs</h3>
-            <p class="situation-card-text">
-              Réactions émotionnelles disproportionnées, doutes envahissants, peur du regard des autres ou sentiment d'être freiné(e) sans comprendre pourquoi.
-            </p>
-          </div>
+    <!-- Section 3 : Déroulement en 4 étapes clés -->
+    <ProcessTimeline 
+      subtitle="Cadre & Déroulement"
+      title="Comment se déroule une consultation ?"
+      lead="Chaque séance dure 1 heure et s'organise autour d'un temps d'écoute personnalisée, d'exercices d'apaisement et de repères concrets."
+      steps={therapiesSteps}
+      pricingBanner={{
+        tag: "Modalités & Tarif",
+        title: "Consultation individuelle de Thérapie brève",
+        description: "Séance d'1 heure au cabinet de Voisins-le-Bretonneux ou en visioconférence. Remise systématique d'une facture pour votre mutuelle.",
+        amount: "85 €",
+        duration: "Durée : 1 heure",
+        linkText: "Consulter tous les tarifs →",
+        linkUrl: "/tarifs",
+        tagColor: "#2E452A"
+      }}
+      sectionId="deroulement"
+      bgColor="#F6F8F5"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--sage">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Épreuves de vie, deuil &amp; Ruptures</h3>
-            <p class="situation-card-text">
-              Traverser une séparation, la perte d'un proche, un licenciement ou une transition douloureuse en bénéficiant d'un espace d'écoute et d'apaisement.
-            </p>
-          </div>
+    <!-- Section 4 : Grille des 4 Clés de Transformation -->
+    <BenefitGrid 
+      subtitle="Bénéfices & Apaisement"
+      title="Ce que les thérapies brèves transforment dans votre vie"
+      lead="Retrouvez de la clarté d'esprit, du repos et une relation plus sereine avec vous-même et votre entourage."
+      cards={therapiesBenefits}
+      sectionId="benefices"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--sage">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 class="situation-card-title">Difficultés relationnelles</h3>
-            <p class="situation-card-text">
-              Tensions familiales, professionnelles ou de couple, sentiment d'incompréhension, difficultés à exprimer ses besoins et à se faire entendre.
-            </p>
-          </div>
-
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--sage">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <h3 class="situation-card-title">Estime de soi &amp; Confiance</h3>
-            <p class="situation-card-text">
-              Syndrome de l'imposteur, autocritique sévère, dévalorisation ou besoin de renouer avec une image de soi bienveillante et solide.
-            </p>
-          </div>
-
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--sage">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.83 6.72 2.24L21 8"/><path d="M21 3v5h-5"/></svg>
-            </div>
-            <h3 class="situation-card-title">Schémas répétitifs</h3>
-            <p class="situation-card-text">
-              Prendre conscience des automatismes comportementaux qui vous enferment et expérimenter de nouvelles réponses émotionnelles.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 2 : Comment se déroule une consultation -->
-    <section class="section interior-section" id="deroulement" style="background-color: #F6F8F5;">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="interior-section-header">
-          <div class="interior-section-subtitle">
-            <span class="subtitle-bullet-dot"></span>
-            <span>Cadre &amp; Pratique</span>
-          </div>
-          <h2 class="interior-section-title">Comment se déroule une consultation ?</h2>
-          <p class="interior-section-lead">
-            Chaque séance dure 1 heure et s'organise autour d'un temps d'échange personnalisé et d'exercices d'intégration adaptés.
-          </p>
-        </div>
-
-        <div class="steps-cards-grid">
-          <!-- Step 1 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #E8EFE6; color: #2E452A;">01 · Accueil</span>
-            </div>
-            <h3 class="step-box-title">Un espace d'écoute sécurisant</h3>
-            <p class="step-box-text">
-              Un premier temps pour déposer vos ressentis, vos préoccupations et poser ce qui pèse en toute liberté, dans une écoute feutrée et sans jugement.
-            </p>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #E8EFE6; color: #2E452A;">02 · Compréhension</span>
-            </div>
-            <h3 class="step-box-title">Éclairer ce qui se joue</h3>
-            <p class="step-box-text">
-              Nous identifions ensemble les déclencheurs, les boucles de rétroaction et la façon dont vos émotions et pensées s'influencent mutuellement.
-            </p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #E8EFE6; color: #2E452A;">03 · Expérimentation</span>
-            </div>
-            <h3 class="step-box-title">Mobiliser des outils concrets</h3>
-            <p class="step-box-text">
-              Nous expérimentons en séance des outils thérapeutiques simples (régulation émotionnelle, recadrage, visualisation, ancrage) faciles à réutiliser.
-            </p>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #E8EFE6; color: #2E452A;">04 · Intégration</span>
-            </div>
-            <h3 class="step-box-title">Ancrer les changements au quotidien</h3>
-            <p class="step-box-text">
-              Vous repartez avec des repères clairs et des petits pas à tester entre les séances, pour observer les bénéfices dans votre quotidien.
-            </p>
-          </div>
-        </div>
-
-        <!-- Encart Tarifaire -->
-        <div class="pricing-banner-card">
-          <div class="pricing-banner-info">
-            <div class="pricing-banner-tag" style="color: #2E452A;">Modalités &amp; Tarif</div>
-            <h3 class="pricing-banner-title">Consultation individuelle de Thérapie brève</h3>
-            <p class="pricing-banner-desc">
-              Séance d'1 heure au cabinet de Voisins-le-Bretonneux ou en visio. Remise d'une facture pour votre mutuelle.
-            </p>
-          </div>
-          <div class="pricing-banner-action">
-            <div class="pricing-banner-amount">85 €</div>
-            <div class="pricing-banner-duration">Durée : 1 heure</div>
-            <a href="/tarifs" class="text-link" style="margin-top: 4px; font-size: 14px; font-weight: 600; color: #2E452A;">Consulter tous les tarifs →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Accordion -->
+    <!-- Section 5 : FAQ Accordéon Détaillée -->
     <FaqAccordion 
       items={therapiesFaq}
       subtitle="Questions fréquentes"
@@ -210,13 +229,13 @@ const therapiesFaq = [
       badgeType="therapies"
     />
 
-    <!-- Related Services -->
+    <!-- Section 6 : Passerelles vers les autres approches -->
     <RelatedServices currentService="therapies" />
 
-    <!-- Interior CTA -->
+    <!-- Section 7 : CTA Final -->
     <InteriorCta 
-      title="Envie de retrouver de l'apaisement ?"
-      lead="Prendre rendez-vous est une première étape pour poser ce qui vous encombre et avancer vers un mieux-être durable."
+      title="Envie de retrouver de l'apaisement et de la légèreté ?"
+      lead="Prendre rendez-vous est une première démarche bienveillante pour poser ce qui vous encombre et avancer vers un équilibre durable."
       buttonText="Prendre rendez-vous"
     />
   </main>

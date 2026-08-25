@@ -1,0 +1,101 @@
+---
+interface ProcessStep {
+  number: string;
+  title: string;
+  description: string;
+  keypoints?: string[];
+  badgeBg?: string;
+  badgeColor?: string;
+}
+
+interface PricingBannerData {
+  tag?: string;
+  title: string;
+  description: string;
+  amount: string;
+  duration: string;
+  linkText?: string;
+  linkUrl?: string;
+  tagColor?: string;
+}
+
+interface Props {
+  subtitle?: string;
+  title?: string;
+  lead?: string;
+  steps: ProcessStep[];
+  pricingBanner?: PricingBannerData;
+  sectionId?: string;
+  bgColor?: string;
+}
+
+const {
+  subtitle = "Méthode & Déroulement",
+  title = "Comment se déroule l'accompagnement ?",
+  lead = "Un cadre feutré, sécurisant et pragmatique qui avance à votre rythme pour ancrer des changements durables.",
+  steps,
+  pricingBanner,
+  sectionId = "deroulement",
+  bgColor = "#F8FAFC"
+} = Astro.props;
+---
+
+<section class="section interior-section" id={sectionId} style={`background-color: ${bgColor};`}>
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="interior-section-header">
+      <div class="interior-section-subtitle">
+        <span class="subtitle-bullet-dot"></span>
+        <span>{subtitle}</span>
+      </div>
+      <h2 class="interior-section-title">{title}</h2>
+      <p class="interior-section-lead">{lead}</p>
+    </div>
+
+    <div class="steps-cards-grid">
+      {steps.map((step) => (
+        <div class="step-box-card">
+          <div class="step-box-header">
+            <span class="step-box-number" style={step.badgeBg ? `background: ${step.badgeBg}; color: ${step.badgeColor || '#2c2b29'};` : ''}>
+              {step.number}
+            </span>
+          </div>
+          <h3 class="step-box-title">{step.title}</h3>
+          <p class="step-box-text">{step.description}</p>
+          
+          {step.keypoints && step.keypoints.length > 0 && (
+            <div class="step-box-keypoints">
+              {step.keypoints.map((point) => (
+                <div class="step-keypoint-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{point}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Encart Tarifaire Optionnel -->
+    {pricingBanner && (
+      <div class="pricing-banner-card">
+        <div class="pricing-banner-info">
+          <div class="pricing-banner-tag" style={pricingBanner.tagColor ? `color: ${pricingBanner.tagColor};` : ''}>
+            {pricingBanner.tag || "Modalités & Tarif"}
+          </div>
+          <h3 class="pricing-banner-title">{pricingBanner.title}</h3>
+          <p class="pricing-banner-desc">{pricingBanner.description}</p>
+        </div>
+        <div class="pricing-banner-action">
+          <div class="pricing-banner-amount">{pricingBanner.amount}</div>
+          <div class="pricing-banner-duration">{pricingBanner.duration}</div>
+          <a href={pricingBanner.linkUrl || "/tarifs"} class="text-link" style="margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--anne-coaching);">
+            {pricingBanner.linkText || "Consulter tous les tarifs →"}
+          </a>
+        </div>
+      </div>
+    )}
+  </div>
+</section>

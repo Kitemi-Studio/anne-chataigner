@@ -1,0 +1,68 @@
+---
+interface TagItem {
+  text: string;
+  color?: 'blue' | 'green' | 'sage' | 'coral' | 'terracotta' | 'amber' | 'slate' | 'rose';
+  size?: 'sm' | 'md' | 'lg';
+}
+
+interface Props {
+  subtitle?: string;
+  title?: string;
+  lead?: string;
+  tags: TagItem[];
+  quote?: string;
+  sectionId?: string;
+  theme?: 'coaching' | 'therapies' | 'hypnose' | 'couple' | 'about' | 'pricing';
+}
+
+const {
+  subtitle = "Votre point de départ",
+  title = "Des situations concrètes dans lesquelles vous pouvez vous reconnaître",
+  lead = "Il n'est pas nécessaire de cocher toutes les cases : un seul de ces signaux peut être le point de départ d'une réflexion féconde et d'un accompagnement sur-mesure.",
+  tags,
+  quote = "Il n'est pas nécessaire d'aller très mal pour avoir envie d'aller mieux.",
+  sectionId = "reperes",
+  theme = "coaching"
+} = Astro.props;
+---
+
+<section class={`section section-reperes-clouds section-clouds--${theme}`} id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="reperes-header-centered">
+      <div class="reperes-subtitle">
+        <span class="subtitle-bullet-dot"></span>
+        <span>{subtitle}</span>
+      </div>
+      <h2 class="heading-2 reperes-title-single-line" style="white-space: normal; max-width: 920px; margin-left: auto; margin-right: auto;">
+        {title}
+      </h2>
+      <p class="reperes-lead-two-lines" style="max-width: 760px;">
+        {lead}
+      </p>
+    </div>
+
+    <!-- Nuage de mots interactif -->
+    <div class="reperes-cloud-container">
+      <div class="reperes-cloud-tags">
+        {tags.map((tag) => (
+          <span class={`cloud-tag tag-${tag.size || 'md'} tag-color-${tag.color || 'blue'}`}>
+            {tag.text}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Citation Encart Inspirant -->
+    {quote && (
+      <div class="reperes-conclusion-card" style="margin-top: 50px;">
+        <div class="reperes-conclusion-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 7 1 8 3 8z"></path>
+            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 7 1 8 3 8z"></path>
+          </svg>
+        </div>
+        <p class="reperes-conclusion-text" set:html={quote} />
+      </div>
+    )}
+  </div>
+</section>

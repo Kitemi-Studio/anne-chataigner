@@ -1,0 +1,73 @@
+---
+interface BenefitCard {
+  step: string;
+  title: string;
+  description: string;
+  color: 'blue' | 'terracotta' | 'sage' | 'amber';
+  iconType?: 'eye' | 'shield' | 'heart' | 'zap' | 'compass' | 'feather' | 'sparkles' | 'users' | 'layers';
+}
+
+interface Props {
+  subtitle?: string;
+  title?: string;
+  lead?: string;
+  cards: BenefitCard[];
+  sectionId?: string;
+}
+
+const {
+  subtitle = "Bénéfices & Transformations",
+  title = "Ce que cet accompagnement vous permet de transformer",
+  lead = "Des clés observables et pérennes pour retrouver de la clarté, de la fluidité et une dynamique positive au quotidien.",
+  cards,
+  sectionId = "benefices"
+} = Astro.props;
+
+const defaultIcons: Record<string, string> = {
+  compass: '<circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>',
+  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>',
+  heart: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>',
+  zap: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>',
+  eye: '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>',
+  feather: '<path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line>',
+  sparkles: '<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>',
+  users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>',
+  layers: '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline>'
+};
+---
+
+<section class="section section-approche" id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="vertical-wrapper">
+      <div class="horizontal-headline-two">
+        <div class="vertical-headline left">
+          <div class="approche-badge">
+            <span class="approche-badge-dot"></span>
+            <span>{subtitle}</span>
+          </div>
+          <h2 class="heading-2">
+            {title}
+          </h2>
+          <p class="text" style="font-size: 16.5px; line-height: 1.6; margin-top: 14px; max-width: 780px;">
+            {lead}
+          </p>
+        </div>
+      </div>
+
+      <div class="approach-cards-grid" style="margin-top: 40px;">
+        {cards.map((card) => (
+          <div class={`approach-card approach-card--${card.color}`}>
+            <div class="approach-card-header">
+              <div class={`approach-card-icon-wrap icon-${card.color}`}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={defaultIcons[card.iconType || 'compass'] || defaultIcons.compass} />
+              </div>
+              <span class="approach-card-step">{card.step}</span>
+            </div>
+            <h4 class="approach-card-title">{card.title}</h4>
+            <p class="approach-card-copy">{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

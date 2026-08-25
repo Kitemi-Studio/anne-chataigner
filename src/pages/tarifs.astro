@@ -2,60 +2,93 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHero from '../components/PageHero.astro';
+import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
+import SituationCloud from '../components/SituationCloud.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import InteriorCta from '../components/InteriorCta.astro';
 
+const tarifsTags = [
+  { text: "Tarifs clairs & transparents", color: "blue", size: "lg" },
+  { text: "Consultation individuelle · 85 €", color: "sage", size: "lg" },
+  { text: "Séance d'hypnose 1h15 · 110 €", color: "terracotta", size: "lg" },
+  { text: "Consultation couple 1h30 · 150 €", color: "amber", size: "lg" },
+  { text: "Prise en charge mutuelle médecines douces", color: "green", size: "md" },
+  { text: "Facture acquittée systématique", color: "blue", size: "md" },
+  { text: "Cabinet à Voisins-le-Bretonneux", color: "slate", size: "md" },
+  { text: "Séances également en visio", color: "slate", size: "sm" },
+  { text: "Paiement chèque, espèces ou virement", color: "sage", size: "md" },
+  { text: "Politique d'annulation sans frais 48h", color: "terracotta", size: "md" },
+  { text: "Cadre confidentiel & sécurisant", color: "blue", size: "lg" },
+  { text: "Aucun engagement de durée forcé", color: "green", size: "sm" }
+];
+
 const tarifsFaq = [
   {
-    question: "Les consultations sont-elles prises en charge par la Sécurité Sociale ?",
-    answer: "Non, ces consultations ne relèvent pas du régime obligatoire de la Sécurité Sociale. En revanche, de très nombreuses <strong>mutuelles et assurances complémentaires</strong> remboursent les séances de médecines douces et de thérapies brèves dans le cadre de forfaits annuels dédiés. Une facture acquittée vous est systématiquement transmise après chaque séance."
+    question: "Les consultations sont-elles remboursées par la Sécurité Sociale ?",
+    answer: "Non, ces consultations ne relèvent pas du régime obligatoire de l'Assurance Maladie. En revanche, de très nombreuses <strong>mutuelles et assurances complémentaires santé</strong> remboursent les séances de médecines douces, d'hypnose et de thérapies brèves dans le cadre de forfaits annuels dédiés. Une facture acquittée vous est systématiquement remise après chaque rendez-vous."
   },
   {
     question: "Quels sont les moyens de paiement acceptés ?",
-    answer: "Au cabinet de Voisins-le-Bretonneux, le règlement s'effectue par <strong>chèque, espèces ou virement bancaire</strong> à l'issue de la séance. Pour les consultations en visioconférence, le règlement s'effectue par virement bancaire sécurisé en amont du rendez-vous."
+    answer: "Au cabinet de Voisins-le-Bretonneux, vous pouvez régler par <strong>chèque, espèces ou virement bancaire</strong> à la fin de la séance. Pour les consultations réalisées à distance en visioconférence, le règlement s'effectue par virement bancaire sécurisé en amont du rendez-vous."
   },
   {
     question: "Quelle est la politique d'annulation ou de report ?",
-    answer: "Afin de garantir un planning fluide et de respecter le temps de chacun, tout rendez-vous peut être annulé ou reporté sans frais <strong>jusqu'à 48 heures à l'avance</strong>. Passé ce délai, la séance reste due."
+    answer: "Afin de respecter le temps de chacun et de permettre à d'autres personnes de bénéficier des créneaux libérés, tout rendez-vous peut être annulé ou reporté sans frais <strong>jusqu'à 48 heures à l'avance</strong>. Passé ce délai de 48 heures, la séance reste due."
   },
   {
-    question: "Les tarifs sont-ils les mêmes au cabinet et en visio ?",
-    answer: "Oui, les tarifs sont rigoureusement identiques, que la séance ait lieu au cabinet à Voisins-le-Bretonneux ou à distance en visioconférence."
+    question: "Les tarifs sont-ils les mêmes au cabinet et en visioconférence ?",
+    answer: "Oui, les tarifs et les durées sont rigoureusement identiques, que vous consultiez au cabinet de Voisins-le-Bretonneux ou à distance en visioconférence."
+  },
+  {
+    question: "Dois-je m'engager sur un nombre de séances à l'avance ?",
+    answer: "Non, vous ne vous engagez jamais sur un forfait bloqué. Vous restez totalement libre de fixer le rythme des séances et de décider quand vous souhaitez clôturer votre accompagnement dès que vous constatez le mieux-être souhaité."
   }
 ];
 ---
 
 <Layout 
   title="Tarifs des consultations & séances · Anne Chataigner"
-  description="Consultez les tarifs des consultations individuelles, séances d'hypnose et consultations de couple au cabinet de Voisins-le-Bretonneux ou en visio."
+  description="Consultez les tarifs des consultations individuelles (85 €), séances d'hypnose (110 €) et consultations de couple (150 €) au cabinet de Voisins-le-Bretonneux et en visio."
 >
   <Navbar slot="navbar" />
 
   <main id="main-content">
-    <!-- Hero Section -->
-    <PageHero 
+    <!-- Hero Header Atmosphérique Immersion -->
+    <PageHeroAtmospheric 
       badgeText="Transparence & Modalités"
       badgeType="pricing"
       title="Tarifs des consultations & séances"
-      lead="Des tarifs clairs, fixes et transparents pour chaque accompagnement au cabinet de Voisins-le-Bretonneux ou à distance en visioconférence."
+      lead="Une politique tarifaire claire, fixe et sans surprise pour chaque format d'accompagnement au cabinet de Voisins-le-Bretonneux ou à distance en visioconférence."
       primaryCtaText="Prendre rendez-vous"
       primaryCtaLink="#contact"
-      secondaryCtaText="Voir les formules"
-      secondaryCtaLink="#grille-tarifs"
+      secondaryCtaText="Voir la grille"
+      secondaryCtaLink="#reperes"
+      scrollTargetId="reperes"
+      scrollLabel="Découvrir"
     />
 
-    <!-- Section 1 : 3 Cartes Tarifaires -->
-    <section class="section interior-section" id="grille-tarifs">
+    <!-- Section 1 : Nuage de Mots / Repères Tarifs -->
+    <SituationCloud 
+      subtitle="Transparence & Engagements"
+      title="Un cadre financier clair et prévisible"
+      lead="Chaque formule est pensée pour offrir un temps d'écoute confortable, structuré et propice à une intégration en profondeur."
+      tags={tarifsTags}
+      quote="« La clarté du cadre est le premier garant d'une relation thérapeutique de confiance. »"
+      sectionId="reperes"
+      theme="pricing"
+    />
+
+    <!-- Section 2 : Grille des 3 Cartes Tarifaires -->
+    <section class="section interior-section" id="grille-tarifs" style="background-color: #ffffff;">
       <div class="w-layout-blockcontainer container w-container">
         <div class="interior-section-header">
           <div class="interior-section-subtitle">
             <span class="subtitle-bullet-dot"></span>
-            <span>Grille tarifaire</span>
+            <span>Grille des formules</span>
           </div>
           <h2 class="interior-section-title">Trois formules d'accompagnement sur-mesure</h2>
           <p class="interior-section-lead">
-            Chaque formule est pensée pour offrir un temps d'écoute confortable, structuré et propice à une intégration en profondeur.
+            Choisissez le format adapté à votre besoin ou échangeons lors de votre première prise de contact pour vous orienter.
           </p>
         </div>
 
@@ -150,15 +183,15 @@ const tarifsFaq = [
       </div>
     </section>
 
-    <!-- Section 2 : Modalités Pratiques & Mutuelles -->
+    <!-- Section 3 : Prise en charge Mutuelle & Modalités Pratiques -->
     <section class="section interior-section" style="background-color: #F8FAFC;">
       <div class="w-layout-blockcontainer container w-container">
         <div class="interior-section-header">
           <div class="interior-section-subtitle">
             <span class="subtitle-bullet-dot"></span>
-            <span>Informations pratiques</span>
+            <span>Remboursements &amp; Cadre</span>
           </div>
-          <h2 class="interior-section-title">Modalités &amp; Prise en charge</h2>
+          <h2 class="interior-section-title">Modalités de prise en charge</h2>
         </div>
 
         <div class="situations-grid">
@@ -166,9 +199,9 @@ const tarifsFaq = [
             <div class="situation-card-icon situation-card-icon--blue">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             </div>
-            <h3 class="situation-card-title">Prise en charge mutuelle</h3>
+            <h3 class="situation-card-title">Forfaits Mutuelles &amp; Facture</h3>
             <p class="situation-card-text">
-              Facture détaillée remise après chaque séance pour transmission à votre mutuelle (forfaits « médecines douces » / bien-être).
+              Une facture détaillée acquittée vous est remise à chaque consultation pour obtenir le remboursement de votre mutuelle au titre des forfaits médecines douces.
             </p>
           </div>
 
@@ -178,7 +211,7 @@ const tarifsFaq = [
             </div>
             <h3 class="situation-card-title">Cabinet &amp; Visioconférence</h3>
             <p class="situation-card-text">
-              Au cabinet au 2 Rue de la Bergerie à Voisins-le-Bretonneux (78960) ou à distance en visio avec la même qualité d'écoute.
+              Au cabinet au 2 Rue de la Bergerie à Voisins-le-Bretonneux (78960) ou à distance en visio via un lien sécurisé avec la même qualité d'écoute.
             </p>
           </div>
 
@@ -186,9 +219,9 @@ const tarifsFaq = [
             <div class="situation-card-icon situation-card-icon--blue">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
-            <h3 class="situation-card-title">Politique d'annulation 48h</h3>
+            <h3 class="situation-card-title">Annulation sans frais 48h</h3>
             <p class="situation-card-text">
-              Annulation ou report possible sans frais jusqu'à 48 heures avant votre séance, pour permettre à chacun de s'organiser.
+              Vous pouvez déplacer ou annuler votre séance sans frais jusqu'à 48 heures à l'avance, pour permettre une organisation respectueuse de chacun.
             </p>
           </div>
         </div>
@@ -206,7 +239,7 @@ const tarifsFaq = [
     <!-- Interior CTA -->
     <InteriorCta 
       title="Prêt(e) à démarrer votre accompagnement ?"
-      lead="Réservez votre créneau en ligne ou contactez-moi directement si vous souhaitez échanger avant de réserver."
+      lead="Réservez votre créneau en ligne ou contactez-moi directement si vous souhaitez échanger avant de fixer votre premier rendez-vous."
       buttonText="Prendre rendez-vous"
     />
   </main>

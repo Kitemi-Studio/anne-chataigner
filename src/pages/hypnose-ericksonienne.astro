@@ -2,207 +2,226 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHero from '../components/PageHero.astro';
+import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
+import SituationCloud from '../components/SituationCloud.astro';
+import InsightSection from '../components/InsightSection.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import BenefitGrid from '../components/BenefitGrid.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import RelatedServices from '../components/RelatedServices.astro';
 import InteriorCta from '../components/InteriorCta.astro';
 
+const hypnoseTags = [
+  { text: "Troubles du sommeil & insomnies", color: "terracotta", size: "lg" },
+  { text: "Automatismes & compulsions", color: "amber", size: "md" },
+  { text: "Gestion du stress aigu & anxiété", color: "blue", size: "lg" },
+  { text: "Trac & prise de parole en public", color: "rose", size: "md" },
+  { text: "Peur ciblée (avion, transports)", color: "slate", size: "sm" },
+  { text: "Grignotages & pulsions émotionnelles", color: "terracotta", size: "lg" },
+  { text: "Préparation mentale aux examens", color: "sage", size: "md" },
+  { text: "Libération d'un blocage inconscient", color: "amber", size: "lg" },
+  { text: "Tensions corporelles chroniques", color: "blue", size: "sm" },
+  { text: "Confiance & légitimité profonde", color: "green", size: "lg" },
+  { text: "Accompagnement d'un deuil ou rupture", color: "rose", size: "md" },
+  { text: "Désactivation d'une phobie", color: "terracotta", size: "md" },
+  { text: "Accès à sa créativité intérieure", color: "sage", size: "sm" },
+  { text: "Apaisement émotionnel en douceur", color: "terracotta", size: "lg" }
+];
+
+const hypnoseSteps = [
+  {
+    number: "Étape 01",
+    title: "Questionnaire préparatoire en amont",
+    description: "Transmis avant notre rendez-vous, ce questionnaire vous permet de poser vos réflexions et me donne les clés indispensables pour concevoir une séance entièrement personnalisée.",
+    keypoints: [
+      "Temps de réflexion personnelle préalable",
+      "Identification précise de vos attentes",
+      "Préparation d'un guidage sur-mesure"
+    ],
+    badgeBg: "#FAF1EC",
+    badgeColor: "#78321A"
+  },
+  {
+    number: "Étape 02",
+    title: "Temps d'échange & précision de la demande",
+    description: "En début de séance, nous échangeons sur votre questionnaire, répondons à vos questions éventuelles et fixons ensemble l'intention exacte de la transe.",
+    keypoints: [
+      "Clarification de l'objectif de séance",
+      "Démystification et mise en confiance",
+      "Choix des métaphores qui vous parlent"
+    ],
+    badgeBg: "#FAF1EC",
+    badgeColor: "#78321A"
+  },
+  {
+    number: "Étape 03",
+    title: "Séquence d'hypnose personnalisée",
+    description: "Confortablement installé(e), guidé(e) par ma voix dans un état de relaxation profonde, vous explorez vos paysages intérieurs et mobilisez vos ressources inconscientes.",
+    keypoints: [
+      "État d'attention focalisée et de détente",
+      "Suggestions métaphoriques respectueuses",
+      "Libre arbitre et maîtrise totale conservés"
+    ],
+    badgeBg: "#FAF1EC",
+    badgeColor: "#78321A"
+  },
+  {
+    number: "Étape 04",
+    title: "Temps de retour & intégration",
+    description: "Un retour tout en douceur à votre état de veille habituel, suivi d'un échange bienveillant pour partager vos ressentis et laisser le travail s'ancrer naturellement.",
+    keypoints: [
+      "Réémergence progressive et sereine",
+      "Partage d'impressions post-séance",
+      "Intégration fluide dans les jours suivants"
+    ],
+    badgeBg: "#FAF1EC",
+    badgeColor: "#78321A"
+  }
+];
+
+const hypnoseBenefits = [
+  {
+    step: "01",
+    title: "Sécurité & Maîtrise totale",
+    description: "Vous restez parfaitement conscient(e) et maître(sse) de tout ce qui se passe durant la séance. Aucun automatisme forcé.",
+    color: "terracotta",
+    iconType: "shield"
+  },
+  {
+    step: "02",
+    title: "Accès aux ressources profondes",
+    description: "Contournez les résistances du mental logique pour activer des capacités et des solutions jusqu'alors inaccessibles.",
+    color: "blue",
+    iconType: "sparkles"
+  },
+  {
+    step: "03",
+    title: "Créativité métaphorique",
+    description: "Votre cerveau réorganise ses connexions et associations d'idées de façon douce, fluide et profondément réparatrice.",
+    color: "sage",
+    iconType: "feather"
+  },
+  {
+    step: "04",
+    title: "Changement écologique & durable",
+    description: "Les nouveaux apprentissages s'intègrent à votre propre rythme, en harmonie totale avec vos valeurs et vos besoins.",
+    color: "amber",
+    iconType: "heart"
+  }
+];
+
 const hypnoseFaq = [
   {
-    question: "L'hypnose implique-t-elle une perte de contrôle ?",
-    answer: "<strong>Absolument pas.</strong> Très loin des clichés de l'hypnose de spectacle, l'hypnose Ericksonienne est une approche thérapeutique collaborative, douce et respectueuse. Vous restez parfaitement conscient(e) de tout ce qui se dit et de tout ce qui se passe durant la séance. Vous gardez votre libre arbitre et votre sécurité intérieure à chaque instant."
+    question: "L'hypnose Ericksonienne implique-t-elle une perte de contrôle ou de conscience ?",
+    answer: "<strong>Absolument pas.</strong> Très loin des clichés de l'hypnose de spectacle ou de foire, l'hypnose Ericksonienne est une pratique thérapeutique collaborative, douce et respectueuse. Vous restez parfaitement conscient(e) de tout ce qui se dit et de tout ce qui se passe dans la pièce. Vous gardez votre libre arbitre à chaque seconde et ne ferez jamais rien qui soit contraire à vos valeurs."
   },
   {
-    question: "Est-ce que tout le monde est réceptif à l'hypnose Ericksonienne ?",
-    answer: "Oui, car l'état hypnotique (ou transe naturelle) est un état physiologique que nous expérimentons tous spontanément chaque jour : lorsque vous êtes absorbé(e) par la lecture d'un livre, plongé(e) dans vos pensées au volant ou bercé(e) par un paysage. L'accompagnement consiste simplement à guider cet état naturel pour le mettre au service de votre objectif de changement."
+    question: "Est-ce que tout le monde est réceptif à l'hypnose ?",
+    answer: "Oui, car l'état hypnotique (ou transe naturelle) est un état physiologique que nous vivons tous spontanément chaque jour : lorsque vous êtes absorbé(e) par la lecture d'un livre, plongé(e) dans vos pensées sur l'autoroute ou captivé(e) par un paysage. Mon rôle consiste simplement à guider cet état naturel pour le mettre au service de votre objectif de changement."
   },
   {
-    question: "Comment se prépare la séance avec le questionnaire préalable ?",
-    answer: "Avant notre rendez-vous, je vous transmets un <strong>court questionnaire préparatoire</strong>. Ce temps de réflexion personnelle en amont vous permet de poser vos attentes, d'identifier ce que vous souhaitez faire évoluer et me permet de préparer une séance sur-mesure dès votre arrivée."
+    question: "En quoi consiste le questionnaire préparatoire en amont ?",
+    answer: "Avant notre rendez-vous, je vous transmets un <strong>questionnaire préparatoire</strong>. Ce temps de réflexion personnelle en amont vous permet de poser vos attentes, d'identifier ce que vous souhaitez faire évoluer et me permet de préparer une séance sur-mesure avec des métaphores adaptées à votre sensibilité dès votre arrivée."
   },
   {
     question: "Combien de séances d'hypnose sont nécessaires ?",
-    answer: "L'hypnose Ericksonienne s'inscrit dans les thérapies brèves. Souvent, <strong>2 à 5 séances</strong> suffisent pour lever un blocage, ancrer un nouveau réflexe ou dépasser un automatisme limitant. Chaque séance permet une intégration progressive et naturelle."
+    answer: "L'hypnose Ericksonienne s'inscrit dans les thérapies brèves. Souvent, <strong>2 à 5 séances</strong> suffisent pour lever un blocage ciblé, reprogrammer une habitude ou désactiver une peur ancienne. Chaque séance permet une intégration progressive."
+  },
+  {
+    question: "Vais-je m'endormir pendant la séance ?",
+    answer: "L'état d'hypnose n'est pas du sommeil : c'est un état de veille modifiée où votre attention est simplement tournée vers l'intérieur. Vous entendez ma voix, vous pouvez bouger, parler ou ajuster votre posture à tout moment."
+  },
+  {
+    question: "Les séances d'hypnose sont-elles prises en charge par les mutuelles ?",
+    answer: "De très nombreuses mutuelles et assurances santé complémentaires remboursent les séances d'hypnose thérapeutique dans le cadre de leurs forfaits « médecines douces » ou « prévention santé ». Une facture acquittée vous est remise à chaque séance."
   }
 ];
 ---
 
 <Layout 
   title="Hypnose Ericksonienne à Voisins-le-Bretonneux · Anne Chataigner"
-  description="Séances d'hypnose ericksonienne dans les Yvelines pour mobiliser vos ressources inconscientes, lever des freins et ouvrir de nouvelles possibilités."
+  description="Séances d'hypnose ericksonienne dans les Yvelines pour mobiliser vos ressources inconscientes, libérer les blocages et dépasser les automatismes limitants."
 >
   <Navbar slot="navbar" />
 
   <main id="main-content">
-    <!-- Hero Section -->
-    <PageHero 
+    <!-- Hero Header Atmosphérique Immersion -->
+    <PageHeroAtmospheric 
       badgeText="Hypnose Ericksonienne thérapeutique"
       badgeType="hypnose"
       title="Mobiliser vos ressources profondes pour libérer le changement."
-      lead="Une méthode douce, respectueuse et collaborative pour accéder à vos potentiels inconscients, dépasser des automatismes limitants et ouvrir de nouvelles perspectives de mieux-être."
+      lead="Une démarche respectueuse, collaborative et sans perte de contrôle. L'hypnose Ericksonienne permet de dialoguer avec votre inconscient pour assouplir les résistances et activer vos solutions intérieures à votre rythme."
       primaryCtaText="Prendre rendez-vous"
       primaryCtaLink="#contact"
-      secondaryCtaText="Découvrir le déroulement"
-      secondaryCtaLink="#deroulement"
+      secondaryCtaText="Découvrir le protocole"
+      secondaryCtaLink="#reperes"
+      scrollTargetId="reperes"
+      scrollLabel="Découvrir"
     />
 
-    <!-- Section 1 : Pédagogie & Situations -->
-    <section class="section interior-section" id="comprendre">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="interior-section-header">
-          <div class="interior-section-subtitle" style="color: #8A4027;">
-            <span class="subtitle-bullet-dot" style="background: #DFA38B;"></span>
-            <span>Comprendre l'approche</span>
-          </div>
-          <h2 class="interior-section-title">Qu'est-ce que l'hypnose Ericksonienne ?</h2>
-          <p class="interior-section-lead">
-            Loin des représentations magiques ou autoritaires, l'hypnose Ericksonienne est un état d'attention focalisée et de profonde relaxation, propice à la créativité et à la réorganisation bienveillante de vos mécanismes intérieurs.
-          </p>
-        </div>
+    <!-- Section 1 : Nuage de Situations & Demandes -->
+    <SituationCloud 
+      subtitle="Votre point de départ"
+      title="Des demandes couramment accompagnées en hypnose"
+      lead="L'hypnose permet d'agir avec finesse là où la seule volonté intellectuelle se heurte à des automatismes anciens."
+      tags={hypnoseTags}
+      quote="« Votre inconscient en sait beaucoup plus que vous ne croyez en savoir. » — <em>Milton H. Erickson</em>"
+      sectionId="reperes"
+      theme="hypnose"
+    />
 
-        <div class="situations-grid">
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--terracotta">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Gestion du stress &amp; Anxiété</h3>
-            <p class="situation-card-text">
-              Apaiser les tensions corporelles et émotionnelles, calmer le système nerveux et retrouver une sensation d'espace et de sécurité intérieure.
-            </p>
-          </div>
+    <!-- Section 2 : Éclairage / Démystification & Pédagogie -->
+    <InsightSection 
+      badgeText="Pédagogie & Démystification"
+      badgeType="hypnose"
+      title="L'inconscient comme réservoir bienveillant de solutions"
+      lead="Loin de l'illusion du contrôle absolu ou de la prise de pouvoir sur l'autre, découvrez ce qu'est véritablement l'hypnose thérapeutique."
+      bodyParagraphs={[
+        "Contrairement à l'hypnose de spectacle qui mise sur l'autorité et la soumission, l'<strong>Hypnose Ericksonienne</strong> créée par le psychiatre américain Milton H. Erickson est une méthode permissive et collaborative.",
+        "Elle part du postulat fondamental que vous possédez déjà en vous toutes les ressources nécessaires pour guérir, vous apaiser et changer. L'inconscient n'est pas un lieu obscur de pulsions, mais un réservoir immense d'apprentissages, de souvenirs et de capacités d'auto-régulation.",
+        "Pendant la séance, vous n'êtes jamais passif(ve) : vous vivez une expérience intérieure riche guidée par des récits, des images et des métaphores qui permettent à votre esprit de créer de nouvelles voies neuronales plus confortables."
+      ]}
+      highlightBoxTitle="Une éthique rigoureuse et bienveillante"
+      highlightBoxText="La séance se déroule toujours dans le respect strict de votre intégrité. Vous pouvez ouvrir les yeux, parler, bouger ou décider d'interrompre l'exercice à n'importe quel moment."
+      keypoints={[
+        { title: "Libre arbitre préservé", description: "Aucune suggestion n'est acceptée si elle ne résonne pas positivement en vous." },
+        { title: "Sur-mesure absolu", description: "Chaque séance est unique et s'adapte à vos métaphores et souvenirs personnels." },
+        { title: "Douceur et confort", description: "Une sensation de détente corporelle et de repos mental profond." }
+      ]}
+      sectionId="approche-eclairage"
+      bgColor="#ffffff"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--terracotta">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Sommeil &amp; Récupération</h3>
-            <p class="situation-card-text">
-              Faciliter l'endormissement, désamorcer l'hyper-vigilance nocturne et réapprendre à votre corps le relâchement réparateur.
-            </p>
-          </div>
+    <!-- Section 3 : Déroulement en 4 étapes strictes -->
+    <ProcessTimeline 
+      subtitle="Protocole & Déroulement"
+      title="Le déroulement d'une séance en 4 étapes"
+      lead="Chaque séance dure 1h15 et suit une structure rigoureuse garantissant confort, écoute et personnalisation."
+      steps={hypnoseSteps}
+      pricingBanner={{
+        tag: "Modalités & Tarif",
+        title: "Séance d'Hypnose Ericksonienne",
+        description: "Un questionnaire préparatoire en amont, un temps d'échange pour préciser votre demande, une séquence d'hypnose personnalisée et un temps de retour en fin de séance.",
+        amount: "110 €",
+        duration: "Durée : 1 h 15",
+        linkText: "Consulter tous les tarifs →",
+        linkUrl: "/tarifs",
+        tagColor: "#78321A"
+      }}
+      sectionId="deroulement"
+      bgColor="#FAF5F2"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--terracotta">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24"/></svg>
-            </div>
-            <h3 class="situation-card-title">Automatismes &amp; Habitudes</h3>
-            <p class="situation-card-text">
-              Transformer les comportements compulsifs, les grignotages émotionnels ou les schémas répétitifs dont la volonté seule ne vient pas à bout.
-            </p>
-          </div>
+    <!-- Section 4 : Grille des 4 Piliers de l'État Hypnotique -->
+    <BenefitGrid 
+      subtitle="Piliers & Bénéfices"
+      title="Ce que la pratique de l'hypnose vous apporte"
+      lead="Découvrez comment cette démarche débloque les automatismes et installe un soulagement profond au quotidien."
+      cards={hypnoseBenefits}
+      sectionId="benefices"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--terracotta">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <h3 class="situation-card-title">Confiance &amp; Prise de parole</h3>
-            <p class="situation-card-text">
-              Désactiver le trac paralysant, renforcer l'assurance, libérer votre voix et aborder les situations d'exposition avec calme et légitimité.
-            </p>
-          </div>
-
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--terracotta">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            </div>
-            <h3 class="situation-card-title">Phobies &amp; Peurs ciblées</h3>
-            <p class="situation-card-text">
-              Retraiter les peurs envahissantes (avion, transports, claustrophobie, animaux) en reprogrammant une réponse émotionnelle sereine.
-            </p>
-          </div>
-
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--terracotta">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Transitions de vie &amp; Deuils</h3>
-            <p class="situation-card-text">
-              Accompagner les étapes de séparation, de départ ou de changement important en mobilisant vos ressources d'adaptation et de résilience.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 2 : Déroulement en 4 étapes clés -->
-    <section class="section interior-section" id="deroulement" style="background-color: #FAF5F2;">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="interior-section-header">
-          <div class="interior-section-subtitle" style="color: #8A4027;">
-            <span class="subtitle-bullet-dot" style="background: #DFA38B;"></span>
-            <span>Protocole &amp; Déroulement</span>
-          </div>
-          <h2 class="interior-section-title">Comment se déroule une séance d'hypnose ?</h2>
-          <p class="interior-section-lead">
-            Chaque séance dure 1h15 et suit un déroulé structuré en 4 temps, garantissant un cadre sécurisant et sur-mesure.
-          </p>
-        </div>
-
-        <div class="steps-cards-grid">
-          <!-- Step 1 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #FAF1EC; color: #78321A;">01 · En amont</span>
-            </div>
-            <h3 class="step-box-title">Questionnaire préparatoire</h3>
-            <p class="step-box-text">
-              Un questionnaire transmis avant notre rendez-vous pour préciser vos attentes, vos ressentis et me permettre de construire une séance entièrement personnalisée.
-            </p>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #FAF1EC; color: #78321A;">02 · Échange</span>
-            </div>
-            <h3 class="step-box-title">Temps d'échange &amp; Précision</h3>
-            <p class="step-box-text">
-              En début de séance, nous clarifions votre demande, répondons à vos éventuelles questions et définissons ensemble l'objectif précis de la séance.
-            </p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #FAF1EC; color: #78321A;">03 · Hypnose</span>
-            </div>
-            <h3 class="step-box-title">Séquence d'hypnose guidée</h3>
-            <p class="step-box-text">
-              Guidé(e) par ma voix dans un état de profonde relaxation consciente, vous explorez vos métaphores et mobilisez vos ressources intérieures en toute sérénité.
-            </p>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #FAF1EC; color: #78321A;">04 · Retour</span>
-            </div>
-            <h3 class="step-box-title">Temps de retour &amp; Intégration</h3>
-            <p class="step-box-text">
-              Un retour en douceur à votre état de veille ordinaire, suivi d'un court échange pour partager vos impressions et laisser le travail s'intégrer naturellement.
-            </p>
-          </div>
-        </div>
-
-        <!-- Encart Tarifaire Hypnose -->
-        <div class="pricing-banner-card">
-          <div class="pricing-banner-info">
-            <div class="pricing-banner-tag" style="color: #78321A;">Modalités &amp; Tarif</div>
-            <h3 class="pricing-banner-title">Séance d'Hypnose Ericksonienne</h3>
-            <p class="pricing-banner-desc">
-              Un questionnaire préparatoire en amont, un temps d'échange pour préciser votre demande, une séquence d'hypnose personnalisée et un temps de retour en fin de séance.
-            </p>
-          </div>
-          <div class="pricing-banner-action">
-            <div class="pricing-banner-amount">110 €</div>
-            <div class="pricing-banner-duration">Durée : 1 h 15</div>
-            <a href="/tarifs" class="text-link" style="margin-top: 4px; font-size: 14px; font-weight: 600; color: #78321A;">Consulter tous les tarifs →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Accordion -->
+    <!-- Section 5 : FAQ Accordéon Détaillée -->
     <FaqAccordion 
       items={hypnoseFaq}
       subtitle="Questions fréquentes"
@@ -210,12 +229,12 @@ const hypnoseFaq = [
       badgeType="hypnose"
     />
 
-    <!-- Related Services -->
+    <!-- Section 6 : Passerelles vers les autres approches -->
     <RelatedServices currentService="hypnose" />
 
-    <!-- Interior CTA -->
+    <!-- Section 7 : CTA Final -->
     <InteriorCta 
-      title="Prêt(e) à ouvrir de nouvelles possibilités ?"
+      title="Prêt(e) à activer vos ressources profondes ?"
       lead="Réservez votre séance au cabinet de Voisins-le-Bretonneux ou contactez-moi pour toute question préalable."
       buttonText="Prendre rendez-vous"
     />

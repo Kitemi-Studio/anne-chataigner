@@ -2,27 +2,126 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHero from '../components/PageHero.astro';
+import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
+import SituationCloud from '../components/SituationCloud.astro';
+import InsightSection from '../components/InsightSection.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import BenefitGrid from '../components/BenefitGrid.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import RelatedServices from '../components/RelatedServices.astro';
 import InteriorCta from '../components/InteriorCta.astro';
 
+const coupleTags = [
+  { text: "Difficultés de communication", color: "amber", size: "lg" },
+  { text: "Incompréhensions & malentendus", color: "terracotta", size: "lg" },
+  { text: "Arrivée d'un enfant & parentalité", color: "sage", size: "md" },
+  { text: "Départ des enfants (nid vide)", color: "blue", size: "md" },
+  { text: "Usure du quotidien & routine", color: "slate", size: "md" },
+  { text: "Perte de complicité & intimité", color: "rose", size: "lg" },
+  { text: "Désaccords sur l'éducation", color: "amber", size: "md" },
+  { text: "Tensions financières ou logistiques", color: "slate", size: "sm" },
+  { text: "Crise de confiance ou non-dits", color: "terracotta", size: "lg" },
+  { text: "Désir de redéfinir le projet de couple", color: "green", size: "md" },
+  { text: "Clarification d'une séparation sereine", color: "blue", size: "md" },
+  { text: "Partage de la charge mentale", color: "sage", size: "sm" },
+  { text: "Transitions professionnelles d'un conjoint", color: "slate", size: "sm" },
+  { text: "Cheminer vers ce qui est juste", color: "amber", size: "lg" }
+];
+
+const coupleSteps = [
+  {
+    number: "Étape 01",
+    title: "Temps d'expression équitable & apaisé",
+    description: "Chaque partenaire dépose sa perception de la situation, ses besoins et ses ressentis sans être interrompu, dans un cadre sécurisé et bienveillant.",
+    keypoints: [
+      "Parole libre et respectueuse",
+      "Écoute sans prise de parti",
+      "Identification des motifs réels"
+    ],
+    badgeBg: "#FAF4E8",
+    badgeColor: "#6D4811"
+  },
+  {
+    number: "Étape 02",
+    title: "Mettre en lumière les mécanismes relationnels",
+    description: "Nous décodons la 'danse relationnelle' : comment les réactions de l'un activent les blessures de l'autre, pour sortir des accusations stériles.",
+    keypoints: [
+      "Décryptage des cercles vicieux",
+      "Différenciation de la personne et du problème",
+      "Compréhension des besoins sous-jacents"
+    ],
+    badgeBg: "#FAF4E8",
+    badgeColor: "#6D4811"
+  },
+  {
+    number: "Étape 03",
+    title: "Co-construire de nouveaux accords durables",
+    description: "Vous élaborez des clés de communication concrètes (CNV), des rituels de connexion et des accords relationnels clairs à tester chez vous.",
+    keypoints: [
+      "Règles d'écoute et de désescalade",
+      "Rituels de reconnexion au quotidien",
+      "Clarté sur les décisions à prendre"
+    ],
+    badgeBg: "#FAF4E8",
+    badgeColor: "#6D4811"
+  }
+];
+
+const coupleBenefits = [
+  {
+    step: "01",
+    title: "Sécurité relationnelle retrouvée",
+    description: "Abordez les sujets délicats ou tabous sans craindre que l'échange ne tourne systématiquement au conflit.",
+    color: "amber",
+    iconType: "shield"
+  },
+  {
+    step: "02",
+    title: "Compréhension mutuelle en profondeur",
+    description: "Entendez ce que votre partenaire ressent véritablement derrière les reproches ou les silences du quotidien.",
+    color: "blue",
+    iconType: "heart"
+  },
+  {
+    step: "03",
+    title: "Outils de communication concrets",
+    description: "Intégrez des réflexes d'expression centrés sur vos besoins plutôt que sur la critique accusatrice.",
+    color: "sage",
+    iconType: "users"
+  },
+  {
+    step: "04",
+    title: "Clarté sur l'avenir du lien",
+    description: "Décidez en conscience de ce qui est juste pour chacun : renouveler le pacte de couple ou cheminer sereinement.",
+    color: "terracotta",
+    iconType: "compass"
+  }
+];
+
 const coupleFaq = [
   {
-    question: "Que faire si l'un des deux partenaires est hésitant à l'idée de consulter ?",
-    answer: "Il est très fréquent que l'un des conjoints éprouve des réticences ou craigne d'être jugé. La consultation n'a pas vocation à désigner un « coupable » ni à imposer une issue prédéterminée. C'est avant tout un <strong>espace neutre d'exploration</strong>. Venir pour une première séance sans engagement à long terme permet souvent de dissiper ces appréhensions et de constater le caractère sécurisant du cadre."
+    question: "Que faire si mon conjoint ou partenaire hésite à venir consulter ?",
+    answer: "Il est très fréquent que l'un des conjoints éprouve des réticences ou craigne d'être mis en accusation. La consultation n'a pas vocation à désigner un « coupable » ni à imposer une issue prédéterminée. C'est avant tout un <strong>espace neutre d'exploration</strong>. Venir pour une première séance sans engagement à long terme permet souvent de dissiper ces appréhensions et de constater le caractère sécurisant du cadre."
   },
   {
-    question: "La consultation de couple est-elle réservée aux crises graves ?",
-    answer: "Non. Tout comme pour les consultations individuelles, <strong>il n'est pas nécessaire d'attendre la rupture ou l'épuisement pour se faire accompagner</strong>. Consulter lors d'une transition (arrivée d'un enfant, départ à la retraite, changement professionnel) permet de prévenir les incompréhensions, de réajuster le dialogue et de consolider le lien."
+    question: "La consultation de couple est-elle réservée aux situations de crise grave ?",
+    answer: "Non. Tout comme pour les consultations individuelles, <strong>il n'est pas nécessaire d'attendre la rupture ou l'épuisement pour se faire accompagner</strong>. Consulter lors d'une transition (arrivée d'un enfant, départ à la retraite, changement de rythme) permet de prévenir les incompréhensions, de réajuster le dialogue et de consolider le lien avant que les rancœurs ne s'accumulent."
   },
   {
-    question: "L'accompagnement a-t-il obligatoirement pour but de 'sauver' le couple ?",
-    answer: "L'objectif est d'accompagner les deux partenaires vers <strong>ce qui est juste pour chacun et pour la relation</strong>. Selon votre situation et vos désirs, cela peut signifier retrouver une intimité et une complicité renouvelées, ou bien clarifier une séparation dans le respect mutuel, le calme et la bienveillance."
+    question: "L'accompagnement a-t-il pour seul but de 'sauver' le couple ?",
+    answer: "L'objectif est d'accompagner les deux partenaires vers <strong>ce qui est juste pour chacun et pour la relation</strong>. Selon votre situation et vos désirs, cela peut signifier retrouver une intimité et une complicité renouvelées, ou bien clarifier une séparation dans le respect mutuel, le calme et la préservation de l'équilibre familial."
   },
   {
-    question: "Comment se déroule une séance au cabinet ?",
-    answer: "Les séances durent <strong>1h30</strong>. Ce format spacieux garantit que chaque partenaire dispose d'un temps de parole équitable et que les échanges puissent se déployer sans précipitation."
+    question: "Quelle est la durée et le rythme des séances de couple ?",
+    answer: "Les séances de couple durent <strong>1h30</strong>. Ce format spacieux garantit que chaque partenaire dispose d'un temps de parole équitable et que les échanges puissent se déployer sans précipitation. Les séances sont généralement espacées de 3 à 4 semaines pour vous laisser le temps d'expérimenter les nouveaux accords au quotidien."
+  },
+  {
+    question: "Comment garantissez-vous la neutralité durant les échanges ?",
+    answer: "Ma posture de thérapeute systémique consiste à me placer au service de la <em>relation</em>, et non d'une personne contre l'autre. Je veille scrupuleusement à l'équilibre des temps de parole, à la reformulation bienveillante et à la protection de l'espace d'échange."
+  },
+  {
+    question: "Est-il possible de faire des séances de couple en visioconférence ?",
+    answer: "Oui, la consultation de couple peut tout à fait se dérouler en visioconférence si vous êtes tous les deux réunis devant le même écran, ou même connectés depuis deux endroits différents en cas de déplacement professionnel."
   }
 ];
 ---
@@ -34,8 +133,8 @@ const coupleFaq = [
   <Navbar slot="navbar" />
 
   <main id="main-content">
-    <!-- Hero Section -->
-    <PageHero 
+    <!-- Hero Header Atmosphérique Immersion -->
+    <PageHeroAtmospheric 
       badgeText="Accompagnement relationnel & de couple"
       badgeType="couple"
       title="Un espace pour dialoguer, se comprendre et cheminer ensemble."
@@ -43,155 +142,74 @@ const coupleFaq = [
       primaryCtaText="Prendre rendez-vous"
       primaryCtaLink="#contact"
       secondaryCtaText="Découvrir le cadre"
-      secondaryCtaLink="#cadre"
+      secondaryCtaLink="#reperes"
+      scrollTargetId="reperes"
+      scrollLabel="Découvrir"
     />
 
-    <!-- Section 1 : Situations -->
-    <section class="section interior-section" id="situations">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="interior-section-header">
-          <div class="interior-section-subtitle" style="color: #7D5114;">
-            <span class="subtitle-bullet-dot" style="background: #D9A458;"></span>
-            <span>Moments clés de la relation</span>
-          </div>
-          <h2 class="interior-section-title">Quand envisager une consultation de couple ?</h2>
-          <p class="interior-section-lead">
-            Chaque couple traverse des cycles, des transformations et des remises en question. Voici les moments où un accompagnement extérieur permet de retrouver de la clarté.
-          </p>
-        </div>
+    <!-- Section 1 : Nuage de Situations Relationnelles -->
+    <SituationCloud 
+      subtitle="Votre point de départ"
+      title="Des moments charnières dans la vie du couple"
+      lead="Chaque couple traverse des cycles, des transformations et des remises en question. Voici les situations où un regard extérieur neutre permet de retrouver du souffle."
+      tags={coupleTags}
+      quote="« Entre ce que je pense, ce que je veux dire, ce que je dis, ce que tu entends, ce que tu veux comprendre et ce que tu comprends, il y a dix possibilités de ne pas s'entendre. »"
+      sectionId="reperes"
+      theme="couple"
+    />
 
-        <div class="situations-grid">
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--amber">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Difficultés de communication</h3>
-            <p class="situation-card-text">
-              Sentiment de ne plus réussir à se parler sans hausser le ton, dialogues de sourds, malentendus récurrents ou repli sur soi.
-            </p>
-          </div>
+    <!-- Section 2 : Éclairage Systémique & CNV -->
+    <InsightSection 
+      badgeText="Systémique & Posture"
+      badgeType="couple"
+      title="Sortir du 'Qui a tort, qui a raison' : Soigner la relation"
+      lead="Dans un couple en difficulté, le problème n'est presque jamais l'un des conjoints, mais la dynamique inconsciente qui s'est installée entre eux."
+      bodyParagraphs={[
+        "En approche systémique, nous considérons le couple comme un organisme vivant. Lorsque la communication s'enraye, chacun a tendance à réagir aux réactions de l'autre : le reproche entraîne le repli, qui suscite davantage de reproches.",
+        "Mon rôle en tant que tiers neutre n'est pas de distribuer des bons et des mauvais points, mais de vous aider à <strong>observer ensemble cette mécanique</strong>. En prenant conscience de votre danse relationnelle, vous pouvez cesser de vous attaquer mutuellement pour vous allier contre le problème.",
+        "Grâce aux principes de la <strong>Communication Non Violente (CNV)</strong>, nous réapprenons à formuler des demandes claires et concrètes à partir de vos besoins fondamentaux (sécurité, écoute, reconnaissance, liberté)."
+      ]}
+      highlightBoxTitle="La neutralité bienveillante comme rempart"
+      highlightBoxText="Au cabinet, personne n'est jugé ni sommé de changer sous la contrainte. Le cadre garantit que chaque voix compte et que chaque sensibilité est respectée dans son intégrité."
+      keypoints={[
+        { title: "Désescalade immédiate", description: "Stopper les spirales de reproches et d'incompréhensions mutuelles." },
+        { title: "Écoute des besoins réels", description: "Comprendre ce qui se cache derrière les silences ou l'agacement." },
+        { title: "Cheminement sur-mesure", description: "Avancer vers ce qui fait sens pour vous, sans décision imposée." }
+      ]}
+      sectionId="approche-eclairage"
+      bgColor="#ffffff"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--amber">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 class="situation-card-title">Transitions &amp; Nouvelles étapes</h3>
-            <p class="situation-card-text">
-              Arrivée d'un premier enfant, recomposition familiale, départ des grands du foyer ou réorganisation suite à un changement de rythme.
-            </p>
-          </div>
+    <!-- Section 3 : Déroulement de la démarche -->
+    <ProcessTimeline 
+      subtitle="Cadre & Déroulement"
+      title="Le déroulement d'une consultation de couple"
+      lead="Des séances de 1h30 pour permettre à chacun de déposer ses ressentis sans précipitation et repartir avec des repères clairs."
+      steps={coupleSteps}
+      pricingBanner={{
+        tag: "Modalités & Tarif",
+        title: "Consultation de couple",
+        description: "Un espace neutre, bienveillant et sécurisant pour permettre à chacun de s’exprimer, mettre en lumière ce qui se joue dans la relation et cheminer ensemble.",
+        amount: "150 €",
+        duration: "Durée : 1 h 30",
+        linkText: "Consulter tous les tarifs →",
+        linkUrl: "/tarifs",
+        tagColor: "#6D4811"
+      }}
+      sectionId="deroulement"
+      bgColor="#FAF6F0"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--amber">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Distance émotionnelle &amp; Usure</h3>
-            <p class="situation-card-text">
-              Sensation de vivre « comme des colocataires », perte de complicité, baisse d'attention mutuelle ou routine écrasante.
-            </p>
-          </div>
+    <!-- Section 4 : Grille des 4 Bénéfices de la Consultation -->
+    <BenefitGrid 
+      subtitle="Bénéfices & Retrouvailles"
+      title="Ce que l'accompagnement de couple permet de réparer"
+      lead="Retrouvez un dialogue authentique, un climat de confiance et une sérénité partagée au quotidien."
+      cards={coupleBenefits}
+      sectionId="benefices"
+    />
 
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--amber">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24"/></svg>
-            </div>
-            <h3 class="situation-card-title">Désaccords sur les valeurs</h3>
-            <p class="situation-card-text">
-              Visions divergentes sur l'éducation des enfants, les finances, le partage des tâches ou les projets d'avenir.
-            </p>
-          </div>
-
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--amber">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Crise de confiance ou blessure</h3>
-            <p class="situation-card-text">
-              Faire face à un non-dit, une infidélité ou une rupture de contrat tacite, pour poser les choses calmement et décider de la suite.
-            </p>
-          </div>
-
-          <div class="situation-card">
-            <div class="situation-card-icon situation-card-icon--amber">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4-4-4M8 10h8M3 20h18M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
-            </div>
-            <h3 class="situation-card-title">Clarifier l'avenir du couple</h3>
-            <p class="situation-card-text">
-              Prendre le temps d'une réflexion posée pour redéfinir les bases du lien ou accompagner une séparation dans le respect mutuel.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 2 : Cadre & Posture -->
-    <section class="section interior-section" id="cadre" style="background-color: #FAF6F0;">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="interior-section-header">
-          <div class="interior-section-subtitle" style="color: #7D5114;">
-            <span class="subtitle-bullet-dot" style="background: #D9A458;"></span>
-            <span>Cadre &amp; Déroulement</span>
-          </div>
-          <h2 class="interior-section-title">Le déroulement de la démarche</h2>
-          <p class="interior-section-lead">
-            Un tiers neutre permet d'éviter l'escalade, de réguler la parole et d'aider chacun à exprimer ce qui n'arrivait plus à être entendu.
-          </p>
-        </div>
-
-        <div class="steps-cards-grid">
-          <!-- Step 1 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #FAF4E8; color: #6D4811;">01 · Expression</span>
-            </div>
-            <h3 class="step-box-title">Un temps d'écoute équitable</h3>
-            <p class="step-box-text">
-              Chaque partenaire exprime sa vision de la situation, ses attentes et ses ressentis, sans interruption ni reproche, dans un cadre apaisé.
-            </p>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #FAF4E8; color: #6D4811;">02 · Décodage</span>
-            </div>
-            <h3 class="step-box-title">Mettre en lumière les mécanismes</h3>
-            <p class="step-box-text">
-              Nous analysons ensemble les schémas d'interaction : qui déclenche quoi, quelles blessures sont réactivées et où se situent les blocages.
-            </p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="step-box-card">
-            <div class="step-box-header">
-              <span class="step-box-number" style="background: #FAF4E8; color: #6D4811;">03 · Réajustement</span>
-            </div>
-            <h3 class="step-box-title">Construire des solutions concrètes</h3>
-            <p class="step-box-text">
-              Vous élaborez des accords relationnels précis, des règles de communication et des rituels à tester dans votre quotidien entre les séances.
-            </p>
-          </div>
-        </div>
-
-        <!-- Encart Tarifaire Couple -->
-        <div class="pricing-banner-card">
-          <div class="pricing-banner-info">
-            <div class="pricing-banner-tag" style="color: #6D4811;">Modalités &amp; Tarif</div>
-            <h3 class="pricing-banner-title">Consultation de couple</h3>
-            <p class="pricing-banner-desc">
-              Un espace neutre, bienveillant et sécurisant pour permettre à chacun de s’exprimer, mettre en lumière ce qui se joue dans la relation et cheminer ensemble.
-            </p>
-          </div>
-          <div class="pricing-banner-action">
-            <div class="pricing-banner-amount">150 €</div>
-            <div class="pricing-banner-duration">Durée : 1 h 30</div>
-            <a href="/tarifs" class="text-link" style="margin-top: 4px; font-size: 14px; font-weight: 600; color: #6D4811;">Consulter tous les tarifs →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Accordion -->
+    <!-- Section 5 : FAQ Accordéon Détaillée -->
     <FaqAccordion 
       items={coupleFaq}
       subtitle="Questions fréquentes"
@@ -199,10 +217,10 @@ const coupleFaq = [
       badgeType="couple"
     />
 
-    <!-- Related Services -->
+    <!-- Section 6 : Passerelles vers les autres approches -->
     <RelatedServices currentService="couple" />
 
-    <!-- Interior CTA -->
+    <!-- Section 7 : CTA Final -->
     <InteriorCta 
       title="Besoin d'un espace pour échanger sereinement ?"
       lead="Prenez rendez-vous au cabinet de Voisins-le-Bretonneux pour ouvrir un nouveau dialogue au sein de votre couple."
