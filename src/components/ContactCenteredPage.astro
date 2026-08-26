@@ -4,21 +4,24 @@ import { BOOKING_URL } from '../config/site';
 
 <section class="contact-page-centered" id="contact-top">
   
-  <!-- En-tête de page épuré -->
+  <!-- En-tête de page : Titre & sous-titre à gauche, bouton à droite -->
   <div class="w-layout-blockcontainer container w-container">
     <div class="contact-page-header" data-coaching-reveal>
-      <div class="approche-badge contact-badge">
-        <span class="approche-badge-dot"></span>
-        Contact &amp; Cabinet
+      
+      <div class="contact-page-header__left">
+        <div class="approche-badge contact-badge">
+          <span class="approche-badge-dot"></span>
+          Contact &amp; Cabinet
+        </div>
+        
+        <h1 class="contact-page-title">Prendre contact avec Anne Chataigner</h1>
+        
+        <p class="contact-page-subtitle">
+          Une première rencontre permet de faire le point sur votre situation et de voir si l’accompagnement proposé vous correspond.
+        </p>
       </div>
-      
-      <h1 class="contact-page-title">Prendre contact avec Anne Chataigner</h1>
-      
-      <p class="contact-page-subtitle">
-        Une première rencontre permet de faire le point sur votre situation et de voir si l’accompagnement proposé vous correspond.
-      </p>
 
-      <div class="contact-page-actions">
+      <div class="contact-page-header__right">
         <a href={BOOKING_URL} class="primary-button contact-btn--primary w-inline-block" data-booking-link>
           <div class="button-text-wrapper">
             <div class="button-text-inner">
@@ -27,26 +30,23 @@ import { BOOKING_URL } from '../config/site';
             </div>
           </div>
         </a>
-        <a href="#formulaire" class="contact-page__link-scroll">
-          <span>Ou m'envoyer un message</span>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-        </a>
       </div>
+
     </div>
   </div>
 
-  <!-- Section Pleine Largeur avec Image de Fond & Formulaire Centré -->
+  <!-- Section Pleine Largeur avec Image de Fond & Formulaire Compact Centré -->
   <div class="contact-fullwidth-backdrop" id="formulaire">
     <div class="contact-backdrop-overlay"></div>
 
     <div class="w-layout-blockcontainer container w-container contact-backdrop-container">
       
-      <!-- Carte Formulaire Centrée -->
+      <!-- Carte Formulaire Compacte -->
       <div class="contact-form-modal-card" data-coaching-reveal>
         <header class="contact-form-modal-card__header">
           <h2 class="contact-form-modal-card__title">Envoyer un message</h2>
           <p class="contact-form-modal-card__lead">
-            Posez votre question ou détaillez votre démarche. Vos informations restent strictement confidentielles.
+            Posez votre question ou détaillez votre démarche en toute confidentialité.
           </p>
         </header>
 
@@ -94,8 +94,8 @@ import { BOOKING_URL } from '../config/site';
             </div>
           </div>
 
-          <!-- Ligne 2 : Téléphone & Type d'accompagnement -->
-          <div class="contact-form__row contact-form__row--2cols">
+          <!-- Ligne 2 : Téléphone, Type d'accompagnement & Format (3 colonnes sur desktop) -->
+          <div class="contact-form__row contact-form__row--3cols">
             <div class="contact-form__group">
               <label for="contact-phone" class="contact-form__label">
                 Téléphone <span class="contact-form__optional">(facultatif)</span>
@@ -112,11 +112,11 @@ import { BOOKING_URL } from '../config/site';
 
             <div class="contact-form__group">
               <label for="contact-service" class="contact-form__label">
-                Type d'accompagnement <span class="contact-form__optional">(facultatif)</span>
+                Accompagnement <span class="contact-form__optional">(facultatif)</span>
               </label>
               <div class="contact-form__select-wrap">
                 <select id="contact-service" name="service" class="contact-form__select">
-                  <option value="">Sélectionnez une démarche...</option>
+                  <option value="">Sélectionnez...</option>
                   <option value="coaching">Coaching individuel</option>
                   <option value="therapies">Thérapies brèves</option>
                   <option value="hypnose">Hypnose Ericksonienne</option>
@@ -126,24 +126,23 @@ import { BOOKING_URL } from '../config/site';
                 <span class="contact-form__select-arrow" aria-hidden="true">▾</span>
               </div>
             </div>
-          </div>
 
-          <!-- Ligne 3 : Format souhaité -->
-          <div class="contact-form__group">
-            <label for="contact-preference" class="contact-form__label">
-              Format souhaité <span class="contact-form__optional">(facultatif)</span>
-            </label>
-            <div class="contact-form__select-wrap">
-              <select id="contact-preference" name="preference" class="contact-form__select">
-                <option value="cabinet">Au cabinet (2 Rue de la Bergerie, 78960 Voisins-le-Bretonneux)</option>
-                <option value="visio">En visioconférence sécurisée</option>
-                <option value="indifferent">Sans préférence / À déterminer ensemble</option>
-              </select>
-              <span class="contact-form__select-arrow" aria-hidden="true">▾</span>
+            <div class="contact-form__group">
+              <label for="contact-preference" class="contact-form__label">
+                Format <span class="contact-form__optional">(facultatif)</span>
+              </label>
+              <div class="contact-form__select-wrap">
+                <select id="contact-preference" name="preference" class="contact-form__select">
+                  <option value="cabinet">Au cabinet</option>
+                  <option value="visio">En visioconférence</option>
+                  <option value="indifferent">Indifférent</option>
+                </select>
+                <span class="contact-form__select-arrow" aria-hidden="true">▾</span>
+              </div>
             </div>
           </div>
 
-          <!-- Ligne 4 : Message -->
+          <!-- Ligne 3 : Message -->
           <div class="contact-form__group">
             <label for="contact-message" class="contact-form__label">
               Votre message <span class="contact-form__required" aria-hidden="true">*</span>
@@ -152,63 +151,64 @@ import { BOOKING_URL } from '../config/site';
               id="contact-message" 
               name="message" 
               class="contact-form__textarea" 
-              rows="4" 
-              placeholder="Expliquez brièvement votre situation ou posez votre question..." 
+              rows="3" 
+              placeholder="Expliquez brièvement votre démarche ou posez votre question..." 
               required 
               aria-required="true"
               aria-describedby="help-message"
             ></textarea>
             <p class="contact-form__help-text" id="help-message">
-              Vous pouvez expliquer brièvement votre demande. Évitez de transmettre des informations médicales sensibles dans ce formulaire.
+              Évitez de transmettre des informations médicales sensibles dans ce formulaire.
             </p>
             <span class="contact-form__error" id="error-message" aria-live="polite"></span>
           </div>
 
-          <!-- Consentement -->
-          <div class="contact-form__consent-group">
-            <label class="contact-form__consent-label">
-              <input 
-                type="checkbox" 
-                id="contact-consent" 
-                name="consent" 
-                class="contact-form__checkbox" 
-                required 
-                aria-required="true"
-              />
-              <span class="contact-form__consent-text">
-                J'accepte que mes coordonnées soient utilisées uniquement pour répondre à ma demande, conformément à la <a href="/politique-confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
-              </span>
-            </label>
-            <span class="contact-form__error" id="error-consent" aria-live="polite"></span>
+          <!-- Ligne 4 : Consentement & Bouton Envoyer -->
+          <div class="contact-form__bottom-row">
+            <div class="contact-form__consent-group">
+              <label class="contact-form__consent-label">
+                <input 
+                  type="checkbox" 
+                  id="contact-consent" 
+                  name="consent" 
+                  class="contact-form__checkbox" 
+                  required 
+                  aria-required="true"
+                />
+                <span class="contact-form__consent-text">
+                  J'accepte le traitement de mes coordonnées pour répondre à ma demande (<a href="/politique-confidentialite" target="_blank" rel="noopener">confidentialité</a>).
+                </span>
+              </label>
+              <span class="contact-form__error" id="error-consent" aria-live="polite"></span>
+            </div>
+
+            <div class="contact-form__action">
+              <button type="submit" class="primary-button contact-btn--submit" id="submit-btn">
+                <span class="button-text-wrapper">
+                  <span class="button-text-inner">
+                    <span class="button-text">Envoyer ma demande</span>
+                    <span class="button-text">Envoyer ma demande</span>
+                  </span>
+                </span>
+              </button>
+            </div>
           </div>
 
           <!-- Feedback de statut -->
           <div class="contact-form__status" id="form-status" role="status" aria-live="polite"></div>
-
-          <!-- Action d'envoi -->
-          <div class="contact-form__action">
-            <button type="submit" class="primary-button contact-btn--submit" id="submit-btn">
-              <span class="button-text-wrapper">
-                <span class="button-text-inner">
-                  <span class="button-text">Envoyer ma demande</span>
-                  <span class="button-text">Envoyer ma demande</span>
-                </span>
-              </span>
-            </button>
-          </div>
 
         </form>
 
         <!-- Repères essentiels en bas de carte -->
         <footer class="contact-form-modal-card__footer">
           <div class="contact-form-footer-item">
-            <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16.5 8.2c0 4.1-6.5 8.8-6.5 8.8S3.5 12.3 3.5 8.2a6.5 6.5 0 1 1 13 0Z" stroke="currentColor" stroke-width="1.3"></path><circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.3"></circle></svg>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16.5 8.2c0 4.1-6.5 8.8-6.5 8.8S3.5 12.3 3.5 8.2a6.5 6.5 0 1 1 13 0Z" stroke="currentColor" stroke-width="1.3"></path><circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.3"></circle></svg>
             <span>2 Rue de la Bergerie, 78960 Voisins-le-Bretonneux</span>
           </div>
           <span class="contact-form-footer-dot" aria-hidden="true">·</span>
           <div class="contact-form-footer-item">
-            <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><polygon points="17 6 12 10 17 14 17 6" stroke="currentColor" stroke-width="1.3"></polygon><rect x="3" y="5" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.3"></rect></svg>
-            <span>Visioconférence disponible</span>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><polygon points="17 6 12 10 17 14 17 6" stroke="currentColor" stroke-width="1.3"></polygon><rect x="3" y="5" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.3"></rect></svg>
+            <span>Visioconférence sécurisée</span>
           </div>
         </footer>
 
@@ -264,7 +264,7 @@ import { BOOKING_URL } from '../config/site';
       }
 
       if (!consentInput.checked) {
-        if (errorConsent) errorConsent.textContent = 'Votre consentement est requis pour le traitement de votre demande.';
+        if (errorConsent) errorConsent.textContent = 'Votre consentement est requis.';
         hasError = true;
       }
 
@@ -294,7 +294,7 @@ import { BOOKING_URL } from '../config/site';
 
       setTimeout(() => {
         statusEl.className = 'contact-form__status contact-form__status--success';
-        statusEl.innerHTML = 'Votre logiciel de messagerie va s\'ouvrir pour finaliser l\'envoi.<br><small>Si rien ne se passe, vous pouvez utiliser directement la prise de rendez-vous en ligne.</small>';
+        statusEl.innerHTML = 'Votre messagerie va s\'ouvrir pour finaliser l\'envoi.<br><small>Vous pouvez également prendre rendez-vous directement en ligne.</small>';
         window.location.href = `mailto:contact@anne-chataigner.fr?subject=${subject}&body=${body}`;
         if (submitBtn) submitBtn.removeAttribute('disabled');
       }, 500);
