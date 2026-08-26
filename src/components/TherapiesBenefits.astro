@@ -1,0 +1,55 @@
+---
+interface BenefitCard {
+  step: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  tone: 'sage' | 'blue' | 'terracotta' | 'amber';
+}
+
+interface Props {
+  cards: BenefitCard[];
+  sectionId?: string;
+}
+
+const { cards, sectionId = 'benefices' } = Astro.props;
+---
+
+<section class="section coaching-benefits therapies-benefits" id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="coaching-benefits__heading" data-coaching-reveal>
+      <div>
+        <div class="approche-badge coaching-section-badge">
+          <span class="approche-badge-dot" style="background: var(--anne-therapies);"></span>
+          Ce que les thérapies brèves vous apportent
+        </div>
+        <h2 class="heading-2">
+          <span class="coaching-benefits-title-line">Des bienfaits observables dans votre</span>
+          <span class="coaching-benefits-title-line">quotidien.</span>
+        </h2>
+      </div>
+      <p class="text">Pas de promesse magique : un apaisement émotionnel réel, une meilleure régulation du stress et des outils simples réutilisables toute votre vie.</p>
+    </div>
+
+    <div class="coaching-benefits-grid">
+      {cards.map((card, index) => (
+        <article class={`coaching-benefit-card coaching-benefit-card--${card.tone} ${index % 2 === 1 ? 'is-reversed' : ''}`} data-coaching-reveal>
+          <div class="coaching-benefit-card__media">
+            <img src={card.image} alt={card.imageAlt} loading="lazy" width="1536" height="1024" />
+            <span class="coaching-benefit-card__step">{card.step}</span>
+          </div>
+          <div class="coaching-benefit-card__body">
+            <p class="coaching-benefit-card__eyebrow">{card.eyebrow}</p>
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+            <span class="coaching-benefit-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

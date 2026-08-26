@@ -2,111 +2,125 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
-import SituationCloud from '../components/SituationCloud.astro';
-import InsightSection from '../components/InsightSection.astro';
-import ProcessTimeline from '../components/ProcessTimeline.astro';
-import BenefitGrid from '../components/BenefitGrid.astro';
+import TherapiesHero from '../components/TherapiesHero.astro';
+import TherapiesSituations from '../components/TherapiesSituations.astro';
+import TherapiesApproachDiagram from '../components/TherapiesApproachDiagram.astro';
+import TherapiesMethod from '../components/TherapiesMethod.astro';
+import TherapiesBenefits from '../components/TherapiesBenefits.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
-import RelatedServices from '../components/RelatedServices.astro';
-import InteriorCta from '../components/InteriorCta.astro';
+import TherapiesNextSteps from '../components/TherapiesNextSteps.astro';
+import TherapiesCta from '../components/TherapiesCta.astro';
 
 const therapiesTags = [
-  { text: "Charge mentale & surcharge", color: "sage", size: "lg" },
-  { text: "Anxiété & angoisses diffuses", color: "terracotta", size: "lg" },
-  { text: "Régulation des émotions", color: "blue", size: "md" },
-  { text: "Traversée d'une rupture", color: "rose", size: "md" },
-  { text: "Période de deuil & perte", color: "slate", size: "sm" },
-  { text: "Épuisement & pré-burnout", color: "terracotta", size: "lg" },
-  { text: "Schémas relationnels répétitifs", color: "amber", size: "md" },
-  { text: "Sommeil perturbé & insomnies", color: "blue", size: "md" },
-  { text: "Hypersensibilité envahissante", color: "sage", size: "lg" },
-  { text: "Peur du regard des autres", color: "rose", size: "sm" },
-  { text: "Culpabilité & perfectionnisme", color: "slate", size: "md" },
-  { text: "Estime de soi & bienveillance", color: "green", size: "lg" },
-  { text: "Tensions familiales ou de couple", color: "amber", size: "md" },
-  { text: "Envie de retrouver un équilibre", color: "sage", size: "lg" }
+  { text: "Charge mentale & surcharge au quotidien", color: "sage" },
+  { text: "Anxiété, angoisses diffuses & oppression", color: "terracotta" },
+  { text: "Régulation des émotions & débordements", color: "blue" },
+  { text: "Traversée d'une rupture ou séparation", color: "sage" },
+  { text: "Période de deuil & transition douloureuse", color: "slate" },
+  { text: "Épuisement émotionnel & pré-burnout", color: "terracotta" },
+  { text: "Schémas relationnels répétitifs & blocages", color: "amber" },
+  { text: "Sommeil perturbé, réveils nocturnes & insomnies", color: "blue" },
+  { text: "Hypersensibilité & sensation d'éponge", color: "sage" },
+  { text: "Peur du regard de l'autre & inhibition", color: "terracotta" },
+  { text: "Culpabilité envahissante & perfectionnisme", color: "slate" },
+  { text: "Estime de soi & bienveillance envers soi", color: "sage" }
 ];
 
 const therapiesSteps = [
   {
-    number: "Étape 01",
-    title: "Accueil & Dépose en toute sécurité",
-    description: "Un espace d'écoute feutré et confidentiel pour exprimer ce qui pèse, poser vos émotions et vous sentir pleinement accueilli(e) sans aucun jugement.",
+    number: "Étape 01 · Accueil & Dépose",
+    title: "Dépose en toute sécurité",
+    mantra: "Poser ce qui pèse dans un cadre feutré et confidentiel",
+    description: "Un espace d'écoute attentive pour exprimer vos ressentis, déposer votre charge émotionnelle et vous sentir pleinement accueilli(e) sans aucun jugement.",
+    image: "/assets/step-1-ecouter%20-%20nouveau%20bureau.png",
+    imageAlt: "Accueil et écoute bienveillante au cabinet d’Anne Chataigner",
+    tone: "sage",
     keypoints: [
-      "Écoute attentive et bienveillante",
+      "Écoute attentive sans jugement",
       "Dépose de la charge émotionnelle",
       "Clarification de ce qui fait souffrance"
-    ],
-    badgeBg: "#E8EFE6",
-    badgeColor: "#2E452A"
+    ]
   },
   {
-    number: "Étape 02",
+    number: "Étape 02 · Comprendre",
     title: "Éclairer le système émotionnel",
-    description: "Nous identifions les déclencheurs, les boucles de pensées automatiques et la manière dont vos réactions entretiennent involontairement le stress.",
+    description: "Nous identifions ensemble les déclencheurs, les boucles de pensées automatiques et la manière dont vos réactions entretiennent involontairement le stress.",
+    mantra: "Comprendre les mécanismes pour cesser de les subir",
+    image: "/assets/step-2-explorer%20-%20nouveau%20bureau.png",
+    imageAlt: "Compréhension des schémas émotionnels en séance",
+    tone: "blue",
     keypoints: [
       "Mise en lumière des cercles vicieux",
-      "Compréhension des messages de vos émotions",
+      "Décodage des messages de vos émotions",
       "Désamorçage de l'autocritique"
-    ],
-    badgeBg: "#E8EFE6",
-    badgeColor: "#2E452A"
+    ]
   },
   {
-    number: "Étape 03",
+    number: "Étape 03 · Expérimenter",
     title: "Expérimenter des outils concrets",
-    description: "Nous pratiquons en séance des outils thérapeutiques simples et puissants (régulation du système nerveux, recadrage, visualisation, ancrages).",
+    description: "Nous pratiquons en séance des outils thérapeutiques simples et puissants : régulation du système nerveux, recadrage cognitif, visualisation et ancrages.",
+    mantra: "Des clés pratiques adaptées à votre sensibilité",
+    image: "/assets/image%202.png",
+    imageAlt: "Pratique d'exercices d'apaisement en consultation",
+    tone: "sage",
     keypoints: [
-      "Techniques de désactivation émotionnelle",
+      "Techniques de désactivation du stress",
       "Exercices corporels et cognitifs",
-      "Outils personnalisés à votre sensibilité"
-    ],
-    badgeBg: "#E8EFE6",
-    badgeColor: "#2E452A"
+      "Outils personnalisés réutilisables"
+    ]
   },
   {
-    number: "Étape 04",
+    number: "Étape 04 · Consolider",
     title: "Intégrer et consolider au quotidien",
-    description: "Vous repartez avec des repères clairs à appliquer dans vos journées. Au fil des séances, vous gagnez en autonomie et en paix intérieure.",
+    description: "Vous repartez avec des repères clairs à appliquer dans vos journées. Au fil des séances, vous gagnez en autonomie, en clarté et en sérénité durable.",
+    mantra: "Une autonomie pérenne pour les étapes futures",
+    image: "/assets/step-4-avancer%20-%20Anne.png",
+    imageAlt: "Consolidation des progrès et autonomie au quotidien",
+    tone: "amber",
     keypoints: [
       "Micro-rituels d'apaisement chez vous",
       "Évaluation des progrès concrets",
-      "Ancrage d'une sérénité durable"
-    ],
-    badgeBg: "#E8EFE6",
-    badgeColor: "#2E452A"
+      "Ancrage d'une paix intérieure durable"
+    ]
   }
 ];
 
 const therapiesBenefits = [
   {
     step: "01",
+    eyebrow: "Régulation corporelle",
     title: "Apaisement du système nerveux",
-    description: "Réduisez l'hyper-réactivité, les tensions corporelles et retrouvez un sentiment d'espace et de calme intérieur.",
-    color: "sage",
-    iconType: "feather"
+    description: "Réduisez l'hyper-réactivité, relâchez les tensions physiques chroniques et retrouvez une véritable sensation de calme intérieur.",
+    image: "/assets/step-1-ecouter.jpg",
+    imageAlt: "Apaisement corporel et détente du système nerveux",
+    tone: "sage"
   },
   {
     step: "02",
+    eyebrow: "Clarté mentale",
     title: "Recul face aux ruminations",
-    description: "Sortez du flux incessant des pensées anxieuses et apprenez à observer vos émotions sans vous laisser submerger.",
-    color: "blue",
-    iconType: "eye"
+    description: "Sortez du flux incessant des pensées anxieuses et apprenez à observer vos émotions sans vous laisser submerger par elles.",
+    image: "/assets/step-2-explorer.jpg",
+    imageAlt: "Prise de recul face aux pensées et ruminations",
+    tone: "blue"
   },
   {
     step: "03",
+    eyebrow: "Nouveaux réflexes",
     title: "Sortie des schémas répétitifs",
-    description: "Cassez les automatismes comportementaux qui vous enferment dans des réactions douloureuses ou conflictuelles.",
-    color: "terracotta",
-    iconType: "shield"
+    description: "Cassez les automatismes comportementaux et relationnels qui vous enfermaient dans des réactions douloureuses ou conflictuelles.",
+    image: "/assets/couple%20therapie%20-%20nouveau%20bureau.png",
+    imageAlt: "Transformation des schémas relationnels et émotionnels",
+    tone: "sage"
   },
   {
     step: "04",
-    title: "Autonomie & Confiance durable",
-    description: "Acquérez une boîte à outils pragmatique et réutilisable pour traverser sereinement les futurs aléas de la vie.",
-    color: "amber",
-    iconType: "heart"
+    eyebrow: "Équilibre pérenne",
+    title: "Autonomie & confiance durable",
+    description: "Acquérez une boîte à outils pragmatique et réutilisable pour traverser sereinement les futurs aléas et transitions de votre vie.",
+    image: "/assets/step-4-avancer.jpg",
+    imageAlt: "Autonomie et sérénité durable au quotidien",
+    tone: "amber"
   }
 ];
 
@@ -116,7 +130,7 @@ const therapiesFaq = [
     answer: "<strong>Non, absolument pas.</strong> C'est l'un des principes fondamentaux de ma pratique : <em>il n'est pas nécessaire d'aller très mal pour avoir envie d'aller mieux</em>. Consulter dès les premiers signes de fatigue émotionnelle, de flou ou de surcharge permet d'éviter que les tensions ne s'ancrent et d'apaiser rapidement la situation."
   },
   {
-    question: "En quoi consistent les thérapies brèves par rapport à une psychanalyse ou psychothérapie classique ?",
+    question: "En quoi consistent les thérapies brèves par rapport à une psychothérapie classique ?",
     answer: "Les thérapies brèves se concentrent principalement sur le <strong>présent et la recherche de solutions concrètes</strong> (« comment faire pour que cela change ? »), plutôt que sur une analyse exhaustive et rétrospective du passé. L'objectif est de vous transmettre des clés pratiques et observables pour retrouver rapidement de l'autonomie et de la sérénité."
   },
   {
@@ -142,103 +156,115 @@ const therapiesFaq = [
   title="Thérapies brèves à Voisins-le-Bretonneux (Yvelines) · Anne Chataigner"
   description="Accompagnement bienveillant et concret en thérapies brèves pour apaiser la charge mentale, dépasser un blocage et retrouver un équilibre émotionnel dans les Yvelines."
 >
-  <Navbar slot="navbar" />
+  <Navbar variant="home" slot="navbar" />
 
   <main id="main-content">
-    <!-- Hero Header Atmosphérique Immersion -->
-    <PageHeroAtmospheric 
-      badgeText="Thérapies brèves intégratives"
-      badgeType="therapies"
-      title="Apaiser ce qui pèse et retrouver votre équilibre émotionnel."
-      lead="Un accompagnement concret, personnalisé et à votre rythme. Parce qu'il n'est pas nécessaire d'aller mal pour se faire accompagner, les thérapies brèves vous aident à dénouer les tensions, comprendre vos mécanismes et retrouver de la fluidité au quotidien."
-      primaryCtaText="Prendre rendez-vous"
-      primaryCtaLink="#contact"
-      secondaryCtaText="Découvrir les motifs"
-      secondaryCtaLink="#reperes"
-      scrollTargetId="reperes"
-      scrollLabel="Découvrir"
-    />
+    <TherapiesHero />
 
-    <!-- Section 1 : Nuage de Situations & Résonance -->
-    <SituationCloud 
-      subtitle="Votre point de départ"
-      title="Des motifs fréquents de consultation au cabinet"
-      lead="Chaque accompagnement part de votre vécu singulier, sans protocole figé ni jugement. Voici les difficultés couramment abordées en séance."
-      tags={therapiesTags}
-      quote="« Écouter ce que vos émotions ont à vous dire sans vous laisser submerger par elles. »"
-      sectionId="reperes"
-      theme="therapies"
-    />
+    <TherapiesSituations tags={therapiesTags} />
 
-    <!-- Section 2 : Éclairage / Comprendre ce qui se joue -->
-    <InsightSection 
-      badgeText="Compréhension & Approche"
-      badgeType="therapies"
-      title="Le 'Comment faire autrement' : Traiter la mécanique du présent"
-      lead="Pourquoi ressasser le 'pourquoi' ne suffit-il souvent pas à aller mieux ? Parce que la compréhension intellectuelle d'un problème n'apaise pas automatiquement l'émotion."
-      bodyParagraphs={[
-        "En thérapies brèves, nous nous concentrons sur la <strong>façon dont le problème se manifeste aujourd'hui</strong> dans votre corps, vos pensées et vos relations. En décryptant les déclencheurs et les schémas réflexes, nous pouvons intervenir directement sur la boucle émotionnelle.",
-        "Mon approche associe des outils de <strong>régulation émotionnelle, d'écoute systémique et de recadrage cognitif</strong>. L'objectif n'est pas de refouler ce qui fait mal, mais de permettre à votre système nerveux de digérer l'inconfort et de retrouver son état naturel de sécurité.",
-        "Vous redevenez acteur/actrice de votre équilibre : chaque séance apporte un éclairage immédiat et des exercices simples à réutiliser dès que le stress pointe."
-      ]}
-      highlightBoxTitle="Une approche douce et déculpabilisante"
-      highlightBoxText="Vos réactions émotionnelles ne sont pas des anomalies : ce sont des signaux d'alerte que votre organisme a mis en place pour se protéger. Nous apprenons simplement à leur donner une réponse plus douce et adaptée."
-      keypoints={[
-        { title: "Désactivation du stress aigu", description: "Apaiser les réactions physiques de panique ou de tension." },
-        { title: "Recadrage des croyances", description: "Prendre de la distance avec les pensées automatiques dévalorisantes." },
-        { title: "Autonomie émotionnelle", description: "Savoir s'apaiser soi-même en toute circonstance." }
-      ]}
-      sectionId="approche-eclairage"
-      bgColor="#ffffff"
-    />
+    <TherapiesApproachDiagram />
 
-    <!-- Section 3 : Déroulement en 4 étapes clés -->
-    <ProcessTimeline 
-      subtitle="Cadre & Déroulement"
-      title="Comment se déroule une consultation ?"
-      lead="Chaque séance dure 1 heure et s'organise autour d'un temps d'écoute personnalisée, d'exercices d'apaisement et de repères concrets."
+    <TherapiesMethod
       steps={therapiesSteps}
       pricingBanner={{
-        tag: "Modalités & Tarif",
         title: "Consultation individuelle de Thérapie brève",
         description: "Séance d'1 heure au cabinet de Voisins-le-Bretonneux ou en visioconférence. Remise systématique d'une facture pour votre mutuelle.",
         amount: "85 €",
         duration: "Durée : 1 heure",
-        linkText: "Consulter tous les tarifs →",
-        linkUrl: "/tarifs",
-        tagColor: "#2E452A"
+        linkText: "Consulter tous les tarifs",
+        linkUrl: "/tarifs"
       }}
-      sectionId="deroulement"
-      bgColor="#F6F8F5"
     />
 
-    <!-- Section 4 : Grille des 4 Clés de Transformation -->
-    <BenefitGrid 
-      subtitle="Bénéfices & Apaisement"
-      title="Ce que les thérapies brèves transforment dans votre vie"
-      lead="Retrouvez de la clarté d'esprit, du repos et une relation plus sereine avec vous-même et votre entourage."
-      cards={therapiesBenefits}
-      sectionId="benefices"
-    />
+    <TherapiesBenefits cards={therapiesBenefits} />
 
-    <!-- Section 5 : FAQ Accordéon Détaillée -->
     <FaqAccordion 
       items={therapiesFaq}
       subtitle="Questions fréquentes"
-      title="Tout comprendre sur les thérapies brèves"
+      title="Tout ce que vous devez savoir avant de débuter."
       badgeType="therapies"
+      variant="home"
     />
 
-    <!-- Section 6 : Passerelles vers les autres approches -->
-    <RelatedServices currentService="therapies" />
+    <TherapiesNextSteps />
 
-    <!-- Section 7 : CTA Final -->
-    <InteriorCta 
-      title="Envie de retrouver de l'apaisement et de la légèreté ?"
-      lead="Prendre rendez-vous est une première démarche bienveillante pour poser ce qui vous encombre et avancer vers un équilibre durable."
-      buttonText="Prendre rendez-vous"
-    />
+    <TherapiesCta />
   </main>
 
   <Footer slot="footer" />
 </Layout>
+
+<script is:inline src="/assets/js/lenis.min.js"></script>
+<script>
+  (() => {
+    const page = document.querySelector('.ac-page--therapies');
+    if (!page || page.dataset.therapiesReady === 'true') return;
+    page.dataset.therapiesReady = 'true';
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const lenis = (!reduceMotion && typeof window.Lenis === 'function')
+      ? new window.Lenis({ duration: 1.1, smoothWheel: true })
+      : null;
+
+    if (lenis) {
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    const revealItems = [...document.querySelectorAll('[data-coaching-reveal]')];
+    if (revealItems.length && 'IntersectionObserver' in window && !reduceMotion) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8%' });
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+    }
+
+    const steps = [...document.querySelectorAll('[data-coaching-step]')];
+    const journey = document.querySelector('[data-coaching-journey]');
+    const progress = document.querySelector('#therapiesJourneyProgress');
+
+    const updateJourneyProgress = () => {
+      if (!journey || !progress) return;
+      const rect = journey.getBoundingClientRect();
+      const focus = window.innerHeight * 0.52;
+      const value = Math.max(0, Math.min(1, (focus - rect.top) / rect.height));
+      progress.style.transform = `scaleY(${value})`;
+    };
+
+    const setActiveStep = (index: number) => {
+      steps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === index));
+    };
+
+    if (steps.length && 'IntersectionObserver' in window) {
+      const stepObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const index = Math.max(0, steps.indexOf(entry.target));
+          setActiveStep(index);
+        });
+      }, { threshold: 0.42, rootMargin: '-24% 0px -42%' });
+      steps.forEach((step) => stepObserver.observe(step));
+    }
+
+    if (lenis) {
+      lenis.on('scroll', updateJourneyProgress);
+    } else {
+      window.addEventListener('scroll', updateJourneyProgress, { passive: true });
+    }
+
+    if (reduceMotion) {
+      setActiveStep(0);
+    }
+    updateJourneyProgress();
+  })();
+</script>

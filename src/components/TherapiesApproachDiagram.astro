@@ -1,0 +1,106 @@
+---
+interface Props {
+  sectionId?: string;
+}
+
+const { sectionId = 'approche-eclairage' } = Astro.props;
+
+const keypoints = [
+  {
+    number: "01",
+    title: "Désactivation du stress aigu",
+    description: "Apaiser les réactions physiques d'alerte ou de tension corporelle pour retrouver une sensation immédiate de sécurité."
+  },
+  {
+    number: "02",
+    title: "Recadrage des croyances",
+    description: "Prendre de la distance avec les pensées automatiques, les peurs anticipatoires et les ruminations qui alimentent l'angoisse."
+  },
+  {
+    number: "03",
+    title: "Autonomie émotionnelle durable",
+    description: "Acquérir des repères concrets et des micro-rituels simples pour réguler vos émotions de manière autonome au quotidien."
+  }
+];
+---
+
+<section class="section therapies-approach" id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <header class="therapies-approach__header" data-coaching-reveal>
+      <div class="approche-badge coaching-section-badge">
+        <span class="approche-badge-dot" style="background: var(--anne-therapies);"></span>
+        Compréhension &amp; approche
+      </div>
+      <h2 class="heading-2">
+        <span class="therapies-approach-title-line">Le « comment faire autrement » :</span>
+        <span class="therapies-approach-title-line">Agir sur la mécanique du présent.</span>
+      </h2>
+      <p>Pourquoi ressasser le passé ne suffit-il souvent pas à aller mieux ? Parce que la compréhension intellectuelle d'une difficulté n'apaise pas automatiquement l'émotion. En thérapies brèves, nous intervenons directement là où le problème se manifeste aujourd'hui.</p>
+    </header>
+
+    <!-- Diagramme Circulaire Éditorial Anne Chataigner -->
+    <div class="therapies-diagram-card" data-coaching-reveal>
+      <div class="therapies-diagram-wrap">
+        <!-- SVG Orbit Ring & Fine Connecting Lines -->
+        <svg class="therapies-diagram-svg" viewBox="0 0 540 540" fill="none" aria-hidden="true">
+          <circle cx="270" cy="270" r="185" stroke="rgba(126, 145, 122, 0.35)" stroke-width="1.5" stroke-dasharray="4 4" />
+          <line x1="270" y1="270" x2="270" y2="85" stroke="rgba(126, 145, 122, 0.45)" stroke-width="1.2" />
+          <line x1="270" y1="270" x2="105" y2="365" stroke="rgba(126, 145, 122, 0.45)" stroke-width="1.2" />
+          <line x1="270" y1="270" x2="435" y2="365" stroke="rgba(126, 145, 122, 0.45)" stroke-width="1.2" />
+        </svg>
+
+        <!-- Centre : Le Présent & Point de changement -->
+        <div class="therapies-diagram-center">
+          <span class="therapies-diagram-center__tag">Ici &amp; maintenant</span>
+          <h3 class="therapies-diagram-center__title">Le Présent</h3>
+          <p class="therapies-diagram-center__desc">Boucle émotionnelle &amp; point de changement</p>
+        </div>
+
+        <!-- Pôle 1 : Le Corps (Haut) -->
+        <div class="therapies-diagram-node therapies-diagram-node--top">
+          <div class="therapies-diagram-node__dot"></div>
+          <div class="therapies-diagram-node__card">
+            <h4>Le Corps</h4>
+            <p>Système nerveux, sensations physiques &amp; réactions d'alerte</p>
+          </div>
+        </div>
+
+        <!-- Pôle 2 : Les Pensées (Bas Gauche) -->
+        <div class="therapies-diagram-node therapies-diagram-node--left">
+          <div class="therapies-diagram-node__dot"></div>
+          <div class="therapies-diagram-node__card">
+            <h4>Les Pensées</h4>
+            <p>Ruminations, croyances automatiques &amp; filtres mentaux</p>
+          </div>
+        </div>
+
+        <!-- Pôle 3 : Les Relations (Bas Droite) -->
+        <div class="therapies-diagram-node therapies-diagram-node--right">
+          <div class="therapies-diagram-node__dot"></div>
+          <div class="therapies-diagram-node__card">
+            <h4>Les Relations</h4>
+            <p>Interactions, schémas répétitifs &amp; place avec l'autre</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Cartes de Points Clés Horizontales (Miroir de Coaching) -->
+    <div class="therapies-approach-keypoints-grid" data-coaching-reveal>
+      {keypoints.map((kp) => (
+        <div class="therapies-keypoint-card">
+          <div class="therapies-keypoint-header">
+            <span class="therapies-keypoint-num">{kp.number}</span>
+            <div class="therapies-keypoint-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+          <h4 class="therapies-keypoint-title">{kp.title}</h4>
+          <p class="therapies-keypoint-desc">{kp.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

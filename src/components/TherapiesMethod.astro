@@ -1,0 +1,103 @@
+---
+interface TherapiesStep {
+  number: string;
+  title: string;
+  description: string;
+  mantra: string;
+  image: string;
+  imageAlt: string;
+  keypoints: string[];
+  tone: 'sage' | 'blue' | 'coral' | 'amber';
+}
+
+interface PricingBannerData {
+  title: string;
+  description: string;
+  amount: string;
+  duration: string;
+  linkText: string;
+  linkUrl: string;
+}
+
+interface Props {
+  steps: TherapiesStep[];
+  pricingBanner: PricingBannerData;
+  sectionId?: string;
+}
+
+const { steps, pricingBanner, sectionId = 'deroulement' } = Astro.props;
+---
+
+<section class="section coaching-method coaching-method-centered therapies-method" id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <header class="coaching-method-centered__header" data-coaching-reveal>
+      <div class="approche-badge coaching-section-badge">
+        <span class="approche-badge-dot" style="background: var(--anne-therapies);"></span>
+        Méthode &amp; déroulement
+      </div>
+      <h2 class="heading-2">
+        <span class="coaching-method-title-line">Quatre temps pour apaiser </span>
+        <span class="coaching-method-title-line">et retrouver votre équilibre.</span>
+      </h2>
+      <p>Un cheminement respectueux et pragmatique : on dépose ce qui fait mal, on comprend la boucle émotionnelle, on expérimente des outils en séance puis on consolide les repères chez vous.</p>
+    </header>
+
+    <div class="coaching-journey coaching-journey--4steps" data-coaching-journey>
+      <div class="coaching-journey__line" aria-hidden="true">
+        <span class="coaching-journey__line-progress" id="therapiesJourneyProgress"></span>
+      </div>
+
+      {steps.map((step, index) => (
+        <article class={`coaching-journey__item ${index % 2 === 1 ? 'is-right' : 'is-left'}`} data-coaching-step={index + 1} data-coaching-reveal>
+          <div class="coaching-journey__media">
+            <img src={step.image} alt={step.imageAlt} loading={index === 0 ? 'eager' : 'lazy'} width="1535" height="1024" />
+          </div>
+          <div class="coaching-journey__body">
+            <p class={`coaching-journey__eyebrow coaching-journey__eyebrow--${step.tone}`}>{step.number}</p>
+            <h3>{step.title}</h3>
+            <p class="coaching-journey__mantra">« {step.mantra} »</p>
+            <p class="coaching-journey__description">{step.description}</p>
+            <ul>
+              {step.keypoints.map((point) => <li><span aria-hidden="true">✓</span>{point}</li>)}
+            </ul>
+          </div>
+
+          <div class={`coaching-journey__marker coaching-journey__marker--${step.tone}`} aria-label={`Étape ${index + 1} : ${step.title}`}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Encart Modalités & Tarif (Miroir de Coaching) -->
+    <div class="ac-price-callout coaching-method-price" data-coaching-reveal>
+      <div class="ac-price-callout__copy">
+        <div class="ac-price-callout__heading-group">
+          <p class="ac-eyebrow" style="color: var(--anne-therapies);"><span style="background: var(--anne-therapies);"></span>Modalités &amp; tarif</p>
+          <h3 class="ac-price-callout__title">{pricingBanner.title}</h3>
+        </div>
+        <p class="ac-price-callout__description">{pricingBanner.description}</p>
+        <div class="ac-price-callout__badge" style="background: rgba(126, 145, 122, 0.12); color: #2E452A;">
+          <span class="ac-price-callout__dot" style="background: #2E452A;"></span>
+          <span>Cabinet à Voisins-le-Bretonneux &amp; Visioconférence · Facture mutuelle</span>
+        </div>
+      </div>
+      <div class="ac-price-callout__price">
+        <div class="ac-price-callout__amount-wrap">
+          <span class="ac-price-callout__amount">{pricingBanner.amount}</span>
+          <span class="ac-price-callout__duration">{pricingBanner.duration}</span>
+        </div>
+        <div class="ac-price-callout__actions">
+          <a href={pricingBanner.linkUrl} class="primary-button ac-price-callout__btn w-inline-block">
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div class="button-text">{pricingBanner.linkText} →</div>
+                <div class="button-text">{pricingBanner.linkText} →</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
