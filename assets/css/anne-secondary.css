@@ -4425,7 +4425,7 @@
 }
 
 .therapies-hero {
-  background-image: linear-gradient(180deg, rgba(46, 28, 22, 0.35) 0%, rgba(32, 18, 14, 0.78) 100%), url('/assets/step-2-explorer%20-%20nouveau%20bureau.png');
+  background-image: linear-gradient(180deg, rgba(46, 28, 22, 0.35) 0%, rgba(32, 18, 14, 0.78) 100%), url('/assets/nouvelles%20images/therapies-breves-hero-anne-bureau-16x9.png');
   background-position: center 30%;
   background-size: cover;
 }
@@ -5179,6 +5179,11 @@
   .therapies-stack-card__desc {
     font-size: 15px;
   }
+}
+
+.therapies-cta .cta-background {
+  background-image: linear-gradient(rgba(46, 28, 22, 0.78), rgba(32, 18, 14, 0.88)), url('/assets/nouvelles%20images/therapies-breves-cta-final-salon-16x9.png') !important;
+  background-position: center 35% !important;
 }
 
 /* ==========================================================================
@@ -8193,20 +8198,14 @@
   margin: 0;
 }
 
-@media (max-width: 767px) {
-  .tarifs-faq__q-text {
-    white-space: normal;
-  }
-}
-
 /* Panneau Final Tarifs */
 .tarifs-final-panel {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 60px auto 0 auto;
   background: linear-gradient(155deg, #F9F7F2 0%, #FAF8F4 100%);
   border: 1px solid rgba(194, 139, 56, 0.3);
   border-radius: 28px;
-  padding: 70px 56px;
+  padding: 80px 56px;
   text-align: center;
   box-shadow: 0 16px 44px rgba(44, 43, 41, 0.05);
 }
@@ -8215,7 +8214,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -8225,23 +8224,23 @@
   font-weight: 700 !important;
   color: var(--anne-ink-dark) !important;
   letter-spacing: -0.015em;
-  margin: 18px 0 16px 0;
+  margin: 22px 0 18px 0;
 }
 
 .tarifs-final-panel__lead {
   font-size: 17.5px;
   line-height: 1.68;
   color: var(--anne-ink);
-  margin: 0 0 34px 0;
+  margin: 0 0 38px 0;
 }
 
 .tarifs-final-panel__actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 34px;
 }
 
 .tarifs-final-panel__meta {
@@ -8251,6 +8250,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin-top: 4px;
 }
 
 @media (max-width: 768px) {
