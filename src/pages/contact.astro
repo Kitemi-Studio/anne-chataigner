@@ -2,10 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import ContactHero from '../components/ContactHero.astro';
-import ContactPracticalInfo from '../components/ContactPracticalInfo.astro';
-import ContactFormSection from '../components/ContactFormSection.astro';
-import ContactFinalCta from '../components/ContactFinalCta.astro';
+import ContactCenteredPage from '../components/ContactCenteredPage.astro';
 ---
 
 <Layout 
@@ -15,10 +12,7 @@ import ContactFinalCta from '../components/ContactFinalCta.astro';
   <Navbar variant="home" slot="navbar" />
 
   <main id="main-content" class="ac-page--contact">
-    <ContactHero />
-    <ContactPracticalInfo />
-    <ContactFormSection />
-    <ContactFinalCta />
+    <ContactCenteredPage />
   </main>
 
   <Footer variant="home" slot="footer" />
