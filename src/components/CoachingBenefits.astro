@@ -6,7 +6,7 @@ interface BenefitCard {
   description: string;
   image: string;
   imageAlt: string;
-  tone: 'blue' | 'terracotta' | 'sage' | 'amber';
+  tone?: 'blue' | 'terracotta' | 'sage' | 'amber' | 'slate';
 }
 
 interface Props {
@@ -17,36 +17,54 @@ interface Props {
 const { cards, sectionId = 'benefices' } = Astro.props;
 ---
 
-<section class="section coaching-benefits" id={sectionId}>
+<section class="section coaching-benefits coaching-benefits-stacked" id={sectionId}>
   <div class="w-layout-blockcontainer container w-container">
-    <div class="coaching-benefits__heading" data-coaching-reveal>
-      <div>
-        <div class="approche-badge coaching-section-badge">
-          <span class="approche-badge-dot"></span>
-          Ce que le coaching vous apporte
-        </div>
-        <h2 class="heading-2">
-          <span class="coaching-benefits-title-line">Des changements qui se voient dans votre</span>
-          <span class="coaching-benefits-title-line">quotidien.</span>
-        </h2>
+    <div class="coaching-benefits__heading coaching-benefits__heading-centered" data-coaching-reveal>
+      <div class="approche-badge coaching-section-badge">
+        <span class="approche-badge-dot" style="background: var(--anne-coaching);"></span>
+        Ce que le coaching vous apporte
       </div>
+      <h2 class="heading-2">
+        <span class="coaching-benefits-title-line">Des changements qui se voient dans votre </span>
+        <span class="coaching-benefits-title-line">quotidien.</span>
+      </h2>
       <p class="text">Pas de promesse magique : des prises de conscience, des décisions plus nettes et des actions assez concrètes pour tenir dans la vraie vie.</p>
     </div>
 
-    <div class="coaching-benefits-grid">
+    <!-- Centered Stacking Cards Container -->
+    <div class="coaching-cards-stack">
       {cards.map((card, index) => (
-        <article class={`coaching-benefit-card coaching-benefit-card--${card.tone} ${index % 2 === 1 ? 'is-reversed' : ''}`} data-coaching-reveal>
-          <div class="coaching-benefit-card__media">
+        <article
+          class={`coaching-stack-card coaching-stack-card--${card.tone || 'blue'}`}
+          style={`--stack-index: ${index};`}
+          data-coaching-reveal
+        >
+          <!-- Full Card Background Image -->
+          <div class="coaching-stack-card__bg">
             <img src={card.image} alt={card.imageAlt} loading="lazy" width="1536" height="1024" />
-            <span class="coaching-benefit-card__step">{card.step}</span>
+            <div class="coaching-stack-card__overlay"></div>
           </div>
-          <div class="coaching-benefit-card__body">
-            <p class="coaching-benefit-card__eyebrow">{card.eyebrow}</p>
-            <h3>{card.title}</h3>
-            <p>{card.description}</p>
-            <span class="coaching-benefit-card__arrow" aria-hidden="true">
-              <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+
+          <!-- Top Row Badge / Step Number -->
+          <div class="coaching-stack-card__top">
+            <span class="coaching-stack-card__tag">
+              <span class="coaching-stack-card__tag-num">{card.step}</span>
+              <span class="coaching-stack-card__tag-divider">·</span>
+              <span class="coaching-stack-card__tag-eyebrow">{card.eyebrow}</span>
             </span>
+          </div>
+
+          <!-- Bottom Text Content -->
+          <div class="coaching-stack-card__content">
+            <h3 class="coaching-stack-card__title">{card.title}</h3>
+            <p class="coaching-stack-card__desc">{card.description}</p>
+            
+            <div class="coaching-stack-card__footer">
+              <span class="coaching-stack-card__pill">Progression &amp; alignement</span>
+              <span class="coaching-stack-card__arrow" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </span>
+            </div>
           </div>
         </article>
       ))}
