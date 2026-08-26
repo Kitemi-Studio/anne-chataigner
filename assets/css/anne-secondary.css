@@ -7632,16 +7632,12 @@
   border-bottom: 1px solid rgba(101, 101, 95, 0.16);
 }
 
-.tarifs-row:hover {
-  background-color: var(--anne-tarifs-surface);
-  padding-left: 36px;
-}
-
 .tarifs-row__num {
   font-family: var(--_typography---font-family--heading);
   font-size: 28px;
   font-weight: 700;
-  color: var(--anne-tarifs-accent-dark);
+  color: var(--anne-ink-dark);
+  transition: color 0.2s ease;
 }
 
 .tarifs-row__main {
@@ -7651,11 +7647,15 @@
 }
 
 .tarifs-row__tag {
-  font-size: 12px;
+  display: inline-flex;
+  width: fit-content;
+  font-size: 11.5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--anne-ink);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 2px;
 }
 
 .tarifs-row__title {
@@ -7690,10 +7690,6 @@
   transition: color 0.2s ease;
 }
 
-.tarifs-row:hover .tarifs-row__price {
-  color: var(--anne-tarifs-accent-dark);
-}
-
 .tarifs-row__duration {
   font-size: 13.5px;
   color: var(--anne-ink);
@@ -7714,10 +7710,6 @@
   transition: color 0.2s ease;
 }
 
-.tarifs-row:hover .tarifs-row__action-label {
-  color: var(--anne-ink-dark);
-}
-
 .tarifs-row__action-arrow {
   width: 38px;
   height: 38px;
@@ -7731,11 +7723,83 @@
   transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
-.tarifs-row:hover .tarifs-row__action-arrow {
+/* Couleurs par service */
+/* 01. Coaching & Thérapies brèves (Bleu ardoise) */
+.tarifs-row--coaching .tarifs-row__tag {
+  background: rgba(129, 146, 172, 0.16);
+  border: 1px solid rgba(129, 146, 172, 0.35);
+  color: #35485E;
+}
+.tarifs-row--coaching .tarifs-row__num {
+  color: #567499;
+}
+.tarifs-row--coaching:hover {
+  background-color: rgba(129, 146, 172, 0.08);
+  padding-left: 36px;
+}
+.tarifs-row--coaching:hover .tarifs-row__price {
+  color: #35485E;
+}
+.tarifs-row--coaching:hover .tarifs-row__action-label {
+  color: #35485E;
+}
+.tarifs-row--coaching:hover .tarifs-row__action-arrow {
   transform: translateX(4px);
-  background-color: var(--anne-ink-dark);
+  background-color: #35485E;
   color: #ffffff;
-  border-color: var(--anne-ink-dark);
+  border-color: #35485E;
+}
+
+/* 02. Hypnose Ericksonienne (Jaune Doré) */
+.tarifs-row--hypnose .tarifs-row__tag {
+  background: rgba(214, 162, 79, 0.16);
+  border: 1px solid rgba(214, 162, 79, 0.35);
+  color: #8F6220;
+}
+.tarifs-row--hypnose .tarifs-row__num {
+  color: #C28B38;
+}
+.tarifs-row--hypnose:hover {
+  background-color: rgba(214, 162, 79, 0.08);
+  padding-left: 36px;
+}
+.tarifs-row--hypnose:hover .tarifs-row__price {
+  color: #8F6220;
+}
+.tarifs-row--hypnose:hover .tarifs-row__action-label {
+  color: #8F6220;
+}
+.tarifs-row--hypnose:hover .tarifs-row__action-arrow {
+  transform: translateX(4px);
+  background-color: #8F6220;
+  color: #ffffff;
+  border-color: #8F6220;
+}
+
+/* 03. Consultation de couple (Rose Saumon / Terracotta) */
+.tarifs-row--couple .tarifs-row__tag {
+  background: rgba(223, 163, 139, 0.18);
+  border: 1px solid rgba(223, 163, 139, 0.38);
+  color: #8A3E26;
+}
+.tarifs-row--couple .tarifs-row__num {
+  color: #B86B52;
+}
+.tarifs-row--couple:hover {
+  background-color: rgba(223, 163, 139, 0.08);
+  padding-left: 36px;
+}
+.tarifs-row--couple:hover .tarifs-row__price {
+  color: #8A3E26;
+}
+.tarifs-row--couple:hover .tarifs-row__action-label {
+  color: #8A3E26;
+}
+.tarifs-row--couple:hover .tarifs-row__action-arrow {
+  transform: translateX(4px);
+  background-color: #8A3E26;
+  color: #ffffff;
+  border-color: #8A3E26;
 }
 
 @media (max-width: 900px) {
@@ -7789,14 +7853,18 @@
 }
 
 .tarifs-modalities__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   max-width: 1120px;
   margin: 0 auto;
 }
 
 .tarifs-modality-card {
+  flex: 0 0 calc(33.333% - 16px);
+  max-width: calc(33.333% - 16px);
+  box-sizing: border-box;
   background: #ffffff;
   border: 1px solid rgba(194, 139, 56, 0.24);
   border-radius: 18px;
@@ -7810,6 +7878,20 @@
   transform: translateY(-3px);
   border-color: rgba(194, 139, 56, 0.6);
   box-shadow: 0 12px 30px rgba(44, 43, 41, 0.05);
+}
+
+@media (max-width: 991px) {
+  .tarifs-modality-card {
+    flex: 0 0 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 640px) {
+  .tarifs-modality-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 .tarifs-modality-card__header {
