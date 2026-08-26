@@ -4419,7 +4419,7 @@
 
 /* Diagramme Circulaire Aéré & Ample (Espace généreux) */
 .therapies-diagram-viewport {
-  margin: 30px auto 70px auto;
+  margin: 60px auto 70px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -4601,9 +4601,9 @@
 }
 
 /* Positions des 3 pôles */
-/* 1. Le Corps : au-dessus de y=115px, le point est EN DESSOUS de la carte */
+/* 1. Le Corps : +15px haut -> top: -10px */
 .therapies-diagram-node--top {
-  top: 5px;
+  top: -10px;
   left: 360px;
   transform: translateX(-50%);
   flex-direction: column;
@@ -4615,19 +4615,19 @@
   transform: translateX(-50%) scale(1.04) translateY(-3px);
 }
 
-/* 2. Les Pensées : à gauche, carte à gauche, dot à droite vers l'axe (174, 438) */
+/* 2. Les Pensées : 4px haut (top: 391px) et 4px droite (right: calc(100% - 186px)) */
 .therapies-diagram-node--left {
-  top: 395px;
-  right: calc(100% - 182px);
+  top: 391px;
+  right: calc(100% - 186px);
   flex-direction: row;
   gap: 14px;
   text-align: right;
 }
 
-/* 3. Les Relations : à droite, dot à gauche sur l'axe (546, 438), carte à droite */
+/* 3. Les Relations : 5px haut (top: 390px) et 3px gauche (left: 535px) */
 .therapies-diagram-node--right {
-  top: 395px;
-  left: 538px;
+  top: 390px;
+  left: 535px;
   flex-direction: row;
   gap: 14px;
   text-align: left;
