@@ -1837,7 +1837,7 @@ html.lenis, html.lenis body {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Footer Improvements */
+/* Footer Improvements (Cabinet Column Ample Width) */
 .footer-brand-title {
   font-family: var(--_typography---font-family--heading);
   font-size: 28px;
@@ -1845,6 +1845,87 @@ html.lenis, html.lenis body {
   font-weight: 500;
   margin-top: 8px;
   margin-bottom: 12px;
+}
+
+.footer-inner-one {
+  display: grid !important;
+  grid-template-columns: minmax(280px, 1fr) minmax(520px, 1.55fr) !important;
+  grid-column-gap: 4rem !important;
+  grid-row-gap: 3rem !important;
+  align-items: start !important;
+}
+
+.footer-brand-text {
+  max-width: 440px !important;
+}
+
+.footer-link-wrapper {
+  display: grid !important;
+  grid-template-columns: minmax(110px, 0.9fr) minmax(170px, 1.3fr) minmax(220px, 1.65fr) !important;
+  grid-column-gap: 2.2rem !important;
+  grid-row-gap: 2rem !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+}
+
+.footer-col-nav {
+  min-width: 100px;
+}
+
+.footer-col-services {
+  min-width: 165px;
+}
+
+.footer-col-cabinet {
+  min-width: 215px !important;
+}
+
+.footer-cabinet-name {
+  font-weight: 600 !important;
+  color: var(--anne-ink-dark) !important;
+  font-size: 15px !important;
+  white-space: nowrap !important;
+}
+
+.footer-col-cabinet .footer-link-list > .text {
+  white-space: nowrap;
+}
+
+.footer-cabinet-region {
+  margin-top: 6px !important;
+  font-size: 13.5px !important;
+  color: var(--anne-ink-light) !important;
+  white-space: nowrap !important;
+}
+
+.footer-cabinet-note {
+  margin-top: 8px !important;
+  font-size: 14px !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 991px) {
+  .footer-inner-one {
+    grid-template-columns: 1fr !important;
+    grid-gap: 3rem !important;
+  }
+  .footer-link-wrapper {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-gap: 2rem !important;
+  }
+  .footer-col-cabinet .footer-link-list > .text,
+  .footer-cabinet-region,
+  .footer-cabinet-name,
+  .footer-cabinet-note {
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-link-wrapper {
+    grid-template-columns: 1fr !important;
+    grid-gap: 2rem !important;
+  }
 }
 
 /* ==========================================================================
