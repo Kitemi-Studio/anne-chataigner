@@ -5604,7 +5604,7 @@
 }
 
 .hypnose-hero {
-  background-image: linear-gradient(180deg, rgba(40, 31, 16, 0.35) 0%, rgba(26, 20, 10, 0.8) 100%), url('/assets/anne%20hero%20header%202%20-%20nouveau%20bureau.png');
+  background-image: linear-gradient(180deg, rgba(40, 31, 16, 0.35) 0%, rgba(26, 20, 10, 0.8) 100%), url('/assets/nouvelles%20images/hypnose-hero-nouveau-client-homme-16x9.png');
   background-position: center 30%;
   background-size: cover;
 }
@@ -6270,6 +6270,11 @@
   .hypnose-stack-card__desc {
     font-size: 15px;
   }
+}
+
+.hypnose-cta .cta-background {
+  background-image: linear-gradient(rgba(40, 31, 16, 0.78), rgba(26, 20, 10, 0.88)), url('/assets/nouvelles%20images/hypnose-cta-final-salon-16x9.png') !important;
+  background-position: center 35% !important;
 }
 
 /* ==========================================================================
