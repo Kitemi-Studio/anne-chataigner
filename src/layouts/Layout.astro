@@ -2,12 +2,46 @@
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
 }
+
+import { PAGE_THEMES, SITE_URL, isSecondaryRoute, normalizePathname } from '../config/site';
 
 const {
   title = "Anne Chataigner — Coaching · Thérapies brèves · Hypnose Ericksonienne",
-  description = "Quand la vie change, retrouver un chemin qui vous ressemble. Accompagnements individuels en coaching, thérapies brèves et hypnose Ericksonienne à Voisins-le-Bretonneux."
+  description = "Quand la vie change, retrouver un chemin qui vous ressemble. Accompagnements individuels en coaching, thérapies brèves et hypnose Ericksonienne à Voisins-le-Bretonneux.",
+  ogImage = "/assets/anne%20hero%20header%202.png"
 } = Astro.props;
+
+const pathname = normalizePathname(Astro.url.pathname);
+const secondaryPage = isSecondaryRoute(pathname);
+const pageTheme = PAGE_THEMES[pathname] || 'neutral';
+const canonicalUrl = `${SITE_URL}${pathname === '/' ? '/' : pathname.replace(/\/$/, '')}`;
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: canonicalUrl,
+  image: absoluteOgImage,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Anne Chataigner',
+    url: SITE_URL
+  },
+  about: {
+    '@type': 'LocalBusiness',
+    name: "Anne Chataigner — Cabinet d'accompagnement",
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '2 Rue de la Bergerie',
+      addressLocality: 'Voisins-le-Bretonneux',
+      postalCode: '78960',
+      addressCountry: 'FR'
+    }
+  }
+};
 ---
 
 <!DOCTYPE html>
@@ -18,10 +52,16 @@ const {
   <meta content={description} name="description"/>
   <meta content={title} property="og:title"/>
   <meta content={description} property="og:description"/>
-  <meta content="/assets/Logo%20Anne%20Chataigner.svg" property="og:image"/>
+  <meta content={canonicalUrl} property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content={absoluteOgImage} property="og:image"/>
   <meta content="summary_large_image" name="twitter:card"/>
+  <meta content={title} name="twitter:title"/>
+  <meta content={description} name="twitter:description"/>
+  <meta content={absoluteOgImage} name="twitter:image"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta content="Astro" name="generator"/>
+  <link rel="canonical" href={canonicalUrl}/>
   
   <link href="/assets/fonts/switzer.css" rel="stylesheet" type="text/css"/>
   <link href="/assets/fonts/playfair.css" rel="stylesheet" type="text/css"/>
@@ -29,44 +69,34 @@ const {
   <link href="/assets/css/atmawell.webflow.shared.9a0a308af.css" rel="stylesheet" type="text/css"/>
   <link href="/assets/css/anne-home.css" rel="stylesheet" type="text/css"/>
   <link href="/assets/css/anne-interior.css" rel="stylesheet" type="text/css"/>
+  {secondaryPage && <link href="/assets/css/anne-secondary.css" rel="stylesheet" type="text/css"/>}
 
   <link href="/assets/Logo%20Anne%20Chataigner.svg" rel="shortcut icon" type="image/svg+xml"/>
   <link href="/assets/Logo%20Anne%20Chataigner.svg" rel="apple-touch-icon"/>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Anne Chataigner — Cabinet d'accompagnement",
-    "description": "Accompagnements individuels en coaching, thérapies brèves et hypnose Ericksonienne.",
-    "url": "/",
-    "logo": "/assets/Logo%20Anne%20Chataigner.svg",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "2 Rue de la Bergerie",
-      "addressLocality": "Voisins-le-Bretonneux",
-      "postalCode": "78960",
-      "addressCountry": "FR"
-    }
-  }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 </head>
 
-<body>
+<body class={secondaryPage ? `ac-page ac-page--${pageTheme}` : undefined} data-page-theme={secondaryPage ? pageTheme : undefined}>
+  {secondaryPage && <a class="ac-skip-link" href="#main-content">Aller au contenu</a>}
   <slot name="navbar" />
   
   <slot />
   
   <slot name="footer" />
 
-  <!-- Webflow & GSAP Core Scripts -->
-  <script is:inline src="/assets/js/jquery-3.5.1.min.dc5e7f18c8.js"></script>
-  <script is:inline src="/assets/js/webflow.schunk.36b8fb49256177c8.js"></script>
-  <script is:inline src="/assets/js/webflow.schunk.483349798732e2a7.js"></script>
-  <script is:inline src="/assets/js/webflow.313063c2.8b4c46680892eb94.js"></script>
-  <script is:inline src="/assets/js/gsap.min.js"></script>
-  <script is:inline src="/assets/js/SplitText.min.js"></script>
-  <script is:inline src="/assets/js/lenis.min.js"></script>
-  <script is:inline src="/assets/js/anne-init.js"></script>
+  {!secondaryPage && (
+    <>
+      <!-- Webflow & GSAP Core Scripts kept for the unchanged home experience. -->
+      <script is:inline src="/assets/js/jquery-3.5.1.min.dc5e7f18c8.js"></script>
+      <script is:inline src="/assets/js/webflow.schunk.36b8fb49256177c8.js"></script>
+      <script is:inline src="/assets/js/webflow.schunk.483349798732e2a7.js"></script>
+      <script is:inline src="/assets/js/webflow.313063c2.8b4c46680892eb94.js"></script>
+      <script is:inline src="/assets/js/gsap.min.js"></script>
+      <script is:inline src="/assets/js/SplitText.min.js"></script>
+      <script is:inline src="/assets/js/lenis.min.js"></script>
+      <script is:inline src="/assets/js/anne-init.js"></script>
+    </>
+  )}
 </body>
 </html>

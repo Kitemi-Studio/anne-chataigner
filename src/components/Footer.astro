@@ -1,68 +1,140 @@
 ---
-// Footer Component — Anne Chataigner
+import { BOOKING_URL, isSecondaryRoute, normalizePathname } from '../config/site';
+
+interface Props {
+  variant?: 'auto' | 'home' | 'secondary';
+}
+
+const { variant = 'auto' } = Astro.props;
+
+const pathname = normalizePathname(Astro.url.pathname);
+const secondaryPage = isSecondaryRoute(pathname);
+const renderHomeVariant = variant === 'home' || (variant === 'auto' && !secondaryPage);
+const methodHref = pathname === '/a-propos'
+  ? '/a-propos#outils'
+  : pathname === '/tarifs'
+    ? '/tarifs#grille-tarifs'
+    : pathname === '/' ? '#deroulement' : `${pathname}#deroulement`;
+const faqHref = pathname === '/' ? '#faq' : `${pathname}#faq`;
+const contactHref = pathname === '/' ? '#contact' : '/#contact';
 ---
 
-<footer data-wf--footer--variant="light" class="section footer">
-  <div class="w-layout-blockcontainer container w-container">
-    <div class="footer-wrapper">
-      <div class="footer-inner-one">
-        <div class="vertical-headline footer-brand-text">
-          <a href="/" class="w-inline-block navbar-brand-link">
-            <img loading="lazy" src="/assets/Logo%20Anne%20Chataigner.svg" alt="Logo Anne Chataigner" class="navbar-logo" />
-            <span class="footer-brand-title">Anne Chataigner</span>
+{!renderHomeVariant ? (
+  <footer class="ac-footer">
+    <div class="ac-container">
+      <div class="ac-footer__top">
+        <div class="ac-footer__identity">
+          <a href="/" class="ac-brand" aria-label="Anne Chataigner, accueil">
+            <img src="/assets/Logo%20Anne%20Chataigner.svg" alt="" class="ac-brand__mark" width="38" height="38" />
+            <span class="ac-brand__text">
+              <span>Anne Chataigner</span>
+              <small>Accompagnement humain</small>
+            </span>
           </a>
-          <p class="text" style="margin-top: 12px; font-size: 15px; line-height: 1.6;">
-            Accompagnements individuels en coaching, thérapies brèves et hypnose Ericksonienne. Un cadre bienveillant et structurant pour clarifier, mobiliser vos ressources et retrouver un chemin qui vous ressemble.
-          </p>
+          <p>Un cadre confidentiel pour clarifier, apaiser et avancer à votre rythme.</p>
+          <a href={BOOKING_URL} class="ac-footer__booking" data-booking-link>Prendre rendez-vous <span aria-hidden="true">↗</span></a>
         </div>
 
-        <div class="footer-link-wrapper">
-          <div class="vertical-headline">
-            <div class="heading-6">Navigation</div>
-            <div class="footer-link-list">
-              <a href="/" class="text-link">Accueil</a>
-              <a href="/a-propos" class="text-link">À propos</a>
-              <a href="/tarifs" class="text-link">Tarifs &amp; Modalités</a>
-              <a href="/#deroulement" class="text-link">Méthode</a>
-              <a href="/#faq" class="text-link">FAQ</a>
-              <a href="/#contact" class="text-link">Contact &amp; Cabinet</a>
-            </div>
-          </div>
+        <div class="ac-footer__column">
+          <p class="ac-footer__label">Navigation</p>
+          <a href="/a-propos">À propos</a>
+          <a href={methodHref}>Méthode</a>
+          <a href={faqHref}>FAQ</a>
+          <a href="/tarifs">Tarifs &amp; modalités</a>
+          <a href={contactHref}>Contact</a>
+        </div>
 
-          <div class="vertical-headline">
-            <div class="heading-6">Accompagnements</div>
-            <div class="footer-link-list">
-              <a href="/coaching" class="text-link">Coaching individuel</a>
-              <a href="/therapies-breves" class="text-link">Thérapies brèves</a>
-              <a href="/hypnose-ericksonienne" class="text-link">Hypnose Ericksonienne</a>
-              <a href="/consultation-couple" class="text-link">Consultation de couple</a>
-            </div>
-          </div>
+        <div class="ac-footer__column">
+          <p class="ac-footer__label">Accompagnements</p>
+          <a href="/coaching">Coaching individuel</a>
+          <a href="/therapies-breves">Thérapies brèves</a>
+          <a href="/hypnose-ericksonienne">Hypnose Ericksonienne</a>
+          <a href="/consultation-couple">Consultation de couple</a>
+        </div>
 
-          <div class="vertical-headline">
-            <div class="heading-6">Cabinet</div>
-            <div class="footer-link-list">
-              <div class="text" style="font-weight: 500; color: var(--anne-ink-dark);">Anne Chataigner</div>
-              <div class="text">2 Rue de la Bergerie</div>
-              <div class="text">78960 Voisins-le-Bretonneux</div>
-              <div class="text" style="margin-top: 6px; font-size: 13.5px; color: var(--anne-ink-light);">Yvelines · Île-de-France &amp; Visio</div>
-              <div class="text" style="margin-top: 8px;">Séances sur rendez-vous</div>
-            </div>
-          </div>
+        <div class="ac-footer__column ac-footer__location">
+          <p class="ac-footer__label">Le cabinet</p>
+          <p>2 Rue de la Bergerie<br />78960 Voisins-le-Bretonneux</p>
+          <p>Yvelines · Île-de-France<br />Cabinet &amp; visioconférence</p>
+          <span class="ac-location-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M16.5 8.2c0 4.1-6.5 8.8-6.5 8.8S3.5 12.3 3.5 8.2a6.5 6.5 0 1 1 13 0Z" stroke="currentColor" stroke-width="1.3" />
+              <circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.3" />
+            </svg>
+          </span>
         </div>
       </div>
 
-      <div class="footer-inner-two">
-        <div class="footer-link">
-          <a href="/" class="text-link">Mentions légales</a>
-          <a href="/" class="text-link">Politique de confidentialité</a>
+      <div class="ac-footer__bottom">
+        <span>© 2026 Anne Chataigner</span>
+        <div>
+          <a href="/mentions-legales">Mentions légales</a>
+          <a href="/politique-confidentialite">Politique de confidentialité</a>
         </div>
-        <div class="footer-text">
-          <div class="text">
-            © 2026 Anne Chataigner. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
+) : (
+  <footer data-wf--footer--variant="light" class="section footer">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="footer-wrapper">
+        <div class="footer-inner-one">
+          <div class="vertical-headline footer-brand-text">
+            <a href="/" class="w-inline-block navbar-brand-link">
+              <img loading="lazy" src="/assets/Logo%20Anne%20Chataigner.svg" alt="Logo Anne Chataigner" class="navbar-logo" />
+              <span class="footer-brand-title">Anne Chataigner</span>
+            </a>
+            <p class="text" style="margin-top: 12px; font-size: 15px; line-height: 1.6;">
+              Accompagnements individuels en coaching, thérapies brèves et hypnose Ericksonienne. Un cadre bienveillant et structurant pour clarifier, mobiliser vos ressources et retrouver un chemin qui vous ressemble.
+            </p>
+          </div>
+
+          <div class="footer-link-wrapper">
+            <div class="vertical-headline">
+              <div class="heading-6">Navigation</div>
+              <div class="footer-link-list">
+                <a href="/" class="text-link">Accueil</a>
+                <a href="/a-propos" class="text-link">À propos</a>
+                <a href="/tarifs" class="text-link">Tarifs &amp; Modalités</a>
+                <a href="#deroulement" class="text-link">Méthode</a>
+                <a href="#faq" class="text-link">FAQ</a>
+                <a href="#contact" class="text-link">Contact &amp; Cabinet</a>
+              </div>
+            </div>
+
+            <div class="vertical-headline">
+              <div class="heading-6">Accompagnements</div>
+              <div class="footer-link-list">
+                <a href="/coaching" class="text-link">Coaching individuel</a>
+                <a href="/therapies-breves" class="text-link">Thérapies brèves</a>
+                <a href="/hypnose-ericksonienne" class="text-link">Hypnose Ericksonienne</a>
+                <a href="/consultation-couple" class="text-link">Consultation de couple</a>
+              </div>
+            </div>
+
+            <div class="vertical-headline">
+              <div class="heading-6">Cabinet</div>
+              <div class="footer-link-list">
+                <div class="text" style="font-weight: 500; color: var(--anne-ink-dark);">Anne Chataigner</div>
+                <div class="text">2 Rue de la Bergerie</div>
+                <div class="text">78960 Voisins-le-Bretonneux</div>
+                <div class="text" style="margin-top: 6px; font-size: 13.5px; color: var(--anne-ink-light);">Yvelines · Île-de-France &amp; Visio</div>
+                <div class="text" style="margin-top: 8px;">Séances sur rendez-vous</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-inner-two">
+          <div class="footer-link">
+            <a href="/mentions-legales" class="text-link">Mentions légales</a>
+            <a href="/politique-confidentialite" class="text-link">Politique de confidentialité</a>
+          </div>
+          <div class="footer-text">
+            <div class="text">© 2026 Anne Chataigner. Tous droits réservés.</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
+)}

@@ -92,29 +92,7 @@ function initAnne() {
     });
   });
 
-  // 5. Cal.com appointment integration handler
-  const calButtons = document.querySelectorAll("[data-cal-link]");
-  calButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const calUrl = btn.getAttribute("data-cal-url");
-      if (calUrl && calUrl !== "#" && calUrl.startsWith("http")) {
-        window.open(calUrl, "_blank", "noopener,noreferrer");
-        e.preventDefault();
-      } else {
-        const contactSec = document.querySelector("#contact");
-        if (contactSec) {
-          e.preventDefault();
-          if (lenis) {
-            lenis.scrollTo(contactSec, { offset: -90, duration: 1.2 });
-          } else {
-            contactSec.scrollIntoView({ behavior: "smooth" });
-          }
-        }
-      }
-    });
-  });
-
-  // 6. Mobile Menu Toggle Helper for reliable cross-browser opening/closing
+  // 5. Mobile Menu Toggle Helper for reliable cross-browser opening/closing
   const menuButton = document.querySelector(".w-nav-button");
   const navMenu = document.querySelector(".w-nav-menu");
   const overlay = document.querySelector(".w-nav-overlay");

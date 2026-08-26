@@ -1,9 +1,6 @@
 (() => {
   "use strict";
 
-  // URL Cal.com à renseigner dès que le lien de réservation d'Anne est disponible.
-  const CAL_URL = "";
-
   const root = document.documentElement;
   const body = document.body;
   const header = document.querySelector(".anne-navbar");
@@ -13,20 +10,6 @@
 
   root.classList.add("js");
   body.classList.add("js");
-
-  const updateCalLinks = () => {
-    document.querySelectorAll("[data-cal-link]").forEach((link) => {
-      if (CAL_URL) {
-        link.href = CAL_URL;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.removeAttribute("data-cal-placeholder");
-      } else {
-        link.href = "#contact";
-        link.setAttribute("data-cal-placeholder", "URL Cal.com à renseigner");
-      }
-    });
-  };
 
   const setMenuState = (isOpen) => {
     if (!menuToggle || !navMenu) return;
@@ -74,5 +57,4 @@
     revealItems.forEach((item) => observer.observe(item));
   }
 
-  updateCalLinks();
 })();

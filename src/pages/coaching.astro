@@ -2,14 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
-import SituationCloud from '../components/SituationCloud.astro';
-import InsightSection from '../components/InsightSection.astro';
-import ProcessTimeline from '../components/ProcessTimeline.astro';
-import BenefitGrid from '../components/BenefitGrid.astro';
+import CoachingHero from '../components/CoachingHero.astro';
+import CoachingSituations from '../components/CoachingSituations.astro';
+import CoachingMethod from '../components/CoachingMethod.astro';
+import CoachingBenefits from '../components/CoachingBenefits.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
-import RelatedServices from '../components/RelatedServices.astro';
-import InteriorCta from '../components/InteriorCta.astro';
 
 const coachingTags = [
   { text: "Reconversion professionnelle", color: "blue", size: "lg" },
@@ -30,32 +27,44 @@ const coachingTags = [
 
 const coachingSteps = [
   {
-    number: "Étape 01",
-    title: "Clarifier la situation & poser l'intention",
-    description: "Nous cartographions vos enjeux réels, ce qui vous pèse ou freine votre progression. Nous transformons le flou ou le doute en une intention claire et inspirante.",
+    number: "Étape 01 · Prendre du recul",
+    title: "Arrêt des efforts stériles",
+    mantra: "Cesser de faire plus de la même chose",
+    description: "Nous mettons à plat ce qui vous épuise et repérons les stratégies qui entretiennent, malgré vous, l’immobilité ou la surcharge.",
+    image: "/assets/step-1-ecouter%20-%20nouveau%20bureau.png",
+    imageAlt: "Échange de coaching dans un cabinet chaleureux",
+    tone: "blue",
     keypoints: [
-      "État des lieux complet sans jugement",
+      "État des lieux sans jugement",
       "Tri des priorités essentielles",
-      "Formulation d'un cap motivant"
+      "Une première respiration"
     ]
   },
   {
-    number: "Étape 02",
-    title: "Explorer vos leviers & lever les freins",
-    description: "Nous identifions vos compétences clés souvent sous-estimées et déconstruisons les croyances limitantes qui bloquent votre prise de décision.",
+    number: "Étape 02 · Ouvrir le champ",
+    title: "Nouveau regard stratégique",
+    mantra: "Voir autrement pour choisir autrement",
+    description: "Nous faisons émerger vos ressources, vos options et les angles morts qui empêchent parfois une décision claire ou un changement de posture.",
+    image: "/assets/step-2-explorer%20-%20nouveau%20bureau.png",
+    imageAlt: "Anne Chataigner accompagne une réflexion en séance",
+    tone: "green",
     keypoints: [
-      "Mise en lumière de vos forces propres",
-      "Désamorçage des doutes et peurs d'échouer",
-      "Changement de perspective sur vos options"
+      "Mise en lumière de vos forces",
+      "Nouvelles options possibles",
+      "Décisions plus lisibles"
     ]
   },
   {
-    number: "Étape 03",
-    title: "Avancer par petits pas & ancrer le changement",
-    description: "Vous élaborez un plan d'action réaliste et mesurable. Entre chaque séance, vous expérimentez de nouveaux comportements pour créer une dynamique pérenne.",
+    number: "Étape 03 · Passer à l’action",
+    title: "Respecter votre rythme",
+    mantra: "Avancer assez pour que le changement tienne",
+    description: "Vous testez des actions concrètes, à la bonne échelle, puis nous observons ce qui fonctionne pour construire un mouvement durable et vraiment vôtre.",
+    image: "/assets/step-4-avancer%20-%20Anne.png",
+    imageAlt: "Anne Chataigner dans le jardin du cabinet",
+    tone: "coral",
     keypoints: [
-      "Actions concrètes et adaptées à votre rythme",
-      "Expérimentations observables au quotidien",
+      "Actions adaptées à votre réalité",
+      "Expérimentations observables",
       "Autonomie et confiance durable"
     ]
   }
@@ -64,31 +73,39 @@ const coachingSteps = [
 const coachingBenefits = [
   {
     step: "01",
-    title: "Clarté & Vision d'avenir",
-    description: "Sortez du brouillard mental. Vous savez exactement où vous voulez aller et quelles sont vos véritables priorités.",
-    color: "blue",
-    iconType: "compass"
+    eyebrow: "Voir plus clair",
+    title: "Clarté & vision d’avenir",
+    description: "Sortir du brouillard mental, distinguer l’essentiel et retrouver un cap qui donne envie d’avancer.",
+    image: "/assets/anne%20hero%20header%202%20-%20nouveau%20bureau.png",
+    imageAlt: "Anne Chataigner prépare une séance dans son cabinet",
+    tone: "blue"
   },
   {
     step: "02",
-    title: "Confiance & Posture affirmée",
-    description: "Renforcez votre légitimité, osez poser des limites sereines et communiquez vos choix avec assurance.",
-    color: "terracotta",
-    iconType: "shield"
+    eyebrow: "Prendre sa place",
+    title: "Confiance & posture affirmée",
+    description: "Renforcer votre légitimité, poser des limites sereines et exprimer vos choix avec davantage d’assurance.",
+    image: "/assets/step-4-avancer%20-%20Anne.png",
+    imageAlt: "Anne Chataigner accueille dans un cadre extérieur apaisant",
+    tone: "terracotta"
   },
   {
     step: "03",
+    eyebrow: "Réconcilier",
     title: "Alignement personnel",
-    description: "Réconciliez vos aspirations profondes avec les réalités de votre quotidien professionnel et personnel.",
-    color: "sage",
-    iconType: "heart"
+    description: "Faire dialoguer vos aspirations, vos contraintes et vos relations pour construire des choix qui vous ressemblent.",
+    image: "/assets/couple%20therapie%20-%20nouveau%20bureau.png",
+    imageAlt: "Un échange dans un espace de consultation chaleureux",
+    tone: "sage"
   },
   {
     step: "04",
-    title: "Énergie & Mouvement concret",
-    description: "Dépassez l'inertie et la procrastination grâce à la méthode des petits pas réalistes et motivants.",
-    color: "amber",
-    iconType: "zap"
+    eyebrow: "Mettre en mouvement",
+    title: "Énergie & mouvement concret",
+    description: "Dépassez l’inertie avec des petits pas réalistes, motivants et assez souples pour s’inscrire dans votre quotidien.",
+    image: "/assets/image%203.png",
+    imageAlt: "Un espace de dialogue pour faire émerger de nouvelles options",
+    tone: "amber"
   }
 ];
 
@@ -124,103 +141,175 @@ const coachingFaq = [
   title="Coaching individuel à Voisins-le-Bretonneux · Anne Chataigner"
   description="Accompagnement en coaching pour clarifier vos choix, traverser une transition professionnelle ou personnelle et remettre du mouvement dans votre quotidien dans les Yvelines."
 >
-  <Navbar slot="navbar" />
+  <Navbar variant="home" slot="navbar" />
 
   <main id="main-content">
-    <!-- Hero Header Atmosphérique Immersion (Reprise de l'Accueil) -->
-    <PageHeroAtmospheric 
-      badgeText="Coaching individuel & de transition"
-      badgeType="coaching"
-      title="Remettre du mouvement et clarifier votre cap."
-      lead="Quand une situation stagne, que les repères vacillent ou qu'une décision tarde à se prendre, le coaching vous offre un espace sécurisant et structurant pour prendre du recul, mobiliser vos ressources et retrouver un élan durable."
-      primaryCtaText="Prendre rendez-vous"
-      primaryCtaLink="#contact"
-      secondaryCtaText="Découvrir la méthode"
-      secondaryCtaLink="#reperes"
-      scrollTargetId="reperes"
-      scrollLabel="Découvrir"
-    />
+    <CoachingHero />
 
-    <!-- Section 1 : Nuage de Situations & Résonance -->
-    <SituationCloud 
-      subtitle="Votre point de départ"
-      title="Des situations concrètes dans lesquelles vous pouvez vous reconnaître"
-      lead="Le coaching s'adresse à toute personne souhaitant faire évoluer une situation, qu'il s'agisse d'un défi professionnel, d'un changement de vie ou d'une recherche d'alignement personnel."
-      tags={coachingTags}
-      quote="« On ne résout pas un problème avec les mêmes modes de pensée que ceux qui l'ont engendré. » — <em>Albert Einstein</em>"
-      sectionId="reperes"
-      theme="coaching"
-    />
+    <CoachingSituations tags={coachingTags} />
 
-    <!-- Section 2 : Éclairage Palo Alto / Comprendre ce qui se joue -->
-    <InsightSection 
-      badgeText="Approche & Compréhension"
-      badgeType="coaching"
-      title="Comprendre ce qui se joue : Pourquoi forcer bloque souvent la situation"
-      lead="Face à un obstacle, notre premier réflexe est souvent d'en faire 'toujours plus de la même chose'. Pourtant, l'insistance est parfois ce qui maintient le problème."
-      bodyParagraphs={[
-        "Inspirée par l'approche systémique de l'<strong>École de Palo Alto</strong>, ma pratique du coaching ne cherche pas à vous imposer des solutions toutes faites. Elle s'intéresse à la manière dont vos tentatives passées de résolution ont pu, bien involontairement, figer la situation.",
-        "En prenant le temps de <strong>faire un pas de côté</strong>, nous analysons ensemble la mécanique de votre quotidien pour identifier les leviers inexplorés et stopper les boucles d'efforts stériles.",
-        "Le coaching devient alors un accélérateur de lucidité : vous retrouvez votre liberté de choix et construisez des réponses véritablement adaptées à votre écologie personnelle."
-      ]}
-      highlightBoxTitle="Le principe du 'Pas de côté'"
-      highlightBoxText="S'accorder une pause réflexive n'est pas une perte de temps : c'est la condition indispensable pour cesser de subir une transition et commencer à la piloter avec clairvoyance."
-      keypoints={[
-        { title: "Arrêt des efforts stériles", description: "Identifier les stratégies qui vous épuisent sans donner de résultats." },
-        { title: "Nouveau regard stratégique", description: "Envisager des options inattendues et débloquer les impasses." },
-        { title: "Respect de votre rythme", description: "Un accompagnement qui s'adapte à vos contraintes et à votre réalité." }
-      ]}
-      sectionId="approche-eclairage"
-      bgColor="#ffffff"
-    />
-
-    <!-- Section 3 : Déroulement en 3 étapes clés -->
-    <ProcessTimeline 
-      subtitle="Méthode & Cheminement"
-      title="Le déroulement de l'accompagnement en 3 étapes"
-      lead="Un cadre feutré, bienveillant et résolument pragmatique pour transformer vos réflexions en résultats concrets."
+    <CoachingMethod
       steps={coachingSteps}
       pricingBanner={{
-        tag: "Modalités & Tarif",
         title: "Consultation individuelle de Coaching",
         description: "Séance d'1 heure au cabinet de Voisins-le-Bretonneux ou en visioconférence. Un cadre sécurisant et structurant.",
         amount: "85 €",
         duration: "Durée : 1 heure",
-        linkText: "Consulter tous les tarifs →",
-        linkUrl: "/tarifs",
-        tagColor: "#2F425E"
+        linkText: "Consulter tous les tarifs",
+        linkUrl: "/tarifs"
       }}
-      sectionId="deroulement"
-      bgColor="#F8FAFC"
     />
 
-    <!-- Section 4 : Grille des 4 Clés de Transformation (Quadrant) -->
-    <BenefitGrid 
-      subtitle="Bénéfices & Transformations"
-      title="Ce que le coaching individuel vous permet d'accomplir"
-      lead="Des bénéfices observables dans votre quotidien professionnel et personnel, sans promesse magique mais avec une méthode éprouvée."
-      cards={coachingBenefits}
-      sectionId="benefices"
-    />
+    <CoachingBenefits cards={coachingBenefits} />
 
-    <!-- Section 5 : FAQ Accordéon Détaillée -->
     <FaqAccordion 
       items={coachingFaq}
       subtitle="Questions fréquentes"
-      title="Tout comprendre sur le coaching individuel"
+      title="Tout ce que vous devez savoir avant de débuter."
       badgeType="coaching"
+      variant="home"
     />
 
-    <!-- Section 6 : Passerelles vers les autres approches -->
-    <RelatedServices currentService="coaching" />
+    <section class="section coaching-next-steps" id="suite">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="vertical-wrapper">
+          <div class="vertical-headline program-heading-home-b" data-coaching-reveal>
+            <div class="subtitle">Pour aller plus loin</div>
+            <h2 class="heading-2">Une approche ajustée à ce que vous traversez.</h2>
+          </div>
+          <div class="three-programs-grid coaching-next-steps__grid">
+            <a href="/therapies-breves" class="program-card-modern" data-coaching-reveal>
+              <div class="program-card-bg-wrapper"><img loading="lazy" src="/assets/image%203.png" alt="Thérapies brèves au cabinet" class="program-card-bg-img" /><div class="program-card-gradient-overlay"></div></div>
+              <div class="program-card-top-tag"><span class="program-card-tag-pill tag-therapies">01 · Thérapies brèves</span></div>
+              <div class="program-card-overlay-content"><h3 class="program-card-title-modern">Apaiser ce qui pèse</h3><p class="program-card-lead-modern">Dénouer les tensions et retrouver plus de fluidité dans votre quotidien.</p><div class="program-card-action-row"><span class="program-card-action-label">Découvrir</span><span class="program-card-action-btn" aria-hidden="true">↗</span></div></div>
+            </a>
+            <a href="/hypnose-ericksonienne" class="program-card-modern" data-coaching-reveal>
+              <div class="program-card-bg-wrapper"><img loading="lazy" src="/assets/anne%20hero%20header%202%20-%20nouveau%20bureau.png" alt="Hypnose Ericksonienne au cabinet" class="program-card-bg-img" /><div class="program-card-gradient-overlay"></div></div>
+              <div class="program-card-top-tag"><span class="program-card-tag-pill tag-hypnose">02 · Hypnose</span></div>
+              <div class="program-card-overlay-content"><h3 class="program-card-title-modern">Mobiliser vos ressources</h3><p class="program-card-lead-modern">Ouvrir de nouvelles perspectives et activer vos solutions intérieures.</p><div class="program-card-action-row"><span class="program-card-action-label">Découvrir</span><span class="program-card-action-btn" aria-hidden="true">↗</span></div></div>
+            </a>
+            <a href="/consultation-couple" class="program-card-modern" data-coaching-reveal>
+              <div class="program-card-bg-wrapper"><img loading="lazy" src="/assets/couple%20therapie%20-%20nouveau%20bureau.png" alt="Consultation de couple au cabinet" class="program-card-bg-img" /><div class="program-card-gradient-overlay"></div></div>
+              <div class="program-card-top-tag"><span class="program-card-tag-pill tag-coaching">03 · Relationnel</span></div>
+              <div class="program-card-overlay-content"><h3 class="program-card-title-modern">Cheminer ensemble</h3><p class="program-card-lead-modern">Retrouver un espace de dialogue, de compréhension et de mouvement.</p><div class="program-card-action-row"><span class="program-card-action-label">Découvrir</span><span class="program-card-action-btn" aria-hidden="true">↗</span></div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Section 7 : CTA Final -->
-    <InteriorCta 
-      title="Prêt(e) à clarifier votre cap et passer à l'action ?"
-      lead="Un premier échange permet de poser ce qui se joue, de faire le point sur vos attentes et d'envisager ensemble la démarche la plus ajustée."
-      buttonText="Prendre rendez-vous"
-    />
+    <section class="section cta coaching-cta" id="contact">
+      <div class="cta-background">
+        <div class="w-layout-blockcontainer container cta w-container">
+          <div class="vertical-headline center">
+            <h2 class="heading-1 cta-heading">Vous n’avez pas besoin d’aller mal pour avancer.</h2>
+            <p class="text white coaching-cta__lead">Un premier échange permet de poser ce qui se joue, de faire le point sur vos attentes et d’envisager ensemble la démarche la plus ajustée.</p>
+            <div class="button-wrapper">
+              <a href="/#contact" data-wf--button--variant="white" class="primary-button w-variant-df50d2b4-2dcf-06cb-393e-886e8cb0681e w-inline-block" data-booking-link>
+                <div class="button-text-wrapper"><div class="button-text-inner"><div button-text="" class="button-text">Prendre rendez-vous</div><div button-text="" class="button-text">Prendre rendez-vous</div></div></div>
+              </a>
+              <a href="#accueil" data-wf--button--variant="secondary-white" class="primary-button button-hero-secondary w-variant-f0ba9e15-0444-e4fc-a8e1-1c47fa2d65ed w-inline-block">
+                <div class="button-text-wrapper"><div class="button-text-inner"><div button-text="" class="button-text">Revenir en haut ↑</div><div button-text="" class="button-text">Revenir en haut ↑</div></div></div>
+              </a>
+            </div>
+            <div class="cta-cabinet-info"><span><svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16.5 8.2c0 4.1-6.5 8.8-6.5 8.8S3.5 12.3 3.5 8.2a6.5 6.5 0 1 1 13 0Z" stroke="currentColor" stroke-width="1.3"></path><circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.3"></circle></svg>Cabinet à Voisins-le-Bretonneux · 2 Rue de la Bergerie, 78960</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <Footer slot="footer" />
+  <Footer variant="home" slot="footer" />
 </Layout>
+
+<script is:inline src="/assets/js/lenis.min.js"></script>
+<script is:inline>
+  (() => {
+    const page = document.querySelector('.ac-page--coaching');
+    if (!page) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let lenis = null;
+
+    if (!reduceMotion && typeof window.Lenis !== 'undefined') {
+      lenis = new window.Lenis({
+        duration: 1.12,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        touchMultiplier: 1.15
+      });
+
+      const raf = (time) => {
+        lenis.raf(time);
+        window.requestAnimationFrame(raf);
+      };
+      window.requestAnimationFrame(raf);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', (event) => {
+        const targetId = anchor.getAttribute('href');
+        const target = targetId && document.querySelector(targetId);
+        if (!target) return;
+        event.preventDefault();
+        if (lenis) {
+          lenis.scrollTo(target, { offset: -92, duration: 1.1 });
+        } else {
+          target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    const revealItems = document.querySelectorAll('[data-coaching-reveal]');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+    } else {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8%' });
+      revealItems.forEach((item) => revealObserver.observe(item));
+    }
+
+    const steps = [...document.querySelectorAll('[data-coaching-step]')];
+    const journey = document.querySelector('[data-coaching-journey]');
+    const progress = document.querySelector('#coachingJourneyProgress');
+
+    const updateJourneyProgress = () => {
+      if (!journey || !progress) return;
+      const rect = journey.getBoundingClientRect();
+      const focus = window.innerHeight * 0.52;
+      const value = Math.max(0, Math.min(1, (focus - rect.top) / rect.height));
+      progress.style.transform = `scaleY(${value})`;
+    };
+
+    const setActiveStep = (index) => {
+      steps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === index));
+    };
+
+    if (steps.length && 'IntersectionObserver' in window) {
+      const stepObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const index = Math.max(0, steps.indexOf(entry.target));
+          setActiveStep(index);
+        });
+      }, { threshold: 0.42, rootMargin: '-24% 0px -42%' });
+      steps.forEach((step) => stepObserver.observe(step));
+    }
+
+    if (lenis) {
+      lenis.on('scroll', updateJourneyProgress);
+    } else {
+      window.addEventListener('scroll', updateJourneyProgress, { passive: true });
+    }
+
+    if (reduceMotion) {
+      setActiveStep(0);
+    }
+    updateJourneyProgress();
+  })();
+</script>

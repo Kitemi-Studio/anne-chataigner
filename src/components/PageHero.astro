@@ -10,13 +10,15 @@ interface Props {
   secondaryCtaLink?: string;
 }
 
+import { BOOKING_URL } from '../config/site';
+
 const {
   badgeText,
   badgeType = 'coaching',
   title,
   lead,
   primaryCtaText = "Prendre rendez-vous",
-  primaryCtaLink = "#contact",
+  primaryCtaLink = BOOKING_URL,
   secondaryCtaText = "Découvrir le déroulement",
   secondaryCtaLink = "#deroulement"
 } = Astro.props;
@@ -33,7 +35,7 @@ const {
       <p class="interior-hero-lead">{lead}</p>
       
       <div class="interior-hero-buttons">
-        <a href={primaryCtaLink} data-wf--button--variant="primary" class="primary-button w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
+        <a href={primaryCtaLink === '#contact' ? BOOKING_URL : primaryCtaLink} data-wf--button--variant="primary" class="primary-button w-inline-block" data-booking-link>
           <div class="button-text-wrapper">
             <div class="button-text-inner">
               <div button-text="" class="button-text">{primaryCtaText}</div>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anne-chataigner.vercel.app/sitemap.xml

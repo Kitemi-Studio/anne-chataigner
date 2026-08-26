@@ -4,8 +4,6 @@ interface ProcessStep {
   title: string;
   description: string;
   keypoints?: string[];
-  badgeBg?: string;
-  badgeColor?: string;
 }
 
 interface PricingBannerData {
@@ -16,7 +14,6 @@ interface PricingBannerData {
   duration: string;
   linkText?: string;
   linkUrl?: string;
-  tagColor?: string;
 }
 
 interface Props {
@@ -30,70 +27,63 @@ interface Props {
 }
 
 const {
-  subtitle = "Méthode & Déroulement",
+  subtitle = 'Méthode & déroulement',
   title = "Comment se déroule l'accompagnement ?",
-  lead = "Un cadre feutré, sécurisant et pragmatique qui avance à votre rythme pour ancrer des changements durables.",
+  lead = "Un cadre clair et confidentiel qui avance à votre rythme.",
   steps,
   pricingBanner,
-  sectionId = "deroulement",
-  bgColor = "#F8FAFC"
+  sectionId = 'deroulement'
 } = Astro.props;
 ---
 
-<section class="section interior-section" id={sectionId} style={`background-color: ${bgColor};`}>
-  <div class="w-layout-blockcontainer container w-container">
-    <div class="interior-section-header">
-      <div class="interior-section-subtitle">
-        <span class="subtitle-bullet-dot"></span>
-        <span>{subtitle}</span>
+<section class="ac-section ac-process" id={sectionId}>
+  <div class="ac-container">
+    <div class="ac-section-heading ac-section-heading--split">
+      <div>
+        <p class="ac-eyebrow"><span></span>{subtitle}</p>
+        <h2>{title}</h2>
       </div>
-      <h2 class="interior-section-title">{title}</h2>
-      <p class="interior-section-lead">{lead}</p>
+      <p class="ac-section-heading__lead">{lead}</p>
     </div>
 
-    <div class="steps-cards-grid">
-      {steps.map((step) => (
-        <div class="step-box-card">
-          <div class="step-box-header">
-            <span class="step-box-number" style={step.badgeBg ? `background: ${step.badgeBg}; color: ${step.badgeColor || '#2c2b29'};` : ''}>
-              {step.number}
-            </span>
+    <ol class="ac-timeline">
+      {steps.map((step, index) => (
+        <li class="ac-timeline__item">
+          <div class="ac-timeline__marker">
+            <span>{String(index + 1).padStart(2, '0')}</span>
           </div>
-          <h3 class="step-box-title">{step.title}</h3>
-          <p class="step-box-text">{step.description}</p>
-          
-          {step.keypoints && step.keypoints.length > 0 && (
-            <div class="step-box-keypoints">
-              {step.keypoints.map((point) => (
-                <div class="step-keypoint-row">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>{point}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+          <div class="ac-timeline__content">
+            <p class="ac-timeline__label">{step.number}</p>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+            {step.keypoints && step.keypoints.length > 0 && (
+              <ul class="ac-timeline__points">
+                {step.keypoints.map((point) => (
+                  <li>
+                    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                      <path d="m5 10.5 3.2 3.2L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </li>
       ))}
-    </div>
+    </ol>
 
-    <!-- Encart Tarifaire Optionnel -->
     {pricingBanner && (
-      <div class="pricing-banner-card">
-        <div class="pricing-banner-info">
-          <div class="pricing-banner-tag" style={pricingBanner.tagColor ? `color: ${pricingBanner.tagColor};` : ''}>
-            {pricingBanner.tag || "Modalités & Tarif"}
-          </div>
-          <h3 class="pricing-banner-title">{pricingBanner.title}</h3>
-          <p class="pricing-banner-desc">{pricingBanner.description}</p>
+      <div class="ac-price-callout">
+        <div class="ac-price-callout__copy">
+          <p class="ac-eyebrow"><span></span>{pricingBanner.tag || 'Modalités & tarif'}</p>
+          <h3>{pricingBanner.title}</h3>
+          <p>{pricingBanner.description}</p>
         </div>
-        <div class="pricing-banner-action">
-          <div class="pricing-banner-amount">{pricingBanner.amount}</div>
-          <div class="pricing-banner-duration">{pricingBanner.duration}</div>
-          <a href={pricingBanner.linkUrl || "/tarifs"} class="text-link" style="margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--anne-coaching);">
-            {pricingBanner.linkText || "Consulter tous les tarifs →"}
-          </a>
+        <div class="ac-price-callout__price">
+          <strong>{pricingBanner.amount}</strong>
+          <span>{pricingBanner.duration}</span>
+          <a href={pricingBanner.linkUrl || '/tarifs'} class="ac-text-link">{pricingBanner.linkText || 'Voir les tarifs'} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     )}

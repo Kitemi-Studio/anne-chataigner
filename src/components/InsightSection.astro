@@ -2,12 +2,11 @@
 interface KeypointItem {
   title: string;
   description: string;
-  iconSvg?: string;
 }
 
 interface Props {
   badgeText?: string;
-  badgeType?: 'coaching' | 'therapies' | 'hypnose' | 'couple' | 'about' | 'pricing';
+  badgeType?: string;
   title: string;
   lead: string;
   bodyParagraphs: string[];
@@ -19,74 +18,66 @@ interface Props {
 }
 
 const {
-  badgeText = "Éclairage & Compréhension",
-  badgeType = "coaching",
+  badgeText = 'Éclairage & compréhension',
+  badgeType = 'coaching',
   title,
   lead,
   bodyParagraphs,
   highlightBoxTitle,
   highlightBoxText,
-  keypoints,
-  sectionId = "eclairage",
-  bgColor = "#ffffff"
+  keypoints = [],
+  sectionId = 'approche-eclairage'
 } = Astro.props;
 ---
 
-<section class="section section-pas-de-cote" id={sectionId} style={`background: ${bgColor};`}>
-  <div class="w-layout-blockcontainer container w-container">
-    <div class="pas-de-cote-wrapper">
-      <!-- Colonne Gauche : Récit & Explication -->
-      <div class="pas-de-cote-left">
-        <div class={`pas-de-cote-badge pas-de-cote-badge--${badgeType}`}>
-          <span class="pas-de-cote-badge-dot"></span>
-          <span>{badgeText}</span>
+<section class={`ac-section ac-approach ac-theme--${badgeType}`} id={sectionId}>
+  <div class="ac-container">
+    <div class="ac-approach__grid">
+      <div class="ac-approach__copy">
+        <p class="ac-eyebrow"><span></span>{badgeText}</p>
+        <h2>{title}</h2>
+        <p class="ac-lead">{lead}</p>
+        <div class="ac-prose">
+          {bodyParagraphs.map((paragraph) => <p set:html={paragraph}></p>)}
         </div>
-        <h2 class="pas-de-cote-title">{title}</h2>
-        <p class="pas-de-cote-lead">{lead}</p>
-        
-        {bodyParagraphs.map((para) => (
-          <p class="text" style="font-size: 16px; line-height: 1.7; color: var(--anne-ink); margin-bottom: 18px;" set:html={para} />
-        ))}
-
-        {keypoints && keypoints.length > 0 && (
-          <div class="pas-de-cote-grid" style="margin-top: 28px;">
-            {keypoints.map((kp) => (
-              <div class="pas-de-cote-item">
-                <div class="pas-de-cote-item-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </div>
-                <div class="pas-de-cote-item-content">
-                  <div class="pas-de-cote-item-title">{kp.title}</div>
-                  <div class="pas-de-cote-item-desc">{kp.description}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
 
-      <!-- Colonne Droite : Encart Card Highlight -->
-      <div class="pas-de-cote-right">
+      <div class="ac-approach__visual">
+        <div class="ac-approach__loop" aria-label="Repères de l'approche">
+          <div class="ac-loop__arc" aria-hidden="true"></div>
+          <div class="ac-loop__center">
+            <span>Faire<br />un pas<br />de côté</span>
+          </div>
+          {keypoints.slice(0, 3).map((point, index) => (
+            <div class={`ac-loop__point ac-loop__point--${index + 1}`}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{point.title}</strong>
+            </div>
+          ))}
+        </div>
+
         {highlightBoxTitle && (
-          <div class="pas-de-cote-card" style="box-shadow: 0 16px 40px rgba(0,0,0,0.06); border-radius: 24px; padding: 36px 32px; background: #ffffff; border: 1px solid var(--anne-border);">
-            <div class="subtitle" style="font-size: 12px; margin-bottom: 12px; color: var(--anne-coaching);">
-              <span class="subtitle-bullet-dot"></span>
-              <span>Point de repère</span>
-            </div>
-            <h3 class="heading-3" style="font-size: 24px; line-height: 1.25; margin-bottom: 16px; color: var(--anne-ink-dark); font-family: var(--_typography---font-family--heading);">
-              {highlightBoxTitle}
-            </h3>
-            <p class="text" style="font-size: 15.5px; line-height: 1.68; color: var(--anne-ink);" set:html={highlightBoxText} />
-            
-            <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(101, 101, 95, 0.1); display: flex; align-items: center; gap: 12px;">
-              <span style="font-size: 22px;">🌿</span>
-              <span style="font-size: 14px; font-weight: 500; color: var(--anne-ink-dark);">Un cadre d'écoute et de bienveillance au cabinet de Voisins-le-Bretonneux</span>
-            </div>
+          <div class="ac-approach__note">
+            <p class="ac-eyebrow"><span></span>Point de repère</p>
+            <h3>{highlightBoxTitle}</h3>
+            {highlightBoxText && <p set:html={highlightBoxText}></p>}
           </div>
         )}
       </div>
     </div>
+
+    {keypoints.length > 0 && (
+      <div class="ac-keypoints">
+        {keypoints.map((point, index) => (
+          <div class="ac-keypoint">
+            <span class="ac-keypoint__number">{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{point.title}</h3>
+              <p>{point.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
   </div>
 </section>

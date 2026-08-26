@@ -9,45 +9,106 @@ interface Props {
   subtitle?: string;
   title?: string;
   badgeType?: string;
+  variant?: 'editorial' | 'home';
 }
 
 const {
   items,
-  subtitle = "Questions fréquentes",
+  subtitle = 'Questions fréquentes',
   title = "Tout ce qu'il faut savoir pour démarrer sereinement",
-  badgeType = "coaching"
+  badgeType = 'coaching',
+  variant = 'editorial'
 } = Astro.props;
+const faqKey = `${badgeType}-faq`;
 ---
 
-<section class="section section-faq" id="faq">
-  <div class="w-layout-blockcontainer container w-container">
-    <div class="faq-header-centered">
-      <div class={`subtitle faq-subtitle subtitle--${badgeType}`}>
-        <span class="subtitle-bullet-dot"></span>
-        <span>{subtitle}</span>
-      </div>
-      <h2 class="heading-2 faq-title-main">{title}</h2>
-    </div>
-
-    <div class="faq-accordion-list">
-      {items.map((item) => (
-        <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-question">{item.question}</span>
-            <span class="faq-icon-wrapper" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <div class="faq-answer-text" set:html={item.answer} />
-            </div>
-          </div>
+{variant === 'home' ? (
+  <section class="section section-faq coaching-faq" id="faq">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="faq-header-centered">
+        <div class="subtitle faq-subtitle">
+          <span class="subtitle-bullet-dot"></span>
+          {subtitle}
         </div>
-      ))}
+        <h2 class="heading-2 faq-title">{title}</h2>
+        <p class="faq-lead">Des réponses claires et bienveillantes pour aborder votre démarche de coaching avec sérénité.</p>
+      </div>
+
+      <div class="faq-accordion-list" role="region" aria-label="Foire aux questions">
+        {items.map((item, index) => {
+          const itemId = `${faqKey}-${index + 1}`;
+          const panelId = `${itemId}-panel`;
+          const open = index === 0;
+          return (
+            <div class={`faq-item ${open ? 'is-open' : ''}`}>
+              <button id={itemId} class="faq-trigger" type="button" aria-controls={panelId} aria-expanded={String(open)}>
+                <span class="faq-question">{item.question}</span>
+                <span class="faq-icon-wrapper" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id={panelId} role="region" aria-labelledby={itemId}>
+                <div class="faq-answer-inner">
+                  <div class="faq-answer-text" set:html={item.answer}></div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+) : (
+  <section class={`ac-section ac-faq ac-theme--${badgeType}`} id="faq">
+    <div class="ac-container">
+      <div class="ac-faq__intro">
+        <p class="ac-eyebrow"><span></span>{subtitle}</p>
+        <h2>{title}</h2>
+        <p>Quelques réponses pour vous permettre d’arriver avec un cadre clair.</p>
+      </div>
+
+      <div class="ac-faq__list">
+        {items.map((item, index) => {
+          const itemId = `${faqKey}-${index + 1}`;
+          const panelId = `${itemId}-panel`;
+          return (
+            <details class="ac-faq__item">
+              <summary class="ac-faq__trigger" aria-controls={panelId} aria-expanded="false">
+                <span class="ac-faq__question">{item.question}</span>
+                <span class="ac-faq__icon" aria-hidden="true"><span></span><span></span></span>
+              </summary>
+              <div class="ac-faq__panel" id={panelId} role="region">
+                <div class="ac-faq__answer" set:html={item.answer}></div>
+              </div>
+            </details>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}
+
+<script is:inline>
+  document.querySelectorAll('.ac-faq__item').forEach((item) => {
+    const summary = item.querySelector('summary');
+    const syncExpanded = () => summary?.setAttribute('aria-expanded', String(item.open));
+    syncExpanded();
+    item.addEventListener('toggle', syncExpanded);
+  });
+
+  document.querySelectorAll('.coaching-faq .faq-item').forEach((item) => {
+    const trigger = item.querySelector('.faq-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.coaching-faq .faq-item').forEach((other) => {
+        if (other === item) return;
+        other.classList.remove('is-open');
+        other.querySelector('.faq-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+      item.classList.toggle('is-open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+</script>

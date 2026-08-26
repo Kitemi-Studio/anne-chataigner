@@ -4,7 +4,7 @@ interface ServiceLink {
   description: string;
   url: string;
   tag: string;
-  tagClass?: string;
+  theme: string;
 }
 
 interface Props {
@@ -15,32 +15,32 @@ const { currentService } = Astro.props;
 
 const allServices: Record<string, ServiceLink> = {
   coaching: {
-    title: "Coaching individuel",
-    description: "Clarifier une transition, dépasser un blocage professionnel ou personnel et avancer par petits pas.",
-    url: "/coaching",
-    tag: "Transition & Action",
-    tagClass: "interior-badge--coaching"
+    title: 'Coaching individuel',
+    description: 'Clarifier une transition, dépasser un blocage professionnel ou personnel et avancer par petits pas.',
+    url: '/coaching',
+    tag: 'Transition & action',
+    theme: 'coaching'
   },
   therapies: {
-    title: "Thérapies brèves",
-    description: "Apaiser la charge mentale, dénouer un blocage émotionnel et retrouver un équilibre concret au quotidien.",
-    url: "/therapies-breves",
-    tag: "Équilibre & Émotion",
-    tagClass: "interior-badge--therapies"
+    title: 'Thérapies brèves',
+    description: 'Apaiser la charge mentale, dénouer un blocage émotionnel et retrouver un équilibre concret au quotidien.',
+    url: '/therapies-breves',
+    tag: 'Équilibre & émotion',
+    theme: 'therapies'
   },
   hypnose: {
-    title: "Hypnose Ericksonienne",
-    description: "Mobiliser vos ressources inconscientes en douceur pour ouvrir de nouvelles perspectives de changement.",
-    url: "/hypnose-ericksonienne",
-    tag: "Ressources profondes",
-    tagClass: "interior-badge--hypnose"
+    title: 'Hypnose Ericksonienne',
+    description: 'Mobiliser vos ressources en douceur pour ouvrir de nouvelles perspectives face aux automatismes.',
+    url: '/hypnose-ericksonienne',
+    tag: 'Ressources profondes',
+    theme: 'hypnose'
   },
   couple: {
-    title: "Consultation de couple",
-    description: "Un espace neutre et sécurisant pour dialoguer, clarifier les besoins de chacun et cheminer ensemble.",
-    url: "/consultation-couple",
-    tag: "Relation & Dialogue",
-    tagClass: "interior-badge--couple"
+    title: 'Consultation de couple',
+    description: 'Un espace neutre et sécurisant pour dialoguer, clarifier les besoins de chacun et cheminer ensemble.',
+    url: '/consultation-couple',
+    tag: 'Relation & dialogue',
+    theme: 'couple'
   }
 };
 
@@ -50,33 +50,30 @@ const displayedServices = Object.entries(allServices)
   .map(([, service]) => service);
 ---
 
-<section class="related-services-section">
-  <div class="w-layout-blockcontainer container w-container">
-    <div class="interior-section-header" style="margin-bottom: 40px;">
-      <div class="interior-section-subtitle">
-        <span class="subtitle-bullet-dot"></span>
-        <span>Approches complémentaires</span>
+<section class="ac-section ac-related">
+  <div class="ac-container">
+    <div class="ac-related__heading">
+      <div>
+        <p class="ac-eyebrow"><span></span>Approches complémentaires</p>
+        <h2>Une autre porte d’entrée peut parfois être plus juste.</h2>
       </div>
-      <h2 class="interior-section-title" style="font-size: 32px;">Poursuivre votre découverte</h2>
+      <p>Les approches se répondent sans se confondre. Le premier échange permet de choisir un cadre adapté à votre situation.</p>
     </div>
 
-    <div class="related-services-grid">
-      {displayedServices.map((service) => (
-        <a href={service.url} class="related-service-card">
-          <div class="related-service-header">
-            <span class={`interior-badge ${service.tagClass}`} style="margin-bottom: 0;">
-              <span class="interior-badge-dot"></span>
-              {service.tag}
-            </span>
-            <div class="related-service-arrow">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
+    <div class="ac-related__list">
+      {displayedServices.map((service, index) => (
+        <a href={service.url} class={`ac-related__item ac-theme--${service.theme}`}>
+          <span class="ac-related__index">0{index + 1}</span>
+          <div class="ac-related__copy">
+            <p class="ac-related__tag">{service.tag}</p>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
           </div>
-          <h3 class="related-service-title">{service.title}</h3>
-          <p class="related-service-text" style="margin-top: 8px;">{service.description}</p>
+          <span class="ac-related__arrow" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
         </a>
       ))}
     </div>

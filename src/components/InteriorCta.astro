@@ -1,4 +1,6 @@
 ---
+import { BOOKING_URL } from '../config/site';
+
 interface Props {
   title?: string;
   lead?: string;
@@ -6,34 +8,39 @@ interface Props {
 }
 
 const {
-  title = "Vous traversez une étape importante ?",
-  lead = "Un premier échange peut vous permettre de poser ce qui se joue, de clarifier vos besoins et de voir si cet accompagnement vous correspond.",
-  buttonText = "Prendre rendez-vous"
+  title = 'Vous traversez une étape importante ?',
+  lead = 'Un premier échange peut vous permettre de poser ce qui se joue, de clarifier vos besoins et de voir si cet accompagnement vous correspond.',
+  buttonText = 'Prendre rendez-vous'
 } = Astro.props;
 ---
 
-<section class="section cta" id="contact">
-  <div class="cta-background">
-    <div class="w-layout-blockcontainer container cta w-container">
-      <div class="vertical-headline center">
-        <h2 class="heading-1 cta-heading">{title}</h2>
-        <p class="text white" style="max-width: 680px; margin: 16px auto 24px; font-size: 18px; line-height: 1.6;">
-          {lead}
-        </p>
-        <div class="button-wrapper">
-          <a href="#contact" data-wf--button--variant="white" class="primary-button w-variant-df50d2b4-2dcf-06cb-393e-886e8cb0681e w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
-            <div class="button-text-wrapper">
-              <div class="button-text-inner">
-                <div button-text="" class="button-text">{buttonText}</div>
-                <div button-text="" class="button-text">{buttonText}</div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="cta-cabinet-info">
-          <span>📍 Cabinet au 2 Rue de la Bergerie, 78960 Voisins-le-Bretonneux &amp; Séances en visioconférence</span>
-        </div>
-      </div>
+<section class="ac-cta" id="contact">
+  <div class="ac-cta__media" aria-hidden="true">
+    <img src="/assets/anne%20hero%20header%202.png" alt="" width="1536" height="1024" loading="lazy" />
+    <div class="ac-cta__veil"></div>
+  </div>
+  <div class="ac-container ac-cta__inner">
+    <div class="ac-cta__copy">
+      <p class="ac-eyebrow ac-eyebrow--light"><span></span>Premier échange</p>
+      <h2>{title}</h2>
+      <p>{lead}</p>
+      <a href={BOOKING_URL} class="ac-button ac-button--light" data-booking-link>
+        <span>{buttonText}</span>
+        <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+          <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="ac-cta__aside">
+      <div class="ac-cta__rule"></div>
+      <p>Cabinet à Voisins-le-Bretonneux<br />et séances en visioconférence</p>
+      <span class="ac-location-icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="none">
+          <path d="M16.5 8.2c0 4.1-6.5 8.8-6.5 8.8S3.5 12.3 3.5 8.2a6.5 6.5 0 1 1 13 0Z" stroke="currentColor" stroke-width="1.3" />
+          <circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.3" />
+        </svg>
+      </span>
     </div>
   </div>
 </section>

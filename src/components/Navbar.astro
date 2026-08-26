@@ -1,43 +1,187 @@
 ---
-// Navbar Component — Anne Chataigner
-const pathname = Astro.url.pathname;
-const isHome = pathname === "/" || pathname === "";
+import { BOOKING_URL, isSecondaryRoute, normalizePathname } from '../config/site';
+
+interface Props {
+  variant?: 'auto' | 'home' | 'secondary';
+}
+
+const { variant = 'auto' } = Astro.props;
+
+const pathname = normalizePathname(Astro.url.pathname);
+const secondaryPage = isSecondaryRoute(pathname);
+const renderHomeVariant = variant === 'home' || (variant === 'auto' && !secondaryPage);
+const navItems = [
+  { href: '/coaching', label: 'Coaching' },
+  { href: '/therapies-breves', label: 'Thérapies brèves' },
+  { href: '/hypnose-ericksonienne', label: 'Hypnose' },
+  { href: '/a-propos', label: 'À propos' },
+  { href: '/tarifs', label: 'Tarifs' }
+];
+const contactHref = pathname === '/' ? '#contact' : '/#contact';
 ---
 
-<div data-wf--navbar--variant="absolute" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-variant-4d7dc134-f2e5-754d-5a3f-cd12e3224dcd w-nav">
-  <div class="container w-container">
-    <div class="navbar-wrapper">
-      <a href="/" class={`navbar-brand-link w-nav-brand ${isHome ? 'w--current' : ''}`} aria-label="Anne Chataigner Accueil">
-        <img loading="lazy" src="/assets/Logo%20Anne%20Chataigner.svg" alt="Logo Anne Chataigner" class="navbar-logo" />
-        <span class="navbar-brand-title">Anne Chataigner</span>
-      </a>
+{!renderHomeVariant ? (
+  <header class="ac-navbar-wrap">
+    <div class="ac-container">
+      <div class="ac-navbar" data-ac-nav data-menu-open="false">
+        <a href="/" class="ac-brand" aria-label="Anne Chataigner, accueil">
+          <img src="/assets/Logo%20Anne%20Chataigner.svg" alt="" class="ac-brand__mark" width="38" height="38" />
+          <span class="ac-brand__text">
+            <span>Anne Chataigner</span>
+            <small>Accompagnement humain</small>
+          </span>
+        </a>
 
-      <nav role="navigation" class="nav-menu w-nav-menu">
-        <div class="nav-menu-inner">
-          <div class="nav-links-group">
-            <a href="/coaching" class={`nav-link ${pathname === '/coaching' ? 'w--current' : ''}`}>Coaching</a>
-            <a href="/therapies-breves" class={`nav-link ${pathname === '/therapies-breves' ? 'w--current' : ''}`}>Thérapies brèves</a>
-            <a href="/hypnose-ericksonienne" class={`nav-link ${pathname === '/hypnose-ericksonienne' ? 'w--current' : ''}`}>Hypnose</a>
-            <a href="/a-propos" class={`nav-link ${pathname === '/a-propos' ? 'w--current' : ''}`}>À propos</a>
-            <a href="/tarifs" class={`nav-link ${pathname === '/tarifs' ? 'w--current' : ''}`}>Tarifs</a>
-            <a href={isHome ? "#contact" : "/#contact"} class="nav-link">Contact</a>
-          </div>
-          
-          <a href={isHome ? "#contact" : "/#contact"} class="primary-button navbar-button w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
-            <div class="button-text-wrapper">
-              <div class="button-text-inner">
-                <div button-text="" class="button-text">Prendre rendez-vous</div>
-                <div button-text="" class="button-text">Prendre rendez-vous</div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </nav>
+        <nav class="ac-nav__links" aria-label="Navigation principale" data-ac-menu id="ac-mobile-menu">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <a href={item.href} class={`ac-nav__link${isActive ? ' is-active' : ''}`} aria-current={isActive ? 'page' : undefined}>
+                {item.label}
+              </a>
+            );
+          })}
+          <a href={contactHref} class="ac-nav__link">Contact</a>
+        </nav>
 
-      <div class="menu-button w-nav-button" aria-label="Menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
-        <div class="w-icon-nav-menu"></div>
+        <a href={BOOKING_URL} class="ac-button ac-button--nav" data-booking-link>
+          <span>Prendre rendez-vous</span>
+          <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+
+        <button class="ac-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="ac-mobile-menu" aria-expanded="false" data-ac-menu-toggle>
+          <span></span><span></span>
+        </button>
       </div>
     </div>
+  </header>
+) : (
+  <div data-wf--navbar--variant="absolute" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-variant-4d7dc134-f2e5-754d-5a3f-cd12e3224dcd w-nav">
+    <div class="container w-container">
+      <div class="navbar-wrapper">
+        <a href="/" class="navbar-brand-link w-nav-brand w--current" aria-label="Anne Chataigner Accueil">
+          <img loading="lazy" src="/assets/Logo%20Anne%20Chataigner.svg" alt="Logo Anne Chataigner" class="navbar-logo" />
+          <span class="navbar-brand-title">Anne Chataigner</span>
+        </a>
+
+        <nav role="navigation" class="nav-menu w-nav-menu">
+          <div class="nav-menu-inner">
+            <div class="nav-links-group">
+              {navItems.map((item) => <a href={item.href} class="nav-link">{item.label}</a>)}
+              <a href={contactHref} class="nav-link">Contact</a>
+            </div>
+            <a href={BOOKING_URL} class="primary-button navbar-button w-inline-block" data-booking-link>
+              <div class="button-text-wrapper">
+                <div class="button-text-inner">
+                  <div button-text="" class="button-text">Prendre rendez-vous</div>
+                  <div button-text="" class="button-text">Prendre rendez-vous</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </nav>
+
+        <div class="menu-button w-nav-button" aria-label="Menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
+          <div class="w-icon-nav-menu"></div>
+        </div>
+      </div>
+    </div>
+    <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
   </div>
-  <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
-</div>
+)}
+
+{!renderHomeVariant && secondaryPage && (
+  <script is:inline>
+    (() => {
+      const nav = document.querySelector('[data-ac-nav]');
+      if (!nav || nav.dataset.initialized === 'true') return;
+
+      const toggle = nav.querySelector('[data-ac-menu-toggle]');
+      const menu = nav.querySelector('[data-ac-menu]');
+      const links = Array.from(nav.querySelectorAll('[data-ac-menu] a'));
+      const focusable = () => Array.from(nav.querySelectorAll('a, button')).filter((element) => !element.hasAttribute('disabled'));
+
+      const setOpen = (open, restoreFocus = false) => {
+        nav.dataset.menuOpen = String(open);
+        toggle?.setAttribute('aria-expanded', String(open));
+        toggle?.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        menu?.setAttribute('aria-hidden', String(!open));
+        if (restoreFocus) toggle?.focus();
+      };
+
+      nav.dataset.initialized = 'true';
+      setOpen(false);
+      toggle?.addEventListener('click', () => setOpen(nav.dataset.menuOpen !== 'true'));
+      links.forEach((link) => link.addEventListener('click', () => setOpen(false)));
+
+      document.addEventListener('click', (event) => {
+        if (nav.dataset.menuOpen === 'true' && !nav.contains(event.target)) setOpen(false);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && nav.dataset.menuOpen === 'true') {
+          event.preventDefault();
+          setOpen(false, true);
+        }
+
+        if (event.key !== 'Tab' || nav.dataset.menuOpen !== 'true' || window.innerWidth > 880) return;
+        const items = focusable();
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
+    })();
+  </script>
+)}
+
+{renderHomeVariant && secondaryPage && (
+  <script is:inline>
+    (() => {
+      const nav = document.querySelector('.navbar');
+      const menuButton = document.querySelector('.w-nav-button');
+      const menu = document.querySelector('.w-nav-menu');
+      const overlay = document.querySelector('.w-nav-overlay');
+      if (!nav || !menuButton || !menu || nav.dataset.secondaryHomeReady === 'true') return;
+
+      const setMenuState = (open) => {
+        menu.classList.toggle('w--open', open);
+        menuButton.classList.toggle('w--open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menu.style.display = open ? 'block' : '';
+        if (overlay) overlay.style.display = open ? 'block' : 'none';
+      };
+
+      nav.dataset.secondaryHomeReady = 'true';
+      menuButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        setMenuState(menuButton.getAttribute('aria-expanded') !== 'true');
+      });
+      menuButton.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        setMenuState(menuButton.getAttribute('aria-expanded') !== 'true');
+      });
+      menu.addEventListener('click', (event) => {
+        if (event.target.closest('a')) setMenuState(false);
+      });
+      document.addEventListener('click', (event) => {
+        if (!nav.contains(event.target)) setMenuState(false);
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMenuState(false);
+      });
+
+      const updateScrolledState = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+      updateScrolledState();
+      window.addEventListener('scroll', updateScrolledState, { passive: true });
+    })();
+  </script>
+)}

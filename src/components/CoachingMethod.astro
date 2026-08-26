@@ -1,0 +1,82 @@
+---
+interface CoachingStep {
+  number: string;
+  title: string;
+  description: string;
+  mantra: string;
+  image: string;
+  imageAlt: string;
+  keypoints: string[];
+  tone: 'blue' | 'green' | 'coral';
+}
+
+interface PricingBannerData {
+  title: string;
+  description: string;
+  amount: string;
+  duration: string;
+  linkText: string;
+  linkUrl: string;
+}
+
+interface Props {
+  steps: CoachingStep[];
+  pricingBanner: PricingBannerData;
+  sectionId?: string;
+}
+
+const { steps, pricingBanner, sectionId = 'deroulement' } = Astro.props;
+---
+
+<section class="section coaching-method coaching-method-centered" id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <header class="coaching-method-centered__header" data-coaching-reveal>
+      <div class="approche-badge coaching-section-badge"><span class="approche-badge-dot"></span>Méthode &amp; déroulement</div>
+      <h2 class="heading-2">
+        <span class="coaching-method-title-line">Trois mouvements pour retrouver</span>
+        <span class="coaching-method-title-line">votre marge de manœuvre.</span>
+      </h2>
+      <p>Un parcours qui avance par déclics successifs : on arrête de forcer, on ouvre le champ, puis on choisit un rythme qui peut vraiment tenir dans votre quotidien.</p>
+    </header>
+
+    <div class="coaching-journey" data-coaching-journey>
+      <div class="coaching-journey__line" aria-hidden="true">
+        <span class="coaching-journey__line-progress" id="coachingJourneyProgress"></span>
+      </div>
+
+      {steps.map((step, index) => (
+        <article class={`coaching-journey__item ${index % 2 === 1 ? 'is-right' : 'is-left'}`} data-coaching-step={index + 1} data-coaching-reveal>
+          <div class="coaching-journey__media">
+            <img src={step.image} alt={step.imageAlt} loading={index === 0 ? 'eager' : 'lazy'} width="1535" height="1024" />
+          </div>
+          <div class="coaching-journey__body">
+            <p class={`coaching-journey__eyebrow coaching-journey__eyebrow--${step.tone}`}>{step.number}</p>
+            <h3>{step.title}</h3>
+            <p class="coaching-journey__mantra">« {step.mantra} »</p>
+            <p class="coaching-journey__description">{step.description}</p>
+            <ul>
+              {step.keypoints.map((point) => <li><span aria-hidden="true">✓</span>{point}</li>)}
+            </ul>
+          </div>
+
+          <div class={`coaching-journey__marker coaching-journey__marker--${step.tone}`} aria-label={`Étape ${index + 1} : ${step.title}`}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="ac-price-callout coaching-method-price" data-coaching-reveal>
+      <div class="ac-price-callout__copy">
+        <p class="ac-eyebrow"><span></span>Modalités &amp; tarif</p>
+        <h3>{pricingBanner.title}</h3>
+        <p>{pricingBanner.description}</p>
+      </div>
+      <div class="ac-price-callout__price">
+        <strong>{pricingBanner.amount}</strong>
+        <span>{pricingBanner.duration}</span>
+        <a href={pricingBanner.linkUrl} class="ac-text-link">{pricingBanner.linkText} <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>

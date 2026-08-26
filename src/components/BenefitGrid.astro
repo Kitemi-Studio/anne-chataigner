@@ -3,8 +3,8 @@ interface BenefitCard {
   step: string;
   title: string;
   description: string;
-  color: 'blue' | 'terracotta' | 'sage' | 'amber';
-  iconType?: 'eye' | 'shield' | 'heart' | 'zap' | 'compass' | 'feather' | 'sparkles' | 'users' | 'layers';
+  color?: string;
+  iconType?: string;
 }
 
 interface Props {
@@ -16,58 +16,49 @@ interface Props {
 }
 
 const {
-  subtitle = "Bénéfices & Transformations",
-  title = "Ce que cet accompagnement vous permet de transformer",
-  lead = "Des clés observables et pérennes pour retrouver de la clarté, de la fluidité et une dynamique positive au quotidien.",
+  subtitle = 'Bénéfices & repères',
+  title = 'Ce que cet accompagnement peut ouvrir',
+  lead = 'Des repères concrets à observer dans votre quotidien, sans promesse magique.',
   cards,
-  sectionId = "benefices"
+  sectionId = 'benefices'
 } = Astro.props;
 
-const defaultIcons: Record<string, string> = {
-  compass: '<circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>',
-  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>',
-  heart: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>',
-  zap: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>',
-  eye: '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>',
-  feather: '<path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line>',
-  sparkles: '<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>',
-  users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>',
-  layers: '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline>'
+const icons: Record<string, string> = {
+  compass: '<circle cx="10" cy="10" r="7"></circle><path d="m13 7-2 5-5 2 2-5 5-2Z"></path><path d="M16 16 20 20"></path>',
+  shield: '<path d="M10 20s7-3.5 7-9V5l-7-3-7 3v6c0 5.5 7 9 7 9Z"></path><path d="m7.5 10 1.7 1.7 3.5-3.5"></path>',
+  heart: '<path d="M17.5 11.5c1.4-1.3 2.5-2.7 2.5-4.5A4 4 0 0 0 16 3c-2 0-3 1.2-4 2.5C11 4.2 10 3 8 3a4 4 0 0 0-4 4c0 1.8 1.1 3.2 2.5 4.5L12 16l5.5-4.5Z"></path><path d="M12 16v4"></path>',
+  zap: '<path d="m12 2-7 11h6l-1 9 7-11h-6l1-9Z"></path>',
+  eye: '<path d="M2 10s3.5-5 8-5 8 5 8 5-3.5 5-8 5-8-5-8-5Z"></path><circle cx="10" cy="10" r="2"></circle>',
+  feather: '<path d="M18 3c-5 0-8.5 2.5-10 7.5C7 14 4 17 2 18"></path><path d="M18 3c0 6-3 10-9 12"></path><path d="M4 16h6"></path>',
+  sparkles: '<path d="M10 2v4M10 14v4M4 10h4M12 10h4M5.7 5.7l2.8 2.8M11.5 11.5l2.8 2.8M14.3 5.7l-2.8 2.8M8.5 11.5l-2.8 2.8"></path>',
+  users: '<circle cx="8" cy="7" r="3"></circle><path d="M2 18c0-3 2.5-5 6-5s6 2 6 5"></path><path d="M15 5.5a3 3 0 0 1 0 5.8M16 13c2.5.5 4 2 4 4"></path>',
+  layers: '<path d="m10 2 8 4-8 4-8-4 8-4Z"></path><path d="m2 10 8 4 8-4M2 14l8 4 8-4"></path>'
 };
 ---
 
-<section class="section section-approche" id={sectionId}>
-  <div class="w-layout-blockcontainer container w-container">
-    <div class="vertical-wrapper">
-      <div class="horizontal-headline-two">
-        <div class="vertical-headline left">
-          <div class="approche-badge">
-            <span class="approche-badge-dot"></span>
-            <span>{subtitle}</span>
-          </div>
-          <h2 class="heading-2">
-            {title}
-          </h2>
-          <p class="text" style="font-size: 16.5px; line-height: 1.6; margin-top: 14px; max-width: 780px;">
-            {lead}
-          </p>
-        </div>
+<section class="ac-section ac-benefits" id={sectionId}>
+  <div class="ac-container">
+    <div class="ac-section-heading ac-section-heading--split">
+      <div>
+        <p class="ac-eyebrow"><span></span>{subtitle}</p>
+        <h2>{title}</h2>
       </div>
+      <p class="ac-section-heading__lead">{lead}</p>
+    </div>
 
-      <div class="approach-cards-grid" style="margin-top: 40px;">
-        {cards.map((card) => (
-          <div class={`approach-card approach-card--${card.color}`}>
-            <div class="approach-card-header">
-              <div class={`approach-card-icon-wrap icon-${card.color}`}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={defaultIcons[card.iconType || 'compass'] || defaultIcons.compass} />
-              </div>
-              <span class="approach-card-step">{card.step}</span>
-            </div>
-            <h4 class="approach-card-title">{card.title}</h4>
-            <p class="approach-card-copy">{card.description}</p>
+    <div class="ac-benefits__grid">
+      {cards.map((card, index) => (
+        <article class={`ac-benefit ac-benefit--${index + 1}`}>
+          <div class="ac-benefit__topline">
+            <span class="ac-benefit__number">{card.step}</span>
+            <span class="ac-benefit__icon" data-color={card.color || 'blue'}>
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" set:html={icons[card.iconType || 'compass'] || icons.compass}></svg>
+            </span>
           </div>
-        ))}
-      </div>
+          <h3>{card.title}</h3>
+          <p>{card.description}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>

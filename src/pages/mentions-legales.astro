@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Mentions légales · Anne Chataigner"
+  description="Mentions légales du site d'Anne Chataigner, cabinet d'accompagnement à Voisins-le-Bretonneux."
+>
+  <Navbar slot="navbar" />
+  <main id="main-content" class="ac-legal">
+    <div class="ac-container">
+      <div class="ac-legal__intro">
+        <p class="ac-eyebrow"><span></span>Informations légales</p>
+        <h1>Mentions légales</h1>
+      </div>
+      <div class="ac-legal__content">
+        <p class="ac-legal__notice">Le contenu juridique définitif de cette page doit encore être fourni par Anne Chataigner avant la mise en ligne publique du site.</p>
+        <h2>Éditeur du site</h2>
+        <p>Anne Chataigner — Cabinet d'accompagnement<br />2 Rue de la Bergerie<br />78960 Voisins-le-Bretonneux</p>
+        <h2>Hébergement</h2>
+        <p>Le site est actuellement hébergé sur la plateforme Vercel. Les informations contractuelles et administratives définitives sont à renseigner avec les coordonnées de l’éditeur.</p>
+      </div>
+    </div>
+  </main>
+  <Footer slot="footer" />
+</Layout>

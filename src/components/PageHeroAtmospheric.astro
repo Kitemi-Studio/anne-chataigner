@@ -1,4 +1,6 @@
 ---
+import { BOOKING_URL } from '../config/site';
+
 interface Props {
   badgeText: string;
   badgeType?: 'coaching' | 'therapies' | 'hypnose' | 'couple' | 'about' | 'pricing';
@@ -10,6 +12,8 @@ interface Props {
   secondaryCtaLink?: string;
   scrollTargetId?: string;
   scrollLabel?: string;
+  heroImage?: string;
+  heroAlt?: string;
 }
 
 const {
@@ -17,56 +21,86 @@ const {
   badgeType = 'coaching',
   title,
   lead,
-  primaryCtaText = "Prendre rendez-vous",
-  primaryCtaLink = "#contact",
-  secondaryCtaText = "Découvrir la méthode",
-  secondaryCtaLink = "#reperes",
-  scrollTargetId = "reperes",
-  scrollLabel = "Découvrir"
+  primaryCtaText = 'Prendre rendez-vous',
+  primaryCtaLink = BOOKING_URL,
+  secondaryCtaText = 'Découvrir la méthode',
+  secondaryCtaLink = '#reperes',
+  scrollTargetId = 'reperes',
+  scrollLabel = 'Découvrir',
+  heroImage = '/assets/anne%20hero%20header%202.png',
+  heroAlt = 'Anne Chataigner dans son cabinet d’accompagnement'
 } = Astro.props;
+
+const resolvedPrimaryCtaLink = primaryCtaLink === '#contact' ? BOOKING_URL : primaryCtaLink;
+const pageLinks = badgeType === 'about'
+  ? [
+      { href: '#reperes', label: 'La posture' },
+      { href: '#parcours', label: 'Le parcours' },
+      { href: '#outils', label: 'Les approches' },
+      { href: '#faq', label: 'FAQ' }
+    ]
+  : badgeType === 'pricing'
+    ? [
+        { href: '#reperes', label: 'Le cadre' },
+        { href: '#grille-tarifs', label: 'Les tarifs' },
+        { href: '#modalites', label: 'Modalités' },
+        { href: '#faq', label: 'FAQ' }
+      ]
+    : [
+        { href: '#reperes', label: 'Votre point de départ' },
+        { href: '#approche-eclairage', label: 'La méthode' },
+        { href: '#deroulement', label: 'Le déroulement' },
+        { href: '#faq', label: 'FAQ' }
+      ];
 ---
 
-<section class={`section hero-anne-full hero-interior hero-interior--${badgeType}`} id="accueil">
-  <div class="w-layout-blockcontainer container w-container">
-    <div class="hero-full-content">
-      <div class={`hero-badge-pill hero-badge-pill--${badgeType}`}>
-        <span class="hero-badge-dot"></span>
-        <span>{badgeText}</span>
-      </div>
-      <h1 hero-text="" class="hero-full-title">{title}</h1>
-      <p class="hero-full-lead">{lead}</p>
-      
-      <div class="hero-full-buttons">
-        <a href={primaryCtaLink} data-wf--button--variant="white" class="primary-button w-variant-df50d2b4-2dcf-06cb-393e-886e8cb0681e w-inline-block" data-cal-link data-cal-placeholder="URL Cal.com à renseigner">
-          <div class="button-text-wrapper">
-            <div class="button-text-inner">
-              <div button-text="" class="button-text">{primaryCtaText}</div>
-              <div button-text="" class="button-text">{primaryCtaText}</div>
-            </div>
-          </div>
+<section class={`ac-hero ac-hero--${badgeType}`} id="accueil">
+  <div class="ac-hero__media" aria-hidden="true">
+    <img src={heroImage} alt="" width="1536" height="1024" fetchpriority="high" />
+    <div class="ac-hero__veil"></div>
+  </div>
+
+  <div class="ac-container ac-hero__inner">
+    <div class="ac-hero__copy">
+      <p class="ac-eyebrow ac-eyebrow--light"><span></span>{badgeText}</p>
+      <h1>{title}</h1>
+      <p class="ac-hero__lead">{lead}</p>
+
+      <div class="ac-hero__actions">
+        <a href={resolvedPrimaryCtaLink} class="ac-button ac-button--light" data-booking-link>
+          <span>{primaryCtaText}</span>
+          <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
         </a>
-        
         {secondaryCtaText && (
-          <a href={secondaryCtaLink} class="primary-button button-hero-secondary w-inline-block">
-            <div class="button-text-wrapper">
-              <div class="button-text-inner">
-                <div button-text="" class="button-text">{secondaryCtaText}</div>
-                <div button-text="" class="button-text">{secondaryCtaText}</div>
-              </div>
-            </div>
+          <a href={secondaryCtaLink} class="ac-text-button ac-text-button--light">
+            <span>{secondaryCtaText}</span>
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </a>
         )}
       </div>
+
+      <div class="ac-hero__details" aria-label="Modalités principales">
+        <span>Voisins-le-Bretonneux</span>
+        <span>Cabinet &amp; visioconférence</span>
+      </div>
+    </div>
+
+    <div class="ac-hero__signature" aria-hidden="true">
+      <span>Anne</span>
+      <small>Un espace pour déposer, comprendre et avancer</small>
     </div>
   </div>
 </section>
 
-<!-- Apple Mouse Scroll Indicator -->
-<div class="hero-scroll-wrapper">
-  <a href={`#${scrollTargetId}`} class="hero-scroll-indicator dark-mode" aria-label={`Faire défiler vers ${scrollLabel}`}>
-    <span class="apple-mouse-icon">
-      <span class="apple-mouse-wheel"></span>
-    </span>
-    <span class="hero-scroll-label">{scrollLabel}</span>
-  </a>
-</div>
+<nav class="ac-page-nav" aria-label="Dans cette page">
+  <div class="ac-container ac-page-nav__inner">
+    <a href={`#${scrollTargetId}`} class="ac-page-nav__label">{scrollLabel}</a>
+    <div class="ac-page-nav__links">
+      {pageLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+    </div>
+  </div>
+</nav>

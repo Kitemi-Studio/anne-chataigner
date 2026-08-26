@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Politique de confidentialité · Anne Chataigner"
+  description="Politique de confidentialité du site d'Anne Chataigner, cabinet d'accompagnement à Voisins-le-Bretonneux."
+>
+  <Navbar slot="navbar" />
+  <main id="main-content" class="ac-legal">
+    <div class="ac-container">
+      <div class="ac-legal__intro">
+        <p class="ac-eyebrow"><span></span>Données personnelles</p>
+        <h1>Politique de confidentialité</h1>
+      </div>
+      <div class="ac-legal__content">
+        <p class="ac-legal__notice">Le contenu juridique définitif de cette page doit encore être fourni par Anne Chataigner avant la mise en ligne publique du site.</p>
+        <h2>Objet de la page</h2>
+        <p>Cette page précisera les données éventuellement collectées par le site, les finalités du traitement, la durée de conservation, les destinataires et les droits des personnes concernées.</p>
+        <h2>Coordonnées de contact</h2>
+        <p>Anne Chataigner — 2 Rue de la Bergerie, 78960 Voisins-le-Bretonneux. Les coordonnées de contact et le responsable de traitement définitifs sont à compléter par l’éditeur.</p>
+      </div>
+    </div>
+  </main>
+  <Footer slot="footer" />
+</Layout>

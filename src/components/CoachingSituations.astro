@@ -1,0 +1,67 @@
+---
+import { BOOKING_URL } from '../config/site';
+
+interface SituationTag {
+  text: string;
+  color?: string;
+}
+
+interface Props {
+  tags: SituationTag[];
+  sectionId?: string;
+}
+
+const { tags, sectionId = 'reperes' } = Astro.props;
+const visibleTags = tags.slice(0, 10);
+---
+
+<section class="section coaching-situations" id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="coaching-situations__grid">
+      <div class="coaching-situations__media" data-coaching-reveal>
+        <img src="/assets/step-1-ecouter%20-%20nouveau%20bureau.png" alt="Une séance de coaching individuel au cabinet d’Anne Chataigner" loading="lazy" width="1535" height="1024" />
+        <div class="coaching-situations__media-wash"></div>
+        <div class="coaching-situations__caption">
+          <span class="coaching-situations__caption-dot"></span>
+          <span>Un premier point de départ</span>
+        </div>
+        <div class="coaching-situations__quote-bubble">
+          <p class="coaching-situations__quote">« Quand les repères bougent, retrouver un espace pour penser change déjà la situation. »</p>
+        </div>
+      </div>
+
+      <div class="coaching-situations__copy" data-coaching-reveal>
+        <div class="approche-badge coaching-section-badge">
+          <span class="approche-badge-dot"></span>
+          Votre point de départ
+        </div>
+        <h2 class="heading-2">Des situations concrètes dans lesquelles vous pouvez vous reconnaître.</h2>
+        <p class="coaching-situations__lead">Le coaching s’adresse à toute personne souhaitant faire évoluer une situation : un défi professionnel, un changement de vie ou une recherche d’alignement personnel.</p>
+
+        <div class="pas-de-cote-grid coaching-situations__checklist" aria-label="Situations accompagnées">
+          {visibleTags.map((tag) => (
+            <div class={`pas-de-cote-item coaching-situation-check--${tag.color || 'blue'}`}>
+              <div class="pas-de-cote-item-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <span>{tag.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="pas-de-cote-cta coaching-situations__cta">
+          <a href={BOOKING_URL} data-wf--button--variant="primary" class="primary-button w-inline-block" data-booking-link>
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div button-text="" class="button-text">Prendre rendez-vous</div>
+                <div button-text="" class="button-text">Prendre rendez-vous</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
