@@ -4377,6 +4377,24 @@
   margin-top: 10px;
 }
 
+/* Primary Hero CTA — Rose Saumon version */
+.button-hero-primary--rose {
+  background-color: #DFA38B !important;
+  color: #2C2B29 !important;
+  border: 1px solid #DFA38B !important;
+  box-shadow: 0 8px 24px rgba(223, 163, 139, 0.35) !important;
+  font-weight: 600 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.button-hero-primary--rose:hover {
+  background-color: #B86B52 !important;
+  border-color: #B86B52 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(184, 107, 82, 0.45) !important;
+}
+
 /* Secondary Hero CTA — Rose Saumon version */
 .button-hero-secondary--rose {
   background-color: transparent !important;
@@ -4391,6 +4409,41 @@
   transform: translateY(-2px);
 }
 
+/* Mouse Scroll Indicator — Rose Saumon */
+.ac-page--therapies .hero-scroll-indicator .apple-mouse-icon {
+  border-color: rgba(223, 163, 139, 0.55) !important;
+  background: rgba(251, 236, 231, 0.85) !important;
+  box-shadow: 0 4px 14px rgba(223, 163, 139, 0.15) !important;
+}
+
+.ac-page--therapies .hero-scroll-indicator:hover .apple-mouse-icon {
+  border-color: #DFA38B !important;
+  background: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(223, 163, 139, 0.28) !important;
+}
+
+.ac-page--therapies .hero-scroll-indicator .apple-mouse-wheel {
+  background-color: #B86B52 !important;
+}
+
+.ac-page--therapies .hero-scroll-indicator .hero-scroll-label {
+  color: #B86B52 !important;
+  font-weight: 600 !important;
+}
+
+.ac-page--therapies .coaching-situations__quote-bubble {
+  border-left: 3px solid #DFA38B !important;
+}
+
+.ac-page--therapies .coaching-situations__caption-dot {
+  background: #DFA38B !important;
+}
+
+.ac-page--therapies .pas-de-cote-item-icon {
+  background: rgba(223, 163, 139, 0.16) !important;
+  color: #B86B52 !important;
+}
+
 .ac-page--therapies .coaching-situations__cta .primary-button:hover {
   background-color: #B86B52 !important;
   box-shadow: 0 8px 22px rgba(184, 107, 82, 0.3) !important;
@@ -4398,10 +4451,6 @@
 
 .therapies-hero-scroll {
   padding-bottom: 42px;
-}
-
-.therapies-hero-scroll .hero-scroll-label {
-  color: var(--anne-ink-dark);
 }
 
 /* ==========================================================================
