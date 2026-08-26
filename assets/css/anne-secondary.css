@@ -4417,25 +4417,19 @@
   margin: 0;
 }
 
-/* Carte Diagramme Circulaire */
-.therapies-diagram-card {
-  background: #ffffff;
-  border: 1px solid rgba(126, 145, 122, 0.22);
-  border-radius: 28px;
-  padding: 50px 30px;
-  box-shadow: 0 12px 36px rgba(44, 43, 41, 0.04);
-  margin-bottom: 40px;
+/* Diagramme Circulaire Aéré & Seamless (Sans grosse card extérieure) */
+.therapies-diagram-viewport {
+  margin: 20px auto 64px auto;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
 }
 
 .therapies-diagram-wrap {
   position: relative;
-  width: 580px;
-  height: 520px;
+  width: 600px;
+  height: 560px;
   max-width: 100%;
 }
 
@@ -4448,25 +4442,61 @@
   pointer-events: none;
 }
 
+.therapies-diagram-orbit-group {
+  transition: transform 0.15s ease-out;
+}
+
+.diagram-line {
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+.has-center-hover .diagram-line {
+  stroke: #7E917A;
+  stroke-width: 2.2;
+}
+
 /* Centre du Diagramme */
 .therapies-diagram-center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 220px;
-  height: 220px;
+  width: 224px;
+  height: 224px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #FBFDFC 0%, #EBF2EA 100%);
+  background: linear-gradient(145deg, #ffffff 0%, #EBF2EA 100%);
   border: 1.5px solid rgba(126, 145, 122, 0.45);
-  box-shadow: 0 10px 28px rgba(46, 69, 42, 0.08);
+  box-shadow: 0 12px 32px rgba(46, 69, 42, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 22px;
   z-index: 2;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.therapies-diagram-center:hover,
+.therapies-diagram-center:focus-visible {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 18px 44px rgba(46, 69, 42, 0.18);
+  border-color: #7E917A;
+}
+
+.therapies-diagram-center__pulse {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(126, 145, 122, 0.3);
+  animation: diagramPulse 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes diagramPulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.06); opacity: 0.8; }
 }
 
 .therapies-diagram-center__tag {
@@ -4480,7 +4510,7 @@
 
 .therapies-diagram-center__title {
   font-family: var(--_typography---font-family--heading) !important;
-  font-size: 22px !important;
+  font-size: 23px !important;
   font-weight: 700 !important;
   color: var(--anne-ink-dark) !important;
   line-height: 1.2 !important;
@@ -4500,32 +4530,64 @@
   z-index: 3;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.therapies-diagram-node:hover,
+.therapies-diagram-node.is-active {
+  transform: scale(1.04) translateY(-3px);
 }
 
 .therapies-diagram-node__dot {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--anne-therapies);
   border: 3px solid #ffffff;
-  box-shadow: 0 2px 8px rgba(46, 69, 42, 0.2);
+  box-shadow: 0 2px 8px rgba(46, 69, 42, 0.25);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.therapies-diagram-node:hover .therapies-diagram-node__dot {
+  box-shadow: 0 0 0 6px rgba(126, 145, 122, 0.28);
+  transform: scale(1.15);
 }
 
 .therapies-diagram-node__card {
   background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(126, 145, 122, 0.3);
-  border-radius: 16px;
-  padding: 14px 18px;
-  box-shadow: 0 6px 20px rgba(44, 43, 41, 0.05);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  width: 220px;
+  border: 1px solid rgba(126, 145, 122, 0.32);
+  border-radius: 18px;
+  padding: 16px 20px;
+  box-shadow: 0 8px 24px rgba(44, 43, 41, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 230px;
+  transition: box-shadow 0.35s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.therapies-diagram-node:hover .therapies-diagram-node__card {
+  border-color: #7E917A;
+  box-shadow: 0 14px 36px rgba(46, 69, 42, 0.12);
+  background: #ffffff;
+}
+
+.therapies-diagram-node__badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--anne-therapies);
+  margin-bottom: 3px;
 }
 
 .therapies-diagram-node__card h4 {
   font-family: var(--_typography---font-family--heading);
-  font-size: 16px;
+  font-size: 16.5px;
   font-weight: 700;
   color: var(--anne-ink-dark);
   margin: 0 0 4px 0;
@@ -4533,7 +4595,7 @@
 
 .therapies-diagram-node__card p {
   font-size: 12.5px;
-  line-height: 1.45;
+  line-height: 1.48;
   color: var(--anne-ink);
   margin: 0;
 }
@@ -4548,8 +4610,12 @@
   text-align: center;
 }
 
+.therapies-diagram-node--top:hover {
+  transform: translateX(-50%) scale(1.04) translateY(-3px);
+}
+
 .therapies-diagram-node--left {
-  bottom: 35px;
+  bottom: 40px;
   left: 0px;
   flex-direction: row-reverse;
   gap: 12px;
@@ -4557,50 +4623,70 @@
 }
 
 .therapies-diagram-node--right {
-  bottom: 35px;
+  bottom: 40px;
   right: 0px;
   flex-direction: row;
   gap: 12px;
   text-align: left;
 }
 
-/* Grille 3 Points Clés Horizontaux */
-.therapies-approach-keypoints-grid {
+/* ==========================================================================
+   3 Cartes de Points Clés Modernisées & Élégantes
+   ========================================================================== */
+.therapies-keypoints-modern-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
-.therapies-keypoint-card {
-  background: #ffffff;
-  border: 1px solid rgba(126, 145, 122, 0.2);
-  border-radius: 20px;
-  padding: 30px 28px;
-  box-shadow: 0 6px 20px rgba(44, 43, 41, 0.03);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+.therapies-modern-card {
+  background: linear-gradient(155deg, #ffffff 0%, #FAFBF9 100%);
+  border: 1px solid rgba(126, 145, 122, 0.24);
+  border-radius: 24px;
+  padding: 34px 32px 30px;
+  box-shadow: 0 10px 30px rgba(44, 43, 41, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 
-.therapies-keypoint-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(44, 43, 41, 0.07);
-  border-color: rgba(126, 145, 122, 0.45);
+.therapies-modern-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px rgba(46, 69, 42, 0.1);
+  border-color: rgba(126, 145, 122, 0.55);
 }
 
-.therapies-keypoint-header {
+.therapies-modern-card__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
-.therapies-keypoint-num {
-  font-family: var(--_typography---font-family--heading);
-  font-size: 18px;
+.therapies-modern-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--anne-therapies);
 }
 
-.therapies-keypoint-icon {
+.therapies-modern-card__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--anne-therapies);
+}
+
+.therapies-modern-card__icon-wrap {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -4609,37 +4695,66 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-.therapies-keypoint-title {
-  font-family: var(--_typography---font-family--heading);
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--anne-ink-dark);
+.therapies-modern-card:hover .therapies-modern-card__icon-wrap {
+  background: var(--anne-therapies);
+  color: #ffffff;
+  transform: rotate(10deg);
+}
+
+.therapies-modern-card__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(20px, 1.8vw, 24px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: var(--anne-ink-dark) !important;
   margin: 0 0 10px 0;
-  line-height: 1.3;
+  letter-spacing: -0.015em;
 }
 
-.therapies-keypoint-desc {
-  font-size: 14.5px;
-  line-height: 1.6;
+.therapies-modern-card__desc {
+  font-size: 15px;
+  line-height: 1.68;
   color: var(--anne-ink);
   margin: 0;
+  flex-grow: 1;
 }
 
-/* Repli Mobile pour le diagramme */
-@media (max-width: 768px) {
-  .therapies-diagram-card {
-    padding: 30px 16px;
-  }
+.therapies-modern-card__bottom {
+  margin-top: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(126, 145, 122, 0.14);
+  position: relative;
+  overflow: hidden;
+}
 
+.therapies-modern-card__indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--anne-therapies);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.therapies-modern-card:hover .therapies-modern-card__indicator {
+  width: 100%;
+}
+
+/* Repli Mobile pour le diagramme & les cards */
+@media (max-width: 860px) {
   .therapies-diagram-wrap {
     height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 22px;
   }
 
   .therapies-diagram-svg {
@@ -4650,9 +4765,9 @@
     position: static;
     transform: none;
     width: 100%;
-    max-width: 280px;
+    max-width: 290px;
     height: auto;
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 24px 20px;
   }
 
@@ -4660,7 +4775,7 @@
     position: static;
     transform: none;
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     flex-direction: row !important;
     text-align: left !important;
     gap: 14px;
@@ -4670,11 +4785,12 @@
     width: 100%;
   }
 
-  .therapies-approach-keypoints-grid {
+  .therapies-keypoints-modern-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 18px;
   }
 }
+
 
 /* ==========================================================================
    Therapies Benefits — Centered Stacking Cards (Sticky Effect)
