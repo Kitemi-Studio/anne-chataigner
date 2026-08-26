@@ -3190,7 +3190,8 @@
 
 .coaching-journey {
   position: relative;
-  max-width: 1160px;
+  max-width: 1240px;
+  width: 100%;
   margin: 76px auto 0;
 }
 
@@ -3613,8 +3614,8 @@
 
 .ac-page--coaching .coaching-method-centered .coaching-journey__item,
 .ac-page--therapies .coaching-method-centered .coaching-journey__item {
-  grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr);
-  min-height: 500px;
+  grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr);
+  min-height: 520px;
   align-items: center;
 }
 
@@ -3622,12 +3623,13 @@
 .ac-page--therapies .coaching-method-centered .coaching-journey__media {
   grid-row: 1;
   align-self: center;
-  width: min(100%, 500px);
-  height: 360px;
+  width: 100%;
+  max-width: 560px;
+  height: 380px;
   min-height: 0;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 26px;
+  border-radius: 28px;
   box-shadow: 0 20px 48px rgba(44, 43, 41, 0.1);
   transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
 }
@@ -3655,15 +3657,41 @@
 .ac-page--coaching .coaching-method-centered .coaching-journey__body,
 .ac-page--therapies .coaching-method-centered .coaching-journey__body {
   grid-row: 1;
-  width: min(100%, 460px);
+  width: 100%;
+  max-width: 560px;
   min-height: 0;
-  padding: 34px 38px;
+  padding: 38px 44px;
   border: 1px solid var(--anne-border);
-  border-radius: 26px;
+  border-radius: 28px;
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 18px 44px rgba(44, 43, 41, 0.06);
   order: 0;
   transition: border-color 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+}
+
+.ac-page--coaching .coaching-method-centered .coaching-journey__body h3,
+.ac-page--therapies .coaching-method-centered .coaching-journey__body h3 {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(26px, 2.4vw, 34px) !important;
+  font-weight: 700 !important;
+  line-height: 1.22 !important;
+  color: var(--anne-ink-dark);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.015em;
+}
+
+.ac-page--coaching .coaching-method-centered .coaching-journey__body .coaching-journey__description,
+.ac-page--therapies .coaching-method-centered .coaching-journey__body .coaching-journey__description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--anne-ink);
+  margin: 0 0 16px 0;
+}
+
+.ac-page--coaching .coaching-method-centered .coaching-journey__body ul,
+.ac-page--therapies .coaching-method-centered .coaching-journey__body ul {
+  font-size: 14.5px;
+  line-height: 1.6;
 }
 
 .ac-page--coaching .coaching-method-centered .coaching-journey__item.is-left .coaching-journey__body,
@@ -3703,25 +3731,28 @@
   box-shadow: 0 25px 54px rgba(44, 43, 41, 0.1);
 }
 
-@media (max-width: 1080px) and (min-width: 721px) {
+@media (max-width: 1200px) and (min-width: 721px) {
   .ac-page--coaching .coaching-method-centered .coaching-journey__item,
   .ac-page--therapies .coaching-method-centered .coaching-journey__item {
     grid-template-columns: minmax(0, 1fr) 76px minmax(0, 1fr);
-    min-height: 460px;
+    min-height: 480px;
   }
 
   .ac-page--coaching .coaching-method-centered .coaching-journey__media,
   .ac-page--therapies .coaching-method-centered .coaching-journey__media {
-    width: min(100%, 410px);
-    height: 310px;
+    width: 100%;
+    max-width: 480px;
+    height: 330px;
   }
 
   .ac-page--coaching .coaching-method-centered .coaching-journey__body,
   .ac-page--therapies .coaching-method-centered .coaching-journey__body {
-    width: min(100%, 400px);
-    padding: 28px 26px;
+    width: 100%;
+    max-width: 480px;
+    padding: 32px 30px;
   }
 }
+
 
 @media (max-width: 720px) {
   .coaching-method-centered__header {
