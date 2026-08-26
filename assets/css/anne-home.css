@@ -222,11 +222,34 @@ html.lenis, html.lenis body {
   background: rgba(101, 101, 95, 0.08) !important;
 }
 
-.navbar-button {
+.navbar-button,
+.primary-button.navbar-button {
+  background-color: var(--anne-ink-dark) !important;
+  color: #ffffff !important;
   padding: 10px 22px !important;
-  font-size: 14px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  border-radius: var(--_spacing---tiny) !important;
+  border: 1px solid var(--anne-ink-dark) !important;
+  box-shadow: 0 4px 14px rgba(44, 43, 41, 0.16) !important;
   margin-left: auto !important;
   flex-shrink: 0 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.navbar-button:hover,
+.primary-button.navbar-button:hover {
+  background-color: #12100E !important;
+  border-color: #12100E !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(44, 43, 41, 0.24) !important;
+  transform: translateY(-1px) !important;
+}
+
+.navbar-button .button-text,
+.primary-button.navbar-button .button-text {
+  color: #ffffff !important;
 }
 
 /* Bulletproof Button Double Text Roll Animation */
