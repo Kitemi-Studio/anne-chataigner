@@ -4066,3 +4066,179 @@
   color: #1F331C !important;
 }
 
+/* ==========================================================================
+   Pricing Callout Card (Enhanced & Vertically Balanced Layout)
+   ========================================================================== */
+.ac-price-callout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 48px;
+  background: linear-gradient(135deg, #ffffff 0%, #FAF8F5 100%);
+  border: 1px solid rgba(129, 146, 172, 0.28);
+  border-radius: 26px;
+  padding: 44px 48px;
+  box-shadow: 0 12px 36px rgba(44, 43, 41, 0.05);
+  margin-top: 70px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.ac-price-callout:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(44, 43, 41, 0.09);
+  border-color: rgba(129, 146, 172, 0.45);
+}
+
+.ac-price-callout__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  gap: 20px;
+}
+
+.ac-price-callout__heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ac-price-callout .ac-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--anne-coaching);
+  margin-bottom: 2px;
+}
+
+.ac-price-callout .ac-eyebrow span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--anne-coaching);
+}
+
+.ac-price-callout h3,
+.ac-price-callout__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(26px, 2.3vw, 32px) !important;
+  font-weight: 700 !important;
+  line-height: 1.22 !important;
+  color: var(--anne-ink-dark) !important;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.ac-price-callout p:not(.ac-eyebrow),
+.ac-price-callout__description {
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--anne-ink);
+  margin: 0;
+  max-width: 580px;
+}
+
+.ac-price-callout__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(129, 146, 172, 0.12);
+  color: #2F425E;
+  font-size: 13px;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.ac-price-callout__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2F425E;
+}
+
+.ac-price-callout__price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-width: 240px;
+  padding-left: 44px;
+  border-left: 1px solid rgba(101, 101, 95, 0.14);
+  flex-shrink: 0;
+  min-height: 100%;
+}
+
+.ac-price-callout__amount-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.ac-price-callout__price strong {
+  font-family: var(--_typography---font-family--heading);
+  font-size: clamp(42px, 3.8vw, 52px);
+  font-weight: 700;
+  color: var(--anne-ink-dark);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.ac-price-callout__price span {
+  font-size: 15px;
+  color: var(--anne-ink);
+  font-weight: 500;
+}
+
+.ac-price-callout__price .ac-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--anne-coaching);
+  text-decoration: none;
+  transition: gap 0.3s ease, color 0.2s ease;
+  padding: 6px 0;
+}
+
+.ac-price-callout__price .ac-text-link:hover {
+  gap: 12px;
+  color: var(--anne-ink-dark);
+}
+
+@media (max-width: 860px) {
+  .ac-price-callout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 34px 28px;
+  }
+
+  .ac-price-callout__price {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0;
+    padding-top: 26px;
+    border-left: none;
+    border-top: 1px solid rgba(101, 101, 95, 0.14);
+    min-width: 0;
+    width: 100%;
+  }
+
+  .ac-price-callout__amount-wrap {
+    align-items: flex-start;
+  }
+}
+
+

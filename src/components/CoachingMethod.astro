@@ -68,14 +68,25 @@ const { steps, pricingBanner, sectionId = 'deroulement' } = Astro.props;
 
     <div class="ac-price-callout coaching-method-price" data-coaching-reveal>
       <div class="ac-price-callout__copy">
-        <p class="ac-eyebrow"><span></span>Modalités &amp; tarif</p>
-        <h3>{pricingBanner.title}</h3>
-        <p>{pricingBanner.description}</p>
+        <div class="ac-price-callout__heading-group">
+          <p class="ac-eyebrow"><span></span>Modalités &amp; tarif</p>
+          <h3 class="ac-price-callout__title">{pricingBanner.title}</h3>
+        </div>
+        <p class="ac-price-callout__description">{pricingBanner.description}</p>
+        <div class="ac-price-callout__badge">
+          <span class="ac-price-callout__dot"></span>
+          <span>Cabinet à Voisins-le-Bretonneux &amp; Visioconférence</span>
+        </div>
       </div>
       <div class="ac-price-callout__price">
-        <strong>{pricingBanner.amount}</strong>
-        <span>{pricingBanner.duration}</span>
-        <a href={pricingBanner.linkUrl} class="ac-text-link">{pricingBanner.linkText} <span aria-hidden="true">↗</span></a>
+        <div class="ac-price-callout__amount-wrap">
+          <strong>{pricingBanner.amount}</strong>
+          <span>{pricingBanner.duration}</span>
+        </div>
+        <a href={pricingBanner.linkUrl} class="ac-text-link">
+          <span>{pricingBanner.linkText}</span>
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   </div>

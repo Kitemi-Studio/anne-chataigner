@@ -270,65 +270,85 @@
    5. Pricing Banners & Highlight Cards
    ========================================================================== */
 .pricing-banner-card {
-  background: linear-gradient(135deg, #ffffff 0%, var(--anne-surface) 100%);
-  border: 1px solid rgba(235, 194, 132, 0.45);
-  border-radius: 24px;
-  padding: 38px 44px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.04);
-  margin-top: 56px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 48px;
+  background: linear-gradient(135deg, #ffffff 0%, #FAF8F5 100%);
+  border: 1px solid rgba(129, 146, 172, 0.28);
+  border-radius: 26px;
+  padding: 44px 48px;
+  box-shadow: 0 12px 36px rgba(44, 43, 41, 0.05);
+  margin-top: 70px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.pricing-banner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(44, 43, 41, 0.09);
+  border-color: rgba(129, 146, 172, 0.45);
 }
 
 .pricing-banner-info {
-  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  gap: 20px;
 }
 
 .pricing-banner-tag {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #8A4027;
-  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+  color: var(--anne-coaching);
+  margin-bottom: 2px;
 }
 
 .pricing-banner-title {
-  font-family: var(--_typography---font-family--heading);
-  font-size: 25px;
-  line-height: 1.25;
-  color: var(--anne-ink-dark);
-  margin-bottom: 8px;
-  font-weight: 700;
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(26px, 2.3vw, 32px) !important;
+  line-height: 1.22 !important;
+  color: var(--anne-ink-dark) !important;
+  margin: 0;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em;
 }
 
 .pricing-banner-desc {
-  font-size: 15.5px;
-  line-height: 1.62;
+  font-size: 16px;
+  line-height: 1.68;
   color: var(--anne-ink);
   margin: 0;
+  max-width: 580px;
 }
 
 .pricing-banner-action {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 12px;
+  justify-content: space-between;
+  min-width: 240px;
+  padding-left: 44px;
+  border-left: 1px solid rgba(101, 101, 95, 0.14);
   flex-shrink: 0;
+  min-height: 100%;
 }
 
 .pricing-banner-amount {
   font-family: var(--_typography---font-family--heading);
-  font-size: 40px;
+  font-size: clamp(42px, 3.8vw, 52px);
   font-weight: 700;
   color: var(--anne-ink-dark);
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .pricing-banner-duration {
-  font-size: 14.5px;
+  font-size: 15px;
   color: var(--anne-ink);
   font-weight: 500;
 }
