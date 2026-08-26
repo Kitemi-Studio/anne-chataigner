@@ -16,7 +16,7 @@ const methodHref = pathname === '/a-propos'
     ? '/tarifs#grille-tarifs'
     : pathname === '/' ? '#deroulement' : `${pathname}#deroulement`;
 const faqHref = pathname === '/' ? '#faq' : `${pathname}#faq`;
-const contactHref = pathname === '/' ? '#contact' : '/#contact';
+const contactHref = '/contact';
 ---
 
 {!renderHomeVariant ? (
@@ -98,7 +98,7 @@ const contactHref = pathname === '/' ? '#contact' : '/#contact';
                 <a href="/tarifs" class="text-link">Tarifs &amp; Modalités</a>
                 <a href="#deroulement" class="text-link">Méthode</a>
                 <a href="#faq" class="text-link">FAQ</a>
-                <a href="#contact" class="text-link">Contact &amp; Cabinet</a>
+                <a href="/contact" class="text-link">Contact &amp; Cabinet</a>
               </div>
             </div>
 

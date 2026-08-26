@@ -17,6 +17,7 @@ export const SECONDARY_ROUTES = [
   '/hypnose-ericksonienne',
   '/consultation-couple',
   '/tarifs',
+  '/contact',
   '/mentions-legales',
   '/politique-confidentialite'
 ] as const;
@@ -28,6 +29,7 @@ export const PAGE_THEMES: Record<string, string> = {
   '/hypnose-ericksonienne': 'hypnose',
   '/consultation-couple': 'couple',
   '/tarifs': 'pricing',
+  '/contact': 'contact',
   '/mentions-legales': 'neutral',
   '/politique-confidentialite': 'neutral'
 };

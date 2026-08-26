@@ -17,7 +17,8 @@ const navItems = [
   { href: '/a-propos', label: 'À propos' },
   { href: '/tarifs', label: 'Tarifs' }
 ];
-const contactHref = pathname === '/' ? '#contact' : '/#contact';
+const contactHref = '/contact';
+const isContactActive = pathname === '/contact';
 ---
 
 {!renderHomeVariant ? (
@@ -41,7 +42,7 @@ const contactHref = pathname === '/' ? '#contact' : '/#contact';
               </a>
             );
           })}
-          <a href={contactHref} class="ac-nav__link">Contact</a>
+          <a href={contactHref} class={`ac-nav__link${isContactActive ? ' is-active' : ''}`} aria-current={isContactActive ? 'page' : undefined}>Contact</a>
         </nav>
 
         <a href={BOOKING_URL} class="ac-button ac-button--nav" data-booking-link>
@@ -70,7 +71,7 @@ const contactHref = pathname === '/' ? '#contact' : '/#contact';
           <div class="nav-menu-inner">
             <div class="nav-links-group">
               {navItems.map((item) => <a href={item.href} class="nav-link">{item.label}</a>)}
-              <a href={contactHref} class="nav-link">Contact</a>
+              <a href={contactHref} class={`nav-link${isContactActive ? ' w--current' : ''}`}>Contact</a>
             </div>
             <a href={BOOKING_URL} class="primary-button navbar-button w-inline-block" data-booking-link>
               <div class="button-text-wrapper">
