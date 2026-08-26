@@ -3904,7 +3904,7 @@
 .coaching-situations__cta .primary-button {
   min-height: 48px;
   padding: 12px 28px !important;
-  border-radius: 999px !important;
+  border-radius: var(--_spacing---tiny) !important;
   background-color: var(--anne-ink-dark) !important;
   color: #ffffff !important;
   font-size: 14px !important;
@@ -4262,7 +4262,7 @@
 
 .ac-price-callout__btn {
   padding: 12px 24px !important;
-  border-radius: 999px !important;
+  border-radius: var(--_spacing---tiny) !important;
   background-color: var(--anne-ink-dark) !important;
   color: #ffffff !important;
   font-size: 14px !important;
@@ -4371,7 +4371,7 @@
 .hero-full-buttons .primary-button {
   min-height: 48px !important;
   padding: 12px 28px !important;
-  border-radius: 999px !important;
+  border-radius: var(--_spacing---tiny) !important;
   font-size: 14.5px !important;
   font-weight: 600 !important;
 }
