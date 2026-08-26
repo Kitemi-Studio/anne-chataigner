@@ -27,17 +27,26 @@ const { faqItems } = Astro.props;
       </div>
 
       <div class="tarifs-faq__list" role="region" aria-label="Foire aux questions sur les tarifs">
-        {faqItems.map((item) => (
-          <details class="tarifs-faq__item">
-            <summary class="tarifs-faq__summary">
-              <span class="tarifs-faq__q-text">{item.question}</span>
-              <span class="tarifs-faq__icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="tarifs-faq__content">
-              <p set:html={item.answer}></p>
+        {faqItems.map((item, index) => {
+          const itemId = `tarifs-faq-${index + 1}`;
+          const panelId = `${itemId}-panel`;
+          const open = index === 0;
+          return (
+            <div class={`tarifs-faq__item ${open ? 'is-open' : ''}`}>
+              <button id={itemId} class="tarifs-faq__trigger" type="button" aria-controls={panelId} aria-expanded={String(open)}>
+                <span class="tarifs-faq__q-text">{item.question}</span>
+                <span class="tarifs-faq__icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </span>
+              </button>
+              <div class="tarifs-faq__content" id={panelId} role="region" aria-labelledby={itemId}>
+                <div class="tarifs-faq__content-inner">
+                  <div class="tarifs-faq__answer" set:html={item.answer}></div>
+                </div>
+              </div>
             </div>
-          </details>
-        ))}
+          );
+        })}
       </div>
     </div>
 
@@ -83,8 +92,29 @@ const { faqItems } = Astro.props;
             Cabinet à Voisins-le-Bretonneux · 2 Rue de la Bergerie, 78960 · Séances également en visioconférence
           </span>
         </div>
-      </div>
+    </div>
     </div>
 
   </div>
 </section>
+
+<script is:inline>
+  document.querySelectorAll('.tarifs-faq__item').forEach((item) => {
+    const trigger = item.querySelector('.tarifs-faq__trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.tarifs-faq__item').forEach((other) => {
+        if (other !== item) {
+          other.classList.remove('is-open');
+          other.querySelector('.tarifs-faq__trigger')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+      item.classList.toggle('is-open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      if (window.lenis && typeof window.lenis.resize === 'function') {
+        setTimeout(() => window.lenis.resize(), 400);
+      }
+    });
+  });
+</script>

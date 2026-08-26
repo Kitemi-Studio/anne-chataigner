@@ -96,19 +96,23 @@ const faqKey = `${badgeType}-faq`;
     item.addEventListener('toggle', syncExpanded);
   });
 
-  document.querySelectorAll('.coaching-faq .faq-item').forEach((item) => {
+  document.querySelectorAll('.section-faq .faq-item').forEach((item) => {
     const trigger = item.querySelector('.faq-trigger');
     if (!trigger) return;
 
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
-      document.querySelectorAll('.coaching-faq .faq-item').forEach((other) => {
+      const container = item.closest('.faq-accordion-list') || document;
+      container.querySelectorAll('.faq-item').forEach((other) => {
         if (other === item) return;
         other.classList.remove('is-open');
         other.querySelector('.faq-trigger')?.setAttribute('aria-expanded', 'false');
       });
       item.classList.toggle('is-open', !isOpen);
       trigger.setAttribute('aria-expanded', String(!isOpen));
+      if (window.lenis && typeof window.lenis.resize === 'function') {
+        setTimeout(() => window.lenis.resize(), 450);
+      }
     });
   });
 </script>

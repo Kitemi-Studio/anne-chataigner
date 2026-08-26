@@ -2481,7 +2481,7 @@ html.lenis, html.lenis body {
 }
 
 .faq-accordion-list {
-  max-width: 880px;
+  max-width: 1040px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -2492,19 +2492,22 @@ html.lenis, html.lenis body {
   background: #ffffff;
   border: 1px solid var(--anne-border);
   border-radius: 20px;
-  padding: 24px 28px;
+  padding: 22px 28px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.025);
-  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .faq-item:hover {
+  transform: translateY(-2px);
   border-color: rgba(129, 146, 172, 0.4);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.045);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
 }
 
 .faq-item.is-open {
+  transform: translateY(0);
   border-color: var(--anne-coaching);
-  box-shadow: 0 10px 30px rgba(129, 146, 172, 0.08);
+  box-shadow: 0 12px 32px rgba(129, 146, 172, 0.09);
 }
 
 .faq-trigger {
@@ -2512,7 +2515,7 @@ html.lenis, html.lenis body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
   background: none;
   border: none;
   padding: 0;
@@ -2524,20 +2527,25 @@ html.lenis, html.lenis body {
 
 .faq-question {
   font-family: var(--_typography---font-family--heading);
-  font-size: 18px;
+  font-size: clamp(16px, 1.35vw, 18px);
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.3;
   color: var(--anne-ink-dark);
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1 1 auto;
+  min-width: 0;
   transition: color 0.3s ease;
 }
 
 .faq-item:hover .faq-question {
-  color: #1a1a18;
+  color: #12100E;
 }
 
 .faq-item.is-open .faq-question {
-  color: #1a1a18;
+  color: #12100E;
 }
 
 .faq-icon-wrapper {
@@ -2550,7 +2558,7 @@ html.lenis, html.lenis body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease;
 }
 
 .faq-item:hover .faq-icon-wrapper {
@@ -2559,14 +2567,14 @@ html.lenis, html.lenis body {
 
 .faq-item.is-open .faq-icon-wrapper {
   transform: rotate(45deg);
-  background: rgba(129, 146, 172, 0.18);
-  color: var(--anne-coaching);
+  background: var(--anne-ink-dark);
+  color: #ffffff;
 }
 
 .faq-answer {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
   opacity: 0;
 }
 
@@ -2580,9 +2588,9 @@ html.lenis, html.lenis body {
 }
 
 .faq-answer-text {
-  padding-top: 16px;
+  padding-top: 18px;
   font-size: 15.5px;
-  line-height: 1.7;
+  line-height: 1.72;
   color: var(--anne-ink);
   border-top: 1px solid rgba(101, 101, 95, 0.08);
   margin-top: 16px;
@@ -2591,6 +2599,12 @@ html.lenis, html.lenis body {
 .faq-answer-text strong {
   color: var(--anne-ink-dark);
   font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .faq-question {
+    white-space: normal;
+  }
 }
 
 /* Accessibility & Reduced Motion */
