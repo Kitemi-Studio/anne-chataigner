@@ -4128,7 +4128,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
-  min-width: 240px;
+  min-width: 260px;
   padding-left: 44px;
   border-left: 1px solid rgba(101, 101, 95, 0.14);
   flex-shrink: 0;
@@ -4142,37 +4142,57 @@
   gap: 6px;
 }
 
-.ac-price-callout__price strong {
-  font-family: var(--_typography---font-family--heading);
-  font-size: clamp(42px, 3.8vw, 52px);
-  font-weight: 700;
-  color: var(--anne-ink-dark);
-  line-height: 1;
+.ac-price-callout__amount {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(42px, 3.8vw, 54px) !important;
+  font-weight: 700 !important;
+  color: var(--anne-ink-dark) !important;
+  line-height: 1 !important;
   letter-spacing: -0.02em;
 }
 
-.ac-price-callout__price span {
+.ac-price-callout__duration {
   font-size: 15px;
   color: var(--anne-ink);
   font-weight: 500;
 }
 
-.ac-price-callout__price .ac-text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.ac-price-callout__actions {
   margin-top: auto;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--anne-coaching);
-  text-decoration: none;
-  transition: gap 0.3s ease, color 0.2s ease;
-  padding: 6px 0;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
 }
 
-.ac-price-callout__price .ac-text-link:hover {
-  gap: 12px;
-  color: var(--anne-ink-dark);
+.ac-price-callout__btn {
+  padding: 12px 24px !important;
+  border-radius: 999px !important;
+  background-color: var(--anne-ink-dark) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 14px rgba(44, 43, 41, 0.12) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+}
+
+.ac-price-callout__btn .button-text {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.ac-price-callout__btn:hover {
+  background-color: var(--anne-coaching) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(129, 146, 172, 0.35) !important;
 }
 
 @media (max-width: 860px) {
@@ -4197,6 +4217,13 @@
   .ac-price-callout__amount-wrap {
     align-items: flex-start;
   }
+
+  .ac-price-callout__actions {
+    margin-top: 0;
+    padding-top: 0;
+    width: auto;
+  }
 }
+
 
 

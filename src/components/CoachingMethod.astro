@@ -80,13 +80,19 @@ const { steps, pricingBanner, sectionId = 'deroulement' } = Astro.props;
       </div>
       <div class="ac-price-callout__price">
         <div class="ac-price-callout__amount-wrap">
-          <strong>{pricingBanner.amount}</strong>
-          <span>{pricingBanner.duration}</span>
+          <span class="ac-price-callout__amount">{pricingBanner.amount}</span>
+          <span class="ac-price-callout__duration">{pricingBanner.duration}</span>
         </div>
-        <a href={pricingBanner.linkUrl} class="ac-text-link">
-          <span>{pricingBanner.linkText}</span>
-          <span aria-hidden="true">→</span>
-        </a>
+        <div class="ac-price-callout__actions">
+          <a href={pricingBanner.linkUrl} class="primary-button ac-price-callout__btn w-inline-block">
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div class="button-text">{pricingBanner.linkText} →</div>
+                <div class="button-text">{pricingBanner.linkText} →</div>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
