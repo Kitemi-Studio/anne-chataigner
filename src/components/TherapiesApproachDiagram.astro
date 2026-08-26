@@ -41,26 +41,21 @@ const keypoints = [
       <p>Pourquoi ressasser le passé ne suffit-il souvent pas à aller mieux ? Parce que la compréhension intellectuelle d'une difficulté n'apaise pas automatiquement l'émotion. En thérapies brèves, nous intervenons directement là où le problème se manifeste aujourd'hui.</p>
     </header>
 
-    <!-- Diagramme Circulaire Aéré & Interactif (Sans grosse card extérieure) -->
+    <!-- Diagramme Circulaire Aéré & Ample (Points parfaitement sur les axes) -->
     <div class="therapies-diagram-viewport" data-coaching-reveal>
       <div class="therapies-diagram-wrap" id="therapiesDiagramWrap">
-        <!-- SVG Orbit Rings & Rotating Connection Rays -->
-        <svg class="therapies-diagram-svg" viewBox="0 0 600 600" fill="none" aria-hidden="true">
-          <!-- Outer Pulsing Halo -->
-          <circle cx="300" cy="300" r="220" stroke="rgba(126, 145, 122, 0.18)" stroke-width="1" />
+        <!-- SVG Orbit Rings & Dynamic Connection Rays -->
+        <svg class="therapies-diagram-svg" viewBox="0 0 720 660" fill="none" aria-hidden="true">
+          <!-- Outer Halo -->
+          <circle cx="360" cy="330" r="260" stroke="rgba(126, 145, 122, 0.14)" stroke-width="1" />
           
-          <!-- Dashed Orbit Ring with Dynamic Rotation -->
+          <!-- Orbit Ring with Rotation -->
           <g class="therapies-diagram-orbit-group" id="therapiesOrbitGroup">
-            <circle cx="300" cy="300" r="180" stroke="rgba(126, 145, 122, 0.4)" stroke-width="1.6" stroke-dasharray="5 5" />
-            <!-- Connection Lines to Nodes -->
-            <line x1="300" y1="300" x2="300" y2="120" stroke="rgba(126, 145, 122, 0.5)" stroke-width="1.5" class="diagram-line diagram-line--top" />
-            <line x1="300" y1="300" x2="144" y2="390" stroke="rgba(126, 145, 122, 0.5)" stroke-width="1.5" class="diagram-line diagram-line--left" />
-            <line x1="300" y1="300" x2="456" y2="390" stroke="rgba(126, 145, 122, 0.5)" stroke-width="1.5" class="diagram-line diagram-line--right" />
-            
-            <!-- Orbiting Decorative Satellites -->
-            <circle cx="300" cy="120" r="4" fill="#7E917A" />
-            <circle cx="144" cy="390" r="4" fill="#7E917A" />
-            <circle cx="456" cy="390" r="4" fill="#7E917A" />
+            <circle cx="360" cy="330" r="215" stroke="rgba(126, 145, 122, 0.38)" stroke-width="1.5" stroke-dasharray="6 6" />
+            <!-- Connection Lines to exact node dots -->
+            <line x1="360" y1="330" x2="360" y2="115" stroke="rgba(126, 145, 122, 0.45)" stroke-width="1.5" class="diagram-line diagram-line--top" />
+            <line x1="360" y1="330" x2="174" y2="438" stroke="rgba(126, 145, 122, 0.45)" stroke-width="1.5" class="diagram-line diagram-line--left" />
+            <line x1="360" y1="330" x2="546" y2="438" stroke="rgba(126, 145, 122, 0.45)" stroke-width="1.5" class="diagram-line diagram-line--right" />
           </g>
         </svg>
 
@@ -72,31 +67,31 @@ const keypoints = [
           <p class="therapies-diagram-center__desc">Boucle émotionnelle &amp; point de bascule</p>
         </div>
 
-        <!-- Pôle 1 : Le Corps (Haut) -->
+        <!-- Pôle 1 : Le Corps (Haut) -> Point en dessous sur l'axe (360, 115) -->
         <div class="therapies-diagram-node therapies-diagram-node--top" data-node="corps" tabindex="0">
-          <div class="therapies-diagram-node__dot">
-            <span class="therapies-diagram-node__dot-inner"></span>
-          </div>
           <div class="therapies-diagram-node__card">
             <div class="therapies-diagram-node__badge">Dimension 01</div>
             <h4>Le Corps</h4>
             <p>Système nerveux, sensations physiques &amp; réactions d'alerte</p>
           </div>
-        </div>
-
-        <!-- Pôle 2 : Les Pensées (Bas Gauche) -->
-        <div class="therapies-diagram-node therapies-diagram-node--left" data-node="pensees" tabindex="0">
           <div class="therapies-diagram-node__dot">
             <span class="therapies-diagram-node__dot-inner"></span>
           </div>
+        </div>
+
+        <!-- Pôle 2 : Les Pensées (Bas Gauche) -> Carte à gauche, Point à droite sur l'axe (174, 438) -->
+        <div class="therapies-diagram-node therapies-diagram-node--left" data-node="pensees" tabindex="0">
           <div class="therapies-diagram-node__card">
             <div class="therapies-diagram-node__badge">Dimension 02</div>
             <h4>Les Pensées</h4>
             <p>Ruminations, croyances automatiques &amp; filtres mentaux</p>
           </div>
+          <div class="therapies-diagram-node__dot">
+            <span class="therapies-diagram-node__dot-inner"></span>
+          </div>
         </div>
 
-        <!-- Pôle 3 : Les Relations (Bas Droite) -->
+        <!-- Pôle 3 : Les Relations (Bas Droite) -> Point à gauche sur l'axe (546, 438), Carte à droite -->
         <div class="therapies-diagram-node therapies-diagram-node--right" data-node="relations" tabindex="0">
           <div class="therapies-diagram-node__dot">
             <span class="therapies-diagram-node__dot-inner"></span>
@@ -157,7 +152,7 @@ const keypoints = [
       const windowH = window.innerHeight;
       if (rect.bottom > 0 && rect.top < windowH) {
         const progress = (windowH - rect.top) / (windowH + rect.height);
-        targetRotation = (progress - 0.5) * 40; // -20deg to +20deg
+        targetRotation = (progress - 0.5) * 36; // -18deg to +18deg
       }
     };
 
@@ -168,7 +163,7 @@ const keypoints = [
       if (!isHovering) {
         currentRotation += (targetRotation - currentRotation) * 0.08;
         orbit.style.transform = `rotate(${currentRotation}deg)`;
-        orbit.style.transformOrigin = '300px 300px';
+        orbit.style.transformOrigin = '360px 330px';
       }
       requestAnimationFrame(animate);
     };
