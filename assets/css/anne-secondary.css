@@ -7403,7 +7403,7 @@
   font-size: 17.5px;
   line-height: 1.68;
   color: var(--anne-ink);
-  margin: 0 0 34px 0;
+  margin: 0 0 42px 0;
   max-width: 580px;
 }
 
@@ -7412,6 +7412,7 @@
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+  margin-top: 8px;
 }
 
 .tarifs-btn--primary {
