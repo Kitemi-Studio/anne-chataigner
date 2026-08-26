@@ -3860,43 +3860,31 @@
   --coaching-cta-hover: #26372e;
 }
 
-.ac-page--coaching .primary-button,
-.ac-page--coaching .navbar-button {
-  border-color: var(--coaching-cta) !important;
-  background: var(--coaching-cta) !important;
+/* Secondary Hero CTA — Green version of the Homepage Secondary CTA */
+.button-hero-secondary--green {
+  border: 1px solid rgba(126, 145, 122, 0.65) !important;
+  background-color: rgba(126, 145, 122, 0.18) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.button-hero-secondary--green .button-text {
   color: #ffffff !important;
 }
 
-.ac-page--coaching .primary-button .button-text,
-.ac-page--coaching .primary-button .button-text-inner,
-.ac-page--coaching .navbar-button,
-.ac-page--coaching .navbar-button .button-text,
-.ac-page--coaching .navbar-button .button-text-inner {
+.button-hero-secondary--green:hover {
+  background-color: #7E917A !important;
+  border-color: #7E917A !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.button-hero-secondary--green:hover .button-text {
   color: #ffffff !important;
 }
 
-.ac-page--coaching .hero-full-buttons .primary-button,
-.ac-page--coaching .hero-full-buttons .primary-button:first-child {
-  color: #ffffff !important;
-}
-
-.ac-page--coaching .primary-button:hover,
-.ac-page--coaching .navbar-button:hover {
-  border-color: var(--coaching-cta-hover) !important;
-  background: var(--coaching-cta-hover) !important;
-  color: #ffffff !important;
-}
-
-.ac-page--coaching .button-hero-secondary {
-  border-color: rgba(255, 255, 255, 0.58) !important;
-  background: rgba(48, 68, 56, 0.82) !important;
-  color: #ffffff !important;
-}
-
-.ac-page--coaching .button-hero-secondary:hover {
-  border-color: #ffffff !important;
-  background: rgba(38, 55, 46, 0.94) !important;
-}
 
 /* Keep the starting-point quote inside a full-width glass panel. */
 .coaching-situations__quote-bubble {
@@ -4035,36 +4023,6 @@
   }
 }
 
-/* Secondary Hero CTA — Light Green / Vert Sauge Distinction */
-.button-hero-green-light,
-.coaching-hero .button-hero-secondary {
-  background-color: #E2ECE1 !important;
-  color: #2E452A !important;
-  border: 1px solid rgba(126, 145, 122, 0.45) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.button-hero-green-light .button-text,
-.coaching-hero .button-hero-secondary .button-text {
-  color: #2E452A !important;
-  font-weight: 600;
-}
-
-.button-hero-green-light:hover,
-.coaching-hero .button-hero-secondary:hover {
-  background-color: #D3E4D1 !important;
-  border-color: #7E917A !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(46, 69, 42, 0.15) !important;
-}
-
-.button-hero-green-light:hover .button-text,
-.coaching-hero .button-hero-secondary:hover .button-text {
-  color: #1F331C !important;
-}
 
 /* ==========================================================================
    Pricing Callout Card (Enhanced & Vertically Balanced Layout)

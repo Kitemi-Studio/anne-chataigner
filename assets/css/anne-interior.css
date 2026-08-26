@@ -597,35 +597,30 @@
 }
 
 /* ==========================================================================
-   Secondary Hero CTA — Light Green / Vert Sauge Distinction
+   Secondary Hero CTA — Green version of the Homepage Secondary CTA
    ========================================================================== */
-.button-hero-green-light,
-.coaching-hero .button-hero-secondary {
-  background-color: #E2ECE1 !important;
-  color: #2E452A !important;
-  border: 1px solid rgba(126, 145, 122, 0.45) !important;
+.button-hero-secondary--green {
+  border: 1px solid rgba(126, 145, 122, 0.65) !important;
+  background-color: rgba(126, 145, 122, 0.18) !important;
+  color: #ffffff !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.button-hero-green-light .button-text,
-.coaching-hero .button-hero-secondary .button-text {
-  color: #2E452A !important;
-  font-weight: 600;
+.button-hero-secondary--green .button-text {
+  color: #ffffff !important;
 }
 
-.button-hero-green-light:hover,
-.coaching-hero .button-hero-secondary:hover {
-  background-color: #D3E4D1 !important;
+.button-hero-secondary--green:hover {
+  background-color: #7E917A !important;
   border-color: #7E917A !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(46, 69, 42, 0.15) !important;
 }
 
-.button-hero-green-light:hover .button-text,
-.coaching-hero .button-hero-secondary:hover .button-text {
-  color: #1F331C !important;
+.button-hero-secondary--green:hover .button-text {
+  color: #ffffff !important;
 }
+
 
