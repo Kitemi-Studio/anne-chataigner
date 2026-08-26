@@ -7337,6 +7337,744 @@
   gap: 8px;
 }
 
+/* ==========================================================================
+   Page Tarifs — Modern, Precise & Transparent Design System
+   ========================================================================== */
+.ac-page--tarifs {
+  scroll-behavior: smooth;
+  --anne-tarifs-accent: #C28B38;
+  --anne-tarifs-accent-dark: #8F6220;
+  --anne-tarifs-surface: #FAF8F4;
+  --anne-tarifs-bg: #FEFCF8;
+}
+
+.tarifs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(194, 139, 56, 0.14) !important;
+  border: 1px solid rgba(194, 139, 56, 0.35) !important;
+  color: #8F6220 !important;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tarifs-badge .approche-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C28B38 !important;
+}
+
+/* 1. Hero Tarifs */
+.tarifs-hero {
+  padding: 155px 0 70px;
+  background-color: var(--anne-tarifs-bg);
+}
+
+.tarifs-hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.tarifs-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tarifs-hero__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(34px, 3.8vw, 52px) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  color: var(--anne-ink-dark) !important;
+  letter-spacing: -0.02em !important;
+  margin: 18px 0 16px 0;
+}
+
+.tarifs-hero__lead {
+  font-size: 17.5px;
+  line-height: 1.68;
+  color: var(--anne-ink);
+  margin: 0 0 32px 0;
+  max-width: 600px;
+}
+
+.tarifs-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.tarifs-btn--primary {
+  background-color: var(--anne-ink-dark) !important;
+  color: #ffffff !important;
+  min-height: 48px;
+  padding: 12px 28px !important;
+  border-radius: var(--_spacing---tiny) !important;
+  border: 1px solid var(--anne-ink-dark) !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(44, 43, 41, 0.16) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.tarifs-btn--primary:hover {
+  background-color: #12100E !important;
+  border-color: #12100E !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(44, 43, 41, 0.24) !important;
+  transform: translateY(-2px);
+}
+
+.tarifs-btn--secondary {
+  background-color: transparent !important;
+  border: 1px solid rgba(44, 43, 41, 0.28) !important;
+  color: var(--anne-ink-dark) !important;
+  min-height: 48px;
+  padding: 12px 28px !important;
+  border-radius: var(--_spacing---tiny) !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.tarifs-btn--secondary:hover {
+  background-color: rgba(44, 43, 41, 0.06) !important;
+  border-color: var(--anne-ink-dark) !important;
+  transform: translateY(-2px);
+}
+
+.tarifs-hero__link-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--anne-ink-dark);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.tarifs-hero__link-secondary:hover {
+  transform: translateY(2px);
+  color: #12100E;
+}
+
+/* Carte Repères Hero */
+.tarifs-hero__summary-card {
+  background: var(--anne-tarifs-surface);
+  border: 1px solid rgba(194, 139, 56, 0.28);
+  border-radius: 20px;
+  padding: 30px 32px;
+  box-shadow: 0 12px 32px rgba(44, 43, 41, 0.04);
+}
+
+.tarifs-hero__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(194, 139, 56, 0.2);
+  margin-bottom: 20px;
+}
+
+.tarifs-hero__card-tag {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--anne-ink);
+}
+
+.tarifs-hero__card-price {
+  font-size: 14px;
+  color: var(--anne-ink);
+}
+
+.tarifs-hero__card-price strong {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 24px;
+  color: var(--anne-tarifs-accent-dark);
+}
+
+.tarifs-hero__card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tarifs-hero__card-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.tarifs-hero__card-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(194, 139, 56, 0.16);
+  color: var(--anne-tarifs-accent-dark);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.tarifs-hero__card-item strong {
+  display: block;
+  font-size: 14px;
+  color: var(--anne-ink-dark);
+  margin-bottom: 1px;
+}
+
+.tarifs-hero__card-item span {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--anne-ink);
+}
+
+/* 2. Bandeau Repères Rapides */
+.tarifs-quickbar {
+  background: var(--anne-tarifs-surface);
+  border-top: 1px solid rgba(101, 101, 95, 0.12);
+  border-bottom: 1px solid rgba(101, 101, 95, 0.12);
+  padding: 26px 0;
+}
+
+.tarifs-quickbar__track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tarifs-quickbar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3px;
+  flex: 1;
+  transition: transform 0.2s ease;
+}
+
+.tarifs-quickbar__item:hover {
+  transform: translateY(-2px);
+}
+
+.tarifs-quickbar__val {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--anne-ink-dark);
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.tarifs-quickbar__item:hover .tarifs-quickbar__val {
+  color: var(--anne-tarifs-accent-dark);
+}
+
+.tarifs-quickbar__lbl {
+  font-size: 13px;
+  color: var(--anne-ink);
+  font-weight: 500;
+}
+
+.tarifs-quickbar__divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(101, 101, 95, 0.16);
+}
+
+/* 3. Section Grille Tarifaire */
+.tarifs-grid-section {
+  padding: 110px 0;
+  background-color: var(--anne-tarifs-bg);
+}
+
+.tarifs-grid__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 64px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tarifs-grid__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(32px, 3.4vw, 44px) !important;
+  font-weight: 700 !important;
+  color: var(--anne-ink-dark) !important;
+  letter-spacing: -0.015em;
+  margin: 18px 0 16px 0;
+}
+
+.tarifs-grid__lead {
+  font-size: 17px;
+  line-height: 1.68;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+.tarifs-rows-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.tarifs-row {
+  display: grid;
+  grid-template-columns: 70px 1.45fr 150px 180px;
+  align-items: center;
+  gap: 32px;
+  padding: 38px 28px;
+  border-top: 1px solid rgba(101, 101, 95, 0.16);
+  text-decoration: none;
+  border-radius: 16px;
+  transition: background-color 0.25s ease, padding-left 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarifs-row:last-child {
+  border-bottom: 1px solid rgba(101, 101, 95, 0.16);
+}
+
+.tarifs-row:hover {
+  background-color: var(--anne-tarifs-surface);
+  padding-left: 36px;
+}
+
+.tarifs-row__num {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--anne-tarifs-accent-dark);
+}
+
+.tarifs-row__main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tarifs-row__tag {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--anne-ink);
+}
+
+.tarifs-row__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: 23px !important;
+  font-weight: 700 !important;
+  color: var(--anne-ink-dark) !important;
+  line-height: 1.25 !important;
+  margin: 2px 0 6px 0;
+}
+
+.tarifs-row__desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+.tarifs-row__pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.tarifs-row__price {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--anne-ink-dark);
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.tarifs-row:hover .tarifs-row__price {
+  color: var(--anne-tarifs-accent-dark);
+}
+
+.tarifs-row__duration {
+  font-size: 13.5px;
+  color: var(--anne-ink);
+  font-weight: 500;
+}
+
+.tarifs-row__action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.tarifs-row__action-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--anne-ink);
+  transition: color 0.2s ease;
+}
+
+.tarifs-row:hover .tarifs-row__action-label {
+  color: var(--anne-ink-dark);
+}
+
+.tarifs-row__action-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(101, 101, 95, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--anne-ink-dark);
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.tarifs-row:hover .tarifs-row__action-arrow {
+  transform: translateX(4px);
+  background-color: var(--anne-ink-dark);
+  color: #ffffff;
+  border-color: var(--anne-ink-dark);
+}
+
+@media (max-width: 900px) {
+  .tarifs-row {
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    padding: 28px 18px;
+  }
+  .tarifs-row__num {
+    display: none;
+  }
+  .tarifs-row__pricing {
+    align-items: flex-end;
+  }
+  .tarifs-row__action {
+    display: none;
+  }
+}
+
+/* 4. Section Modalités */
+.tarifs-modalities-section {
+  padding: 110px 0;
+  background-color: var(--anne-tarifs-surface);
+  border-top: 1px solid rgba(101, 101, 95, 0.12);
+  border-bottom: 1px solid rgba(101, 101, 95, 0.12);
+}
+
+.tarifs-modalities__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tarifs-modalities__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(32px, 3.4vw, 44px) !important;
+  font-weight: 700 !important;
+  color: var(--anne-ink-dark) !important;
+  letter-spacing: -0.015em;
+  margin: 18px 0 16px 0;
+}
+
+.tarifs-modalities__lead {
+  font-size: 17px;
+  line-height: 1.68;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+.tarifs-modalities__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.tarifs-modality-card {
+  background: #ffffff;
+  border: 1px solid rgba(194, 139, 56, 0.24);
+  border-radius: 18px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarifs-modality-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(194, 139, 56, 0.6);
+  box-shadow: 0 12px 30px rgba(44, 43, 41, 0.05);
+}
+
+.tarifs-modality-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.tarifs-modality-card__num {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--anne-tarifs-accent-dark);
+}
+
+.tarifs-modality-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(194, 139, 56, 0.12);
+  color: var(--anne-tarifs-accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tarifs-modality-card__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  color: var(--anne-ink-dark) !important;
+  margin: 0 0 8px 0;
+}
+
+.tarifs-modality-card__desc {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+.tarifs-coverage-callout {
+  background: #ffffff;
+  border: 1px solid rgba(101, 101, 95, 0.22);
+  border-radius: 18px;
+  padding: 24px 30px;
+  max-width: 1120px;
+  margin: 36px auto 0 auto;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.tarifs-coverage-callout__icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(101, 101, 95, 0.1);
+  color: var(--anne-ink-dark);
+  font-family: var(--_typography---font-family--heading);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tarifs-coverage-callout__text strong {
+  display: block;
+  font-size: 15px;
+  color: var(--anne-ink-dark);
+  margin-bottom: 4px;
+}
+
+.tarifs-coverage-callout__text p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+/* 5. FAQ & CTA Final */
+.tarifs-faq-and-cta {
+  padding: 110px 0 130px;
+  background-color: var(--anne-tarifs-bg);
+}
+
+.tarifs-faq-wrap {
+  max-width: 860px;
+  margin: 0 auto 100px auto;
+}
+
+.tarifs-faq__header {
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tarifs-faq__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(30px, 3.2vw, 42px) !important;
+  font-weight: 700 !important;
+  color: var(--anne-ink-dark) !important;
+  letter-spacing: -0.015em;
+  margin: 18px 0 0 0;
+}
+
+.tarifs-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tarifs-faq__item {
+  background: var(--anne-tarifs-surface);
+  border: 1px solid rgba(194, 139, 56, 0.22);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.tarifs-faq__item[open] {
+  border-color: rgba(194, 139, 56, 0.6);
+  background: #ffffff;
+}
+
+.tarifs-faq__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--_typography---font-family--heading);
+  font-size: 17.5px;
+  font-weight: 700;
+  color: var(--anne-ink-dark);
+  user-select: none;
+}
+
+.tarifs-faq__summary::-webkit-details-marker {
+  display: none;
+}
+
+.tarifs-faq__icon {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--anne-tarifs-accent-dark);
+  transition: transform 0.25s ease;
+  line-height: 1;
+}
+
+.tarifs-faq__item[open] .tarifs-faq__icon {
+  transform: rotate(45deg);
+}
+
+.tarifs-faq__content {
+  padding: 0 26px 24px;
+  font-size: 15.5px;
+  line-height: 1.68;
+  color: var(--anne-ink);
+}
+
+/* Panneau Final Tarifs */
+.tarifs-final-panel {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: linear-gradient(155deg, #F9F7F2 0%, #FAF8F4 100%);
+  border: 1px solid rgba(194, 139, 56, 0.3);
+  border-radius: 28px;
+  padding: 70px 56px;
+  text-align: center;
+  box-shadow: 0 16px 44px rgba(44, 43, 41, 0.05);
+}
+
+.tarifs-final-panel__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.tarifs-final-panel__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(32px, 3.4vw, 44px) !important;
+  font-weight: 700 !important;
+  color: var(--anne-ink-dark) !important;
+  letter-spacing: -0.015em;
+  margin: 18px 0 16px 0;
+}
+
+.tarifs-final-panel__lead {
+  font-size: 17.5px;
+  line-height: 1.68;
+  color: var(--anne-ink);
+  margin: 0 0 34px 0;
+}
+
+.tarifs-final-panel__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.tarifs-final-panel__meta {
+  font-size: 13.5px;
+  color: var(--anne-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .tarifs-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .tarifs-quickbar__track {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .tarifs-quickbar__item {
+    flex: 1 1 40%;
+  }
+  .tarifs-quickbar__divider {
+    display: none;
+  }
+}
+
+
 
 
 

@@ -2,38 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
-import SituationCloud from '../components/SituationCloud.astro';
-import FaqAccordion from '../components/FaqAccordion.astro';
-import InteriorCta from '../components/InteriorCta.astro';
-
-const tarifsTags = [
-  { text: "Tarifs clairs & transparents", color: "blue", size: "lg" },
-  { text: "Consultation individuelle · 85 €", color: "sage", size: "lg" },
-  { text: "Séance d'hypnose 1h15 · 110 €", color: "terracotta", size: "lg" },
-  { text: "Consultation couple 1h30 · 150 €", color: "amber", size: "lg" },
-  { text: "Prise en charge mutuelle médecines douces", color: "green", size: "md" },
-  { text: "Facture acquittée systématique", color: "blue", size: "md" },
-  { text: "Cabinet à Voisins-le-Bretonneux", color: "slate", size: "md" },
-  { text: "Séances également en visio", color: "slate", size: "sm" },
-  { text: "Paiement chèque, espèces ou virement", color: "sage", size: "md" },
-  { text: "Politique d'annulation sans frais 48h", color: "terracotta", size: "md" },
-  { text: "Cadre confidentiel & sécurisant", color: "blue", size: "lg" },
-  { text: "Aucun engagement de durée forcé", color: "green", size: "sm" }
-];
+import TarifsHero from '../components/TarifsHero.astro';
+import TarifsQuickBar from '../components/TarifsQuickBar.astro';
+import TarifsGridList from '../components/TarifsGridList.astro';
+import TarifsModalities from '../components/TarifsModalities.astro';
+import TarifsFaqAndCta from '../components/TarifsFaqAndCta.astro';
 
 const tarifsFaq = [
   {
     question: "Les consultations sont-elles remboursées par la Sécurité Sociale ?",
-    answer: "Non, ces consultations ne relèvent pas du régime obligatoire de l'Assurance Maladie. En revanche, de très nombreuses <strong>mutuelles et assurances complémentaires santé</strong> remboursent les séances de médecines douces, d'hypnose et de thérapies brèves dans le cadre de forfaits annuels dédiés. Une facture acquittée vous est systématiquement remise après chaque rendez-vous."
+    answer: "Non, ces consultations ne relèvent pas du régime obligatoire de l'Assurance Maladie. En revanche, de très nombreuses <strong>mutuelles et assurances complémentaires santé</strong> remboursent les séances de coaching, de thérapies brèves et d'hypnose dans le cadre de leurs forfaits annuels « médecines douces &amp; bien-être ». Une facture acquittée vous est systématiquement remise après chaque rendez-vous."
   },
   {
     question: "Quels sont les moyens de paiement acceptés ?",
-    answer: "Au cabinet de Voisins-le-Bretonneux, vous pouvez régler par <strong>chèque, espèces ou virement bancaire</strong> à la fin de la séance. Pour les consultations réalisées à distance en visioconférence, le règlement s'effectue par virement bancaire sécurisé en amont du rendez-vous."
+    answer: "Au cabinet de Voisins-le-Bretonneux, vous pouvez régler par <strong>chèque, espèces ou virement bancaire</strong> à la fin de la séance. Pour les consultations réalisées à distance en visioconférence, le règlement s'effectue par virement bancaire en amont du rendez-vous."
   },
   {
     question: "Quelle est la politique d'annulation ou de report ?",
-    answer: "Afin de respecter le temps de chacun et de permettre à d'autres personnes de bénéficier des créneaux libérés, tout rendez-vous peut être annulé ou reporté sans frais <strong>jusqu'à 48 heures à l'avance</strong>. Passé ce délai de 48 heures, la séance reste due."
+    answer: "Afin de respecter le temps de chacun et de permettre à d'autres personnes de bénéficier des créneaux libérés, tout rendez-vous peut être annulé ou reporté sans frais <strong>jusqu'à 48 heures à l'avance</strong>. Passé ce délai, la séance reste due."
   },
   {
     question: "Les tarifs sont-ils les mêmes au cabinet et en visioconférence ?",
@@ -48,120 +34,71 @@ const tarifsFaq = [
 
 <Layout 
   title="Tarifs des consultations & séances · Anne Chataigner"
-  description="Consultez les tarifs des consultations individuelles (85 €), séances d'hypnose (110 €) et consultations de couple (150 €) au cabinet de Voisins-le-Bretonneux et en visio."
+  description="Consultez les tarifs clairs des consultations individuelles (85 € · 1h), séances d'hypnose (110 € · 1h15) et consultations de couple (150 € · 1h30) à Voisins-le-Bretonneux et en visio."
 >
-  <Navbar slot="navbar" />
+  <Navbar variant="home" slot="navbar" />
 
-  <main id="main-content">
-    <!-- Hero Header Atmosphérique Immersion -->
-    <PageHeroAtmospheric 
-      badgeText="Transparence & Modalités"
-      badgeType="pricing"
-      title="Tarifs des consultations & séances"
-      lead="Une politique tarifaire claire, fixe et sans surprise pour chaque format d'accompagnement au cabinet de Voisins-le-Bretonneux ou à distance en visioconférence."
-      primaryCtaText="Prendre rendez-vous"
-      primaryCtaLink="#contact"
-      secondaryCtaText="Voir la grille"
-      secondaryCtaLink="#reperes"
-      scrollTargetId="reperes"
-      scrollLabel="Découvrir"
-    />
-
-    <!-- Section 1 : Nuage de Mots / Repères Tarifs -->
-    <SituationCloud 
-      subtitle="Transparence & Engagements"
-      title="Un cadre financier clair et prévisible"
-      lead="Chaque formule est pensée pour offrir un temps d'écoute confortable, structuré et propice à une intégration en profondeur."
-      tags={tarifsTags}
-      quote="« La clarté du cadre est le premier garant d'une relation thérapeutique de confiance. »"
-      sectionId="reperes"
-      theme="pricing"
-    />
-
-    <!-- Section 2 : Grille des formules -->
-    <section class="ac-section ac-pricing-table" id="grille-tarifs">
-      <div class="ac-container">
-        <div class="ac-section-heading ac-section-heading--split">
-          <div>
-            <p class="ac-eyebrow"><span></span>Grille des formules</p>
-            <h2>Trois formats, un cadre financier lisible.</h2>
-          </div>
-          <p class="ac-section-heading__lead">Choisissez le format qui correspond à votre demande, ou utilisez le premier échange pour vous orienter.</p>
-        </div>
-
-        <div class="ac-price-list">
-          <article class="ac-price-row">
-            <span class="ac-price-row__index">01</span>
-            <h3>Consultation individuelle</h3>
-            <p class="ac-price-row__meta">Coaching &amp; thérapies brèves. Un temps d’échange pour clarifier votre situation et ce que vous souhaitez faire évoluer.</p>
-            <div class="ac-price-row__price">85 €</div>
-            <div class="ac-price-row__duration">1 heure</div>
-            <a href="/coaching" class="ac-price-row__action">Découvrir le coaching ↗</a>
-          </article>
-
-          <article class="ac-price-row">
-            <span class="ac-price-row__index">02</span>
-            <h3>Séance d’hypnose</h3>
-            <p class="ac-price-row__meta">Questionnaire préparatoire, échange de précision, séquence personnalisée et temps de retour en fin de séance.</p>
-            <div class="ac-price-row__price">110 €</div>
-            <div class="ac-price-row__duration">1 h 15</div>
-            <a href="/hypnose-ericksonienne" class="ac-price-row__action">Découvrir l’hypnose ↗</a>
-          </article>
-
-          <article class="ac-price-row">
-            <span class="ac-price-row__index">03</span>
-            <h3>Consultation de couple</h3>
-            <p class="ac-price-row__meta">Un espace neutre et sécurisant pour permettre à chacun de s’exprimer et cheminer ensemble.</p>
-            <div class="ac-price-row__price">150 €</div>
-            <div class="ac-price-row__duration">1 h 30</div>
-            <a href="/consultation-couple" class="ac-price-row__action">Découvrir l’accompagnement ↗</a>
-          </article>
-        </div>
-
-        <div class="ac-trust-band" id="modalites">
-          <div class="ac-trust-item">
-            <span class="ac-trust-item__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 3.5h7l3 3v10H5v-13Z" stroke="currentColor" stroke-width="1.3"/><path d="M12 3.5v3h3M7.5 10h5M7.5 13h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
-            <h3>Facture acquittée</h3>
-            <p>Remise après chaque consultation pour vos démarches auprès de votre mutuelle.</p>
-          </div>
-          <div class="ac-trust-item">
-            <span class="ac-trust-item__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M16.5 8.2c0 4.1-6.5 8.8-6.5 8.8S3.5 12.3 3.5 8.2a6.5 6.5 0 1 1 13 0Z" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.3"/></svg></span>
-            <h3>Cabinet &amp; visio</h3>
-            <p>2 Rue de la Bergerie à Voisins-le-Bretonneux ou visioconférence.</p>
-          </div>
-          <div class="ac-trust-item">
-            <span class="ac-trust-item__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M10 6v4l2.7 1.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
-            <h3>Annulation 48 h</h3>
-            <p>Annulation ou report sans frais jusqu’à 48 heures à l’avance.</p>
-          </div>
-          <div class="ac-trust-item">
-            <span class="ac-trust-item__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 3v14M6 6.5h5a2 2 0 1 1 0 4H8.5a2 2 0 1 0 0 4H14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
-            <h3>Paiement simple</h3>
-            <p>Chèque, espèces ou virement. Aucun engagement forcé sur un nombre de séances.</p>
-          </div>
-        </div>
-
-        <div class="ac-pricing-note">
-          <p class="ac-section-heading__lead">Les mutuelles et médecines douces peuvent intervenir selon les garanties de votre contrat. La Sécurité Sociale ne prend pas ces consultations en charge.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Accordion -->
-    <FaqAccordion 
-      items={tarifsFaq}
-      subtitle="Questions fréquentes"
-      title="Questions sur les tarifs &amp; règlements"
-      badgeType="pricing"
-    />
-
-    <!-- Interior CTA -->
-    <InteriorCta 
-      title="Prêt(e) à démarrer votre accompagnement ?"
-      lead="Réservez votre créneau en ligne ou contactez-moi directement si vous souhaitez échanger avant de fixer votre premier rendez-vous."
-      buttonText="Prendre rendez-vous"
-    />
+  <main id="main-content" class="ac-page--tarifs">
+    <TarifsHero />
+    <TarifsQuickBar />
+    <TarifsGridList />
+    <TarifsModalities />
+    <TarifsFaqAndCta faqItems={tarifsFaq} />
   </main>
 
-  <Footer slot="footer" />
+  <Footer variant="home" slot="footer" />
 </Layout>
+
+<script is:inline src="/assets/js/lenis.min.js"></script>
+<script is:inline>
+  (() => {
+    const page = document.querySelector('.ac-page--tarifs');
+    if (!page) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let lenis = null;
+
+    if (!reduceMotion && typeof window.Lenis !== 'undefined') {
+      lenis = new window.Lenis({
+        duration: 1.12,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        touchMultiplier: 1.15
+      });
+
+      const raf = (time) => {
+        lenis.raf(time);
+        window.requestAnimationFrame(raf);
+      };
+      window.requestAnimationFrame(raf);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', (event) => {
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          event.preventDefault();
+          if (lenis) {
+            lenis.scrollTo(target, { offset: -30, duration: 1.2 });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('[data-coaching-reveal]').forEach((el) => {
+      observer.observe(el);
+    });
+  })();
+</script>

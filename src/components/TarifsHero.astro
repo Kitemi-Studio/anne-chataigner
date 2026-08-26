@@ -1,0 +1,72 @@
+---
+import { BOOKING_URL } from '../config/site';
+---
+
+<section class="section tarifs-hero" id="accueil">
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="tarifs-hero__grid">
+      
+      <!-- Colonne Gauche : Titre & Introduction -->
+      <div class="tarifs-hero__copy" data-coaching-reveal>
+        <div class="approche-badge tarifs-badge">
+          <span class="approche-badge-dot"></span>
+          Transparence &amp; Modalités
+        </div>
+        
+        <h1 class="tarifs-hero__title">Tarifs des consultations &amp; séances</h1>
+        
+        <p class="tarifs-hero__lead">
+          Une politique tarifaire claire, fixe et sans surprise. Choisissez le format qui correspond à votre situation ou convenons-en ensemble lors de votre premier échange.
+        </p>
+
+        <div class="tarifs-hero__actions">
+          <a href={BOOKING_URL} class="primary-button tarifs-btn--primary w-inline-block" data-booking-link>
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div class="button-text">Prendre rendez-vous</div>
+                <div class="button-text">Prendre rendez-vous</div>
+              </div>
+            </div>
+          </a>
+          <a href="#grille" class="tarifs-hero__link-secondary">
+            <span>Consulter la grille</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Colonne Droite : Carte Repères Rapides -->
+      <div class="tarifs-hero__summary-card" data-coaching-reveal>
+        <div class="tarifs-hero__card-header">
+          <span class="tarifs-hero__card-tag">En un coup d'œil</span>
+          <span class="tarifs-hero__card-price">À partir de <strong>85 €</strong></span>
+        </div>
+
+        <ul class="tarifs-hero__card-list">
+          <li class="tarifs-hero__card-item">
+            <span class="tarifs-hero__card-check" aria-hidden="true">✓</span>
+            <div>
+              <strong>Cabinet &amp; visioconférence</strong>
+              <span>Au 2 Rue de la Bergerie à Voisins-le-Bretonneux ou à distance</span>
+            </div>
+          </li>
+          <li class="tarifs-hero__card-item">
+            <span class="tarifs-hero__card-check" aria-hidden="true">✓</span>
+            <div>
+              <strong>Annulation sans frais jusqu'à 48 h</strong>
+              <span>Flexibilité et respect des agendas de chacun</span>
+            </div>
+          </li>
+          <li class="tarifs-hero__card-item">
+            <span class="tarifs-hero__card-check" aria-hidden="true">✓</span>
+            <div>
+              <strong>Facture acquittée systématique</strong>
+              <span>Pour vos remboursements mutuelle santé</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

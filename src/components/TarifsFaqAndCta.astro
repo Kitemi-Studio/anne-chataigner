@@ -1,0 +1,90 @@
+---
+import { BOOKING_URL } from '../config/site';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqItems: FaqItem[];
+}
+
+const { faqItems } = Astro.props;
+---
+
+<section class="section tarifs-faq-and-cta" id="faq">
+  <div class="w-layout-blockcontainer container w-container">
+    
+    <!-- FAQ Compacte & Accessible -->
+    <div class="tarifs-faq-wrap" data-coaching-reveal>
+      <div class="tarifs-faq__header">
+        <div class="approche-badge tarifs-badge">
+          <span class="approche-badge-dot"></span>
+          Questions fréquentes
+        </div>
+        <h2 class="tarifs-faq__title">Questions sur les tarifs &amp; règlements</h2>
+      </div>
+
+      <div class="tarifs-faq__list" role="region" aria-label="Foire aux questions sur les tarifs">
+        {faqItems.map((item) => (
+          <details class="tarifs-faq__item">
+            <summary class="tarifs-faq__summary">
+              <span class="tarifs-faq__q-text">{item.question}</span>
+              <span class="tarifs-faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="tarifs-faq__content">
+              <p set:html={item.answer}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    <!-- Panneau CTA Final -->
+    <div class="tarifs-final-panel" data-coaching-reveal>
+      <div class="tarifs-final-panel__inner">
+        <div class="tarifs-badge">
+          <span class="approche-badge-dot"></span>
+          Premier contact
+        </div>
+        
+        <h2 class="tarifs-final-panel__title">Une première rencontre pour y voir plus clair.</h2>
+        
+        <p class="tarifs-final-panel__lead">
+          Réservez votre créneau en ligne ou contactez Anne si vous souhaitez échanger avant de fixer votre premier rendez-vous.
+        </p>
+
+        <div class="tarifs-final-panel__actions">
+          <a href={BOOKING_URL} class="primary-button tarifs-btn--primary w-inline-block" data-booking-link>
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div class="button-text">Prendre rendez-vous</div>
+                <div class="button-text">Prendre rendez-vous</div>
+              </div>
+            </div>
+          </a>
+          <a href="/#contact" class="primary-button tarifs-btn--secondary w-inline-block">
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div class="button-text">Poser une question</div>
+                <div class="button-text">Poser une question</div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="tarifs-final-panel__meta">
+          <span>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16.5 8.2c0 4.1-6.5 8.8-6.5 8.8S3.5 12.3 3.5 8.2a6.5 6.5 0 1 1 13 0Z" stroke="currentColor" stroke-width="1.3"></path>
+              <circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.3"></circle>
+            </svg>
+            Cabinet à Voisins-le-Bretonneux · 2 Rue de la Bergerie, 78960 · Séances également en visioconférence
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
