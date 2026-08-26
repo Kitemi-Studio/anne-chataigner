@@ -1,0 +1,136 @@
+---
+interface HypnoseStep {
+  number: string;
+  title: string;
+  description: string;
+  mantra: string;
+  image: string;
+  imageAlt: string;
+  keypoints: string[];
+  tone?: 'gold' | 'amber' | 'cream' | 'blue';
+}
+
+interface PricingBannerData {
+  title: string;
+  description: string;
+  amount: string;
+  duration: string;
+  linkText: string;
+  linkUrl: string;
+}
+
+interface Props {
+  steps: HypnoseStep[];
+  pricingBanner: PricingBannerData;
+  sectionId?: string;
+}
+
+const { steps, pricingBanner, sectionId = 'deroulement' } = Astro.props;
+---
+
+<section class="section coaching-method coaching-method-centered hypnose-method" id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <header class="coaching-method-centered__header" data-coaching-reveal>
+      <div class="approche-badge coaching-section-badge">
+        <span class="approche-badge-dot" style="background: var(--anne-hypnose-gold);"></span>
+        Protocole &amp; déroulement
+      </div>
+      <h2 class="heading-2">
+        <span class="coaching-method-title-line">Quatre temps pour cheminer </span>
+        <span class="coaching-method-title-line">en toute sérénité.</span>
+      </h2>
+      <p>Chaque séance dure 1h15 et suit une structure rigoureuse garantissant écoute attentive, confort et personnalisation absolue.</p>
+    </header>
+
+    <div class="coaching-journey coaching-journey--4steps" data-coaching-journey>
+      <div class="coaching-journey__line" aria-hidden="true">
+        <span class="coaching-journey__line-progress" id="hypnoseJourneyProgress"></span>
+      </div>
+
+      {steps.map((step, index) => (
+        <article class={`coaching-journey__item ${index % 2 === 1 ? 'is-right' : 'is-left'}`} data-coaching-step={index + 1} data-coaching-reveal>
+          <div class="coaching-journey__media">
+            <img src={step.image} alt={step.imageAlt} loading={index === 0 ? 'eager' : 'lazy'} width="1535" height="1024" />
+          </div>
+          <div class="coaching-journey__body">
+            <p class="coaching-journey__eyebrow">{step.number}</p>
+            <h3>{step.title}</h3>
+            <p class="coaching-journey__mantra">« {step.mantra} »</p>
+            <p class="coaching-journey__description">{step.description}</p>
+            <ul>
+              {step.keypoints.map((point) => <li><span aria-hidden="true">✓</span>{point}</li>)}
+            </ul>
+          </div>
+
+          <div class="coaching-journey__marker" aria-label={`Étape ${index + 1} : ${step.title}`}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Encart Modalités & Tarif -->
+    <div class="ac-price-callout coaching-method-price" data-coaching-reveal>
+      <div class="ac-price-callout__copy">
+        <div class="ac-price-callout__heading-group">
+          <p class="ac-eyebrow" style="color: var(--anne-hypnose-gold);"><span style="background: var(--anne-hypnose-gold);"></span>Modalités &amp; tarif</p>
+          <h3 class="ac-price-callout__title">{pricingBanner.title}</h3>
+        </div>
+        <p class="ac-price-callout__description">{pricingBanner.description}</p>
+        <div class="ac-price-callout__badge" style="background: rgba(214, 162, 79, 0.15); color: #8A6728;">
+          <span class="ac-price-callout__dot" style="background: #D6A24F;"></span>
+          <span>Cabinet à Voisins-le-Bretonneux &amp; Visioconférence · Facture mutuelle</span>
+        </div>
+      </div>
+      <div class="ac-price-callout__price">
+        <div class="ac-price-callout__amount-wrap">
+          <span class="ac-price-callout__amount">{pricingBanner.amount}</span>
+          <span class="ac-price-callout__duration">{pricingBanner.duration}</span>
+        </div>
+        <div class="ac-price-callout__actions">
+          <a href={pricingBanner.linkUrl} class="primary-button ac-price-callout__btn w-inline-block">
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div class="button-text">{pricingBanner.linkText} →</div>
+                <div class="button-text">{pricingBanner.linkText} →</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const journey = document.querySelector('[data-coaching-journey]');
+    const progressBar = document.getElementById('hypnoseJourneyProgress');
+    if (!journey || !progressBar) return;
+
+    const updateProgress = () => {
+      const rect = journey.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const total = rect.height;
+      const current = windowHeight * 0.5 - rect.top;
+      const ratio = Math.max(0, Math.min(1, current / total));
+      progressBar.style.transform = `scaleY(${ratio})`;
+
+      const steps = journey.querySelectorAll('[data-coaching-step]');
+      steps.forEach((step) => {
+        const stepRect = step.getBoundingClientRect();
+        const marker = step.querySelector('.coaching-journey__marker');
+        if (stepRect.top < windowHeight * 0.6) {
+          step.classList.add('is-active');
+          if (marker) marker.classList.add('is-active');
+        } else {
+          step.classList.remove('is-active');
+          if (marker) marker.classList.remove('is-active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  })();
+</script>

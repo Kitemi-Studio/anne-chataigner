@@ -1,0 +1,140 @@
+---
+interface Props {
+  sectionId?: string;
+}
+
+const { sectionId = 'approche-eclairage' } = Astro.props;
+---
+
+<section class="section hypnose-approach" id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <header class="hypnose-approach__header" data-coaching-reveal>
+      <div class="approche-badge coaching-section-badge">
+        <span class="approche-badge-dot" style="background: var(--anne-hypnose-gold);"></span>
+        Pédagogie &amp; Démystification
+      </div>
+      <h2 class="heading-2">
+        <span class="hypnose-approach-title-line">L'inconscient comme réservoir </span>
+        <span class="hypnose-approach-title-line">bienveillant de solutions.</span>
+      </h2>
+      <p>Contrairement aux clichés de l'hypnose de spectacle, l'hypnose Ericksonienne est une démarche collaborative, feutrée et respectueuse. Vous ne perdez jamais le contrôle : nous mobilisons pas à pas vos ressources profondes selon trois niveaux d'intégration.</p>
+    </header>
+
+    <!-- Visualisation Pyramidale Épurée & Ample -->
+    <div class="hypnose-pyramid-viewport" data-coaching-reveal>
+      <div class="hypnose-pyramid-wrap" id="hypnosePyramidWrap">
+        
+        <!-- SVG Geometric Ambient Rays & Pyramid Outlines -->
+        <svg class="hypnose-pyramid-svg" viewBox="0 0 760 520" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="goldBeamGrad" x1="380" y1="20" x2="380" y2="480" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#D6A24F" stop-opacity="0.35" />
+              <stop offset="60%" stop-color="#EBC284" stop-opacity="0.15" />
+              <stop offset="100%" stop-color="#D6A24F" stop-opacity="0.04" />
+            </linearGradient>
+            <linearGradient id="apexGlowGrad" x1="380" y1="20" x2="380" y2="120" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#D6A24F" stop-opacity="0.6" />
+              <stop offset="100%" stop-color="#D6A24F" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+
+          <!-- Ambient Ascending Beam -->
+          <polygon points="380,25 670,475 90,475" fill="url(#goldBeamGrad)" />
+          
+          <!-- Outer Guideline Triangle (Dashed) -->
+          <polygon points="380,30 650,470 110,470" stroke="rgba(214, 162, 79, 0.38)" stroke-width="1.5" stroke-dasharray="6 6" />
+
+          <!-- Floor Separator Lines -->
+          <line x1="247" y1="205" x2="513" y2="205" stroke="rgba(214, 162, 79, 0.45)" stroke-width="1.5" />
+          <line x1="178" y1="340" x2="582" y2="340" stroke="rgba(214, 162, 79, 0.45)" stroke-width="1.5" />
+
+          <!-- Apex Summit Glow -->
+          <circle cx="380" cy="30" r="14" fill="url(#apexGlowGrad)" />
+          <circle cx="380" cy="30" r="4.5" fill="#D6A24F" />
+          <circle cx="380" cy="30" r="2" fill="#ffffff" />
+        </svg>
+
+        <!-- Tier 03 : Le Sommet (Ressources & Intégration) -->
+        <div class="hypnose-tier hypnose-tier--summit" data-tier="3" tabindex="0">
+          <div class="hypnose-tier__badge">Niveau 03 · Sommet</div>
+          <h3 class="hypnose-tier__title">Ressources &amp; Intégration</h3>
+          <p class="hypnose-tier__desc">Mobilisation des capacités profondes, levée des freins inconscients et ancrage durable des nouveaux réflexes dans votre quotidien.</p>
+        </div>
+
+        <!-- Tier 02 : Niveau Intermédiaire (Attention & Métaphores) -->
+        <div class="hypnose-tier hypnose-tier--middle" data-tier="2" tabindex="0">
+          <div class="hypnose-tier__badge">Niveau 02 · Expérience Intérieure</div>
+          <h3 class="hypnose-tier__title">Attention, Imagination &amp; Métaphores</h3>
+          <p class="hypnose-tier__desc">État de détente et d'attention focalisée guidée par des récits et métaphores pour permettre au cerveau de réorganiser ses connexions avec fluidité.</p>
+        </div>
+
+        <!-- Tier 01 : La Base (Sécurité & Libre Arbitre) -->
+        <div class="hypnose-tier hypnose-tier--base" data-tier="1" tabindex="0">
+          <div class="hypnose-tier__badge">Niveau 01 · Socle Fondamental</div>
+          <h3 class="hypnose-tier__title">Sécurité &amp; Libre Arbitre</h3>
+          <p class="hypnose-tier__desc">Vous restez pleinement conscient(e), maître(sse) de votre séance et libre d'interrompre, de parler ou d'ajuster le guidage à chaque instant.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 3 Cartes de Points Clés Modernisées & Élégantes -->
+    <div class="hypnose-keypoints-modern-grid" data-coaching-reveal>
+      
+      <!-- Carte 1 -->
+      <article class="hypnose-modern-card">
+        <div class="hypnose-modern-card__top">
+          <span class="hypnose-modern-card__tag">
+            <span class="hypnose-modern-card__dot"></span>
+            01 · Libre Arbitre
+          </span>
+          <span class="hypnose-modern-card__icon-wrap" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </span>
+        </div>
+        <h3 class="hypnose-modern-card__title">Libre arbitre préservé</h3>
+        <p class="hypnose-modern-card__desc">Aucune suggestion n'est acceptée si elle ne résonne pas positivement et profondément en vous. Vous restez aux commandes.</p>
+        <div class="hypnose-modern-card__bottom">
+          <span class="hypnose-modern-card__indicator"></span>
+        </div>
+      </article>
+
+      <!-- Carte 2 -->
+      <article class="hypnose-modern-card">
+        <div class="hypnose-modern-card__top">
+          <span class="hypnose-modern-card__tag">
+            <span class="hypnose-modern-card__dot"></span>
+            02 · Personnalisation
+          </span>
+          <span class="hypnose-modern-card__icon-wrap" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </span>
+        </div>
+        <h3 class="hypnose-modern-card__title">Sur-mesure absolu</h3>
+        <p class="hypnose-modern-card__desc">Chaque séance est unique et s'adapte à votre sensibilité, votre questionnaire préalable et vos paysages intérieurs.</p>
+        <div class="hypnose-modern-card__bottom">
+          <span class="hypnose-modern-card__indicator"></span>
+        </div>
+      </article>
+
+      <!-- Carte 3 -->
+      <article class="hypnose-modern-card">
+        <div class="hypnose-modern-card__top">
+          <span class="hypnose-modern-card__tag">
+            <span class="hypnose-modern-card__dot"></span>
+            03 · Bienveillance
+          </span>
+          <span class="hypnose-modern-card__icon-wrap" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </span>
+        </div>
+        <h3 class="hypnose-modern-card__title">Douceur et confort</h3>
+        <p class="hypnose-modern-card__desc">Une sensation de détente corporelle, de clarté d'esprit et de repos mental profond et régénérant en toute confiance.</p>
+        <div class="hypnose-modern-card__bottom">
+          <span class="hypnose-modern-card__indicator"></span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>

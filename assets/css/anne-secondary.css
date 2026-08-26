@@ -5455,6 +5455,690 @@
   }
 }
 
+/* ==========================================================================
+   Page Hypnose Ericksonienne — Shared Design System & Palette Jaune Doré
+   ========================================================================== */
+.ac-page--hypnose {
+  scroll-behavior: smooth;
+  --anne-hypnose-gold: #D6A24F; /* Jaune doré principal */
+  --anne-hypnose-soft: #EBC284; /* Jaune doux */
+  --anne-hypnose-cream: #FBF5E8; /* Crème lumineux */
+  --anne-hypnose-amber: #8A6728; /* Ambre profond */
+  --anne-hypnose-glow: rgba(214, 162, 79, 0.35);
+  --coaching-cta: #281F10;
+  --coaching-cta-hover: #1C150B;
+}
+
+.hypnose-hero {
+  background-image: linear-gradient(180deg, rgba(40, 31, 16, 0.35) 0%, rgba(26, 20, 10, 0.8) 100%), url('/assets/anne%20hero%20header%202%20-%20nouveau%20bureau.png');
+  background-position: center 30%;
+  background-size: cover;
+}
+
+.hero-badge-pill--hypnose {
+  background: rgba(214, 162, 79, 0.28) !important;
+  border-color: rgba(251, 245, 232, 0.45) !important;
+  color: #ffffff !important;
+}
+
+.hero-badge-pill--hypnose .hero-badge-dot {
+  background: #D6A24F !important;
+}
+
+/* Primary Hero CTA — Gold version */
+.button-hero-primary--gold {
+  background-color: #D6A24F !important;
+  color: #2C2B29 !important;
+  border: 1px solid #D6A24F !important;
+  box-shadow: 0 8px 24px rgba(214, 162, 79, 0.35) !important;
+  font-weight: 600 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.button-hero-primary--gold:hover {
+  background-color: #8A6728 !important;
+  border-color: #8A6728 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(138, 103, 40, 0.45) !important;
+}
+
+/* Secondary Hero CTA — Gold version */
+.button-hero-secondary--gold {
+  background-color: transparent !important;
+  border: 1px solid rgba(214, 162, 79, 0.55) !important;
+  color: #ffffff !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.button-hero-secondary--gold:hover {
+  background-color: rgba(214, 162, 79, 0.22) !important;
+  border-color: #D6A24F !important;
+  transform: translateY(-2px);
+}
+
+/* Mouse Scroll Indicator — Gold */
+.ac-page--hypnose .hero-scroll-indicator .apple-mouse-icon {
+  border-color: rgba(214, 162, 79, 0.55) !important;
+  background: rgba(251, 245, 232, 0.85) !important;
+  box-shadow: 0 4px 14px rgba(214, 162, 79, 0.15) !important;
+}
+
+.ac-page--hypnose .hero-scroll-indicator:hover .apple-mouse-icon {
+  border-color: #D6A24F !important;
+  background: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(214, 162, 79, 0.28) !important;
+}
+
+.ac-page--hypnose .hero-scroll-indicator .apple-mouse-wheel {
+  background-color: #8A6728 !important;
+}
+
+.ac-page--hypnose .hero-scroll-indicator .hero-scroll-label {
+  color: #8A6728 !important;
+  font-weight: 600 !important;
+}
+
+/* Badges & Section headers */
+.ac-page--hypnose .coaching-section-badge {
+  background: rgba(214, 162, 79, 0.15) !important;
+  border-color: rgba(214, 162, 79, 0.35) !important;
+  color: #8A6728 !important;
+}
+
+.ac-page--hypnose .approche-badge-dot {
+  background: #D6A24F !important;
+}
+
+/* Situations */
+.ac-page--hypnose .coaching-situations__quote-bubble {
+  border-left: 3px solid #D6A24F !important;
+}
+
+.ac-page--hypnose .coaching-situations__caption-dot {
+  background: #D6A24F !important;
+}
+
+.ac-page--hypnose .pas-de-cote-item-icon {
+  background: rgba(214, 162, 79, 0.16) !important;
+  color: #8A6728 !important;
+}
+
+.ac-page--hypnose .coaching-situations__cta .primary-button:hover {
+  background-color: #8A6728 !important;
+  box-shadow: 0 8px 22px rgba(138, 103, 40, 0.3) !important;
+}
+
+/* ==========================================================================
+   Section Compréhension & Approche — Pyramide & Points Clés
+   ========================================================================== */
+.hypnose-approach {
+  background: #FCFAF6;
+  padding: 110px 0 120px;
+  position: relative;
+}
+
+.hypnose-approach__header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 56px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hypnose-approach__header .coaching-section-badge {
+  margin-bottom: 4px;
+}
+
+.hypnose-approach__header h2 {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(30px, 3vw, 42px) !important;
+  line-height: 1.2 !important;
+  color: var(--anne-ink-dark) !important;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.hypnose-approach-title-line {
+  display: block;
+}
+
+.hypnose-approach__header p {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+/* Viewport Pyramidal */
+.hypnose-pyramid-viewport {
+  margin: 50px auto 70px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hypnose-pyramid-wrap {
+  position: relative;
+  width: 760px;
+  height: 520px;
+  max-width: 100%;
+}
+
+.hypnose-pyramid-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* 3 Tiers / Niveaux de la Pyramide */
+.hypnose-tier {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(214, 162, 79, 0.32);
+  border-radius: 20px;
+  padding: 18px 24px;
+  box-shadow: 0 10px 30px rgba(44, 43, 41, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.hypnose-tier:hover {
+  transform: translateX(-50%) translateY(-3px) scale(1.02);
+  box-shadow: 0 18px 44px rgba(138, 103, 40, 0.14);
+  border-color: #D6A24F;
+  background: #ffffff;
+}
+
+.hypnose-tier__badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8A6728;
+  margin-bottom: 4px;
+}
+
+.hypnose-tier__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  color: var(--anne-ink-dark) !important;
+  margin: 0 0 6px 0;
+  line-height: 1.25 !important;
+}
+
+.hypnose-tier__desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--anne-ink);
+  margin: 0;
+}
+
+/* Tier Positions */
+/* Sommet : Niveau 3 */
+.hypnose-tier--summit {
+  top: 55px;
+  width: 380px;
+  background: linear-gradient(155deg, #ffffff 0%, #FDF8EE 100%);
+  border-color: rgba(214, 162, 79, 0.55);
+}
+
+/* Intermédiaire : Niveau 2 */
+.hypnose-tier--middle {
+  top: 218px;
+  width: 520px;
+}
+
+/* Base : Niveau 1 */
+.hypnose-tier--base {
+  top: 365px;
+  width: 660px;
+}
+
+/* 3 Modern Cards below Pyramid */
+.hypnose-keypoints-modern-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.hypnose-modern-card {
+  background: linear-gradient(155deg, #ffffff 0%, #FDFBF7 100%);
+  border: 1px solid rgba(214, 162, 79, 0.28);
+  border-radius: 24px;
+  padding: 34px 32px 30px;
+  box-shadow: 0 10px 30px rgba(44, 43, 41, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.hypnose-modern-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px rgba(138, 103, 40, 0.12);
+  border-color: rgba(214, 162, 79, 0.65);
+}
+
+.hypnose-modern-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.hypnose-modern-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8A6728;
+}
+
+.hypnose-modern-card__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #D6A24F;
+}
+
+.hypnose-modern-card__icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(214, 162, 79, 0.15);
+  color: #8A6728;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.hypnose-modern-card:hover .hypnose-modern-card__icon-wrap {
+  background: #D6A24F;
+  color: #ffffff;
+  transform: rotate(10deg);
+}
+
+.hypnose-modern-card__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(20px, 1.8vw, 24px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: var(--anne-ink-dark) !important;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.015em;
+}
+
+.hypnose-modern-card__desc {
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--anne-ink);
+  margin: 0;
+  flex-grow: 1;
+}
+
+.hypnose-modern-card__bottom {
+  margin-top: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(214, 162, 79, 0.16);
+  position: relative;
+  overflow: hidden;
+}
+
+.hypnose-modern-card__indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 100%;
+  border-radius: 999px;
+  background: #D6A24F;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hypnose-modern-card:hover .hypnose-modern-card__indicator {
+  width: 100%;
+}
+
+/* Repli Mobile Pyramide */
+@media (max-width: 860px) {
+  .hypnose-pyramid-wrap {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hypnose-pyramid-svg {
+    display: none;
+  }
+
+  .hypnose-tier {
+    position: static;
+    transform: none;
+    width: 100% !important;
+    max-width: 480px;
+  }
+
+  .hypnose-tier:hover {
+    transform: none;
+  }
+
+  .hypnose-keypoints-modern-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* ==========================================================================
+   Hypnose Timeline & Method
+   ========================================================================== */
+.ac-page--hypnose .coaching-method-centered .coaching-journey__line-progress {
+  background: linear-gradient(180deg, #D6A24F 0%, #EBC284 50%, #8A6728 100%);
+}
+
+.ac-page--hypnose .coaching-journey__eyebrow {
+  color: #8A6728 !important;
+}
+
+.ac-page--hypnose .coaching-method-centered .coaching-journey__item.is-active .coaching-journey__body {
+  transform: translateY(-5px);
+  border-color: rgba(214, 162, 79, 0.55);
+  box-shadow: 0 25px 54px rgba(138, 103, 40, 0.1);
+}
+
+.ac-page--hypnose .coaching-method-centered .coaching-journey__marker.is-active {
+  border-color: #D6A24F;
+  color: #8A6728;
+}
+
+.ac-page--hypnose .ac-price-callout {
+  border: 1px solid rgba(214, 162, 79, 0.32);
+}
+
+.ac-page--hypnose .ac-price-callout:hover {
+  border-color: rgba(214, 162, 79, 0.65);
+  box-shadow: 0 20px 48px rgba(138, 103, 40, 0.12);
+}
+
+.ac-page--hypnose .ac-price-callout__badge {
+  background: rgba(214, 162, 79, 0.15);
+  color: #8A6728;
+}
+
+.ac-page--hypnose .ac-price-callout__dot {
+  background: #D6A24F;
+}
+
+.ac-page--hypnose .ac-price-callout__btn:hover {
+  background-color: #8A6728 !important;
+}
+
+/* ==========================================================================
+   Hypnose Benefits — Centered Stacking Cards (Sticky Effect)
+   ========================================================================== */
+.hypnose-benefits-stacked {
+  padding: 120px 0 140px;
+  background: var(--anne-surface);
+  position: relative;
+}
+
+.hypnose-benefits__heading-centered {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 64px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hypnose-benefits__heading-centered .coaching-section-badge {
+  margin-bottom: 6px;
+  background: rgba(214, 162, 79, 0.15) !important;
+  border-color: rgba(214, 162, 79, 0.35) !important;
+  color: #8A6728 !important;
+}
+
+.hypnose-benefits__heading-centered h2 {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(34px, 3.6vw, 48px) !important;
+  font-weight: 700 !important;
+  line-height: 1.16;
+  color: var(--anne-ink-dark);
+  letter-spacing: -0.02em;
+  margin: 0 0 14px 0;
+}
+
+.hypnose-benefits__heading-centered .text {
+  font-size: 17px;
+  line-height: 1.68;
+  color: var(--anne-ink);
+  max-width: 640px;
+  margin: 0;
+}
+
+/* Stacking Container */
+.hypnose-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+/* Individual Stacking Card */
+.hypnose-stack-card {
+  position: sticky;
+  top: calc(105px + var(--stack-index, 0) * 22px);
+  min-height: 480px;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 20px 54px rgba(38, 28, 14, 0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 46px;
+  background-color: #221A0E;
+  transform-origin: center top;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.hypnose-stack-card:hover {
+  box-shadow: 0 26px 64px rgba(38, 28, 14, 0.28);
+}
+
+/* Full Background Image + Warm Gold/Amber Overlay */
+.hypnose-stack-card__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hypnose-stack-card__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hypnose-stack-card:hover .hypnose-stack-card__bg img {
+  transform: scale(1.06);
+}
+
+.hypnose-stack-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(42, 32, 16, 0.42) 0%,
+    rgba(32, 24, 12, 0.68) 45%,
+    rgba(20, 15, 8, 0.94) 100%
+  );
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+}
+
+/* Top Tag Pill */
+.hypnose-stack-card__top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hypnose-stack-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(214, 162, 79, 0.25);
+  border: 1px solid rgba(251, 245, 232, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hypnose-stack-card__tag-num {
+  font-family: var(--_typography---font-family--heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: #FBF5E8;
+}
+
+.hypnose-stack-card__tag-divider {
+  opacity: 0.6;
+}
+
+.hypnose-stack-card__tag-eyebrow {
+  color: #ffffff;
+}
+
+/* Bottom Content */
+.hypnose-stack-card__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 680px;
+}
+
+.hypnose-stack-card__title {
+  font-family: var(--_typography---font-family--heading) !important;
+  font-size: clamp(28px, 2.8vw, 38px) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.015em;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.hypnose-stack-card__desc {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 6px 0;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.hypnose-stack-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  margin-top: 6px;
+}
+
+.hypnose-stack-card__pill {
+  font-size: 13.5px;
+  color: #FBF5E8;
+  font-weight: 500;
+}
+
+.hypnose-stack-card__arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: transform 0.3s ease, background-color 0.25s ease;
+}
+
+.hypnose-stack-card:hover .hypnose-stack-card__arrow {
+  transform: translateX(4px);
+  background: #D6A24F;
+}
+
+@media (max-width: 768px) {
+  .hypnose-benefits-stacked {
+    padding: 80px 0 100px;
+  }
+
+  .hypnose-cards-stack {
+    gap: 24px;
+  }
+
+  .hypnose-stack-card {
+    min-height: 420px;
+    padding: 28px 24px;
+    border-radius: 24px;
+    top: calc(85px + var(--stack-index, 0) * 14px);
+  }
+
+  .hypnose-stack-card__title {
+    font-size: 26px !important;
+  }
+
+  .hypnose-stack-card__desc {
+    font-size: 15px;
+  }
+}
+
+
 
 
 

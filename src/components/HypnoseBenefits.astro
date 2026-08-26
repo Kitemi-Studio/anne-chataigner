@@ -1,0 +1,73 @@
+---
+interface BenefitCard {
+  step: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  tone?: 'gold' | 'amber' | 'cream' | 'blue';
+}
+
+interface Props {
+  cards: BenefitCard[];
+  sectionId?: string;
+}
+
+const { cards, sectionId = 'benefices' } = Astro.props;
+---
+
+<section class="section coaching-benefits hypnose-benefits hypnose-benefits-stacked" id={sectionId}>
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="coaching-benefits__heading hypnose-benefits__heading-centered" data-coaching-reveal>
+      <div class="approche-badge coaching-section-badge">
+        <span class="approche-badge-dot" style="background: var(--anne-hypnose-gold);"></span>
+        Piliers &amp; Bénéfices
+      </div>
+      <h2 class="heading-2">
+        <span class="coaching-benefits-title-line">Ce que la pratique de l'hypnose </span>
+        <span class="coaching-benefits-title-line">vous apporte au quotidien.</span>
+      </h2>
+      <p class="text">Découvrez comment cette démarche débloque les automatismes et installe un soulagement profond et durable dans votre vie.</p>
+    </div>
+
+    <!-- Centered Stacking Cards Container -->
+    <div class="hypnose-cards-stack">
+      {cards.map((card, index) => (
+        <article
+          class={`hypnose-stack-card hypnose-stack-card--${card.tone || 'gold'}`}
+          style={`--stack-index: ${index};`}
+          data-coaching-reveal
+        >
+          <!-- Full Card Background Image -->
+          <div class="hypnose-stack-card__bg">
+            <img src={card.image} alt={card.imageAlt} loading="lazy" width="1536" height="1024" />
+            <div class="hypnose-stack-card__overlay"></div>
+          </div>
+
+          <!-- Top Row Badge / Step Number -->
+          <div class="hypnose-stack-card__top">
+            <span class="hypnose-stack-card__tag">
+              <span class="hypnose-stack-card__tag-num">{card.step}</span>
+              <span class="hypnose-stack-card__tag-divider">·</span>
+              <span class="hypnose-stack-card__tag-eyebrow">{card.eyebrow}</span>
+            </span>
+          </div>
+
+          <!-- Bottom Text Content -->
+          <div class="hypnose-stack-card__content">
+            <h3 class="hypnose-stack-card__title">{card.title}</h3>
+            <p class="hypnose-stack-card__desc">{card.description}</p>
+            
+            <div class="hypnose-stack-card__footer">
+              <span class="hypnose-stack-card__pill">Ressources &amp; équilibre</span>
+              <span class="hypnose-stack-card__arrow" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

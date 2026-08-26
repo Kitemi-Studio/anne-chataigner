@@ -2,111 +2,127 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
-import SituationCloud from '../components/SituationCloud.astro';
-import InsightSection from '../components/InsightSection.astro';
-import ProcessTimeline from '../components/ProcessTimeline.astro';
-import BenefitGrid from '../components/BenefitGrid.astro';
+import HypnoseHero from '../components/HypnoseHero.astro';
+import HypnoseSituations from '../components/HypnoseSituations.astro';
+import HypnosePyramidDiagram from '../components/HypnosePyramidDiagram.astro';
+import HypnoseMethod from '../components/HypnoseMethod.astro';
+import HypnoseBenefits from '../components/HypnoseBenefits.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
-import RelatedServices from '../components/RelatedServices.astro';
-import InteriorCta from '../components/InteriorCta.astro';
+import HypnoseNextSteps from '../components/HypnoseNextSteps.astro';
+import HypnoseCta from '../components/HypnoseCta.astro';
 
 const hypnoseTags = [
-  { text: "Troubles du sommeil & insomnies", color: "terracotta", size: "lg" },
-  { text: "Automatismes & compulsions", color: "amber", size: "md" },
-  { text: "Gestion du stress aigu & anxiété", color: "blue", size: "lg" },
-  { text: "Trac & prise de parole en public", color: "rose", size: "md" },
-  { text: "Peur ciblée (avion, transports)", color: "slate", size: "sm" },
-  { text: "Grignotages & pulsions émotionnelles", color: "terracotta", size: "lg" },
-  { text: "Préparation mentale aux examens", color: "sage", size: "md" },
-  { text: "Libération d'un blocage inconscient", color: "amber", size: "lg" },
-  { text: "Tensions corporelles chroniques", color: "blue", size: "sm" },
-  { text: "Confiance & légitimité profonde", color: "green", size: "lg" },
-  { text: "Accompagnement d'un deuil ou rupture", color: "rose", size: "md" },
-  { text: "Désactivation d'une phobie", color: "terracotta", size: "md" },
-  { text: "Accès à sa créativité intérieure", color: "sage", size: "sm" },
-  { text: "Apaisement émotionnel en douceur", color: "terracotta", size: "lg" }
+  { text: "Troubles du sommeil, réveils nocturnes & insomnies", color: "gold" },
+  { text: "Automatismes & compulsions", color: "amber" },
+  { text: "Gestion du stress aigu, surcharge & anxiété", color: "gold" },
+  { text: "Trac & prise de parole en public", color: "amber" },
+  { text: "Peur ciblée (avion, transports, claustrophobie)", color: "gold" },
+  { text: "Grignotages & pulsions émotionnelles", color: "amber" },
+  { text: "Préparation mentale aux examens & entretiens", color: "gold" },
+  { text: "Libération d'un blocage inconscient persistant", color: "amber" },
+  { text: "Tensions corporelles chroniques & somatisations", color: "gold" },
+  { text: "Confiance en soi & légitimité profonde", color: "amber" },
+  { text: "Accompagnement d'un deuil ou d'une rupture", color: "gold" },
+  { text: "Désactivation d'une phobie ancienne", color: "amber" },
+  { text: "Accès à sa créativité & intuition intérieure", color: "gold" },
+  { text: "Apaisement émotionnel en douceur & lâcher-prise", color: "amber" }
 ];
 
 const hypnoseSteps = [
   {
-    number: "Étape 01",
-    title: "Questionnaire préparatoire en amont",
+    number: "Étape 01 · Préparation en amont",
+    title: "Questionnaire préparatoire",
+    mantra: "Poser vos réflexions avant la séance pour un guidage sur-mesure",
     description: "Transmis avant notre rendez-vous, ce questionnaire vous permet de poser vos réflexions et me donne les clés indispensables pour concevoir une séance entièrement personnalisée.",
+    image: "/assets/step-1-ecouter%20-%20nouveau%20bureau.png",
+    imageAlt: "Questionnaire et préparation de la séance d'hypnose",
+    tone: "gold",
     keypoints: [
       "Temps de réflexion personnelle préalable",
       "Identification précise de vos attentes",
-      "Préparation d'un guidage sur-mesure"
-    ],
-    badgeBg: "#FAF1EC",
-    badgeColor: "#78321A"
+      "Préparation d'un guidage métaphorique sur-mesure"
+    ]
   },
   {
-    number: "Étape 02",
-    title: "Temps d'échange & précision de la demande",
-    description: "En début de séance, nous échangeons sur votre questionnaire, répondons à vos questions éventuelles et fixons ensemble l'intention exacte de la transe.",
+    number: "Étape 02 · Échange & Clarification",
+    title: "Précision de votre demande",
+    mantra: "Définir ensemble l'intention exacte du travail hypnotique",
+    description: "En début de consultation, nous échangeons sur votre questionnaire, répondons à vos questions éventuelles et fixons ensemble l'intention exacte de la transe.",
+    image: "/assets/step-2-explorer%20-%20nouveau%20bureau.png",
+    imageAlt: "Temps d'échange et de précision en début de séance",
+    tone: "amber",
     keypoints: [
-      "Clarification de l'objectif de séance",
+      "Clarification précise de votre objectif",
       "Démystification et mise en confiance",
-      "Choix des métaphores qui vous parlent"
-    ],
-    badgeBg: "#FAF1EC",
-    badgeColor: "#78321A"
+      "Choix des métaphores qui résonnent en vous"
+    ]
   },
   {
-    number: "Étape 03",
-    title: "Séquence d'hypnose personnalisée",
-    description: "Confortablement installé(e), guidé(e) par ma voix dans un état de relaxation profonde, vous explorez vos paysages intérieurs et mobilisez vos ressources inconscientes.",
+    number: "Étape 03 · Expérience & Transe",
+    title: "Séquence d'hypnose guidée",
+    mantra: "Explorer vos paysages intérieurs en toute sécurité",
+    description: "Confortablement installé(e), guidé(e) par ma voix dans un état de relaxation et d'attention focalisée, vous explorez vos paysages intérieurs et mobilisez vos ressources inconscientes.",
+    image: "/assets/image%202.png",
+    imageAlt: "Guidage en hypnose ericksonienne dans un cadre feutré",
+    tone: "gold",
     keypoints: [
-      "État d'attention focalisée et de détente",
+      "État d'attention focalisée et de profonde détente",
       "Suggestions métaphoriques respectueuses",
       "Libre arbitre et maîtrise totale conservés"
-    ],
-    badgeBg: "#FAF1EC",
-    badgeColor: "#78321A"
+    ]
   },
   {
-    number: "Étape 04",
+    number: "Étape 04 · Ancrage & Retour",
     title: "Temps de retour & intégration",
+    mantra: "Laisser le travail s'ancrer durablement dans vos journées",
     description: "Un retour tout en douceur à votre état de veille habituel, suivi d'un échange bienveillant pour partager vos ressentis et laisser le travail s'ancrer naturellement.",
+    image: "/assets/step-4-avancer%20-%20Anne.png",
+    imageAlt: "Intégration et consolidation des apprentissages après la séance",
+    tone: "amber",
     keypoints: [
-      "Réémergence progressive et sereine",
+      "Réémergence progressive, fluide et sereine",
       "Partage d'impressions post-séance",
-      "Intégration fluide dans les jours suivants"
-    ],
-    badgeBg: "#FAF1EC",
-    badgeColor: "#78321A"
+      "Intégration pérenne dans les jours suivants"
+    ]
   }
 ];
 
 const hypnoseBenefits = [
   {
     step: "01",
-    title: "Sécurité & Maîtrise totale",
-    description: "Vous restez parfaitement conscient(e) et maître(sse) de tout ce qui se passe durant la séance. Aucun automatisme forcé.",
-    color: "terracotta",
-    iconType: "shield"
+    eyebrow: "Sécurité & Conscience",
+    title: "Sécurité & maîtrise totale",
+    description: "Vous restez parfaitement conscient(e) et maître(sse) de tout ce qui se passe durant la séance. Aucun automatisme forcé, votre libre arbitre est respecté à chaque seconde.",
+    image: "/assets/step-1-ecouter.jpg",
+    imageAlt: "Sécurité et cadre bienveillant au cabinet",
+    tone: "gold"
   },
   {
     step: "02",
+    eyebrow: "Ressources Inconscientes",
     title: "Accès aux ressources profondes",
-    description: "Contournez les résistances du mental logique pour activer des capacités et des solutions jusqu'alors inaccessibles.",
-    color: "blue",
-    iconType: "sparkles"
+    description: "Contournez les résistances du mental logique pour activer des capacités, des mémoires positives et des solutions intuitives jusqu'alors inaccessibles.",
+    image: "/assets/step-2-explorer.jpg",
+    imageAlt: "Accès aux capacités et ressources profondes",
+    tone: "gold"
   },
   {
     step: "03",
+    eyebrow: "Neuroplasticité Douce",
     title: "Créativité métaphorique",
-    description: "Votre cerveau réorganise ses connexions et associations d'idées de façon douce, fluide et profondément réparatrice.",
-    color: "sage",
-    iconType: "feather"
+    description: "Votre cerveau réorganise ses connexions et associations d'idées de façon douce, fluide et profondément réparatrice grâce au langage des symboles.",
+    image: "/assets/image%203.png",
+    imageAlt: "Créativité intérieure et libération des blocages",
+    tone: "gold"
   },
   {
     step: "04",
-    title: "Changement écologique & durable",
-    description: "Les nouveaux apprentissages s'intègrent à votre propre rythme, en harmonie totale avec vos valeurs et vos besoins.",
-    color: "amber",
-    iconType: "heart"
+    eyebrow: "Pérennité & Respect",
+    title: "Changement écologique durable",
+    description: "Les nouveaux apprentissages et réflexes s'intègrent à votre propre rythme, en harmonie totale avec vos valeurs, vos besoins et votre équilibre de vie.",
+    image: "/assets/step-4-avancer.jpg",
+    imageAlt: "Changement durable et harmonieux au quotidien",
+    tone: "gold"
   }
 ];
 
@@ -142,103 +158,95 @@ const hypnoseFaq = [
   title="Hypnose Ericksonienne à Voisins-le-Bretonneux · Anne Chataigner"
   description="Séances d'hypnose ericksonienne dans les Yvelines pour mobiliser vos ressources inconscientes, libérer les blocages et dépasser les automatismes limitants."
 >
-  <Navbar slot="navbar" />
+  <Navbar variant="home" slot="navbar" />
 
-  <main id="main-content">
-    <!-- Hero Header Atmosphérique Immersion -->
-    <PageHeroAtmospheric 
-      badgeText="Hypnose Ericksonienne thérapeutique"
-      badgeType="hypnose"
-      title="Mobiliser vos ressources profondes pour libérer le changement."
-      lead="Une démarche respectueuse, collaborative et sans perte de contrôle. L'hypnose Ericksonienne permet de dialoguer avec votre inconscient pour assouplir les résistances et activer vos solutions intérieures à votre rythme."
-      primaryCtaText="Prendre rendez-vous"
-      primaryCtaLink="#contact"
-      secondaryCtaText="Découvrir le protocole"
-      secondaryCtaLink="#reperes"
-      scrollTargetId="reperes"
-      scrollLabel="Découvrir"
-    />
+  <main id="main-content" class="ac-page--hypnose">
+    <HypnoseHero />
 
-    <!-- Section 1 : Nuage de Situations & Demandes -->
-    <SituationCloud 
-      subtitle="Votre point de départ"
-      title="Des demandes couramment accompagnées en hypnose"
-      lead="L'hypnose permet d'agir avec finesse là où la seule volonté intellectuelle se heurte à des automatismes anciens."
-      tags={hypnoseTags}
-      quote="« Votre inconscient en sait beaucoup plus que vous ne croyez en savoir. » — <em>Milton H. Erickson</em>"
-      sectionId="reperes"
-      theme="hypnose"
-    />
+    <HypnoseSituations tags={hypnoseTags} />
 
-    <!-- Section 2 : Éclairage / Démystification & Pédagogie -->
-    <InsightSection 
-      badgeText="Pédagogie & Démystification"
-      badgeType="hypnose"
-      title="L'inconscient comme réservoir bienveillant de solutions"
-      lead="Loin de l'illusion du contrôle absolu ou de la prise de pouvoir sur l'autre, découvrez ce qu'est véritablement l'hypnose thérapeutique."
-      bodyParagraphs={[
-        "Contrairement à l'hypnose de spectacle qui mise sur l'autorité et la soumission, l'<strong>Hypnose Ericksonienne</strong> créée par le psychiatre américain Milton H. Erickson est une méthode permissive et collaborative.",
-        "Elle part du postulat fondamental que vous possédez déjà en vous toutes les ressources nécessaires pour guérir, vous apaiser et changer. L'inconscient n'est pas un lieu obscur de pulsions, mais un réservoir immense d'apprentissages, de souvenirs et de capacités d'auto-régulation.",
-        "Pendant la séance, vous n'êtes jamais passif(ve) : vous vivez une expérience intérieure riche guidée par des récits, des images et des métaphores qui permettent à votre esprit de créer de nouvelles voies neuronales plus confortables."
-      ]}
-      highlightBoxTitle="Une éthique rigoureuse et bienveillante"
-      highlightBoxText="La séance se déroule toujours dans le respect strict de votre intégrité. Vous pouvez ouvrir les yeux, parler, bouger ou décider d'interrompre l'exercice à n'importe quel moment."
-      keypoints={[
-        { title: "Libre arbitre préservé", description: "Aucune suggestion n'est acceptée si elle ne résonne pas positivement en vous." },
-        { title: "Sur-mesure absolu", description: "Chaque séance est unique et s'adapte à vos métaphores et souvenirs personnels." },
-        { title: "Douceur et confort", description: "Une sensation de détente corporelle et de repos mental profond." }
-      ]}
-      sectionId="approche-eclairage"
-      bgColor="#ffffff"
-    />
+    <HypnosePyramidDiagram />
 
-    <!-- Section 3 : Déroulement en 4 étapes strictes -->
-    <ProcessTimeline 
-      subtitle="Protocole & Déroulement"
-      title="Le déroulement d'une séance en 4 étapes"
-      lead="Chaque séance dure 1h15 et suit une structure rigoureuse garantissant confort, écoute et personnalisation."
+    <HypnoseMethod
       steps={hypnoseSteps}
       pricingBanner={{
-        tag: "Modalités & Tarif",
         title: "Séance d'Hypnose Ericksonienne",
         description: "Un questionnaire préparatoire en amont, un temps d'échange pour préciser votre demande, une séquence d'hypnose personnalisée et un temps de retour en fin de séance.",
         amount: "110 €",
         duration: "Durée : 1 h 15",
-        linkText: "Consulter tous les tarifs →",
-        linkUrl: "/tarifs",
-        tagColor: "#78321A"
+        linkText: "Consulter tous les tarifs",
+        linkUrl: "/tarifs"
       }}
-      sectionId="deroulement"
-      bgColor="#FAF5F2"
     />
 
-    <!-- Section 4 : Grille des 4 Piliers de l'État Hypnotique -->
-    <BenefitGrid 
-      subtitle="Piliers & Bénéfices"
-      title="Ce que la pratique de l'hypnose vous apporte"
-      lead="Découvrez comment cette démarche débloque les automatismes et installe un soulagement profond au quotidien."
-      cards={hypnoseBenefits}
-      sectionId="benefices"
-    />
+    <HypnoseBenefits cards={hypnoseBenefits} />
 
-    <!-- Section 5 : FAQ Accordéon Détaillée -->
     <FaqAccordion 
       items={hypnoseFaq}
       subtitle="Questions fréquentes"
-      title="Tout comprendre sur l'hypnose Ericksonienne"
+      title="Tout ce que vous devez savoir sur l'hypnose."
       badgeType="hypnose"
+      variant="home"
     />
 
-    <!-- Section 6 : Passerelles vers les autres approches -->
-    <RelatedServices currentService="hypnose" />
+    <HypnoseNextSteps />
 
-    <!-- Section 7 : CTA Final -->
-    <InteriorCta 
-      title="Prêt(e) à activer vos ressources profondes ?"
-      lead="Réservez votre séance au cabinet de Voisins-le-Bretonneux ou contactez-moi pour toute question préalable."
-      buttonText="Prendre rendez-vous"
-    />
+    <HypnoseCta />
   </main>
 
-  <Footer slot="footer" />
+  <Footer variant="home" slot="footer" />
 </Layout>
+
+<script is:inline src="/assets/js/lenis.min.js"></script>
+<script is:inline>
+  (() => {
+    const page = document.querySelector('.ac-page--hypnose');
+    if (!page) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let lenis = null;
+
+    if (!reduceMotion && typeof window.Lenis !== 'undefined') {
+      lenis = new window.Lenis({
+        duration: 1.12,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        touchMultiplier: 1.15
+      });
+
+      const raf = (time) => {
+        lenis.raf(time);
+        window.requestAnimationFrame(raf);
+      };
+      window.requestAnimationFrame(raf);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', (event) => {
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          event.preventDefault();
+          if (lenis) {
+            lenis.scrollTo(target, { offset: -30, duration: 1.2 });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('[data-coaching-reveal]').forEach((el) => {
+      observer.observe(el);
+    });
+  })();
+</script>

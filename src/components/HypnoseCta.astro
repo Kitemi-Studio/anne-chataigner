@@ -1,0 +1,49 @@
+---
+import { BOOKING_URL } from '../config/site';
+
+interface Props {
+  sectionId?: string;
+}
+
+const { sectionId = 'contact' } = Astro.props;
+---
+
+<section class="section cta coaching-cta hypnose-cta" id={sectionId}>
+  <div class="cta-background">
+    <div class="w-layout-blockcontainer container cta w-container">
+      <div class="vertical-headline center">
+        <h2 class="heading-1 cta-heading">Prêt(e) à activer vos ressources profondes ?</h2>
+        <p class="text white coaching-cta__lead">
+          Un premier échange permet de faire le point sur votre demande, de poser vos questions et d'envisager ensemble la démarche la plus juste.
+        </p>
+        <div class="button-wrapper">
+          <a href={BOOKING_URL} data-wf--button--variant="white" class="primary-button w-variant-df50d2b4-2dcf-06cb-393e-886e8cb0681e w-inline-block" data-booking-link>
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div button-text="" class="button-text">Prendre rendez-vous</div>
+                <div button-text="" class="button-text">Prendre rendez-vous</div>
+              </div>
+            </div>
+          </a>
+          <a href="#accueil" data-wf--button--variant="secondary-white" class="primary-button button-hero-secondary w-variant-f0ba9e15-0444-e4fc-a8e1-1c47fa2d65ed w-inline-block">
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div button-text="" class="button-text">Revenir en haut ↑</div>
+                <div button-text="" class="button-text">Revenir en haut ↑</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="cta-cabinet-info">
+          <span>
+            <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16.5 8.2c0 4.1-6.5 8.8-6.5 8.8S3.5 12.3 3.5 8.2a6.5 6.5 0 1 1 13 0Z" stroke="currentColor" stroke-width="1.3"></path>
+              <circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.3"></circle>
+            </svg>
+            Cabinet à Voisins-le-Bretonneux · 2 Rue de la Bergerie, 78960
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
