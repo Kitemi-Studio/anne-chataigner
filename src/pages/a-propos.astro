@@ -2,111 +2,27 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHeroAtmospheric from '../components/PageHeroAtmospheric.astro';
-import SituationCloud from '../components/SituationCloud.astro';
-import BenefitGrid from '../components/BenefitGrid.astro';
-import ProcessTimeline from '../components/ProcessTimeline.astro';
-import FaqAccordion from '../components/FaqAccordion.astro';
-import InteriorCta from '../components/InteriorCta.astro';
-
-const aboutTags = [
-  { text: "Écoute active & sans jugement", color: "sage", size: "lg" },
-  { text: "20 ans d'accompagnement humain", color: "blue", size: "lg" },
-  { text: "Confidentialité absolue", color: "slate", size: "md" },
-  { text: "Progression par petits pas", color: "green", size: "md" },
-  { text: "Approche intégrative sur-mesure", color: "terracotta", size: "lg" },
-  { text: "Le principe du pas de côté", color: "amber", size: "md" },
-  { text: "Respect du libre arbitre", color: "sage", size: "sm" },
-  { text: "Cadre feutré & sécurisant", color: "blue", size: "lg" },
-  { text: "Mobilisation de vos ressources", color: "amber", size: "md" },
-  { text: "Bienveillance & pragmatisme", color: "green", size: "sm" },
-  { text: "Cabinet à Voisins-le-Bretonneux", color: "terracotta", size: "lg" },
-  { text: "Séances également en visio", color: "slate", size: "md" },
-  { text: "Spirale ascendante positive", color: "sage", size: "lg" }
-];
-
-const aboutPrinciples = [
-  {
-    step: "01",
-    title: "La force du 'Pas de côté'",
-    description: "Il n'est pas nécessaire d'attendre d'aller très mal pour consulter. S'accorder une pause permet d'anticiper, de clarifier et de décider avec sérénité.",
-    color: "sage",
-    iconType: "compass"
-  },
-  {
-    step: "02",
-    title: "La spirale des petits pas",
-    description: "Les transformations pérennes ne naissent pas de bouleversements brutaux, mais d'une série de micro-actions réalistes et répétées avec confiance.",
-    color: "blue",
-    iconType: "zap"
-  },
-  {
-    step: "03",
-    title: "Vos ressources intérieures",
-    description: "Vous êtes l'expert(e) de votre vie. Mon rôle n'est pas de vous imposer un modèle rigide, mais de vous aider à reconnecter avec vos propres forces.",
-    color: "terracotta",
-    iconType: "heart"
-  },
-  {
-    step: "04",
-    title: "Une boîte à outils intégrative",
-    description: "Coaching, thérapies brèves et hypnose s'associent harmonieusement pour créer un accompagnement souple qui s'adapte à votre sensibilité.",
-    color: "amber",
-    iconType: "layers"
-  }
-];
-
-const aboutTools = [
-  {
-    number: "Outil 01",
-    title: "Coaching individuel & de transition",
-    description: "Idéal pour clarifier un cap professionnel, surmonter un dilemme de vie, poser des limites sereines et passer méthodiquement à l'action.",
-    keypoints: [
-      "Orientation avenir & passage à l'action",
-      "Tri des priorités stratégiques",
-      "Renforcement du leadership personnel"
-    ],
-    badgeBg: "rgba(129, 146, 172, 0.18)",
-    badgeColor: "#2F425E"
-  },
-  {
-    number: "Outil 02",
-    title: "Thérapies brèves intégratives",
-    description: "Pour réguler la charge mentale, apaiser le système nerveux, sortir des schémas répétitifs et traverser les épreuves avec douceur.",
-    keypoints: [
-      "Pragmatisme centré sur le présent",
-      "Désactivation des boucles de stress",
-      "Outils concrets d'auto-apaisement"
-    ],
-    badgeBg: "rgba(126, 145, 122, 0.18)",
-    badgeColor: "#2E452A"
-  },
-  {
-    number: "Outil 03",
-    title: "Hypnose Ericksonienne",
-    description: "Une approche respectueuse et collaborative pour dialoguer avec l'inconscient, modifier les automatismes et activer vos potentiels profonds.",
-    keypoints: [
-      "Sécurité et conscience préservées",
-      "Résolution des blocages inconscients",
-      "Intégration fluide et naturelle"
-    ],
-    badgeBg: "rgba(223, 163, 139, 0.22)",
-    badgeColor: "#78321A"
-  }
-];
+import AboutHero from '../components/AboutHero.astro';
+import AboutManifesto from '../components/AboutManifesto.astro';
+import AboutStoryPath from '../components/AboutStoryPath.astro';
+import AboutSignatureNotHere from '../components/AboutSignatureNotHere.astro';
+import AboutCompass from '../components/AboutCompass.astro';
+import AboutApproachesIndex from '../components/AboutApproachesIndex.astro';
+import AboutCabinet from '../components/AboutCabinet.astro';
+import AboutFaqAndCta from '../components/AboutFaqAndCta.astro';
 
 const aboutFaq = [
   {
-    question: "Quel est votre cadre déontologique ?",
-    answer: "Mon exercice professionnel repose sur des principes éthiques stricts : <strong>confidentialité absolue</strong> de tout ce qui est partagé en séance, <strong>absence totale de jugement</strong>, respect de votre intégrité et de votre rythme, et transparence sur les limites de mon champ de compétences."
+    question: "Quel est votre cadre déontologique et éthique ?",
+    answer: "Mon exercice professionnel repose sur des principes stricts et non négociables : <strong>confidentialité absolue</strong> de tout ce qui est partagé en séance, <strong>absence totale de jugement</strong>, respect scrupuleux de votre intégrité et de votre rythme, et transparence totale sur les limites de mon champ de compétences."
   },
   {
     question: "Comment combinez-vous coaching, thérapies brèves et hypnose ?",
-    answer: "Je pratique une <strong>approche intégrative</strong> : les outils ne sont jamais appliqués de façon dogmatique. Lors de notre premier échange, nous clarifions votre besoin. Nous pouvons mobiliser le coaching pour clarifier une décision, les thérapies brèves pour apaiser une anxiété, et l'hypnose pour lever un automatisme récalcitrant."
+    answer: "Je pratique une <strong>approche intégrative sur-mesure</strong> : les outils ne sont jamais appliqués de façon dogmatique. Lors de notre première rencontre, nous clarifions votre besoin. Nous pouvons mobiliser le coaching pour clarifier une décision, les thérapies brèves pour apaiser une charge émotionnelle, et l'hypnose pour désactiver un automatisme inconscient."
   },
   {
     question: "Où se situe exactement votre cabinet ?",
-    answer: "Le cabinet est situé au <strong>2 Rue de la Bergerie à Voisins-le-Bretonneux (78960)</strong>, dans un cadre calme, facile d'accès depuis Versailles, Guyancourt, Montigny-le-Bretonneux et toute l'agglomération de Saint-Quentin-en-Yvelines."
+    answer: "Le cabinet est situé au <strong>2 Rue de la Bergerie à Voisins-le-Bretonneux (78960)</strong>, dans un cadre calme et discret, facile d'accès depuis Versailles, Guyancourt, Montigny-le-Bretonneux et toute l'agglomération de Saint-Quentin-en-Yvelines (stationnement aisé à proximité)."
   },
   {
     question: "Proposez-vous des consultations à distance ?",
@@ -114,105 +30,81 @@ const aboutFaq = [
   },
   {
     question: "Comment se déroule la prise de contact initiale ?",
-    answer: "Vous pouvez utiliser le bouton de prise de rendez-vous du site, ou m'adresser un message pour poser une question préalable. Dès notre première rencontre, nous faisons le point sur votre situation en toute simplicité."
+    answer: "Vous pouvez réserver directement votre créneau via le bouton de prise de rendez-vous en ligne, ou m'adresser un message pour poser une question préalable. Dès notre première séance, nous faisons le point sur votre situation en toute simplicité."
   }
 ];
 ---
 
 <Layout 
   title="À propos d'Anne Chataigner · Thérapeute à Voisins-le-Bretonneux"
-  description="Découvrez le parcours d'Anne Chataigner, son expérience de 20 ans en accompagnement humain et sa vision intégrative du coaching, des thérapies brèves et de l'hypnose dans les Yvelines."
+  description="Découvrez le parcours d'Anne Chataigner, son expérience de plus de 20 ans en accompagnement humain et sa vision intégrative du coaching, des thérapies brèves et de l'hypnose dans les Yvelines."
 >
-  <Navbar slot="navbar" />
+  <Navbar variant="home" slot="navbar" />
 
-  <main id="main-content">
-    <!-- Hero Header Atmosphérique Immersion -->
-    <PageHeroAtmospheric 
-      badgeText="Présentation & Posture"
-      badgeType="about"
-      title="Anne Chataigner, thérapeute à Voisins-le-Bretonneux."
-      lead="J'accompagne les personnes qui traversent des périodes de transition, de doute ou de transformation, avec une approche pragmatique, feutrée et résolument tournée vers vos ressources."
-      primaryCtaText="Prendre rendez-vous"
-      primaryCtaLink="#contact"
-      secondaryCtaText="Découvrir mon parcours"
-      secondaryCtaLink="#reperes"
-      scrollTargetId="reperes"
-      scrollLabel="Découvrir"
-    />
-
-    <!-- Section 1 : Nuage de Postures & Valeurs -->
-    <SituationCloud 
-      subtitle="Ma posture d'accompagnement"
-      title="Des repères éthiques et humains pour vous accueillir"
-      lead="Un cadre de confiance où la rigueur méthodologique s'allie à une écoute authentique et chaleureuse."
-      tags={aboutTags}
-      quote="« Ce qui est le plus personnel est aussi ce qui est le plus universel. » — <em>Carl Rogers</em>"
-      sectionId="reperes"
-      theme="about"
-    />
-
-    <!-- Section 2 : Parcours & Récit -->
-    <section class="ac-section ac-story" id="parcours">
-      <div class="ac-container">
-        <div class="ac-story__grid">
-          <div class="ac-story__copy">
-            <p class="ac-eyebrow"><span></span>Mon parcours</p>
-            <h2>Une écoute forgée par 20 ans d'accompagnement humain.</h2>
-            <div class="ac-story__prose">
-              <p>
-                Avant d'ouvrir mon cabinet d'accompagnement individuel à Voisins-le-Bretonneux, j'ai exercé pendant plus de vingt ans dans le <strong>conseil en ressources humaines, la formation et le coaching d'entreprise</strong>.
-              </p>
-              <p>
-                Ce parcours m'a permis d'observer au plus près les dynamiques de transition, les mécanismes de stress, la quête d'équilibre entre vie pro et perso, et cette formidable capacité de rebond qui se manifeste lorsque le bon espace d'écoute est offert.
-              </p>
-              <p>
-                Aujourd'hui, j'ai choisi de consacrer mon énergie à l'accompagnement individuel et de couple, dans un lieu feutré et apaisant où l'on peut déposer ce qui pèse et construire la suite avec confiance et discernement.
-              </p>
-            </div>
-          </div>
-
-          <div class="ac-story__image">
-            <img src="/assets/anne%20hero%20header%202.png" alt="Anne Chataigner dans son cabinet à Voisins-le-Bretonneux" width="1536" height="1024" loading="lazy" />
-            <p class="ac-story__caption"><strong>Le cabinet</strong>2 Rue de la Bergerie<br />78960 Voisins-le-Bretonneux<br />Un espace calme et confidentiel.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3 : Les 4 Convictions Fondamentales -->
-    <BenefitGrid 
-      subtitle="Philosophie & Convictions"
-      title="Quatre principes qui guident chaque accompagnement"
-      lead="Une vision résolument humaniste du changement, où l'on avance par petites victoires successives."
-      cards={aboutPrinciples}
-      sectionId="convictions"
-    />
-
-    <!-- Section 4 : La Boîte à Outils Intégrative -->
-    <ProcessTimeline 
-      subtitle="Pratique & Outils"
-      title="Une approche intégrative au service de votre demande"
-      lead="Découvrez comment le coaching, les thérapies brèves et l'hypnose s'articulent selon votre sensibilité."
-      steps={aboutTools}
-      sectionId="outils"
-      bgColor="#F7FAF5"
-    />
-
-    <!-- Section 5 : FAQ Accordéon Détaillée -->
-    <FaqAccordion 
-      items={aboutFaq}
-      subtitle="Questions fréquentes"
-      title="Tout comprendre sur le cabinet et ma pratique"
-      badgeType="about"
-    />
-
-    <!-- Section 6 : CTA Final -->
-    <InteriorCta 
-      title="Faisons connaissance lors d'un premier échange"
-      lead="Je vous accueille au cabinet de Voisins-le-Bretonneux ou en visio pour faire le point sur vos besoins et voir comment cheminer ensemble."
-      buttonText="Prendre rendez-vous"
-    />
+  <main id="main-content" class="ac-page--about">
+    <AboutHero />
+    <AboutManifesto />
+    <AboutStoryPath />
+    <AboutSignatureNotHere />
+    <AboutCompass />
+    <AboutApproachesIndex />
+    <AboutCabinet />
+    <AboutFaqAndCta faqItems={aboutFaq} />
   </main>
 
-  <Footer slot="footer" />
+  <Footer variant="home" slot="footer" />
 </Layout>
+
+<script is:inline src="/assets/js/lenis.min.js"></script>
+<script is:inline>
+  (() => {
+    const page = document.querySelector('.ac-page--about');
+    if (!page) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let lenis = null;
+
+    if (!reduceMotion && typeof window.Lenis !== 'undefined') {
+      lenis = new window.Lenis({
+        duration: 1.12,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        touchMultiplier: 1.15
+      });
+
+      const raf = (time) => {
+        lenis.raf(time);
+        window.requestAnimationFrame(raf);
+      };
+      window.requestAnimationFrame(raf);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', (event) => {
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          event.preventDefault();
+          if (lenis) {
+            lenis.scrollTo(target, { offset: -30, duration: 1.2 });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('[data-coaching-reveal]').forEach((el) => {
+      observer.observe(el);
+    });
+  })();
+</script>

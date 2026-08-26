@@ -1,0 +1,71 @@
+---
+import { BOOKING_URL } from '../config/site';
+---
+
+<section class="section about-hero" id="accueil">
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="about-hero__grid">
+      
+      <!-- Colonne Éditoriale Gauche -->
+      <div class="about-hero__copy" data-coaching-reveal>
+        <div class="approche-badge about-badge">
+          <span class="approche-badge-dot"></span>
+          Posture &amp; engagement
+        </div>
+        
+        <h1 class="about-hero__title">Anne Chataigner, thérapeute à Voisins-le-Bretonneux.</h1>
+        
+        <p class="about-hero__lead">
+          J'accompagne les personnes et les couples qui traversent des périodes de transition, de doute ou de transformation, avec une approche pragmatique, feutrée et résolument tournée vers vos ressources.
+        </p>
+
+        <div class="about-hero__meta-strip">
+          <div class="about-hero__meta-item">
+            <span class="about-hero__meta-num">20+</span>
+            <span class="about-hero__meta-text">années d'accompagnement humain</span>
+          </div>
+          <div class="about-hero__meta-divider" aria-hidden="true"></div>
+          <div class="about-hero__meta-item">
+            <span class="about-hero__meta-label">Cabinet &amp; Visio</span>
+            <span class="about-hero__meta-text">Voisins-le-Bretonneux (78960)</span>
+          </div>
+        </div>
+
+        <div class="about-hero__actions">
+          <a href={BOOKING_URL} class="primary-button about-btn--primary w-inline-block" data-booking-link>
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div class="button-text">Prendre rendez-vous</div>
+                <div class="button-text">Prendre rendez-vous</div>
+              </div>
+            </div>
+          </a>
+          <a href="#manifeste" class="about-hero__link-secondary">
+            <span>Découvrir la démarche</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Colonne Visuelle Droite (Portrait Magazine Décalé) -->
+      <div class="about-hero__media-wrap" data-coaching-reveal>
+        <div class="about-hero__frame">
+          <img 
+            src="/assets/anne%20hero%20header%202.png" 
+            alt="Anne Chataigner, thérapeute et coach au cabinet de Voisins-le-Bretonneux" 
+            class="about-hero__img" 
+            width="1536" 
+            height="1024" 
+            loading="eager"
+          />
+          <div class="about-hero__frame-border"></div>
+        </div>
+        <div class="about-hero__caption">
+          <span class="about-hero__caption-dot"></span>
+          <span>Anne Chataigner · Thérapeute &amp; Coach certifiée</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

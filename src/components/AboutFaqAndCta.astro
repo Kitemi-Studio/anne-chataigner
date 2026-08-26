@@ -1,0 +1,90 @@
+---
+import { BOOKING_URL } from '../config/site';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqItems: FaqItem[];
+}
+
+const { faqItems } = Astro.props;
+---
+
+<section class="section about-faq-and-cta" id="faq">
+  <div class="w-layout-blockcontainer container w-container">
+    
+    <!-- FAQ Section Allégée & Élégante -->
+    <div class="about-faq-wrap" data-coaching-reveal>
+      <div class="about-faq__header">
+        <div class="approche-badge about-badge">
+          <span class="approche-badge-dot"></span>
+          Questions fréquentes
+        </div>
+        <h2 class="about-faq__title">Avant de venir, les questions que l'on peut se poser.</h2>
+      </div>
+
+      <div class="about-faq__list" role="region" aria-label="Foire aux questions">
+        {faqItems.map((item, index) => (
+          <details class="about-faq__item">
+            <summary class="about-faq__summary">
+              <span class="about-faq__q-text">{item.question}</span>
+              <span class="about-faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="about-faq__content">
+              <p set:html={item.answer}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    <!-- Panneau Manifeste Final (Pas un hero bis) -->
+    <div class="about-final-panel" data-coaching-reveal>
+      <div class="about-final-panel__inner">
+        <div class="about-badge">
+          <span class="approche-badge-dot"></span>
+          Premier contact
+        </div>
+        
+        <h2 class="about-final-panel__title">On peut commencer simplement.</h2>
+        
+        <p class="about-final-panel__lead">
+          Un premier échange permet de faire le point sur votre situation, d'éclairer vos attentes et de voir en toute liberté si le cadre proposé vous convient.
+        </p>
+
+        <div class="about-final-panel__actions">
+          <a href={BOOKING_URL} class="primary-button about-btn--primary w-inline-block" data-booking-link>
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div class="button-text">Prendre rendez-vous</div>
+                <div class="button-text">Prendre rendez-vous</div>
+              </div>
+            </div>
+          </a>
+          <a href="/#contact" class="primary-button about-btn--secondary w-inline-block">
+            <div class="button-text-wrapper">
+              <div class="button-text-inner">
+                <div class="button-text">Poser une question</div>
+                <div class="button-text">Poser une question</div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="about-final-panel__meta">
+          <span>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16.5 8.2c0 4.1-6.5 8.8-6.5 8.8S3.5 12.3 3.5 8.2a6.5 6.5 0 1 1 13 0Z" stroke="currentColor" stroke-width="1.3"></path>
+              <circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.3"></circle>
+            </svg>
+            Cabinet à Voisins-le-Bretonneux · 2 Rue de la Bergerie, 78960 · Consultations &amp; Visioconférence
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
