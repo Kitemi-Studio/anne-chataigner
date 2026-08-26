@@ -3609,7 +3609,7 @@
 }
 
 .ac-page--therapies .coaching-method-centered .coaching-journey__line-progress {
-  background: linear-gradient(180deg, #7E917A 0%, #A4ACA1 50%, #2E452A 100%);
+  background: linear-gradient(180deg, #DFA38B 0%, #E8B4A2 50%, #B86B52 100%);
 }
 
 .ac-page--coaching .coaching-method-centered .coaching-journey__item,
@@ -3724,11 +3724,16 @@
   box-shadow: 0 26px 58px rgba(44, 43, 41, 0.14);
 }
 
-.ac-page--coaching .coaching-method-centered .coaching-journey__item.is-active .coaching-journey__body,
+.ac-page--coaching .coaching-method-centered .coaching-journey__item.is-active .coaching-journey__body {
+  transform: translateY(-5px);
+  border-color: rgba(129, 146, 172, 0.55);
+  box-shadow: 0 25px 54px rgba(44, 43, 41, 0.1);
+}
+
 .ac-page--therapies .coaching-method-centered .coaching-journey__item.is-active .coaching-journey__body {
   transform: translateY(-5px);
-  border-color: rgba(126, 145, 122, 0.48);
-  box-shadow: 0 25px 54px rgba(44, 43, 41, 0.1);
+  border-color: rgba(223, 163, 139, 0.55);
+  box-shadow: 0 25px 54px rgba(184, 107, 82, 0.1);
 }
 
 @media (max-width: 1200px) and (min-width: 721px) {
@@ -4319,22 +4324,28 @@
    ========================================================================== */
 .ac-page--therapies {
   scroll-behavior: smooth;
+  --anne-therapies: #DFA38B; /* Rose saumon / Terracotta Anne Chataigner */
+  --anne-therapies-dark: #B86B52; /* Rose saumon soutenu */
+  --anne-therapies-light: #FBECE7; /* Rose saumon pastel */
+  --anne-therapies-glow: rgba(223, 163, 139, 0.35);
+  --coaching-cta: #3D2822;
+  --coaching-cta-hover: #2C1B17;
 }
 
 .therapies-hero {
-  background-image: linear-gradient(180deg, rgba(30, 42, 33, 0.35) 0%, rgba(20, 28, 22, 0.78) 100%), url('/assets/step-2-explorer%20-%20nouveau%20bureau.png');
+  background-image: linear-gradient(180deg, rgba(46, 28, 22, 0.35) 0%, rgba(32, 18, 14, 0.78) 100%), url('/assets/step-2-explorer%20-%20nouveau%20bureau.png');
   background-position: center 30%;
   background-size: cover;
 }
 
 .hero-badge-pill--therapies {
-  background: rgba(126, 145, 122, 0.28) !important;
-  border-color: rgba(226, 236, 225, 0.45) !important;
+  background: rgba(223, 163, 139, 0.28) !important;
+  border-color: rgba(251, 236, 231, 0.45) !important;
   color: #ffffff !important;
 }
 
 .hero-badge-pill--therapies .hero-badge-dot {
-  background: #A4ACA1 !important;
+  background: #DFA38B !important;
 }
 
 .ac-page--therapies .hero-full-title {
@@ -4366,6 +4377,25 @@
   margin-top: 10px;
 }
 
+/* Secondary Hero CTA — Rose Saumon version */
+.button-hero-secondary--rose {
+  background-color: transparent !important;
+  border: 1px solid rgba(223, 163, 139, 0.55) !important;
+  color: #ffffff !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.button-hero-secondary--rose:hover {
+  background-color: rgba(223, 163, 139, 0.22) !important;
+  border-color: #DFA38B !important;
+  transform: translateY(-2px);
+}
+
+.ac-page--therapies .coaching-situations__cta .primary-button:hover {
+  background-color: #B86B52 !important;
+  box-shadow: 0 8px 22px rgba(184, 107, 82, 0.3) !important;
+}
+
 .therapies-hero-scroll {
   padding-bottom: 42px;
 }
@@ -4378,7 +4408,7 @@
    Section Compréhension & Approche — Schéma Circulaire & Points Clés
    ========================================================================== */
 .therapies-approach {
-  background: #FBFDFC;
+  background: #FDF9F8;
   padding: 110px 0 120px;
   position: relative;
 }
@@ -4395,6 +4425,9 @@
 
 .therapies-approach__header .coaching-section-badge {
   margin-bottom: 4px;
+  background: rgba(223, 163, 139, 0.15) !important;
+  border-color: rgba(223, 163, 139, 0.35) !important;
+  color: #B86B52 !important;
 }
 
 .therapies-approach__header h2 {
@@ -4451,7 +4484,7 @@
 }
 
 .has-center-hover .diagram-line {
-  stroke: #7E917A;
+  stroke: #DFA38B;
   stroke-width: 2.2;
 }
 
@@ -4464,9 +4497,9 @@
   width: 224px;
   height: 224px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #ffffff 0%, #EBF2EA 100%);
-  border: 1.5px solid rgba(126, 145, 122, 0.45);
-  box-shadow: 0 12px 32px rgba(46, 69, 42, 0.1);
+  background: linear-gradient(145deg, #ffffff 0%, #FAF0EC 100%);
+  border: 1.5px solid rgba(223, 163, 139, 0.48);
+  box-shadow: 0 12px 32px rgba(184, 107, 82, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -4481,15 +4514,15 @@
 .therapies-diagram-center:hover,
 .therapies-diagram-center:focus-visible {
   transform: translate(-50%, -50%) scale(1.05);
-  box-shadow: 0 18px 44px rgba(46, 69, 42, 0.18);
-  border-color: #7E917A;
+  box-shadow: 0 18px 44px rgba(223, 163, 139, 0.25);
+  border-color: #DFA38B;
 }
 
 .therapies-diagram-center__pulse {
   position: absolute;
   inset: -8px;
   border-radius: 50%;
-  border: 1px solid rgba(126, 145, 122, 0.3);
+  border: 1px solid rgba(223, 163, 139, 0.35);
   animation: diagramPulse 3.5s ease-in-out infinite;
   pointer-events: none;
 }
@@ -4504,7 +4537,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--anne-therapies);
+  color: #B86B52;
   margin-bottom: 4px;
 }
 
@@ -4543,9 +4576,9 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--anne-therapies);
+  background: #DFA38B;
   border: 3px solid #ffffff;
-  box-shadow: 0 2px 8px rgba(46, 69, 42, 0.25);
+  box-shadow: 0 2px 8px rgba(184, 107, 82, 0.25);
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -4554,13 +4587,13 @@
 }
 
 .therapies-diagram-node:hover .therapies-diagram-node__dot {
-  box-shadow: 0 0 0 6px rgba(126, 145, 122, 0.28);
+  box-shadow: 0 0 0 6px rgba(223, 163, 139, 0.32);
   transform: scale(1.15);
 }
 
 .therapies-diagram-node__card {
   background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(126, 145, 122, 0.32);
+  border: 1px solid rgba(223, 163, 139, 0.35);
   border-radius: 18px;
   padding: 16px 20px;
   box-shadow: 0 8px 24px rgba(44, 43, 41, 0.06);
@@ -4571,8 +4604,8 @@
 }
 
 .therapies-diagram-node:hover .therapies-diagram-node__card {
-  border-color: #7E917A;
-  box-shadow: 0 14px 36px rgba(46, 69, 42, 0.12);
+  border-color: #DFA38B;
+  box-shadow: 0 14px 36px rgba(184, 107, 82, 0.14);
   background: #ffffff;
 }
 
@@ -4581,7 +4614,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--anne-therapies);
+  color: #B86B52;
   margin-bottom: 3px;
 }
 
@@ -4646,8 +4679,8 @@
 }
 
 .therapies-modern-card {
-  background: linear-gradient(155deg, #ffffff 0%, #FAFBF9 100%);
-  border: 1px solid rgba(126, 145, 122, 0.24);
+  background: linear-gradient(155deg, #ffffff 0%, #FDF8F6 100%);
+  border: 1px solid rgba(223, 163, 139, 0.28);
   border-radius: 24px;
   padding: 34px 32px 30px;
   box-shadow: 0 10px 30px rgba(44, 43, 41, 0.04);
@@ -4661,8 +4694,8 @@
 
 .therapies-modern-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 18px 44px rgba(46, 69, 42, 0.1);
-  border-color: rgba(126, 145, 122, 0.55);
+  box-shadow: 0 18px 44px rgba(184, 107, 82, 0.12);
+  border-color: rgba(223, 163, 139, 0.65);
 }
 
 .therapies-modern-card__top {
@@ -4680,22 +4713,22 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--anne-therapies);
+  color: #B86B52;
 }
 
 .therapies-modern-card__dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--anne-therapies);
+  background: #DFA38B;
 }
 
 .therapies-modern-card__icon-wrap {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(126, 145, 122, 0.12);
-  color: var(--anne-therapies);
+  background: rgba(223, 163, 139, 0.15);
+  color: #B86B52;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4703,7 +4736,7 @@
 }
 
 .therapies-modern-card:hover .therapies-modern-card__icon-wrap {
-  background: var(--anne-therapies);
+  background: #DFA38B;
   color: #ffffff;
   transform: rotate(10deg);
 }
@@ -4730,7 +4763,7 @@
   margin-top: 24px;
   height: 3px;
   border-radius: 999px;
-  background: rgba(126, 145, 122, 0.14);
+  background: rgba(223, 163, 139, 0.16);
   position: relative;
   overflow: hidden;
 }
@@ -4742,7 +4775,7 @@
   width: 36px;
   height: 100%;
   border-radius: 999px;
-  background: var(--anne-therapies);
+  background: #DFA38B;
   transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -4816,6 +4849,9 @@
 
 .therapies-benefits__heading-centered .coaching-section-badge {
   margin-bottom: 6px;
+  background: rgba(223, 163, 139, 0.15) !important;
+  border-color: rgba(223, 163, 139, 0.35) !important;
+  color: #B86B52 !important;
 }
 
 .therapies-benefits__heading-centered h2 {
@@ -4855,18 +4891,18 @@
   border-radius: 30px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 0 20px 54px rgba(20, 28, 22, 0.16);
+  box-shadow: 0 20px 54px rgba(32, 18, 14, 0.18);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 40px 46px;
-  background-color: #1A241C;
+  background-color: #241814;
   transform-origin: center top;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .therapies-stack-card:hover {
-  box-shadow: 0 26px 64px rgba(20, 28, 22, 0.24);
+  box-shadow: 0 26px 64px rgba(32, 18, 14, 0.28);
 }
 
 /* Full Background Image + Elegant Warm Contrast Overlay */
@@ -4897,9 +4933,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(22, 32, 24, 0.42) 0%,
-    rgba(18, 26, 20, 0.65) 45%,
-    rgba(14, 20, 15, 0.92) 100%
+    rgba(46, 26, 20, 0.42) 0%,
+    rgba(36, 20, 15, 0.68) 45%,
+    rgba(24, 12, 9, 0.94) 100%
   );
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
@@ -4920,8 +4956,8 @@
   gap: 8px;
   padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(223, 163, 139, 0.25);
+  border: 1px solid rgba(251, 236, 231, 0.4);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   color: #ffffff;
@@ -4935,7 +4971,7 @@
   font-family: var(--_typography---font-family--heading);
   font-size: 14px;
   font-weight: 700;
-  color: #E2ECE1;
+  color: #FBECE7;
 }
 
 .therapies-stack-card__tag-divider {
@@ -4986,7 +5022,7 @@
 
 .therapies-stack-card__pill {
   font-size: 13.5px;
-  color: #E2ECE1;
+  color: #FBECE7;
   font-weight: 500;
 }
 
@@ -5005,7 +5041,7 @@
 
 .therapies-stack-card:hover .therapies-stack-card__arrow {
   transform: translateX(4px);
-  background: #7E917A;
+  background: #DFA38B;
 }
 
 @media (max-width: 768px) {
@@ -5032,6 +5068,7 @@
     font-size: 15px;
   }
 }
+
 
 
 
