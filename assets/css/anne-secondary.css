@@ -918,12 +918,12 @@
 }
 
 .ac-hero--therapies .ac-hero__media img {
-  content: url('/assets/image%203.png');
+  content: url('/assets/image%203.webp');
   object-position: 58% 50%;
 }
 
 .ac-hero--couple .ac-hero__media img {
-  content: url('/assets/couple%20therapie.png');
+  content: url('/assets/couple%20therapie.webp');
   object-position: 58% 52%;
 }
 
@@ -4451,7 +4451,7 @@
 }
 
 .therapies-hero {
-  background-image: linear-gradient(180deg, rgba(46, 28, 22, 0.35) 0%, rgba(32, 18, 14, 0.78) 100%), url('/assets/nouvelles%20images/therapies-breves-hero-anne-bureau-16x9.png');
+  background-image: linear-gradient(180deg, rgba(46, 28, 22, 0.35) 0%, rgba(32, 18, 14, 0.78) 100%), url('/assets/nouvelles%20images/therapies-breves-hero-anne-bureau-16x9.webp');
   background-position: center 30%;
   background-size: cover;
 }
@@ -5208,7 +5208,7 @@
 }
 
 .therapies-cta .cta-background {
-  background-image: linear-gradient(rgba(46, 28, 22, 0.78), rgba(32, 18, 14, 0.88)), url('/assets/nouvelles%20images/therapies-breves-cta-final-salon-16x9.png') !important;
+  background-image: linear-gradient(rgba(46, 28, 22, 0.78), rgba(32, 18, 14, 0.88)), url('/assets/nouvelles%20images/therapies-breves-cta-final-salon-16x9.webp') !important;
   background-position: center 35% !important;
 }
 
@@ -5226,7 +5226,7 @@
 }
 
 .coaching-hero {
-  background-image: linear-gradient(180deg, rgba(28, 38, 52, 0.35) 0%, rgba(18, 26, 38, 0.82) 100%), url('/assets/nouvelles%20images/coaching-hero-anne-bureau-16x9.png');
+  background-image: linear-gradient(180deg, rgba(28, 38, 52, 0.35) 0%, rgba(18, 26, 38, 0.82) 100%), url('/assets/nouvelles%20images/coaching-hero-anne-bureau-16x9.webp');
   background-position: center 30%;
   background-size: cover;
 }
@@ -5604,7 +5604,7 @@
 }
 
 .hypnose-hero {
-  background-image: linear-gradient(180deg, rgba(40, 31, 16, 0.35) 0%, rgba(26, 20, 10, 0.8) 100%), url('/assets/nouvelles%20images/hypnose-hero-nouveau-client-homme-16x9.png');
+  background-image: linear-gradient(180deg, rgba(40, 31, 16, 0.35) 0%, rgba(26, 20, 10, 0.8) 100%), url('/assets/nouvelles%20images/hypnose-hero-nouveau-client-homme-16x9.webp');
   background-position: center 30%;
   background-size: cover;
 }
@@ -6273,7 +6273,7 @@
 }
 
 .hypnose-cta .cta-background {
-  background-image: linear-gradient(rgba(40, 31, 16, 0.78), rgba(26, 20, 10, 0.88)), url('/assets/nouvelles%20images/hypnose-cta-final-salon-16x9.png') !important;
+  background-image: linear-gradient(rgba(40, 31, 16, 0.78), rgba(26, 20, 10, 0.88)), url('/assets/nouvelles%20images/hypnose-cta-final-salon-16x9.webp') !important;
   background-position: center 35% !important;
 }
 
@@ -8404,7 +8404,7 @@
   margin: 10px 18px 80px 18px;
   border-radius: 24px;
   overflow: hidden;
-  background-image: url('/assets/step-1-ecouter%20-%20nouveau%20bureau.png');
+  background-image: url('/assets/step-1-ecouter%20-%20nouveau%20bureau.webp');
   background-size: cover;
   background-position: center 30%;
   padding: 44px 20px;
