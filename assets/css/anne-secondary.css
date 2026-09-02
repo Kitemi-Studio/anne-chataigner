@@ -655,22 +655,29 @@
 .coaching-benefit-card--amber .coaching-benefit-card__arrow { background: rgba(235, 194, 132, 0.24); color: #a67b32; }
 
 .coaching-next-steps {
-  padding: 126px 0 136px;
+  padding: 60px 0 80px;
   background: var(--anne-bg-light);
 }
 
 .coaching-next-steps .program-heading-home-b {
   max-width: 740px;
-  margin-bottom: 44px;
+  margin-bottom: 28px;
 }
 
-.ac-page--coaching .coaching-next-steps .program-heading-home-b h2 {
-  margin-top: 12px;
+.coaching-next-steps .program-heading-home-b .subtitle {
+  margin-bottom: 8px;
+}
+
+.ac-page--coaching .coaching-next-steps .program-heading-home-b h2,
+.ac-page--therapies .coaching-next-steps .program-heading-home-b h2,
+.ac-page--hypnose .coaching-next-steps .program-heading-home-b h2 {
+  margin-top: 6px;
+  margin-bottom: 0;
   color: var(--anne-ink-dark);
   font-family: var(--_typography---font-family--heading) !important;
-  font-size: clamp(36px, 4vw, 54px) !important;
+  font-size: clamp(32px, 3.4vw, 46px) !important;
   font-weight: 500 !important;
-  line-height: 1.12;
+  line-height: 1.15;
 }
 
 .coaching-next-steps__grid .program-card-modern {
@@ -3049,15 +3056,20 @@
   }
 
   .coaching-next-steps {
-    padding: 98px 0 110px;
+    padding: 50px 0 65px;
+  }
+
+  .coaching-next-steps .program-heading-home-b {
+    margin-bottom: 24px;
   }
 
   .coaching-next-steps__grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .coaching-next-steps__grid .program-card-modern {
-    min-height: 420px;
+    min-height: 400px;
   }
 }
 
