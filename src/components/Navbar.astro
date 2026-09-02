@@ -143,24 +143,24 @@ const isContactActive = pathname === '/contact';
   </script>
 )}
 
-{renderHomeVariant && secondaryPage && (
+{renderHomeVariant && (
   <script is:inline>
     (() => {
       const nav = document.querySelector('.navbar');
       const menuButton = document.querySelector('.w-nav-button');
       const menu = document.querySelector('.w-nav-menu');
       const overlay = document.querySelector('.w-nav-overlay');
-      if (!nav || !menuButton || !menu || nav.dataset.secondaryHomeReady === 'true') return;
+      if (!nav || !menuButton || !menu || nav.dataset.navReady === 'true') return;
 
       const setMenuState = (open) => {
         menu.classList.toggle('w--open', open);
         menuButton.classList.toggle('w--open', open);
         menuButton.setAttribute('aria-expanded', String(open));
         menu.style.display = open ? 'block' : '';
-        if (overlay) overlay.style.display = open ? 'block' : 'none';
+        if (overlay) overlay.style.display = 'none';
       };
 
-      nav.dataset.secondaryHomeReady = 'true';
+      nav.dataset.navReady = 'true';
       menuButton.addEventListener('click', (event) => {
         event.stopPropagation();
         setMenuState(menuButton.getAttribute('aria-expanded') !== 'true');
