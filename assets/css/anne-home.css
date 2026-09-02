@@ -1773,20 +1773,35 @@ html.lenis, html.lenis body {
 }
 
 /* About Section */
+.section.section-a-propos {
+  padding: 100px 0;
+  position: relative;
+}
+
+.about-section-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 56px;
+  align-items: center;
+  width: 100%;
+}
+
 .about-visual-card {
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
   position: relative;
-  height: 100%;
-  min-height: 380px;
+  width: 100%;
+  aspect-ratio: 4 / 3.8;
   background: var(--anne-surface);
   border: 1px solid var(--anne-border);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
 }
 
 .about-visual-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .about-quote-overlay {
@@ -1794,19 +1809,68 @@ html.lenis, html.lenis body {
   bottom: 24px;
   left: 24px;
   right: 24px;
-  background: rgba(254, 252, 248, 0.94);
-  backdrop-filter: blur(8px);
+  background: rgba(254, 252, 248, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 20px 24px;
-  border-radius: 14px;
-  border: 1px solid rgba(101, 101, 95, 0.15);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .about-quote-text {
   font-family: var(--_typography---font-family--heading);
-  font-size: 20px;
-  line-height: 1.3;
+  font-size: 19px;
+  line-height: 1.35;
   color: var(--anne-ink-dark);
   margin: 0;
+}
+
+.about-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+.a-propos-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--anne-coaching);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.a-propos-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--anne-coaching);
+  box-shadow: 0 0 8px rgba(129, 146, 172, 0.6);
+}
+
+.about-title {
+  font-size: 38px;
+  line-height: 1.2;
+  color: var(--anne-ink-dark);
+  margin-bottom: 8px;
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--anne-ink);
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+.about-cta-wrapper {
+  margin-top: 28px;
 }
 
 /* CTA Final & Cabinet Location Banner */
@@ -2281,6 +2345,45 @@ html.lenis, html.lenis body {
     max-height: 620px;
   }
 
+  /* About Section Tablet */
+  .section.section-a-propos {
+    padding: 70px 0 80px;
+    width: 100%;
+  }
+
+  .about-section-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    width: 100%;
+  }
+
+  .about-visual-card {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+    min-height: auto;
+  }
+
+  .about-quote-overlay {
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+    padding: 16px 20px;
+  }
+
+  .about-quote-text {
+    font-size: 17px;
+  }
+
+  .about-title {
+    font-size: 32px;
+  }
+
+  .about-content-col {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .navbar-brand-title {
     font-size: 21px !important;
     font-family: "Domine", Georgia, serif !important;
@@ -2478,8 +2581,40 @@ html.lenis, html.lenis body {
     gap: 14px;
   }
 
+  /* About Section Mobile */
+  .section.section-a-propos {
+    padding: 50px 0 60px;
+  }
+
+  .about-section-layout {
+    gap: 28px;
+  }
+
   .about-visual-card {
-    min-height: 280px;
+    aspect-ratio: 4 / 3;
+    min-height: auto;
+    border-radius: 18px;
+  }
+
+  .about-quote-overlay {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+  }
+
+  .about-quote-text {
+    font-size: 14.5px;
+    line-height: 1.35;
+  }
+
+  .about-title {
+    font-size: 26px;
+  }
+
+  .about-text {
+    font-size: 15px;
   }
 
   .marquee-col-2,
