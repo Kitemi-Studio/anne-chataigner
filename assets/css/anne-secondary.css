@@ -4972,22 +4972,22 @@
    Therapies Benefits — Centered Stacking Cards (Sticky Effect)
    ========================================================================== */
 .therapies-benefits-stacked {
-  padding: 120px 0 140px;
+  padding: 60px 0 80px;
   background: var(--anne-surface);
   position: relative;
 }
 
 .therapies-benefits__heading-centered {
-  text-align: center;
+  text-align: left;
   max-width: 820px;
-  margin: 0 auto 64px auto;
+  margin: 0 0 32px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .therapies-benefits__heading-centered .coaching-section-badge {
-  margin-bottom: 6px;
+  margin-bottom: 12px;
   background: rgba(223, 163, 139, 0.15) !important;
   border-color: rgba(223, 163, 139, 0.35) !important;
   color: #B86B52 !important;
@@ -4995,20 +4995,22 @@
 
 .therapies-benefits__heading-centered h2 {
   font-family: var(--_typography---font-family--heading) !important;
-  font-size: clamp(34px, 3.6vw, 48px) !important;
+  font-size: clamp(30px, 3.4vw, 44px) !important;
   font-weight: 700 !important;
   line-height: 1.16;
   color: var(--anne-ink-dark);
   letter-spacing: -0.02em;
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
+  text-align: left;
 }
 
 .therapies-benefits__heading-centered .text {
-  font-size: 17px;
-  line-height: 1.68;
+  font-size: 16.5px;
+  line-height: 1.6;
   color: var(--anne-ink);
-  max-width: 640px;
+  max-width: 720px;
   margin: 0;
+  text-align: left;
 }
 
 /* Stacking Container */
@@ -5354,22 +5356,22 @@
    Coaching Benefits — Centered Stacking Cards (Sticky Effect)
    ========================================================================== */
 .coaching-benefits-stacked {
-  padding: 120px 0 140px;
+  padding: 60px 0 80px;
   background: var(--anne-surface);
   position: relative;
 }
 
 .coaching-benefits__heading-centered {
-  text-align: center;
+  text-align: left;
   max-width: 820px;
-  margin: 0 auto 64px auto;
+  margin: 0 0 32px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .coaching-benefits__heading-centered .coaching-section-badge {
-  margin-bottom: 6px;
+  margin-bottom: 12px;
   background: rgba(129, 146, 172, 0.15) !important;
   border-color: rgba(129, 146, 172, 0.35) !important;
   color: #506786 !important;
@@ -5377,20 +5379,22 @@
 
 .coaching-benefits__heading-centered h2 {
   font-family: var(--_typography---font-family--heading) !important;
-  font-size: clamp(34px, 3.6vw, 48px) !important;
+  font-size: clamp(30px, 3.4vw, 44px) !important;
   font-weight: 700 !important;
   line-height: 1.16;
   color: var(--anne-ink-dark);
   letter-spacing: -0.02em;
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
+  text-align: left;
 }
 
 .coaching-benefits__heading-centered .text {
-  font-size: 17px;
-  line-height: 1.68;
+  font-size: 16.5px;
+  line-height: 1.6;
   color: var(--anne-ink);
-  max-width: 640px;
+  max-width: 720px;
   margin: 0;
+  text-align: left;
 }
 
 /* Stacking Container */
@@ -6037,22 +6041,22 @@
    Hypnose Benefits — Centered Stacking Cards (Sticky Effect)
    ========================================================================== */
 .hypnose-benefits-stacked {
-  padding: 120px 0 140px;
+  padding: 60px 0 80px;
   background: var(--anne-surface);
   position: relative;
 }
 
 .hypnose-benefits__heading-centered {
-  text-align: center;
+  text-align: left;
   max-width: 820px;
-  margin: 0 auto 64px auto;
+  margin: 0 0 32px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hypnose-benefits__heading-centered .coaching-section-badge {
-  margin-bottom: 6px;
+  margin-bottom: 12px;
   background: rgba(214, 162, 79, 0.15) !important;
   border-color: rgba(214, 162, 79, 0.35) !important;
   color: #8A6728 !important;
@@ -6060,20 +6064,22 @@
 
 .hypnose-benefits__heading-centered h2 {
   font-family: var(--_typography---font-family--heading) !important;
-  font-size: clamp(34px, 3.6vw, 48px) !important;
+  font-size: clamp(30px, 3.4vw, 44px) !important;
   font-weight: 700 !important;
   line-height: 1.16;
   color: var(--anne-ink-dark);
   letter-spacing: -0.02em;
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
+  text-align: left;
 }
 
 .hypnose-benefits__heading-centered .text {
-  font-size: 17px;
-  line-height: 1.68;
+  font-size: 16.5px;
+  line-height: 1.6;
   color: var(--anne-ink);
-  max-width: 640px;
+  max-width: 720px;
   margin: 0;
+  text-align: left;
 }
 
 /* Stacking Container */
