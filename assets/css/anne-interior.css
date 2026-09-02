@@ -273,7 +273,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: stretch;
-  gap: 48px;
+  gap: 24px;
   background: linear-gradient(135deg, #ffffff 0%, #FAF8F5 100%);
   border: 1px solid rgba(129, 146, 172, 0.28);
   border-radius: 26px;

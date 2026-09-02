@@ -149,6 +149,28 @@
   gap: 32px !important;
 }
 
+/* Enforce 24px column gaps across horizontal layouts & grids */
+.horizontal-headline,
+.horizontal-headline-two,
+.horizontal-wrapper,
+.coaching-situations__grid,
+.therapies-situations__grid,
+.hypnose-situations__grid,
+.couple-situations__grid,
+.coaching-benefits__grid,
+.therapies-benefits__grid,
+.hypnose-benefits__grid,
+.coaching-benefits__heading,
+.ac-price-callout,
+.pricing-banner-card,
+.about-manifesto__pillars,
+.about-story-path__track,
+.about-story__grid,
+.contact-grid {
+  grid-column-gap: 24px !important;
+  column-gap: 24px !important;
+}
+
 .coaching-section-badge,
 .approche-badge,
 .subtitle {
@@ -157,6 +179,10 @@
 
 .coaching-situations {
   padding: 70px 0 85px !important;
+}
+
+.coaching-situations__grid {
+  gap: 24px !important;
 }
 
 .coaching-situations__copy h2 {

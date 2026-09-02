@@ -117,6 +117,20 @@ h1, h2, h3, h4, h5,
   gap: 32px !important;
 }
 
+/* Enforce 24px column gaps across horizontal sections & grids */
+.horizontal-headline,
+.horizontal-headline-two,
+.horizontal-wrapper,
+.floating-clouds-wrapper,
+.pas-de-cote-wrapper,
+.sticky-journey-layout,
+.about-section-layout,
+.three-programs-grid,
+.approach-cards-grid {
+  grid-column-gap: 24px !important;
+  column-gap: 24px !important;
+}
+
 .subtitle,
 .reperes-subtitle,
 .approche-badge,
@@ -670,8 +684,8 @@ html.lenis, html.lenis body {
 .floating-clouds-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 52px;
-  margin-bottom: 56px;
+  gap: 32px 24px;
+  margin-bottom: 40px;
   align-items: start;
   max-width: 1200px;
   margin-left: auto;
@@ -865,7 +879,7 @@ html.lenis, html.lenis body {
 .pas-de-cote-wrapper {
   display: grid;
   grid-template-columns: 1.15fr 0.95fr;
-  gap: 48px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -1425,7 +1439,7 @@ html.lenis, html.lenis body {
 .sticky-journey-layout {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: 88px;
+  gap: 32px 24px;
   align-items: start;
   position: relative;
 }
@@ -1861,7 +1875,7 @@ html.lenis, html.lenis body {
 .about-section-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-  gap: 56px;
+  gap: 24px;
   align-items: center;
   width: 100%;
 }
@@ -2316,7 +2330,7 @@ html.lenis, html.lenis body {
 
   .sticky-journey-layout {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 24px;
     width: 100%;
     max-width: 100%;
   }
@@ -2383,8 +2397,8 @@ html.lenis, html.lenis body {
 
   .floating-clouds-wrapper {
     grid-template-columns: 1fr !important;
-    gap: 48px !important;
-    margin-bottom: 48px;
+    gap: 24px !important;
+    margin-bottom: 32px;
     width: 100%;
     max-width: 100%;
   }
@@ -2403,7 +2417,7 @@ html.lenis, html.lenis body {
 
   .pas-de-cote-wrapper {
     grid-template-columns: 1fr;
-    gap: 44px;
+    gap: 24px;
   }
 
   .three-programs-grid {
@@ -2433,7 +2447,7 @@ html.lenis, html.lenis body {
 
   .about-section-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 24px;
     width: 100%;
   }
 
