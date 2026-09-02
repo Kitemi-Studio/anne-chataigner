@@ -803,6 +803,23 @@
   min-height: 450px;
 }
 
+.coaching-next-steps__grid .program-card-bg-img {
+  object-fit: cover !important;
+  object-position: center 15% !important;
+}
+
+.coaching-next-steps__grid a:nth-child(1) .program-card-bg-img {
+  object-position: center 14% !important;
+}
+
+.coaching-next-steps__grid a:nth-child(2) .program-card-bg-img {
+  object-position: center 16% !important;
+}
+
+.coaching-next-steps__grid a:nth-child(3) .program-card-bg-img {
+  object-position: center 18% !important;
+}
+
 .coaching-next-steps__grid .program-card-action-btn {
   font-size: 17px;
   line-height: 1;
