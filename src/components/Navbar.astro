@@ -156,7 +156,6 @@ const isContactActive = pathname === '/contact';
         menu.classList.toggle('w--open', open);
         menuButton.classList.toggle('w--open', open);
         menuButton.setAttribute('aria-expanded', String(open));
-        menu.style.display = open ? 'block' : '';
         if (overlay) overlay.style.display = 'none';
       };
 

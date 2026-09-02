@@ -2344,12 +2344,22 @@ html.lenis, html.lenis body {
     justify-content: center !important;
     padding: 8px !important;
     margin-left: auto !important;
-    border-radius: 10px !important;
+    border-radius: 12px !important;
     background: #464642 !important;
     color: #ffffff !important;
     width: 38px !important;
     height: 38px !important;
     cursor: pointer !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease !important;
+  }
+
+  .menu-button.w-nav-button:hover {
+    background: #363532 !important;
+  }
+
+  .menu-button.w-nav-button.w--open {
+    background: #2a2826 !important;
+    transform: rotate(90deg);
   }
 
   .menu-button.w-nav-button .w-icon-nav-menu {
@@ -2357,40 +2367,41 @@ html.lenis, html.lenis body {
     font-size: 20px !important;
   }
 
-  /* Dropdown menu opens below the navbar pill without stretching navbar height */
+  /* Dropdown menu opens smoothly below the navbar pill */
   .nav-menu.w-nav-menu {
-    display: none;
+    display: block !important;
     position: absolute !important;
     top: calc(100% + 10px) !important;
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
     background: rgba(254, 252, 248, 0.98) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
     border: 1px solid var(--anne-border) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12) !important;
     padding: 16px !important;
     box-sizing: border-box !important;
     z-index: 999 !important;
     float: none !important;
+
+    /* Smooth organic transition */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-12px) scale(0.96) !important;
+    transform-origin: top center !important;
+    transition: opacity 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.36s ease !important;
   }
 
   .nav-menu.w-nav-menu.w--open {
-    display: block !important;
-    animation: navDropdownFade 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-  }
-
-  @keyframes navDropdownFade {
-    from {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
   }
 
   .nav-menu-inner {
@@ -2418,8 +2429,25 @@ html.lenis, html.lenis body {
     color: var(--anne-ink-dark) !important;
     text-align: left !important;
     text-decoration: none !important;
-    transition: background 0.2s ease, color 0.2s ease !important;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.2s ease,
+                color 0.2s ease !important;
   }
+
+  .nav-menu.w-nav-menu.w--open .nav-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-menu.w-nav-menu.w--open .nav-links-group a:nth-child(1) { transition-delay: 0.04s; }
+  .nav-menu.w-nav-menu.w--open .nav-links-group a:nth-child(2) { transition-delay: 0.08s; }
+  .nav-menu.w-nav-menu.w--open .nav-links-group a:nth-child(3) { transition-delay: 0.12s; }
+  .nav-menu.w-nav-menu.w--open .nav-links-group a:nth-child(4) { transition-delay: 0.16s; }
+  .nav-menu.w-nav-menu.w--open .nav-links-group a:nth-child(5) { transition-delay: 0.20s; }
+  .nav-menu.w-nav-menu.w--open .nav-links-group a:nth-child(6) { transition-delay: 0.24s; }
 
   .nav-link:hover,
   .nav-link.w--current {
@@ -2435,6 +2463,17 @@ html.lenis, html.lenis body {
     display: flex !important;
     padding: 12px 20px !important;
     border-radius: 999px !important;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.2s ease !important;
+  }
+
+  .nav-menu.w-nav-menu.w--open .navbar-button {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.28s;
   }
 
   .section.hero-anne-full {
