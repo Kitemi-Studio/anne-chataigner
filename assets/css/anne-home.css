@@ -2164,22 +2164,71 @@ html.lenis, html.lenis body {
     font-size: 44px;
   }
 
+  .section.section-sticky-journey {
+    padding: 80px 0 100px;
+    width: 100%;
+  }
+
   .sticky-journey-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .sticky-journey-left {
     position: relative;
     top: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .sticky-journey-panel {
+    width: 100%;
+    max-width: 100%;
   }
 
   .sticky-journey-title {
     font-size: 34px;
+    max-width: 100%;
+  }
+
+  .sticky-journey-lead {
+    max-width: 100%;
   }
 
   .sticky-visual-card {
-    max-width: 600px;
+    max-width: 100%;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 22px;
+  }
+
+  .sticky-journey-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sticky-timeline-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .sticky-steps-list {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sticky-step-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sticky-step-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .reperes-title-single-line {
