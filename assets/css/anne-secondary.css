@@ -171,6 +171,33 @@
   column-gap: 24px !important;
 }
 
+/* ==========================================================================
+   Multi-Card Grids (2/3/4 cards) -> 1 Colonne Verticale sur Tablette & Mobile
+   ========================================================================== */
+@media screen and (max-width: 991px) {
+  .about-story-path__track,
+  .about-manifesto__pillars,
+  .about-cabinet__values-grid,
+  .about-not-here__grid,
+  .therapies-keypoints-modern-grid,
+  .hypnose-keypoints-modern-grid,
+  .coaching-situations__grid,
+  .therapies-situations__grid,
+  .hypnose-situations__grid,
+  .couple-situations__grid,
+  .coaching-benefits__grid,
+  .therapies-benefits__grid,
+  .hypnose-benefits__grid,
+  .three-programs-grid,
+  .approach-cards-grid,
+  .ac-steps-grid,
+  .ac-price-grid,
+  .tarifs-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
 .coaching-section-badge,
 .approche-badge,
 .subtitle {
@@ -7334,7 +7361,7 @@
   transform: translateY(-50%) translateY(-3px) scale(1.02);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 991px) {
   .about-compass-viewport {
     height: auto;
     width: 100%;

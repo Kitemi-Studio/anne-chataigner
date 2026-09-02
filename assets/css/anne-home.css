@@ -2552,8 +2552,8 @@ html.lenis, html.lenis body {
   }
 
   .approach-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
 
   .marquee-col-3 {
