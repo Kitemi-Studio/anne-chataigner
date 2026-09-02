@@ -76,6 +76,86 @@ h1, h2, h3, h4, h5,
   letter-spacing: -0.005em !important;
 }
 
+/* ==========================================================================
+   UNIFIED HEADER & SECTION SPACING SYSTEM
+   ========================================================================== */
+.vertical-headline {
+  grid-row-gap: 10px !important;
+  row-gap: 10px !important;
+  gap: 10px !important;
+}
+
+.vertical-headline .subtitle,
+.vertical-headline .approche-badge,
+.vertical-headline .coaching-section-badge,
+.vertical-headline .a-propos-badge,
+.vertical-headline .pas-de-cote-badge {
+  margin-bottom: 0 !important;
+}
+
+.vertical-headline h1,
+.vertical-headline h2,
+.vertical-headline h3,
+.vertical-headline .heading-1,
+.vertical-headline .heading-2,
+.vertical-headline .heading-3,
+.vertical-headline .hero-full-title {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.vertical-headline .text,
+.vertical-headline p,
+.vertical-headline .lead {
+  margin-top: 2px !important;
+  margin-bottom: 0 !important;
+}
+
+.vertical-wrapper {
+  grid-row-gap: 32px !important;
+  row-gap: 32px !important;
+  gap: 32px !important;
+}
+
+.subtitle,
+.reperes-subtitle,
+.approche-badge,
+.coaching-section-badge,
+.a-propos-badge,
+.pas-de-cote-badge,
+.faq-subtitle,
+.testimonials-subtitle,
+.sticky-journey-subtitle {
+  margin-bottom: 10px !important;
+}
+
+.sticky-journey-title,
+.reperes-title-single-line,
+.pas-de-cote-title,
+.about-title,
+.testimonials-title-centered,
+.faq-title {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+.sticky-journey-lead,
+.reperes-lead-two-lines,
+.pas-de-cote-lead,
+.testimonials-lead-centered,
+.faq-lead,
+.about-text {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.reperes-header-centered,
+.testimonials-header-centered,
+.faq-header-centered,
+.program-heading-home-b {
+  margin-bottom: 30px !important;
+}
+
 /* Lenis Luxury Smooth Scroll Core Styles */
 html.lenis, html.lenis body {
   height: auto;
@@ -539,7 +619,7 @@ html.lenis, html.lenis body {
    Section 3 : Votre Point de Départ — Nuages de Mots Flottants (Fond Coloré)
    ========================================================================== */
 .section.section-reperes-clouds {
-  padding: 130px 0 140px;
+  padding: 70px 0 85px;
   background-color: #EBF0EA;
   background: linear-gradient(180deg, #F0F4EF 0%, #E8EFE7 50%, #E2ECE1 100%);
   position: relative;
@@ -549,7 +629,7 @@ html.lenis, html.lenis body {
 .reperes-header-centered {
   text-align: center;
   max-width: 1200px;
-  margin: 0 auto 56px;
+  margin: 0 auto 32px;
 }
 
 .reperes-subtitle {
@@ -560,9 +640,9 @@ html.lenis, html.lenis body {
   color: var(--anne-coaching);
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 12.5px;
+  font-size: 12px;
   letter-spacing: 0.08em;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .reperes-title-single-line {
@@ -570,7 +650,7 @@ html.lenis, html.lenis body {
   font-size: clamp(24px, 2.4vw, 36px);
   line-height: 1.2;
   color: var(--anne-ink-dark);
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   font-weight: 500;
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -579,7 +659,7 @@ html.lenis, html.lenis body {
 
 .reperes-lead-two-lines {
   font-size: 16.5px;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--anne-ink);
   max-width: 780px;
   margin: 0 auto;
@@ -777,7 +857,7 @@ html.lenis, html.lenis body {
 /* Modern Section “Faire un pas de côté” */
 .section.section-pas-de-cote {
   background: linear-gradient(180deg, #FBF8F4 0%, #F5EFE7 100%);
-  padding: 100px 0;
+  padding: 70px 0 80px;
   position: relative;
   overflow: hidden;
 }
@@ -785,7 +865,7 @@ html.lenis, html.lenis body {
 .pas-de-cote-wrapper {
   display: grid;
   grid-template-columns: 1.15fr 0.95fr;
-  gap: 56px;
+  gap: 48px;
   align-items: center;
 }
 
@@ -801,7 +881,7 @@ html.lenis, html.lenis body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 .pas-de-cote-badge-dot {
@@ -816,7 +896,7 @@ html.lenis, html.lenis body {
   font-size: clamp(26px, 2.5vw, 38px);
   line-height: 1.2;
   color: var(--anne-ink-dark);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   letter-spacing: -0.015em;
 }
 
@@ -824,7 +904,7 @@ html.lenis, html.lenis body {
   font-size: 16.5px;
   line-height: 1.62;
   color: var(--anne-ink);
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   max-width: 580px;
 }
 
@@ -1129,7 +1209,7 @@ html.lenis, html.lenis body {
    ========================================================================== */
 .section.section-approche {
   background: linear-gradient(180deg, #FBF8F4 0%, #F6EFE7 100%);
-  padding: 100px 0 110px;
+  padding: 70px 0 80px;
 }
 
 .approche-badge {
@@ -1339,7 +1419,7 @@ html.lenis, html.lenis body {
   background-color: var(--anne-surface);
   position: relative;
   overflow: visible;
-  padding: 150px 0 200px;
+  padding: 80px 0 100px;
 }
 
 .sticky-journey-layout {
@@ -2009,7 +2089,7 @@ html.lenis, html.lenis body {
    Section 8 : Témoignages & Avis (Infinite Scrolling Marquee Columns)
    ========================================================================== */
 .section.section-testimonials-marquee {
-  padding: 120px 0 130px;
+  padding: 70px 0 80px;
   background-color: var(--anne-surface);
   position: relative;
   overflow: hidden;
@@ -2018,7 +2098,7 @@ html.lenis, html.lenis body {
 .testimonials-header-centered {
   text-align: center;
   max-width: 820px;
-  margin: 0 auto 54px;
+  margin: 0 auto 32px;
 }
 
 .testimonials-subtitle {
@@ -2660,7 +2740,7 @@ html.lenis, html.lenis body {
    9. SECTION FAQ (ACCORDION LUXURY STYLING)
    ========================================================================== */
 .section.section-faq {
-  padding: 100px 0 110px;
+  padding: 70px 0 80px;
   background: linear-gradient(180deg, var(--anne-bg-light) 0%, rgba(246, 243, 237, 0.6) 100%);
   position: relative;
 }
@@ -2668,7 +2748,7 @@ html.lenis, html.lenis body {
 .faq-header-centered {
   text-align: center;
   max-width: 780px;
-  margin: 0 auto 52px;
+  margin: 0 auto 32px;
 }
 
 .faq-subtitle {

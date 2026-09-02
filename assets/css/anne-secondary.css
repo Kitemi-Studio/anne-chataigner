@@ -108,6 +108,99 @@
   margin-inline: auto;
 }
 
+/* ==========================================================================
+   UNIFIED SECONDARY PAGES HEADER & SECTION SPACING
+   ========================================================================== */
+.vertical-headline {
+  grid-row-gap: 10px !important;
+  row-gap: 10px !important;
+  gap: 10px !important;
+}
+
+.vertical-headline .subtitle,
+.vertical-headline .approche-badge,
+.vertical-headline .coaching-section-badge,
+.vertical-headline .a-propos-badge,
+.vertical-headline .pas-de-cote-badge {
+  margin-bottom: 0 !important;
+}
+
+.vertical-headline h1,
+.vertical-headline h2,
+.vertical-headline h3,
+.vertical-headline .heading-1,
+.vertical-headline .heading-2,
+.vertical-headline .heading-3,
+.vertical-headline .hero-full-title {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.vertical-headline .text,
+.vertical-headline p,
+.vertical-headline .lead {
+  margin-top: 2px !important;
+  margin-bottom: 0 !important;
+}
+
+.vertical-wrapper {
+  grid-row-gap: 32px !important;
+  row-gap: 32px !important;
+  gap: 32px !important;
+}
+
+.coaching-section-badge,
+.approche-badge,
+.subtitle {
+  margin-bottom: 10px !important;
+}
+
+.coaching-situations {
+  padding: 70px 0 85px !important;
+}
+
+.coaching-situations__copy h2 {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+.coaching-situations__lead {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.coaching-situations__tags {
+  margin-top: 22px !important;
+}
+
+.coaching-inline-link {
+  margin-top: 22px !important;
+}
+
+.ac-page--coaching .coaching-method-centered,
+.ac-page--therapies .coaching-method-centered,
+.ac-page--hypnose .coaching-method-centered,
+.coaching-method-centered {
+  padding: 70px 0 85px !important;
+}
+
+.coaching-method-centered__header {
+  margin-bottom: 30px !important;
+}
+
+.coaching-method-centered__header h2 {
+  margin-bottom: 12px !important;
+}
+
+.coaching-method-centered__header > p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.coaching-journey {
+  margin-top: 36px !important;
+}
+
 .ac-skip-link {
   position: fixed;
   left: 16px;
