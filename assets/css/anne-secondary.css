@@ -5070,48 +5070,208 @@
   width: 100%;
 }
 
-/* Repli Mobile pour le diagramme & les cards */
-@media (max-width: 860px) {
+/* ==========================================================================
+   Therapies Diagram Responsive (Tablet Orbit & Mobile Vertical Stack)
+   ========================================================================== */
+
+/* Tablette : Diagramme Circulaire Parfaitement Préservé & Centré sur l'Orbite */
+@media screen and (min-width: 641px) and (max-width: 991px) {
+  .therapies-diagram-viewport {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    padding: 10px 0 !important;
+  }
+
   .therapies-diagram-wrap {
-    height: auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 22px;
+    position: relative !important;
+    width: 720px !important;
+    height: 660px !important;
+    transform-origin: center center !important;
+    transform: scale(0.82) !important;
+    margin: -25px auto !important;
+    display: block !important;
   }
 
   .therapies-diagram-svg {
-    display: none;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 
   .therapies-diagram-center {
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: 290px;
-    height: auto;
-    border-radius: 24px;
-    padding: 24px 20px;
+    position: absolute !important;
+    top: 330px !important;
+    left: 360px !important;
+    transform: translate(-50%, -50%) !important;
+    width: 224px !important;
+    height: 224px !important;
+    border-radius: 50% !important;
+    display: flex !important;
   }
 
   .therapies-diagram-node {
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: 340px;
-    flex-direction: row !important;
-    text-align: left !important;
-    gap: 14px;
+    position: absolute !important;
+    display: flex !important;
   }
 
-  .therapies-diagram-node__card {
-    width: 100%;
+  .therapies-diagram-node__dot {
+    display: flex !important;
+  }
+
+  .therapies-diagram-node--top {
+    top: -10px !important;
+    left: 360px !important;
+    transform: translateX(-50%) !important;
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+
+  .therapies-diagram-node--left {
+    top: 391px !important;
+    right: calc(100% - 186px) !important;
+    left: auto !important;
+    flex-direction: row !important;
+    text-align: right !important;
+  }
+
+  .therapies-diagram-node--right {
+    top: 390px !important;
+    left: 535px !important;
+    right: auto !important;
+    flex-direction: row !important;
+    text-align: left !important;
   }
 
   .therapies-keypoints-modern-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+/* Mobile (<= 640px) : Pile verticale 100% largeur pour lisibilité maximale */
+@media screen and (max-width: 640px) {
+  .therapies-diagram-viewport {
+    width: 100% !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .therapies-diagram-wrap {
+    height: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+    transform: none !important;
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  .therapies-diagram-svg {
+    display: none !important;
+  }
+
+  .therapies-diagram-node__dot {
+    display: none !important;
+  }
+
+  .therapies-diagram-center__pulse {
+    display: none !important;
+  }
+
+  /* Carte Centrale (Le Présent) en carte haute */
+  .therapies-diagram-center {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 20px !important;
+    padding: 24px 20px !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    background: linear-gradient(145deg, #ffffff 0%, #FAF0EC 100%) !important;
+    border: 1.5px solid rgba(223, 163, 139, 0.48) !important;
+    box-shadow: 0 8px 24px rgba(184, 107, 82, 0.08) !important;
+    margin: 0 !important;
+  }
+
+  .therapies-diagram-center:hover,
+  .therapies-diagram-center:focus-visible {
+    transform: none !important;
+  }
+
+  .therapies-diagram-center__tag {
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .therapies-diagram-center__title {
+    font-size: 22px !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  .therapies-diagram-center__desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* 3 Cartes de Dimensions Satellites */
+  .therapies-diagram-node {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: left !important;
+    gap: 0 !important;
+    margin: 0 !important;
+  }
+
+  .therapies-diagram-node:hover,
+  .therapies-diagram-node.is-active {
+    transform: none !important;
+  }
+
+  .therapies-diagram-node__card {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 20px !important;
+    padding: 22px 20px !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(223, 163, 139, 0.35) !important;
+    box-shadow: 0 6px 20px rgba(44, 43, 41, 0.05) !important;
+  }
+
+  .therapies-diagram-node__badge {
+    font-size: 10.5px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .therapies-diagram-node__card h4 {
+    font-size: 18px !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  .therapies-diagram-node__card p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .therapies-keypoints-modern-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 }
 
