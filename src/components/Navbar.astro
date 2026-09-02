@@ -9,7 +9,7 @@ const { variant = 'auto' } = Astro.props;
 
 const pathname = normalizePathname(Astro.url.pathname);
 const secondaryPage = isSecondaryRoute(pathname);
-const renderHomeVariant = variant === 'home' || (variant === 'auto' && !secondaryPage);
+const renderHomeVariant = variant !== 'secondary';
 const navItems = [
   { href: '/coaching', label: 'Coaching' },
   { href: '/therapies-breves', label: 'Thérapies brèves' },

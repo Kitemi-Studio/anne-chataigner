@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5,
 .heading-1, .heading-2, .heading-3, .heading-4, .heading-5,
 .hero-full-title, .sticky-journey-title, .reperes-title-single-line,
 .pas-de-cote-title, .program-card-title-modern, .approach-card-title,
-.testimonials-title-centered, .cta-heading, .footer-brand-title {
+.testimonials-title-centered, .cta-heading, .footer-brand-title, .navbar-brand-title {
   font-family: var(--_typography---font-family--heading) !important;
 }
 
@@ -169,12 +169,12 @@ html.lenis, html.lenis body {
 }
 
 .navbar-brand-title {
-  font-family: var(--_typography---font-family--heading);
+  font-family: var(--_typography---font-family--heading) !important;
   font-size: 24px;
   line-height: 1;
   color: var(--anne-ink-dark);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .navbar-logo {
@@ -2212,7 +2212,9 @@ html.lenis, html.lenis body {
   }
 
   .navbar-brand-title {
-    font-size: 20px;
+    font-size: 23px !important;
+    font-family: var(--_typography---font-family--heading) !important;
+    font-weight: 400 !important;
   }
 }
 
@@ -2226,7 +2228,9 @@ html.lenis, html.lenis body {
   }
 
   .navbar-brand-title {
-    font-size: 18px;
+    font-size: 22px !important;
+    font-family: var(--_typography---font-family--heading) !important;
+    font-weight: 400 !important;
   }
 
   .section.hero-anne-full {
